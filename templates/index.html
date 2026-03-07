@@ -554,12 +554,12 @@
         <script>
                 (function () {
                     const sectors = [
-                        { name: 'Corporate', desc: 'Transform boardrooms and collaboration spaces with cutting-edge AV. From video conferencing to digital signage, we design seamless corporate communication environments.', img: 'https://resurgent.co.in/wp-content/themes/resurgent/assets/home/corporate.webp' },
-                        { name: 'Education', desc: 'Empower learning with interactive displays, lecture capture, and smart classroom technology that keeps students engaged whether in-room or remote.', img: 'https://resurgent.co.in/wp-content/themes/resurgent/assets/home/education.webp' },
-                        { name: 'Healthcare', desc: 'Deliver precision and speed through advanced software and audiovisual equipment. From surgical displays to patient communication, AV saves lives.', img: 'https://resurgent.co.in/wp-content/themes/resurgent/assets/home/healthcare.webp' },
-                        { name: 'Public Sector', desc: 'Modernise government facilities and public spaces with reliable AV infrastructure for command centres, council chambers, and citizen-facing environments.', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900' },
-                        { name: 'Retail', desc: 'Drive footfall and sales with immersive digital signage, interactive kiosks, and in-store audio systems that create unforgettable brand experiences.', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900' },
-                        { name: 'Residential', desc: 'Bring cinema-quality AV and smart home integration to luxury residences. Custom designed systems for home theatres, multi-room audio, and automation.', img: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900' }
+                        { name: 'Corporate', desc: 'Transform boardrooms and collaboration spaces with cutting-edge AV. From video conferencing to digital signage, we design seamless corporate communication environments.', img: "{{ url_for('static', filename='corporate.png') }}" },
+                        { name: 'Education', desc: 'Empower learning with interactive displays, lecture capture, and smart classroom technology that keeps students engaged whether in-room or remote.', img: "{{ url_for('static', filename='edu.png') }}" },
+                        { name: 'Healthcare', desc: 'Deliver precision and speed through advanced software and audiovisual equipment. From surgical displays to patient communication, AV saves lives.', img: "{{ url_for('static', filename='hospi.jpg') }}" },
+                        { name: 'Public Sector', desc: 'Modernise government facilities and public spaces with reliable AV infrastructure for command centres, council chambers, and citizen-facing environments.', img: "{{ url_for('static', filename='gov.png') }}" },
+                        { name: 'Retail', desc: 'Drive footfall and sales with immersive digital signage, interactive kiosks, and in-store audio systems that create unforgettable brand experiences.', img: "{{ url_for('static', filename='retail.png') }}" },
+                        { name: 'Residential', desc: 'Bring cinema-quality AV and smart home integration to luxury residences. Custom designed systems for home theatres, multi-room audio, and automation.', img: "{{ url_for('static', filename='res.jpeg') }}" }
                     ];
                     const track = document.getElementById('sectors-track');
                     const title = document.getElementById('sector-title');
@@ -609,40 +609,40 @@
             <div id="prod-track">
                 <div id="prod-sticky">
                     <div class="prod-cell" id="pc-tl"><img
-                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/Microsoft-Surface-Hub-2S.webp"
+                            src="{{ url_for('static', filename='av_system.png') }}"
                             alt="">
-                        <div class="prod-cell-label">Microsoft Surface Hub 2S</div>
+                        <div class="prod-cell-label">SecureTech AV Solutions</div>
                     </div>
                     <div class="prod-cell" id="pc-tc"><img
-                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/samsung.webp" alt="">
-                        <div class="prod-cell-label">Samsung Flip</div>
+                            src="{{ url_for('static', filename='smart.jpeg') }}" alt="">
+                        <div class="prod-cell-label">Smart Integration</div>
                     </div>
                     <div class="prod-cell" id="pc-tr"><img
-                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/teams.webp" alt="">
-                        <div class="prod-cell-label">Microsoft Teams</div>
+                            src="{{ url_for('static', filename='control.png') }}" alt="">
+                        <div class="prod-cell-label">AV Controls</div>
                     </div>
                     <div class="prod-cell" id="pc-ml"><img
-                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/jabra.webp" alt="">
-                        <div class="prod-cell-label">Jabra PanaCast</div>
+                            src="{{ url_for('static', filename='ict.png') }}" alt="">
+                        <div class="prod-cell-label">ICT Infrastructure</div>
                     </div>
                     <div id="prod-heading">Our Solutions<br>Products &amp; Services</div>
                     <div class="prod-cell" id="pc-mr"><img
-                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/corporate.webp" alt="">
-                        <div class="prod-cell-label">PADS4 Digital Signage</div>
+                            src="{{ url_for('static', filename='stad.png') }}" alt="">
+                        <div class="prod-cell-label">Stadiums & Arena</div>
                     </div>
                     <div class="prod-cell" id="pc-bl"><img
-                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/education.webp" alt="">
-                        <div class="prod-cell-label">Crestron Flex</div>
+                            src="{{ url_for('static', filename='club.png') }}" alt="">
+                        <div class="prod-cell-label">Club & Sound Systems</div>
                     </div>
                     <div class="prod-cell" id="pc-bc"><img
-                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/healthcare.webp"
+                            src="{{ url_for('static', filename='cine.png') }}"
                             alt="">
-                        <div class="prod-cell-label">Surge+</div>
+                        <div class="prod-cell-label">Cinema Halls</div>
                     </div>
                     <div class="prod-cell" id="pc-br"><img
-                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/Microsoft-Surface-Hub-2S.webp"
+                            src="{{ url_for('static', filename='audi.png') }}"
                             alt="">
-                        <div class="prod-cell-label">AirServer</div>
+                        <div class="prod-cell-label">Auditorium Solutions</div>
                     </div>
                 </div>
             </div>
