@@ -79,10 +79,10 @@
             transition: background 0.3s;
         }
 
-        header.scrolled {
+        /* header.scrolled {
             background: rgba(10, 22, 40, 0.95);
             backdrop-filter: blur(10px);
-        }
+        } */
 
         .nav-container {
             display: flex;
@@ -1778,11 +1778,13 @@
             document.body.style.overflow = '';
         }
 
-        // ── Header scroll effect ──
+        // ── Header scroll effect removed to keep it transparent ──
+        /*
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
+        */
 
         // ── Scroll to top button ──
         const scrollTopBtn = document.getElementById('scroll-top');
