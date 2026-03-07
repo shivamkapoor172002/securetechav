@@ -312,14 +312,12 @@
                     class="h-12 w-auto" /></a>
             <div class="flex items-center gap-6">
                 <div class="hidden lg:flex items-center gap-6">
-                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Room Configurator</a>
-                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Solutions</a>
-                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Products</a>
-                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Brands</a>
-                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Company</a>
-                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Success Stories</a>
+                    <a href="/" class="text-sm font-medium text-white hover:text-white/70">Home</a>
+                    <a href="/AboutUs" class="text-sm font-medium text-white hover:text-white/70">About Us</a>
+                    <a href="/Solutionpage" class="text-sm font-medium text-white hover:text-white/70">Solution</a>
+                    <a href="https://drive.google.com/file/d/1VDGplc_6wfvQ7Y9-0vvbBtACm-72q_Cj/view" target="_blank" class="text-sm font-medium text-white hover:text-white/70">Corporate Profile</a>
                 </div>
-                <a href="#" class="hidden lg:block"><button class="pill-button">Contact Us</button></a>
+                <a href="/Contactus" class="hidden lg:block"><button class="pill-button">Contact Us</button></a>
                 <button class="lg:hidden text-white"><i data-lucide="menu" class="h-6 w-6"></i></button>
             </div>
         </div>
@@ -554,12 +552,12 @@
         <script>
                 (function () {
                     const sectors = [
-                        { name: 'Corporate', desc: 'Transform boardrooms and collaboration spaces with cutting-edge AV. From video conferencing to digital signage, we design seamless corporate communication environments.', img: "{{ url_for('static', filename='corporate.png') }}" },
-                        { name: 'Education', desc: 'Empower learning with interactive displays, lecture capture, and smart classroom technology that keeps students engaged whether in-room or remote.', img: "{{ url_for('static', filename='edu.png') }}" },
-                        { name: 'Healthcare', desc: 'Deliver precision and speed through advanced software and audiovisual equipment. From surgical displays to patient communication, AV saves lives.', img: "{{ url_for('static', filename='hospi.jpg') }}" },
-                        { name: 'Public Sector', desc: 'Modernise government facilities and public spaces with reliable AV infrastructure for command centres, council chambers, and citizen-facing environments.', img: "{{ url_for('static', filename='gov.png') }}" },
-                        { name: 'Retail', desc: 'Drive footfall and sales with immersive digital signage, interactive kiosks, and in-store audio systems that create unforgettable brand experiences.', img: "{{ url_for('static', filename='retail.png') }}" },
-                        { name: 'Residential', desc: 'Bring cinema-quality AV and smart home integration to luxury residences. Custom designed systems for home theatres, multi-room audio, and automation.', img: "{{ url_for('static', filename='res.jpeg') }}" }
+                        { name: 'Corporate', desc: 'Transform boardrooms and collaboration spaces with cutting-edge AV. From video conferencing to digital signage, we design seamless corporate communication environments.', img: "{{ url_for('static', filename='sector-corporate.png') }}" },
+                        { name: 'Education', desc: 'Empower learning with interactive displays, lecture capture, and smart classroom technology that keeps students engaged whether in-room or remote.', img: "{{ url_for('static', filename='sector-education.png') }}" },
+                        { name: 'Healthcare', desc: 'Deliver precision and speed through advanced software and audiovisual equipment. From surgical displays to patient communication, AV saves lives.', img: "{{ url_for('static', filename='sector-healthcare.jpg') }}" },
+                        { name: 'Public Sector', desc: 'Modernise government facilities and public spaces with reliable AV infrastructure for command centres, council chambers, and citizen-facing environments.', img: "{{ url_for('static', filename='sector-public.png') }}" },
+                        { name: 'Retail', desc: 'Drive footfall and sales with immersive digital signage, interactive kiosks, and in-store audio systems that create unforgettable brand experiences.', img: "{{ url_for('static', filename='sector-retail.png') }}" },
+                        { name: 'Residential', desc: 'Bring cinema-quality AV and smart home integration to luxury residences. Custom designed systems for home theatres, multi-room audio, and automation.', img: "{{ url_for('static', filename='sector-residential.jpeg') }}" }
                     ];
                     const track = document.getElementById('sectors-track');
                     const title = document.getElementById('sector-title');
@@ -609,38 +607,38 @@
             <div id="prod-track">
                 <div id="prod-sticky">
                     <div class="prod-cell" id="pc-tl"><img
-                            src="{{ url_for('static', filename='av_system.png') }}"
+                            src="{{ url_for('static', filename='solution-av-system.png') }}"
                             alt="">
                         <div class="prod-cell-label">SecureTech AV Solutions</div>
                     </div>
                     <div class="prod-cell" id="pc-tc"><img
-                            src="{{ url_for('static', filename='smart.jpeg') }}" alt="">
+                            src="{{ url_for('static', filename='solution-smart-classroom.jpeg') }}" alt="">
                         <div class="prod-cell-label">Smart Integration</div>
                     </div>
                     <div class="prod-cell" id="pc-tr"><img
-                            src="{{ url_for('static', filename='control.png') }}" alt="">
+                            src="{{ url_for('static', filename='solution-av-control.png') }}" alt="">
                         <div class="prod-cell-label">AV Controls</div>
                     </div>
                     <div class="prod-cell" id="pc-ml"><img
-                            src="{{ url_for('static', filename='ict.png') }}" alt="">
+                            src="{{ url_for('static', filename='solution-ict-infrastructure.png') }}" alt="">
                         <div class="prod-cell-label">ICT Infrastructure</div>
                     </div>
                     <div id="prod-heading">Our Solutions<br>Products &amp; Services</div>
                     <div class="prod-cell" id="pc-mr"><img
-                            src="{{ url_for('static', filename='stad.png') }}" alt="">
+                            src="{{ url_for('static', filename='solution-stadium.png') }}" alt="">
                         <div class="prod-cell-label">Stadiums & Arena</div>
                     </div>
                     <div class="prod-cell" id="pc-bl"><img
-                            src="{{ url_for('static', filename='club.png') }}" alt="">
+                            src="{{ url_for('static', filename='solution-club-sound.png') }}" alt="">
                         <div class="prod-cell-label">Club & Sound Systems</div>
                     </div>
                     <div class="prod-cell" id="pc-bc"><img
-                            src="{{ url_for('static', filename='cine.png') }}"
+                            src="{{ url_for('static', filename='solution-cinema.png') }}"
                             alt="">
                         <div class="prod-cell-label">Cinema Halls</div>
                     </div>
                     <div class="prod-cell" id="pc-br"><img
-                            src="{{ url_for('static', filename='audi.png') }}"
+                            src="{{ url_for('static', filename='solution-auditorium.png') }}"
                             alt="">
                         <div class="prod-cell-label">Auditorium Solutions</div>
                     </div>
