@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureTech AV Designs — Corporate Profile</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Poppins:wght@600&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #DF7030;
+            --primary-red: #8F292D;
+            --charcoal: #373737;
+            --light-gray: #F7F8FA;
+            --card-border: #ECECEC;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #DF7030 0%, #8F292D 100%);
+            --gradient-horiz: linear-gradient(90deg, #DF7030 0%, #8F292D 100%);
+            --font-head: 'Montserrat', sans-serif;
+            --font-sub: 'Poppins', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        @page {
+            size: 338.67mm 190.5mm;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            background: #dde3ea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            padding: 24px 0 40px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                gap: 0;
+                display: block;
+            }
+
+            .slide {
+                box-shadow: none;
+            }
+        }
+
+        /* ─── SLIDE ────────────────────────────────────────────── */
+        .slide {
+            width: 338.67mm;
+            height: 190.5mm;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            page-break-after: always;
+        }
+
+        /* ─── LOGO (top-right, small) ──────────────────────────── */
+        .logo {
+            position: absolute;
+            top: 28px;
+            right: 36px;
+            width: 60px;
+            height: auto;
+            z-index: 200;
+        }
+
+        /* ─── TYPOGRAPHY ────────────────────────────────────────── */
+        h1 {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 52px;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            color: var(--charcoal);
+        }
+
+        h2 {
+            font-family: var(--font-sub);
+            font-weight: 600;
+            font-size: 34px;
+            line-height: 1.2;
+            color: var(--charcoal);
+        }
+
+        h3 {
+            font-family: var(--font-sub);
+            font-weight: 600;
+            font-size: 22px;
+            color: var(--charcoal);
+        }
+
+        h4 {
+            font-family: var(--font-sub);
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        p,
+        li {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--charcoal);
+        }
+
+        .gradient-text {
+            color: var(--primary-orange);
+            font-size: 38px;
+        }
+
+        .bar {
+            width: 70px;
+            height: 4px;
+            background: var(--primary-orange);
+            border-radius: 2px;
+            margin: 14px 0 30px;
+        }
+
+        /* ─── LAYOUT HELPERS ───────────────────────────────────── */
+        .slide-content {
+            z-index: 10;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 56px 72px 44px;
+        }
+
+        .split {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .split-left,
+        .split-right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-left {
+            padding: 60px 56px 60px 72px;
+        }
+
+        .split-right {
+            padding: 40px 72px 40px 40px;
+        }
+
+        .split-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ─── CARD ──────────────────────────────────────────────── */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--primary-orange);
+            border-radius: 10px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            padding: 28px 30px;
+        }
+
+        .card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .card-red {
+            border-top-color: var(--primary-red);
+        }
+
+        .card-mid {
+            border-top-color: var(--charcoal);
+        }
+
+        /* ─── GRIDS ─────────────────────────────────────────────── */
+        .g2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .g3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .g4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        /* ─── CUSTOM BULLETS ────────────────────────────────────── */
+        ul.bullets {
+            list-style: none;
+            padding: 0;
+            margin-top: 14px;
+        }
+
+        ul.bullets li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        ul.bullets li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--primary-orange);
+            font-size: 11px;
+        }
+
+        /* ─── PROCESS FLOW ──────────────────────────────────────── */
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 36px;
+            position: relative;
+        }
+
+        .process-flow::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(223, 112, 48, 0.25);
+        }
+
+        .process-step {
+            z-index: 1;
+            width: 14%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .process-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 14px;
+            border: 3px solid #fff;
+            box-shadow: 0 6px 14px rgba(223, 112, 48, 0.25);
+        }
+
+        .process-step h4 {
+            margin-bottom: 6px;
+        }
+
+        .process-step p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* ─── VERT PANEL (Advanced Tech) ────────────────────────── */
+        .vert-panel {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--primary-orange);
+            border-radius: 10px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vert-panel img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .vert-panel-body {
+            padding: 18px 22px;
+        }
+
+        .vert-panel-body h3 {
+            font-size: 18px;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .vert-panel-body li {
+            font-size: 13px;
+            color: var(--charcoal);
+            padding-left: 16px;
+            margin-bottom: 6px;
+        }
+
+        .vert-panel-body li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--primary-orange);
+            font-size: 16px;
+            font-weight: 700;
+            top: -1px;
+        }
+
+        /* ─── INDUSTRY TILE ─────────────────────────────────────── */
+        .industry-tile {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .industry-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .industry-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 22px 16px 16px;
+            background: linear-gradient(transparent, rgba(223, 112, 48, 0.88));
+        }
+
+        .industry-overlay h3 {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .industry-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        /* ─── CASE STUDY ────────────────────────────────────────── */
+        .case-card {
+            display: flex;
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            height: 150px;
+        }
+
+        .case-card img {
+            width: 32%;
+            object-fit: cover;
+        }
+
+        .case-info {
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-info h3 {
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .case-info p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .case-info .outcome {
+            font-weight: 600;
+            color: var(--primary-orange);
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+        /* ─── VALUE CARD ────────────────────────────────────────── */
+        .value-card {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--primary-orange);
+            border-radius: 10px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            padding: 26px 28px;
+            display: flex;
+            gap: 18px;
+        }
+
+        .value-card .num {
+            font-size: 42px;
+            font-family: var(--font-head);
+            color: var(--primary-orange);
+            opacity: 0.18;
+            font-weight: 800;
+            line-height: 0.85;
+            flex-shrink: 0;
+        }
+
+        .value-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* ─── TEAM BOX ──────────────────────────────────────────── */
+        .team-box {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--primary-orange);
+            border-radius: 10px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            padding: 30px 26px;
+            text-align: center;
+        }
+
+        .team-box h3 {
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .team-box .role {
+            font-size: 12px;
+            color: var(--primary-orange);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .team-box p {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* ─── TABLE ─────────────────────────────────────────────── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+        }
+
+        th,
+        td {
+            border: 1px solid #e0e0e0;
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        th {
+            background: var(--light-gray);
+            font-family: var(--font-sub);
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        /* ─── TESTIMONIAL ───────────────────────────────────────── */
+        .testimonial {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 30px 34px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+        }
+
+        .testimonial.left {
+            border-top: 4px solid var(--primary-orange);
+        }
+
+        .testimonial.right {
+            border-top: 4px solid var(--primary-red);
+        }
+
+        .testimonial .quote {
+            font-size: 56px;
+            line-height: 0;
+            color: var(--primary-orange);
+            font-family: 'Times New Roman';
+            opacity: 0.4;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            font-size: 14px;
+            margin: 16px 0 12px;
+        }
+
+        .testimonial .author {
+            font-family: var(--font-sub);
+            font-size: 13px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg style="display:none;">
+        <symbol id="ic-acoustic" viewBox="0 0 24 24">
+            <path d="M12 3a9 9 0 0 0-9 9v7h4v-5H5a7 7 0 0 1 14 0h-2v5h4v-7a9 9 0 0 0-9-9z" fill="#DF7030" />
+        </symbol>
+        <symbol id="ic-arch" viewBox="0 0 24 24">
+            <path d="M4 19v-9L12 4l8 6v9h-5v-6h-6v6H4z" fill="#DF7030" />
+        </symbol>
+        <symbol id="ic-net" viewBox="0 0 24 24">
+            <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                fill="#DF7030" />
+        </symbol>
+        <symbol id="ic-pm" viewBox="0 0 24 24">
+            <path
+                d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"
+                fill="#DF7030" />
+        </symbol>
+    </svg>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 1 — COVER
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="align-items:center; justify-content:center; text-align:center; background:#fff;">
+
+
+        <!-- Gradient ribbon corner -->
+        <div
+            style="position:absolute;top:-90px;right:-130px;width:360px;height:360px;background:var(--gradient);transform:rotate(45deg);z-index:1;box-shadow:0 8px 30px rgba(223,112,48,0.3);">
+        </div>
+        <!-- Radial glow -->
+        <div
+            style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(223,112,48,0.06),transparent 65%);z-index:0;">
+        </div>
+        <!-- Dot pattern -->
+        <div
+            style="position:absolute;inset:0;background-image:radial-gradient(#DF7030 1px,transparent 1px);background-size:38px 38px;opacity:0.06;z-index:0;">
+        </div>
+
+        <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;">
+            <img src="images/securetech_av.png" alt="SecureTech AV Designs Logo" style="width:380px;margin-bottom:36px;"
+                onerror="this.src='just_logo_no_text.png';this.style.width='140px';">
+            <h1>SecureTech AV Designs</h1>
+            <div class="bar" style="margin:16px auto 12px;"></div>
+            <h2 style="color:var(--primary-orange);font-size:22px;font-weight:600;letter-spacing:0.5px;">
+                Audio Visual Consulting & Smart Technology Integration
+            </h2>
+            <p
+                style="position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:100%;color:#999;font-family:var(--font-head);font-size:14px;text-transform:uppercase;letter-spacing:3px;white-space:nowrap;">
+            </p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 2 — ABOUT
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="padding:0;display:flex;flex-direction:row;">
+        <!-- Left Side: Text Content -->
+        <div
+            style="flex:1.1;padding:80px 70px;display:flex;flex-direction:column;justify-content:center;position:relative;background:#fff;">
+            <!-- Soft radial glow for left side -->
+            <div
+                style="position:absolute;inset:0;background:radial-gradient(circle at 80% 20%, rgba(223,112,48,0.08), transparent 60%);z-index:0;pointer-events:none;">
+            </div>
+
+            <div style="position:relative;z-index:10;max-width:550px;">
+                <h2 style="color:var(--primary-orange);font-size:42px;line-height:1.2;margin-bottom:20px;">
+                    About SecureTech<br>
+                    <span style="color:var(--primary-orange);">AV Designs</span>
+                </h2>
+                <div class="bar" style="margin-bottom:30px;"></div>
+
+                <p style="font-size:18px;color:var(--charcoal);line-height:1.6;margin-bottom:24px;">
+                    SecureTech AV Designs is a specialist systems-integration consultancy delivering AV, lighting,
+                    acoustics and ICT solutions to corporate, education and government clients. We combine engineering
+                    precision with independent advisory to produce future-proof technology environments.
+                </p>
+
+                <p style="font-size:18px;color:var(--charcoal);line-height:1.6;">
+                    We operate as <strong>independent consultants</strong> — delivering unbiased design, robust project
+                    governance, and global best practices across system design, tendering and commissioning.
+                </p>
+            </div>
+
+            <!-- Footer Link -->
+            <div
+                style="position:absolute;bottom:40px;left:70px;z-index:10;border-top:1px solid #eee;padding-top:15px;width:calc(100% - 140px);">
+                <span
+                    style="font-family:var(--font-head);font-size:13px;color:#888;letter-spacing:2px;font-weight:600;">WWW.SECURETECHAV.COM</span>
+            </div>
+        </div>
+
+        <!-- Right Side: Full Bleed Image -->
+        <div style="flex:1.3;position:relative;">
+            <img src="images/securetech av/Give_me_the_image_used_in_bg_used_excat_same_in_hd_delpmaspu.png"
+                style="width:100%;height:100%;object-fit:cover;object-position:center left;">
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 3 — CORE PHILOSOPHY
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="padding:0;">
+        <div style="position:absolute;inset:0;z-index:0;">
+            <img src="images/securetech av/Genearte_image_give_me_exatc_clear_imaeg_that_yo_u_delpmaspu.png"
+                style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:rgba(255,255,255,0.45);"></div>
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo" style="z-index:20;">
+        <div class="slide-content" style="position:relative;z-index:10;padding:50px 70px;">
+            <h2 style="color:var(--primary-red);font-size:38px;">Core <span
+                    style="color:var(--charcoal);">Philosophy</span></h2>
+            <div class="bar" style="margin-bottom:30px;"></div>
+
+            <div style="display:flex;flex:1;align-items:stretch;gap:40px;position:relative;">
+
+                <!-- Central SVG connecting S-Curve (Decorative) -->
+                <!-- Exact match: starts bottom right of Vision text, curves up slightly and over to Mission -->
+                <svg width="80" height="180" viewBox="0 0 80 180"
+                    style="position:absolute;left:50%;top:50%;transform:translate(-50%, -10%);z-index:15;pointer-events:none;"
+                    fill="none" stroke="var(--primary-red)" stroke-width="2.5" stroke-linecap="round">
+                    <path d="M -10,140 C 40,140 40,30 90,30" />
+                </svg>
+
+                <div
+                    style="flex:1;background:rgba(255,255,255,0.75);backdrop-filter:blur(16px);border:1.5px solid rgba(255,255,255,0.8);border-radius:12px;padding:45px 50px;box-shadow:0 15px 35px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:center;position:relative;">
+
+                    <h3 style="color:var(--primary-orange);font-size:32px;margin:20px 0 20px 0;">Vision</h3>
+
+                    <span
+                        style="font-family:Georgia,serif;font-size:72px;color:var(--primary-orange);line-height:0;position:absolute;top:175px;left:40px;">“</span>
+
+                    <p
+                        style="font-size:21px;font-family:var(--font-head);font-weight:600;line-height:1.6;color:var(--charcoal);position:relative;z-index:2;margin-bottom:10px;">
+                        To define global standards in AV and smart building design — making spaces intuitive,
+                        sustainable and resilient.
+                    </p>
+
+                    <div style="text-align:right;width:100%;padding-right:0px;margin-top:10px;position:relative;">
+                        <span
+                            style="font-family:Georgia,serif;font-size:72px;color:var(--primary-red);line-height:0;position:absolute;right:20px;bottom:-10px;">”</span>
+                    </div>
+                </div>
+
+                <div
+                    style="flex:1;background:rgba(255,255,255,0.75);backdrop-filter:blur(16px);border:1.5px solid rgba(255,255,255,0.8);border-radius:12px;padding:45px 50px;box-shadow:0 15px 35px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;">
+                    <h3 style="color:var(--primary-red);font-size:32px;margin-bottom:30px;">Mission</h3>
+                    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:20px;">
+                        <li
+                            style="display:flex;align-items:flex-start;gap:16px;font-size:18px;line-height:1.5;color:var(--charcoal);">
+                            <span style="color:var(--primary-red);font-size:16px;line-height:1.5;">■</span>
+                            <div><strong style="font-weight:600;">Deliver engineering excellence</strong> across every
+                                deliverable</div>
+                        </li>
+                        <li
+                            style="display:flex;align-items:flex-start;gap:16px;font-size:18px;line-height:1.5;color:var(--charcoal);">
+                            <span style="color:var(--primary-red);font-size:16px;line-height:1.5;">■</span>
+                            <div>Provide truly independent, <strong style="font-weight:600;">vendor-agnostic
+                                    advisory</strong></div>
+                        </li>
+                        <li
+                            style="display:flex;align-items:flex-start;gap:16px;font-size:18px;line-height:1.5;color:var(--charcoal);">
+                            <span style="color:var(--primary-red);font-size:16px;line-height:1.5;">■</span>
+                            <div>Invest in R&amp;D for <strong style="font-weight:600;">future-proof design
+                                    standards</strong></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 4 — EXPERT SERVICES
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide"
+        style="padding:0;display:flex;flex-direction:column;justify-content:center;position:relative;background:#fdfdfd;">
+        <!-- Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+            <!-- Increased opacity to show the image better -->
+            <img src="images/securetech av/audi1.png"
+                style="width:100%;height:100%;object-fit:cover;object-position:bottom;opacity:0.6;mix-blend-mode:luminosity;">
+
+            <!-- Removed the solid white top. Now it is just a very subtle white wash that gets heavier at the bottom so text remains readable -->
+            <div
+                style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.95) 100%);">
+            </div>
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo" style="z-index:20;">
+
+        <div class="slide-content" style="position:relative;z-index:10;padding:60px 80px;">
+            <h2 style="color:var(--primary-orange);font-size:38px;margin-bottom:10px;">Expert Services</h2>
+            <div class="bar" style="margin-bottom:40px;width:70px;background:var(--primary-orange);height:4px;"></div>
+
+            <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:24px;align-items:stretch;">
+                <!-- Card 1 -->
+                <div
+                    style="background:#fff;border-radius:12px;padding:35px 25px;box-shadow:0 12px 30px rgba(0,0,0,0.05);border-top:4px solid var(--primary-orange);display:flex;flex-direction:column;">
+                    <div style="margin-bottom:20px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--primary-orange)">
+                            <path
+                                d="M12 2a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5v-5a7 7 0 0 1 14 0v5h-2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9z" />
+                        </svg>
+                    </div>
+                    <h3 style="font-size:18px;color:var(--charcoal);margin-bottom:16px;line-height:1.4;">Acoustic
+                        Consulting</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;margin:0;">Precision sound isolation and spatial
+                        acoustic treatments for optimal clarity in any space.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    style="background:#fff;border-radius:12px;padding:35px 25px;box-shadow:0 12px 30px rgba(0,0,0,0.05);border-top:4px solid var(--primary-orange);display:flex;flex-direction:column;">
+                    <div style="margin-bottom:20px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--primary-orange)">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                        </svg>
+                    </div>
+                    <h3 style="font-size:18px;color:var(--charcoal);margin-bottom:16px;line-height:1.4;">AV
+                        System<br>Architecture</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;margin:0;">Scalable, high-fidelity enterprise AV
+                        systems built on rigorous design principles.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    style="background:#fff;border-radius:12px;padding:35px 25px;box-shadow:0 12px 30px rgba(0,0,0,0.05);border-top:4px solid var(--primary-orange);display:flex;flex-direction:column;">
+                    <div style="margin-bottom:20px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path
+                                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                    </div>
+                    <h3 style="font-size:18px;color:var(--charcoal);margin-bottom:16px;line-height:1.4;">IT &amp;
+                        Network<br>Integration</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;margin:0;">Converged digital infrastructure
+                        seamlessly bridging AV and enterprise IT networks.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    style="background:#fff;border-radius:12px;padding:35px 25px;box-shadow:0 12px 30px rgba(0,0,0,0.05);border-top:4px solid var(--primary-orange);display:flex;flex-direction:column;">
+                    <div style="margin-bottom:20px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--primary-orange)">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V18z" />
+                            <path d="M9 2h6v2H9z" fill="#fff" />
+                        </svg>
+                    </div>
+                    <h3 style="font-size:18px;color:var(--charcoal);margin-bottom:16px;line-height:1.4;">
+                        Project<br>Management</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;margin:0;">Site coordination, timeline
+                        governance, and rigorous contractor oversight at every stage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 5 — PROCESS / METHODOLOGY
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/av_system.png"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content" style="position:relative;z-index:10;">
+            <h2 style="color:var(--primary-red);font-size:38px;">Complete AV Consulting <span
+                    style="color:var(--charcoal);">Services</span></h2>
+            <div class="bar"></div>
+            <p>Our structured 6-phase end-to-end delivery framework.</p>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-icon">1</div>
+                    <h4>Needs Assessment & BOQ</h4>
+                    <p>Requirement gathering and budget estimation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">2</div>
+                    <h4>System Design & Schematic</h4>
+                    <p>CAD layouts and signal flow design.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">3</div>
+                    <h4>RFP & Tender Management</h4>
+                    <p>Bid creation and vendor evaluation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">4</div>
+                    <h4>Project Management</h4>
+                    <p>Timeline, milestones and execution control.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">5</div>
+                    <h4>QA / QC</h4>
+                    <p>Site inspections and standards compliance.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">6</div>
+                    <h4>Testing & Commissioning</h4>
+                    <p>Calibration and official client handover.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 6 — ADVANCED TECHNOLOGY SOLUTIONS
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content">
+            <h2 style="color:var(--primary-red);font-size:38px;">Advanced Technology <span
+                    style="color:var(--charcoal);">Solutions</span></h2>
+            <div class="bar"></div>
+            <div class="g4" style="flex:1;align-items:stretch;">
+                <div class="vert-panel">
+                    <img src="images/securetech av/smart.jpeg" alt="Smart Meeting Rooms">
+                    <div class="vert-panel-body">
+                        <h3>Smart Meeting Rooms</h3>
+                        <ul class="bullets">
+                            <li>Zoom Rooms / Teams native</li>
+                            <li>Automated lighting controls</li>
+                            <li>Wireless presentation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="vert-panel">
+                    <img src="images/securetech av/cmd.jpeg" alt="Command Centers"
+                        onerror="this.src='images/securetech av/control.png';">
+                    <div class="vert-panel-body">
+                        <h3>Command & Control</h3>
+                        <ul class="bullets">
+                            <li>Zero-latency KVM over IP</li>
+                            <li>Redundant AV architecture</li>
+                            <li>24/7 mission-critical ops</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="vert-panel">
+                    <img src="images/securetech av/wall.png" alt="LED Walls">
+                    <div class="vert-panel-body">
+                        <h3>LED Video Walls</h3>
+                        <ul class="bullets">
+                            <li>Fine-pitch modular displays</li>
+                            <li>LED calibration & processing</li>
+                            <li>Dynamic content management</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="vert-panel">
+                    <img src="images/securetech av/audi4_alt.png" alt="Auditoriums">
+                    <div class="vert-panel-body">
+                        <h3>Immersive Auditoriums</h3>
+                        <ul class="bullets">
+                            <li>Line array acoustic modelling</li>
+                            <li>4K high-lumen projection</li>
+                            <li>PTZ broadcast streaming</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 7 — INDUSTRIES SERVED
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="background:var(--light-gray);">
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content">
+            <h2>Industries <span class="gradient-text">Served</span></h2>
+            <div class="bar"></div>
+            <div class="g4" style="flex:1;align-items:stretch;">
+                <div class="industry-tile">
+                    <img src="images/securetech av/it.png" alt="Corporate & IT">
+                    <div class="industry-overlay">
+                        <h3>Corporate & IT</h3>
+                        <p>Enterprise agile workspaces</p>
+                    </div>
+                </div>
+                <div class="industry-tile">
+                    <img src="images/securetech av/edu.png" alt="Higher Education">
+                    <div class="industry-overlay">
+                        <h3>Higher Education</h3>
+                        <p>Smart lecture halls & campuses</p>
+                    </div>
+                </div>
+                <div class="industry-tile">
+                    <img src="images/securetech av/hospi.jpg" alt="Hospitality">
+                    <div class="industry-overlay">
+                        <h3>Hospitality</h3>
+                        <p>BGM, ballrooms & venues</p>
+                    </div>
+                </div>
+                <div class="industry-tile">
+                    <img src="images/securetech av/gov.png" alt="Government">
+                    <div class="industry-overlay">
+                        <h3>Government</h3>
+                        <p>Secure briefing command centres</p>
+                    </div>
+                </div>
+                <div class="industry-tile">
+                    <img src="images/securetech av/stad.png" alt="Stadiums">
+                    <div class="industry-overlay">
+                        <h3>Stadiums & Venues</h3>
+                        <p>Mass broadcasting & PA</p>
+                    </div>
+                </div>
+                <div class="industry-tile">
+                    <img src="images/securetech av/retail.png" alt="Retail">
+                    <div class="industry-overlay">
+                        <h3>Retail & Malls</h3>
+                        <p>Digital signage networks</p>
+                    </div>
+                </div>
+                <div class="industry-tile">
+                    <img src="images/securetech av/public_infrastructure.jpeg" alt="Public Infrastructure">
+                    <div class="industry-overlay">
+                        <h3>Public Infra</h3>
+                        <p>Transit hubs & PAVA safety</p>
+                    </div>
+                </div>
+                <div class="industry-tile">
+                    <img src="images/securetech av/places_of_worship.jpeg" alt="Houses of Worship">
+                    <div class="industry-overlay">
+                        <h3>Houses of Worship</h3>
+                        <p>Acoustic & vocal clarity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 8 — FLAGSHIP PROJECTS
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content">
+            <h2 style="color:var(--primary-red);font-size:38px;">Flagship <span
+                    style="color:var(--charcoal);">Projects</span></h2>
+            <div class="bar"></div>
+            <div style="display:flex;flex-direction:column;gap:16px;flex:1;justify-content:center;">
+                <div class="case-card">
+                    <img src="images/securetech av/iitd.jpg" alt="IIT Delhi">
+                    <div class="case-info">
+                        <h3>IIT Delhi — Smart Campus Integration</h3>
+                        <p><strong>Scope:</strong> Auditorium overhaul and digital classroom AV network spanning the
+                            campus.</p>
+                        <p class="outcome">Outcome: Enhanced distance-learning capabilities and centralised AV
+                            management.</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <img src="images/securetech av/gujarat-science-city.jpg" alt="Gujarat Science City">
+                    <div class="case-info">
+                        <h3>Gujarat Science City — Immersive AV</h3>
+                        <p><strong>Scope:</strong> Immersive audiovisual integration across digital galleries and
+                            exhibit halls.</p>
+                        <p class="outcome">Outcome: Reliable 24/7 uptime for thousands of daily public interactions.</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <img src="images/securetech av/iitjodhpur.jpeg" alt="IIT Jodhpur">
+                    <div class="case-info">
+                        <h3>IIT Jodhpur — Hybrid Learning AV</h3>
+                        <p><strong>Scope:</strong> Unified communication standard across 50+ lecture theatres.</p>
+                        <p class="outcome">Outcome: Seamless hybrid pedagogy with centralised remote monitoring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 9 — WHY SECURETECH
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/crausal.jpg"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content" style="position:relative;z-index:10;padding:50px 70px;">
+            <h2 style="color:var(--primary-orange);font-size:38px;">Why SecureTech AV Designs?</h2>
+            <div class="bar" style="margin-bottom:40px;width:70px;height:4px;background:var(--primary-orange);"></div>
+
+            <div style="display:flex;flex-direction:column;gap:30px;position:relative;">
+                <div style="display:flex;flex:1;gap:30px;z-index:2;">
+                    <!-- Card 1 -->
+                    <div
+                        style="flex:1;background:#ffffff;border-radius:12px;padding:35px 40px;box-shadow:0 8px 24px rgba(0,0,0,0.06);position:relative;">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                            <h3 style="color:var(--primary-orange);font-size:24px;margin:0;">Engineering Excellence</h3>
+                            <div
+                                style="font-size:54px;font-family:var(--font-head);color:var(--primary-orange);opacity:0.25;font-weight:800;line-height:0.8;">
+                                01</div>
+                        </div>
+                        <p style="font-size:16px;line-height:1.6;color:var(--charcoal);margin:0;">
+                            Documented, physics-based design that adheres to exact international standards on every
+                            project.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        style="flex:1;background:#ffffff;border-radius:12px;padding:35px 40px;box-shadow:0 8px 24px rgba(0,0,0,0.06);position:relative;">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                            <h3 style="color:var(--primary-red);font-size:24px;margin:0;">Unbiased Independence</h3>
+                            <div
+                                style="font-size:54px;font-family:var(--font-head);color:var(--primary-red);opacity:0.2;font-weight:800;line-height:0.8;">
+                                02</div>
+                        </div>
+                        <p style="font-size:16px;line-height:1.6;color:var(--charcoal);margin:0;">
+                            A vendor-agnostic approach that directly prioritises technology fit over proprietary
+                            hardware pushing.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="display:flex;flex:1;gap:30px;z-index:2;">
+                    <!-- Card 3 -->
+                    <div
+                        style="flex:1;background:#ffffff;border-radius:12px;padding:35px 40px;box-shadow:0 8px 24px rgba(0,0,0,0.06);position:relative;">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                            <h3 style="color:var(--primary-orange);font-size:24px;margin:0;">Innovation Focus</h3>
+                            <div
+                                style="font-size:54px;font-family:var(--font-head);color:var(--primary-orange);opacity:0.25;font-weight:800;line-height:0.8;">
+                                03</div>
+                        </div>
+                        <p style="font-size:16px;line-height:1.6;color:var(--charcoal);margin:0;">
+                            Continuous R&amp;D ensuring our architectures accommodate future generational upgrades
+                            effortlessly.
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div
+                        style="flex:1;background:#ffffff;border-radius:12px;padding:35px 40px;box-shadow:0 8px 24px rgba(0,0,0,0.06);position:relative;">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                            <h3 style="color:var(--primary-red);font-size:24px;margin:0;">Corporate Professionalism</h3>
+                            <div
+                                style="font-size:54px;font-family:var(--font-head);color:var(--primary-red);opacity:0.2;font-weight:800;line-height:0.8;">
+                                04</div>
+                        </div>
+                        <p style="font-size:16px;line-height:1.6;color:var(--charcoal);margin:0;">
+                            Rigorous project management ensuring absolute adherence to scope, timelines, and budgets.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 10 — QA / STANDARDS
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="split">
+            <div class="split-right" style="padding:40px 20px 40px 72px;">
+                <img src="images/securetech av/board.png" alt="QA Board">
+            </div>
+            <div class="split-left" style="padding:60px 72px 60px 40px;">
+                <h2>QA / Standards &amp; Testing</h2>
+                <div class="bar"></div>
+                <h3 style="font-size:17px;color:var(--primary-orange);margin-bottom:10px;">Design Deliverables</h3>
+                <ul class="bullets">
+                    <li>Comprehensive AutoCAD Schematics &amp; Scaled Layouts</li>
+                    <li>End-to-end Signal Flow and Line Diagrams</li>
+                    <li>Highly detailed Bill of Quantities (BOQ)</li>
+                </ul>
+                <h3 style="font-size:17px;color:var(--primary-orange);margin:20px 0 10px;">Standards &amp; Commissioning
+                </h3>
+                <ul class="bullets">
+                    <li>AVIXA standards compliant design methodologies</li>
+                    <li>Acoustical adherence to ISO noise ratings</li>
+                    <li>Multi-step QA checklists and documented sign-offs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 11 — LEADERSHIP & CREDENTIALS
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/cmd.jpeg"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content" style="position:relative;z-index:10;">
+            <h2 style="color:var(--primary-red);font-size:38px;">Leadership &amp; <span
+                    style="color:var(--charcoal);">Credentials</span></h2>
+            <div class="bar"></div>
+            <p style="margin-bottom:28px;">Led by industry veterans carrying decadal expertise in AV consultancy and
+                integration.</p>
+            <div class="g3">
+                <div class="team-box">
+                    <h3>Principal Consultant</h3>
+                    <div class="role">Lead System Architect</div>
+                    <p>Overseeing enterprise-wide AV integration strategies and physical acoustic consulting across
+                        APAC.</p>
+                </div>
+                <div class="team-box">
+                    <h3>Project Director</h3>
+                    <div class="role">Execution Governance</div>
+                    <p>Ensuring precise translation of AV schematics into flawlessly executed corporate infrastructure.
+                    </p>
+                </div>
+                <div class="team-box">
+                    <h3>Technical Alliance Partners</h3>
+                    <div class="role">OEM Collaboration</div>
+                    <p>Maintaining certified expertise and direct avenues to top-tier control and display manufacturers
+                        globally.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 12 — COMMERCIAL ENGAGEMENT MODELS
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/hotel.jpeg"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content" style="position:relative;z-index:10;">
+            <h2 style="color:var(--primary-red);font-size:38px;">Commercial Engagement <span
+                    style="color:var(--charcoal);">Models</span></h2>
+            <div class="bar"></div>
+            <div class="g3" style="flex:1;align-items:stretch;">
+                <div class="card" style="display:flex;flex-direction:column;">
+                    <div
+                        style="background:var(--light-gray);padding:10px 14px;border-radius:4px;font-family:var(--font-head);font-weight:700;font-size:13px;margin-bottom:16px;">
+                        01. ADVISORY</div>
+                    <h3 style="color:var(--primary-orange);margin-bottom:12px;">Fixed Fee Consultancy</h3>
+                    <p style="flex:1;">Strategic design roadmap, acoustic audits, and high-level architectural AV
+                        budgeting.</p>
+                    <ul class="bullets" style="margin-top:16px;">
+                        <li>Needs Assessment Report</li>
+                        <li>High-level Budget Setup</li>
+                    </ul>
+                </div>
+                <div class="card card-red" style="display:flex;flex-direction:column;">
+                    <div
+                        style="background:var(--light-gray);padding:10px 14px;border-radius:4px;font-family:var(--font-head);font-weight:700;font-size:13px;margin-bottom:16px;">
+                        02. DESIGN & TENDERING</div>
+                    <h3 style="color:var(--primary-red);margin-bottom:12px;">Time &amp; Materials</h3>
+                    <p style="flex:1;">Granular design creation, BOQ, RFP drafting, and vendor bid technical evaluation.
+                    </p>
+                    <ul class="bullets" style="margin-top:16px;">
+                        <li>AutoCAD Layouts</li>
+                        <li>Tender Documentation</li>
+                    </ul>
+                </div>
+                <div class="card card-mid" style="display:flex;flex-direction:column;">
+                    <div
+                        style="background:var(--light-gray);padding:10px 14px;border-radius:4px;font-family:var(--font-head);font-weight:700;font-size:13px;margin-bottom:16px;">
+                        03. PM & HANDOVER</div>
+                    <h3 style="color:var(--charcoal);margin-bottom:12px;">Milestone Contract</h3>
+                    <p style="flex:1;">Complete site supervision, periodic QA, and final system testing against defined
+                        KPIs.</p>
+                    <ul class="bullets" style="margin-top:16px;">
+                        <li>Site inspection reports</li>
+                        <li>Sign-off documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 13 — TRUSTED EXCELLENCE / TESTIMONIALS
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/smart.jpeg"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content" style="position:relative;z-index:10;" style="text-align:center;">
+            <h2 style="color:var(--primary-red);font-size:38px;">Trusted <span
+                    style="color:var(--charcoal);">Excellence</span></h2>
+            <div class="bar" style="margin:14px auto 20px;"></div>
+            <p>Earning trust through relentless precision and uncompromised quality.</p>
+            <div class="g2" style="margin-top:28px;text-align:left;flex:1;align-items:stretch;">
+                <div class="testimonial left">
+                    <div class="quote">"</div>
+                    <p>SecureTech's independent design drastically reduced our total cost of ownership by highlighting
+                        scalable network-centric AV alternatives we hadn't considered.</p>
+                    <div class="author">CTO, Leading IT Enterprise</div>
+                </div>
+                <div class="testimonial right">
+                    <div class="quote" style="color:var(--primary-red);">"</div>
+                    <p>The acoustic consulting and AV integration for our auditoriums was flawless. The project was
+                        delivered on time with impeccable oversight methodology.</p>
+                    <div class="author">Facility Head, Premier Educational Institute</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 14 — CLIENTS & PARTNERS
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="background:#F7F8FA;">
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+
+        <!-- Corner accent top-left -->
+        <div
+            style="position:absolute;top:-80px;left:-80px;width:260px;height:260px;background:var(--gradient);border-radius:50%;opacity:0.07;z-index:0;">
+        </div>
+        <!-- Corner accent bottom-right -->
+        <div
+            style="position:absolute;bottom:-60px;right:-60px;width:200px;height:200px;background:var(--gradient);border-radius:50%;opacity:0.07;z-index:0;">
+        </div>
+        <!-- Subtle dot grid -->
+        <div
+            style="position:absolute;inset:0;background-image:radial-gradient(#DF7030 1px,transparent 1px);background-size:32px 32px;opacity:0.04;z-index:0;">
+        </div>
+
+        <div class="slide-content"
+            style="text-align:center;justify-content:space-between;z-index:10;position:relative;">
+
+            <!-- Heading -->
+            <div>
+                <h2 style="color:var(--primary-red);font-size:38px;">Our Clients &amp; <span
+                        style="color:var(--charcoal);">Partners</span></h2>
+                <div class="bar" style="margin:8px auto 0;"></div>
+            </div>
+
+            <!-- Image strip -->
+            <div style="display:flex;gap:14px;height:90px;">
+                <div style="flex:1;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+                    <img src="images/securetech av/conference.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div style="flex:1;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+                    <img src="images/securetech av/smart.jpeg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div style="flex:1;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+                    <img src="images/securetech av/wall.png" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div style="flex:1;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+                    <img src="images/securetech av/iitd.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+            </div>
+
+            <!-- Clients row -->
+            <div>
+                <h3
+                    style="font-size:14px;color:var(--primary-orange);margin-bottom:12px;text-transform:uppercase;letter-spacing:1.5px;font-family:var(--font-head);">
+                    Our Clients</h3>
+                <div
+                    style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px;align-items:center;background:#fff;padding:16px 28px;border-radius:10px;border:1px solid #ECECEC;box-shadow:0 4px 14px rgba(0,0,0,0.04);">
+                    <img src="securetech-main/securetech-main/public/p2-1@2x.png"
+                        style="height:65px;max-width:140px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p1-1@2x.png"
+                        style="height:65px;max-width:140px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p17-1@2x.png"
+                        style="height:65px;max-width:140px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p14-1@2x.png"
+                        style="height:65px;max-width:140px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p12-1@2x.png"
+                        style="height:65px;max-width:140px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p10-1@2x.png"
+                        style="height:65px;max-width:140px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/dslogo.png"
+                        style="height:65px;max-width:140px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/c1-1@2x.png"
+                        style="height:65px;max-width:140px;object-fit:contain;">
+                </div>
+            </div>
+
+            <!-- Tech partners row -->
+            <div>
+                <h3
+                    style="font-size:14px;color:var(--primary-red);margin-bottom:12px;text-transform:uppercase;letter-spacing:1.5px;font-family:var(--font-head);">
+                    Technology Partners &amp; Brands</h3>
+                <div
+                    style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;align-items:center;background:#fff;padding:14px 28px;border-radius:10px;border:1px solid #ECECEC;box-shadow:0 4px 14px rgba(0,0,0,0.04);">
+                    <img src="securetech-main/securetech-main/public/senheiserlogo.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/britishacousticscommerciallogo2019copy300webp@2x.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/qnclogo.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/christielogo.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/sonylogo685450c77eseeklogocomwebp@2x.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/boselogo.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/jbllogo.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/ciscologo.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/lglogo.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p16-1@2x.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p19@2x.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p4-1@2x.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                    <img src="securetech-main/securetech-main/public/p5-1@2x.png"
+                        style="height:38px;max-width:110px;object-fit:contain;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 15 — BY THE NUMBERS (STATISTICS)
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="background:#fff;overflow:hidden;padding:0;">
+        <img src="just_logo_no_text.png" class="logo" alt="Logo" style="filter:brightness(0) invert(1);z-index:20;">
+        <!-- Cinematic full-bleed background -->
+        <div style="position:absolute;inset:0;z-index:0;">
+            <img src="images/securetech av/conference.jpg" style="width:100%;height:100%;object-fit:cover;">
+            <div
+                style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(40,40,40,0.90) 0%,rgba(143,41,45,0.75) 100%);">
+            </div>
+        </div>
+        <div
+            style="position:relative;z-index:10;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:56px 72px;text-align:center;">
+            <p
+                style="color:rgba(255,255,255,0.65);font-family:var(--font-head);font-size:13px;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;">
+                Proven Track Record</p>
+            <h2 style="color:#fff;font-size:42px;margin-bottom:6px;">We Deliver <span
+                    style="background:linear-gradient(90deg,#DF7030,#F0A060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Results</span>
+            </h2>
+            <div
+                style="width:60px;height:3px;background:linear-gradient(90deg,#DF7030,#8F292D);border-radius:2px;margin:0 auto 40px;">
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:100%;">
+                <div
+                    style="background:rgba(255,255,255,0.09);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:34px 20px;">
+                    <div
+                        style="font-family:var(--font-head);font-size:60px;font-weight:800;background:linear-gradient(90deg,#DF7030,#F0A060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">
+                        120<span style="font-size:36px;">+</span></div>
+                    <div
+                        style="color:rgba(255,255,255,0.65);font-size:13px;margin-top:10px;text-transform:uppercase;letter-spacing:1px;">
+                        Projects Delivered</div>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.09);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:34px 20px;">
+                    <div
+                        style="font-family:var(--font-head);font-size:60px;font-weight:800;background:linear-gradient(90deg,#DF7030,#F0A060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">
+                        40<span style="font-size:36px;">+</span></div>
+                    <div
+                        style="color:rgba(255,255,255,0.65);font-size:13px;margin-top:10px;text-transform:uppercase;letter-spacing:1px;">
+                        Enterprise Clients</div>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.09);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:34px 20px;">
+                    <div
+                        style="font-family:var(--font-head);font-size:60px;font-weight:800;background:linear-gradient(90deg,#DF7030,#F0A060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">
+                        18<span style="font-size:36px;">+</span></div>
+                    <div
+                        style="color:rgba(255,255,255,0.65);font-size:13px;margin-top:10px;text-transform:uppercase;letter-spacing:1px;">
+                        Cities Covered</div>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.09);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:34px 20px;">
+                    <div
+                        style="font-family:var(--font-head);font-size:60px;font-weight:800;background:linear-gradient(90deg,#DF7030,#F0A060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">
+                        15<span style="font-size:36px;">+</span></div>
+                    <div
+                        style="color:rgba(255,255,255,0.65);font-size:13px;margin-top:10px;text-transform:uppercase;letter-spacing:1px;">
+                        OEM Partners</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 16 — TECHNOLOGY CAPABILITY MATRIX
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="background:var(--light-gray);">
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div style="position:absolute;top:0;right:0;width:340px;height:100%;z-index:0;overflow:hidden;">
+            <img src="images/securetech av/smart.jpeg" style="width:100%;height:100%;object-fit:cover;opacity:0.14;">
+        </div>
+        <div class="slide-content" style="z-index:10;position:relative;">
+            <h2 style="color:var(--primary-red);font-size:38px;">Technology Capability <span
+                    style="color:var(--charcoal);">Matrix</span></h2>
+            <div class="bar"></div>
+            <p style="margin-bottom:20px;font-size:16px;color:#555;">Rigorous, standards-based expertise across every AV
+                discipline.</p>
+            <table style="font-size:14px;">
+                <thead>
+                    <tr>
+                        <th
+                            style="width:150px;background:linear-gradient(135deg,#DF7030,#8F292D);color:#fff;border:none;">
+                            Category</th>
+                        <th style="background:linear-gradient(135deg,#DF7030,#8F292D);color:#fff;border:none;">
+                            Technologies &amp; Expertise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:600;color:var(--primary-orange);"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path
+                                        d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.42 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.42a1.4 1.4 0 0 1 .99.413l3.387 3.384A.705.705 0 0 0 11 19.298z" />
+                                    <path d="M16 9a5 5 0 0 1 0 6" />
+                                    <path d="M19.364 18.364a9 9 0 0 0 0-12.728" />
+                                </svg></span> Audio</td>
+                        <td>Line array PA systems · DSP processing (Dante AoIP) · Beamforming microphones · Acoustic
+                            treatment design</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600;color:var(--primary-orange);"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+                                    <path d="M8 21h8M12 17v4" />
+                                </svg></span> Video</td>
+                        <td>Fine-pitch LED walls · 4K/8K projection · Digital signage networks · Video matrix switching
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600;color:var(--primary-orange);"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path d="M4 21v-7" />
+                                    <path d="M4 10V3" />
+                                    <path d="M12 21v-9" />
+                                    <path d="M12 8V3" />
+                                    <path d="M20 21v-5" />
+                                    <path d="M20 12V3" />
+                                    <path d="M1 14h6" />
+                                    <path d="M9 8h6" />
+                                    <path d="M17 16h6" />
+                                </svg></span> Control</td>
+                        <td>Crestron · Extron · AMX automation · Touchpanel programming · Remote monitoring via cloud
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600;color:var(--primary-orange);"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path
+                                        d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" />
+                                </svg></span> Collaboration</td>
+                        <td>Microsoft Teams Rooms · Zoom Rooms · Hybrid learning systems · Wireless presentation</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600;color:var(--primary-orange);"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" />
+                                    <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" />
+                                    <path d="M13 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    <path d="M12 12 19.07 4.93" />
+                                    <path d="M13.5 10.5 19.07 4.93" />
+                                    <path d="M19.07 4.93h-4.5v4.5" />
+                                </svg></span> Broadcast</td>
+                        <td>PTZ cameras · RTMP/SRT streaming encoders · Multi-cam switching · IPTV distribution</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600;color:var(--primary-orange);"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path
+                                        d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg></span> Network/IT</td>
+                        <td>AV-over-IP (NDI, Dante, SVSI) · Managed AV switch configurations · Cybersecurity compliance
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 17 — INTEGRATED SOLUTIONS PORTFOLIO
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/convention_centres.jpeg"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content" style="position:relative;z-index:10;">
+            <h2 style="color:var(--primary-red);font-size:38px;">Integrated Solutions <span
+                    style="color:var(--charcoal);">Portfolio</span></h2>
+            <div class="bar" style="margin-bottom:18px;"></div>
+            <div
+                style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:12px;flex:1;align-items:stretch;">
+                <div
+                    style="background:linear-gradient(135deg,rgba(223,112,48,0.07),rgba(143,41,45,0.04));border:1px solid rgba(223,112,48,0.18);border-left:4px solid var(--primary-orange);border-radius:8px;padding:16px 18px;">
+                    <div style="font-size:24px;margin-bottom:6px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M3 9.5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1V21H3z" />
+                                <path d="M9 21v-6a3 3 0 0 1 6 0v6" />
+                                <path d="M3 9.5 12 3l9 6.5" />
+                            </svg></span></div>
+                    <h4 style="font-size:14px;color:var(--primary-orange);margin-bottom:4px;">Corporate Meeting Rooms
+                    </h4>
+                    <p style="font-size:12px;color:#666;line-height:1.5;">Agile workspaces with seamless hybrid
+                        conferencing</p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,rgba(223,112,48,0.07),rgba(143,41,45,0.04));border:1px solid rgba(223,112,48,0.18);border-left:4px solid var(--primary-red);border-radius:8px;padding:16px 18px;">
+                    <div style="font-size:24px;margin-bottom:6px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" />
+                                <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                                <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                            </svg></span></div>
+                    <h4 style="font-size:14px;color:var(--primary-red);margin-bottom:4px;">Executive Boardrooms</h4>
+                    <p style="font-size:12px;color:#666;line-height:1.5;">Premium video walls &amp; unified
+                        communication</p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,rgba(223,112,48,0.07),rgba(143,41,45,0.04));border:1px solid rgba(223,112,48,0.18);border-left:4px solid var(--primary-orange);border-radius:8px;padding:16px 18px;">
+                    <div style="font-size:24px;margin-bottom:6px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M9 17H5a2 2 0 0 0-2 2v2h18v-2a2 2 0 0 0-2-2h-4" />
+                                <path d="M12 17v4" />
+                                <path d="M3 3h18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
+                            </svg></span></div>
+                    <h4 style="font-size:14px;color:var(--primary-orange);margin-bottom:4px;">Command &amp; Control
+                        Centers</h4>
+                    <p style="font-size:12px;color:#666;line-height:1.5;">24/7 mission-critical video wall monitoring
+                    </p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,rgba(223,112,48,0.07),rgba(143,41,45,0.04));border:1px solid rgba(223,112,48,0.18);border-left:4px solid var(--primary-red);border-radius:8px;padding:16px 18px;">
+                    <div style="font-size:24px;margin-bottom:6px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M2 10s3-3 3-8h14c0 5 3 8 3 8" />
+                                <path d="M2 10 4.5 19C5.5 21.5 7 22 9 22s4-1.5 4-4 2-4 4-4 2 2.5 3 4" />
+                                <path d="M4 10h16" />
+                            </svg></span></div>
+                    <h4 style="font-size:14px;color:var(--primary-red);margin-bottom:4px;">Auditoriums &amp; Theatres
+                    </h4>
+                    <p style="font-size:12px;color:#666;line-height:1.5;">Line array acoustics, projection &amp; PTZ
+                        broadcast</p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,rgba(223,112,48,0.07),rgba(143,41,45,0.04));border:1px solid rgba(223,112,48,0.18);border-left:4px solid var(--primary-orange);border-radius:8px;padding:16px 18px;">
+                    <div style="font-size:24px;margin-bottom:6px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path
+                                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                            </svg></span></div>
+                    <h4 style="font-size:14px;color:var(--primary-orange);margin-bottom:4px;">Experience Centers</h4>
+                    <p style="font-size:12px;color:#666;line-height:1.5;">Immersive LED canvases and interactive brand
+                        spaces</p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,rgba(223,112,48,0.07),rgba(143,41,45,0.04));border:1px solid rgba(223,112,48,0.18);border-left:4px solid var(--primary-red);border-radius:8px;padding:16px 18px;">
+                    <div style="font-size:24px;margin-bottom:6px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" />
+                                <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" />
+                                <path d="M13 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                <path d="M12 12 19.07 4.93" />
+                                <path d="M13.5 10.5 19.07 4.93" />
+                                <path d="M19.07 4.93h-4.5v4.5" />
+                            </svg></span></div>
+                    <h4 style="font-size:14px;color:var(--primary-red);margin-bottom:4px;">Digital Signage Networks</h4>
+                    <p style="font-size:12px;color:#666;line-height:1.5;">Centrally managed CMS-driven display
+                        ecosystems</p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,rgba(223,112,48,0.07),rgba(143,41,45,0.04));border:1px solid rgba(223,112,48,0.18);border-left:4px solid var(--primary-orange);border-radius:8px;padding:16px 18px;">
+                    <div style="font-size:24px;margin-bottom:6px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg></span></div>
+                    <h4 style="font-size:14px;color:var(--primary-orange);margin-bottom:4px;">Hybrid Learning Classrooms
+                    </h4>
+                    <p style="font-size:12px;color:#666;line-height:1.5;">Unified A/V for in-person and remote pedagogy
+                    </p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,rgba(223,112,48,0.07),rgba(143,41,45,0.04));border:1px solid rgba(223,112,48,0.18);border-left:4px solid var(--primary-red);border-radius:8px;padding:16px 18px;">
+                    <div style="font-size:24px;margin-bottom:6px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z" />
+                                <path d="M6.2 5.3 5.1 2" />
+                                <path d="M12.4 3.4 11.2 0" />
+                                <path d="M3 11l.6 2.4A2 2 0 0 0 5.5 15h13a2 2 0 0 0 2-2V9.5" />
+                            </svg></span></div>
+                    <h4 style="font-size:14px;color:var(--primary-red);margin-bottom:4px;">Event &amp; Broadcast Systems
+                    </h4>
+                    <p style="font-size:12px;color:#666;line-height:1.5;">Live production, streaming &amp; IPTV
+                        infrastructure</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 18 — INSTALLATION GALLERY (CINEMATIC)
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="background:#111;padding:0;overflow:hidden;">
+        <img src="just_logo_no_text.png" class="logo" style="filter:brightness(0) invert(1);z-index:20;" alt="Logo">
+        <div style="width:54%;height:100%;position:absolute;left:0;top:0;overflow:hidden;z-index:1;">
+            <img src="images/securetech av/wall.png" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,#111 100%);">
+            </div>
+        </div>
+        <div
+            style="position:absolute;right:0;top:0;width:48%;height:100%;display:flex;flex-direction:column;padding:52px 56px;justify-content:space-between;z-index:10;">
+            <div>
+                <p
+                    style="color:rgba(255,255,255,0.5);font-family:var(--font-head);font-size:12px;text-transform:uppercase;letter-spacing:3px;margin-bottom:8px;">
+                    Portfolio Highlights</p>
+                <h2 style="color:#fff;font-size:36px;margin-bottom:8px;">Installation <span
+                        style="background:linear-gradient(90deg,#DF7030,#F0A060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Gallery</span>
+                </h2>
+                <div
+                    style="width:50px;height:3px;background:linear-gradient(90deg,#DF7030,#8F292D);border-radius:2px;margin-bottom:16px;">
+                </div>
+                <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.7;">From single-screen boardrooms to
+                    2,000-seat auditoriums — every installation reflects our engineering discipline and aesthetic
+                    precision.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <div style="border-radius:8px;overflow:hidden;height:105px;box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <img src="images/securetech av/smart.jpeg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div style="border-radius:8px;overflow:hidden;height:105px;box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <img src="images/securetech av/iitd.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div style="border-radius:8px;overflow:hidden;height:105px;box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <img src="images/securetech av/gujarat-science-city.jpg"
+                        style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div style="border-radius:8px;overflow:hidden;height:105px;box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <img src="images/securetech av/conference.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 19 — EMERGING TECHNOLOGIES / INNOVATION
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide" style="background:var(--light-gray);">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/edu.png"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div
+            style="position:absolute;bottom:-40px;right:-40px;width:280px;height:280px;background:var(--gradient);border-radius:50%;opacity:0.07;z-index:0;">
+        </div>
+        <div class="slide-content" style="position:relative;z-index:10;" style="z-index:10;position:relative;">
+            <h2 style="color:var(--primary-red);font-size:38px;">Innovation &amp; Emerging <span
+                    style="color:var(--charcoal);">Technologies</span></h2>
+            <div class="bar"></div>
+            <p style="font-size:16px;color:#555;max-width:600px;margin-bottom:20px;">We invest in R&amp;D to bring
+                next-generation AV capabilities — future-proofing every installation.</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex:1;align-items:stretch;">
+                <div
+                    style="background:#fff;border:1px solid var(--card-border);border-top:3px solid var(--primary-orange);border-radius:10px;padding:22px 20px;box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+                    <div style="font-size:30px;margin-bottom:10px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M12 8V4H8" />
+                                <path d="M14 4h-2" />
+                                <path d="M3 13h18M3 17h18" />
+                                <path d="M5 9h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z" />
+                                <path d="M9 13v4M15 13v4" />
+                            </svg></span></div>
+                    <h3 style="font-size:16px;color:var(--charcoal);margin-bottom:6px;">AI-Powered Meeting Rooms</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;">Auto-framing cameras, voice-activated controls
+                        and intelligent room booking integration.</p>
+                </div>
+                <div
+                    style="background:#fff;border:1px solid var(--card-border);border-top:3px solid var(--primary-red);border-radius:10px;padding:22px 20px;box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+                    <div style="font-size:30px;margin-bottom:10px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path
+                                    d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                                <path d="M9 18h6M10 22h4" />
+                            </svg></span></div>
+                    <h3 style="font-size:16px;color:var(--charcoal);margin-bottom:6px;">Immersive LED Environments</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;">Floor-to-ceiling curved LED canvases for
+                        experience centres and virtual production.</p>
+                </div>
+                <div
+                    style="background:#fff;border:1px solid var(--card-border);border-top:3px solid var(--primary-orange);border-radius:10px;padding:22px 20px;box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+                    <div style="font-size:30px;margin-bottom:10px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path
+                                    d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.42 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.42a1.4 1.4 0 0 1 .99.413l3.387 3.384A.705.705 0 0 0 11 19.298z" />
+                                <path d="M16 9a5 5 0 0 1 0 6" />
+                                <path d="M19.364 18.364a9 9 0 0 0 0-12.728" />
+                            </svg></span></div>
+                    <h3 style="font-size:16px;color:var(--charcoal);margin-bottom:6px;">Spatial Audio Systems</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;">Dolby Atmos-certified object audio,
+                        beamforming arrays and acoustic intelligence.</p>
+                </div>
+                <div
+                    style="background:#fff;border:1px solid var(--card-border);border-top:3px solid var(--primary-red);border-radius:10px;padding:22px 20px;box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+                    <div style="font-size:30px;margin-bottom:10px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                                <path d="M2 12h20" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg></span></div>
+                    <h3 style="font-size:16px;color:var(--charcoal);margin-bottom:6px;">AV-over-IP Ecosystems</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;">IPMX, NDI &amp; AVB standards replacing legacy
+                        matrix systems for infinite scalability.</p>
+                </div>
+                <div
+                    style="background:#fff;border:1px solid var(--card-border);border-top:3px solid var(--primary-orange);border-radius:10px;padding:22px 20px;box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+                    <div style="font-size:30px;margin-bottom:10px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M11 21H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h5l2 3h9a2 2 0 0 1 2 2v2" />
+                                <path d="M19 15v6M16 18h6" />
+                            </svg></span></div>
+                    <h3 style="font-size:16px;color:var(--charcoal);margin-bottom:6px;">Smart Building Integration</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;">AV unified with BMS, lighting, HVAC and access
+                        control via open API architectures.</p>
+                </div>
+                <div
+                    style="background:#fff;border:1px solid var(--card-border);border-top:3px solid var(--primary-red);border-radius:10px;padding:22px 20px;box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+                    <div style="font-size:30px;margin-bottom:10px;"><span
+                            style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline-block;vertical-align:middle;">
+                                <path d="M9 17H5a2 2 0 0 0-2 2v2h18v-2a2 2 0 0 0-2-2h-4" />
+                                <path d="M12 17v4" />
+                                <path d="M3 3h18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
+                            </svg></span></div>
+                    <h3 style="font-size:16px;color:var(--charcoal);margin-bottom:6px;">Digital Twin Control Rooms</h3>
+                    <p style="font-size:13px;color:#666;line-height:1.6;">Virtual simulation for pre-deployment
+                        verification and remote diagnostics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 20 — COMPLIANCE & STANDARDS
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="split">
+            <div class="split-left">
+                <h2>Compliance &amp;<br><span class="gradient-text">Global Standards</span></h2>
+                <div class="bar"></div>
+                <p style="font-size:15px;color:#555;margin-bottom:20px;">Every project engineered to the strictest
+                    international frameworks — ensuring durability, safety and long-term performance.</p>
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                    <div
+                        style="display:flex;align-items:center;gap:14px;background:var(--light-gray);border-radius:8px;padding:13px 16px;border-left:4px solid var(--primary-orange);">
+                        <div style="font-size:20px;"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                                    <path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12" />
+                                </svg></span></div>
+                        <div>
+                            <div style="font-weight:600;font-size:14px;">AVIXA Standards</div>
+                            <div style="font-size:12px;color:#666;">InfoComm-certified AV system design methodology
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:14px;background:var(--light-gray);border-radius:8px;padding:13px 16px;border-left:4px solid var(--primary-orange);">
+                        <div style="font-size:20px;"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path d="M2 2l20 20" />
+                                    <path d="M8.6 8.6a2 2 0 1 1 2.83 2.83" />
+                                    <path d="M10 10 3 17l4 4 4-4" />
+                                    <path d="M14 14l3 3" />
+                                    <path d="M17 17l2.5 2.5" />
+                                </svg></span></div>
+                        <div>
+                            <div style="font-weight:600;font-size:14px;">ISO Acoustic Compliance</div>
+                            <div style="font-size:12px;color:#666;">ISO 3382 room acoustics · NRC 0.85+ rated panels
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:14px;background:var(--light-gray);border-radius:8px;padding:13px 16px;border-left:4px solid var(--primary-red);">
+                        <div style="font-size:20px;"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path
+                                        d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg></span></div>
+                        <div>
+                            <div style="font-weight:600;font-size:14px;">IEEE Network Standards</div>
+                            <div style="font-size:12px;color:#666;">IEEE 802.1Q VLAN · 802.3bt PoE+ compliant AV
+                                networks</div>
+                        </div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:14px;background:var(--light-gray);border-radius:8px;padding:13px 16px;border-left:4px solid var(--primary-red);">
+                        <div style="font-size:20px;"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path d="M9 18V5l12-2v13" />
+                                    <path d="M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    <path d="M18 19a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg></span></div>
+                        <div>
+                            <div style="font-weight:600;font-size:14px;">Dante / AES67 Audio Networking</div>
+                            <div style="font-size:12px;color:#666;">Layer-3 routable audio over standard IP networks
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:14px;background:var(--light-gray);border-radius:8px;padding:13px 16px;border-left:4px solid var(--primary-orange);">
+                        <div style="font-size:20px;"><span
+                                style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;"><svg
+                                    width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DF7030"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display:inline-block;vertical-align:middle;">
+                                    <path d="M23 7 16 12 23 17z" />
+                                    <path
+                                        d="M15 5H1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" />
+                                </svg></span></div>
+                        <div>
+                            <div style="font-weight:600;font-size:14px;">HDCP Video Compliance</div>
+                            <div style="font-size:12px;color:#666;">Full HDCP 2.2 content protection across all signal
+                                paths</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="split-right" style="justify-content:center;align-items:center;padding:50px 60px 50px 30px;">
+                <img src="images/securetech av/board.png" alt="Compliance Standards"
+                    style="width:100%;height:320px;object-fit:cover;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,0.10);">
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SLIDE 21 — APPENDIX / TECHNICAL ANNEX
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="slide">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/it.png"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <div class="slide-content" style="position:relative;z-index:10;">
+            <h2>Appendix / Technical Annex</h2>
+            <div class="bar"></div>
+            <h3 style="font-size:16px;margin-bottom:10px;color:var(--primary-red);">Sample Bill of Quantities (BOQ)
+                Extract</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item No.</th>
+                        <th>Device Category</th>
+                        <th>Description / Make Parameter</th>
+                        <th>Qty</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.01</td>
+                        <td>Display Array</td>
+                        <td>98&quot; Active LED Display, 4K UHD, 24/7 Rating</td>
+                        <td>1</td>
+                        <td>Nos</td>
+                    </tr>
+                    <tr>
+                        <td>1.02</td>
+                        <td>Video Matrix</td>
+                        <td>8x8 4K/60 4:4:4 HDMI Matrix Switcher</td>
+                        <td>1</td>
+                        <td>Nos</td>
+                    </tr>
+                    <tr>
+                        <td>1.03</td>
+                        <td>Audio DSP</td>
+                        <td>Open Architecture AEC DSP Processors &ndash; 12x8 Dante</td>
+                        <td>1</td>
+                        <td>Nos</td>
+                    </tr>
+                    <tr>
+                        <td>1.04</td>
+                        <td>Acoustic Shell</td>
+                        <td>Fabric Wrapped Acoustic Panels (NRC 0.85+)</td>
+                        <td>120</td>
+                        <td>Sq.ft</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 style="font-size:16px;margin:20px 0 10px;color:var(--primary-orange);">Sample RFP Evaluation Checklist
+            </h3>
+            <ul class="bullets" style="display:grid;grid-template-columns:1fr 1fr;gap:6px 30px;">
+                <li>Integrator Financial Solvency &amp; Annual Turnover</li>
+                <li>OEM Authorization Certificates (MAF)</li>
+                <li>On-roll AVIXA CTS/CTS-D/CTS-I Certified Engineers</li>
+                <li>Project Past Performance (Similar Scope &amp; Size)</li>
+                <li>SLA Response Matrix &amp; Extended Warranty Costing</li>
+                <li>Compliance verification of Data Privacy/Security std.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="slide" style="align-items:center;justify-content:center;text-align:center;background:#fff;">
+        <!-- Injected Background Image -->
+        <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
+            <img src="images/securetech av/hospi.jpg"
+                style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
+        </div>
+
+        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <!-- Soft radial glow -->
+        <div
+            style="position:absolute;inset:0;background:radial-gradient(circle at 68% 30%,rgba(223,112,48,0.07),transparent 60%);z-index:0;">
+        </div>
+
+        <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;padding:40px;">
+            <p
+                style="color:var(--primary-orange);font-family:var(--font-head);font-size:13px;text-transform:uppercase;letter-spacing:2px;font-weight:600;">
+            </p>
+            <h1 style="font-size:52px;margin:14px 0;">Let's build the <span class="gradient-text">future of work.</span>
+            </h1>
+            <div class="bar" style="margin:14px auto 36px;"></div>
+
+            <div
+                style="display:flex;gap:48px;background:#fff;padding:30px 56px;border-radius:10px;border-top:4px solid var(--primary-red);border:1px solid var(--card-border);border-top:4px solid var(--primary-red);box-shadow:0 8px 22px rgba(0,0,0,0.06);">
+                <div>
+                    <div
+                        style="font-size:12px;color:#999;font-family:var(--font-head);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">
+                        Email Us</div>
+                    <p style="font-size:20px;color:var(--primary-orange);font-weight:600;">ashish@securetechav.com</p>
+                </div>
+                <div style="width:1px;background:#ECECEC;"></div>
+                <div>
+                    <div
+                        style="font-size:12px;color:#999;font-family:var(--font-head);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">
+                        Call Us</div>
+                    <p style="font-size:20px;color:var(--primary-orange);font-weight:600;">+91 7017247344</p>
+                </div>
+            </div>
+
+            <div style="margin-top:36px;">
+                <div
+                    style="font-size:12px;color:#999;font-family:var(--font-head);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">
+                    Headquarters</div>
+                <p style="font-size:16px;color:var(--charcoal);">SecureTech AV Designs Private Limited A-70-SECTOR 33
+                    NOIDA, UTTAR PRADESH, 201301</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

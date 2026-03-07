@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecureTech AV Designs</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: { DEFAULT: "hsl(var(--primary))" },
+                        muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
+                    },
+                    animation: { "infinite-scroll": "infinite-scroll 25s linear infinite" },
+                    keyframes: { "infinite-scroll": { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } } }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 225 17% 7%;
+                --primary: 210 9% 22%;
+                --muted: 210 40% 96.1%;
+                --muted-foreground: 215.4 16.3% 46.9%;
+                --border: 214.3 31.8% 91.4%;
+                --brand-gradient: linear-gradient(135deg, #E87D2F 0%, #A52A2A 100%);
+            }
+            body { @apply bg-background text-foreground; font-family: 'Inter', sans-serif; }
+        }
+        @layer utilities {
+            .text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+            .bg-brand-gradient { background: var(--brand-gradient); }
+            .pill-button { @apply rounded-full px-6 py-2 bg-[#E87D2F] text-white hover:bg-[#A52A2A] transition-colors; }
+        }
+        .carousel-slide { display: none; }
+        .carousel-slide.active { display: block; animation: fadein 1s; }
+        @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+
+    <style>
+        /* SOUNDWAVE */
+        .sw-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sw-bar {
+            width: 3px;
+            height: calc(var(--h, 100px)*1.5);
+            background: rgba(255, 255, 255, .75);
+            border-radius: 3px;
+            flex-shrink: 0;
+            transform-origin: center;
+            animation: sw-anim 1.1s ease-in-out var(--d, 0s) infinite alternate;
+        }
+
+        @keyframes sw-anim {
+            0% {
+                transform: scaleY(.15);
+                opacity: .5
+            }
+
+            50% {
+                transform: scaleY(1);
+                opacity: .85
+            }
+
+            100% {
+                transform: scaleY(.3);
+                opacity: .5
+            }
+        }
+
+        /* PRODUCTS */
+        #prod-track {
+            position: relative;
+            height: 300vh;
+        }
+
+        #prod-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #f8f9fb;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 14px;
+            padding: 80px 48px 48px;
+            align-items: stretch;
+        }
+
+        #prod-heading {
+            grid-column: 2;
+            grid-row: 2;
+            text-align: center;
+            white-space: nowrap;
+            font-size: clamp(2rem, 5.5vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            color: #0a1628;
+            transform-origin: center center;
+            z-index: 10;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .prod-cell {
+            overflow: hidden;
+            border-radius: 16px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity .55s ease, transform .55s ease;
+            background: #ddd;
+            height: 100%;
+        }
+
+        .prod-cell.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .prod-cell img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .prod-cell-label {
+            position: absolute;
+            bottom: .8rem;
+            left: .8rem;
+            background: rgba(0, 0, 0, .45);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: .75rem;
+            font-weight: 700;
+            padding: .3rem .7rem;
+            border-radius: 50px;
+            letter-spacing: .03em;
+        }
+
+        #pc-tl {
+            grid-column: 1;
+            grid-row: 1
+        }
+
+        #pc-tc {
+            grid-column: 2;
+            grid-row: 1
+        }
+
+        #pc-tr {
+            grid-column: 3;
+            grid-row: 1
+        }
+
+        #pc-ml {
+            grid-column: 1;
+            grid-row: 2
+        }
+
+        #pc-mr {
+            grid-column: 3;
+            grid-row: 2
+        }
+
+        #pc-bl {
+            grid-column: 1;
+            grid-row: 3
+        }
+
+        #pc-bc {
+            grid-column: 2;
+            grid-row: 3
+        }
+
+        #pc-br {
+            grid-column: 3;
+            grid-row: 3
+        }
+
+        /* CONFIGURATOR SCROLL ANIMATION */
+        #config-track {
+            position: relative;
+            height: 600vh;
+        }
+
+        #config-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f0f8 0%, #dce8f5 100%);
+            display: flex;
+            align-items: center;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            padding: 0 6vw;
+            gap: 4vw;
+            position: relative;
+            z-index: 2;
+        }
+
+        .config-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .config-img-wrap {
+            position: relative;
+            height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .config-img-wrap img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity 0.55s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .cdot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #c0ccd8;
+            transition: background .35s, transform .35s;
+            cursor: pointer;
+        }
+
+        .cdot.active {
+            background: #E87D2F;
+            transform: scale(1.4);
+        }
+
+        .config-step-label {
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #E87D2F;
+            transition: opacity .4s;
+        }
+
+        .config-build-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background: #E87D2F;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background .25s;
+            text-decoration: none;
+            margin-top: .5rem;
+        }
+
+        .config-build-btn:hover {
+            background: #A52A2A;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <header class="fixed top-0 z-50 w-full bg-transparent">
+        <div class="container flex h-20 items-center justify-between">
+            <a href="/"><img src="just_logo_no_text.png" alt="SecureTech Logo" class="h-12 w-auto" /></a>
+            <div class="flex items-center gap-6">
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Room Configurator</a>
+                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Solutions</a>
+                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Products</a>
+                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Brands</a>
+                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Company</a>
+                    <a href="#" class="text-sm font-medium text-white hover:text-white/70">Success Stories</a>
+                </div>
+                <a href="#" class="hidden lg:block"><button class="pill-button">Contact Us</button></a>
+                <button class="lg:hidden text-white"><i data-lucide="menu" class="h-6 w-6"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+
+        <!-- HERO -->
+        <section class="relative w-full h-[600px] md:h-[800px] overflow-hidden">
+            <div class="w-full h-full relative" id="hero-carousel">
+                <div class="carousel-slide active relative h-full w-full">
+                    <div class="absolute inset-0 bg-cover bg-center"
+                        style="background-image:url('Put_secure_techlgoo_in_place_of_resurgent_logo__2k_delpmaspu.png')">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    <div class="relative h-full flex items-center justify-center text-center px-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORANGE GRADIENT + SOUNDWAVE -->
+        <section class="relative overflow-hidden" style="margin-top:-2px;">
+            <div class="absolute top-0 left-0 w-full z-10" style="transform:translateY(-98%);">
+                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+                    class="w-full h-[60px] md:h-[120px]">
+                    <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"
+                        fill="url(#waveGrad)" />
+                    <defs>
+                        <linearGradient id="waveGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#1a1a2e" stop-opacity="0.6" />
+                            <stop offset="100%" stop-color="#b85c1e" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="relative py-32 md:py-44"
+                style="background:linear-gradient(180deg,#b85c1e 0%,#d4702a 25%,#E87D2F 50%,#d4702a 75%,#c4612a 100%);">
+                <div class="absolute inset-0 opacity-20"
+                    style="background:radial-gradient(ellipse at center top,rgba(255,200,120,.4) 0%,transparent 70%);">
+                </div>
+                <div class="sw-wrap">
+                    <div class="sw-bar" style="--h:55px;--d:0s"></div>
+                    <div class="sw-bar" style="--h:80px;--d:.1s"></div>
+                    <div class="sw-bar" style="--h:110px;--d:.2s"></div>
+                    <div class="sw-bar" style="--h:70px;--d:.3s"></div>
+                    <div class="sw-bar" style="--h:130px;--d:.15s"></div>
+                    <div class="sw-bar" style="--h:90px;--d:.4s"></div>
+                    <div class="sw-bar" style="--h:60px;--d:.05s"></div>
+                    <div class="sw-bar" style="--h:140px;--d:.25s"></div>
+                    <div class="sw-bar" style="--h:100px;--d:.35s"></div>
+                    <div class="sw-bar" style="--h:75px;--d:.5s"></div>
+                    <div class="sw-bar" style="--h:120px;--d:.1s"></div>
+                    <div class="sw-bar" style="--h:85px;--d:.45s"></div>
+                    <div class="sw-bar" style="--h:50px;--d:.2s"></div>
+                    <div class="sw-bar" style="--h:135px;--d:.3s"></div>
+                    <div class="sw-bar" style="--h:95px;--d:.15s"></div>
+                    <div class="sw-bar" style="--h:65px;--d:.4s"></div>
+                    <div class="sw-bar" style="--h:115px;--d:.05s"></div>
+                    <div class="sw-bar" style="--h:80px;--d:.55s"></div>
+                    <div class="sw-bar" style="--h:145px;--d:.2s"></div>
+                    <div class="sw-bar" style="--h:70px;--d:.35s"></div>
+                    <div class="sw-bar" style="--h:100px;--d:.1s"></div>
+                    <div class="sw-bar" style="--h:55px;--d:.45s"></div>
+                    <div class="sw-bar" style="--h:125px;--d:.25s"></div>
+                    <div class="sw-bar" style="--h:90px;--d:.5s"></div>
+                    <div class="sw-bar" style="--h:140px;--d:0s"></div>
+                    <div class="sw-bar" style="--h:60px;--d:.3s"></div>
+                    <div class="sw-bar" style="--h:110px;--d:.15s"></div>
+                    <div class="sw-bar" style="--h:75px;--d:.4s"></div>
+                    <div class="sw-bar" style="--h:130px;--d:.05s"></div>
+                    <div class="sw-bar" style="--h:85px;--d:.55s"></div>
+                    <div class="sw-bar" style="--h:50px;--d:.2s"></div>
+                    <div class="sw-bar" style="--h:120px;--d:.35s"></div>
+                    <div class="sw-bar" style="--h:95px;--d:.1s"></div>
+                    <div class="sw-bar" style="--h:145px;--d:.45s"></div>
+                    <div class="sw-bar" style="--h:65px;--d:.25s"></div>
+                    <div class="sw-bar" style="--h:115px;--d:.5s"></div>
+                    <div class="sw-bar" style="--h:80px;--d:0s"></div>
+                    <div class="sw-bar" style="--h:100px;--d:.3s"></div>
+                    <div class="sw-bar" style="--h:55px;--d:.15s"></div>
+                    <div class="sw-bar" style="--h:135px;--d:.4s"></div>
+                    <div class="sw-bar" style="--h:70px;--d:.05s"></div>
+                    <div class="sw-bar" style="--h:90px;--d:.55s"></div>
+                    <div class="sw-bar" style="--h:125px;--d:.2s"></div>
+                    <div class="sw-bar" style="--h:60px;--d:.35s"></div>
+                    <div class="sw-bar" style="--h:140px;--d:.1s"></div>
+                    <div class="sw-bar" style="--h:75px;--d:.45s"></div>
+                    <div class="sw-bar" style="--h:110px;--d:.25s"></div>
+                    <div class="sw-bar" style="--h:85px;--d:.5s"></div>
+                    <div class="sw-bar" style="--h:50px;--d:0s"></div>
+                    <div class="sw-bar" style="--h:130px;--d:.3s"></div>
+                    <div class="sw-bar" style="--h:95px;--d:.15s"></div>
+                    <div class="sw-bar" style="--h:65px;--d:.4s"></div>
+                    <div class="sw-bar" style="--h:145px;--d:.05s"></div>
+                    <div class="sw-bar" style="--h:80px;--d:.55s"></div>
+                    <div class="sw-bar" style="--h:115px;--d:.2s"></div>
+                    <div class="sw-bar" style="--h:70px;--d:.35s"></div>
+                    <div class="sw-bar" style="--h:100px;--d:.1s"></div>
+                    <div class="sw-bar" style="--h:55px;--d:.45s"></div>
+                    <div class="sw-bar" style="--h:125px;--d:.25s"></div>
+                    <div class="sw-bar" style="--h:90px;--d:.5s"></div>
+                    <div class="sw-bar" style="--h:140px;--d:0s"></div>
+                    <div class="sw-bar" style="--h:60px;--d:.3s"></div>
+                    <div class="sw-bar" style="--h:110px;--d:.15s"></div>
+                    <div class="sw-bar" style="--h:75px;--d:.4s"></div>
+                    <div class="sw-bar" style="--h:130px;--d:.05s"></div>
+                    <div class="sw-bar" style="--h:85px;--d:.55s"></div>
+                    <div class="sw-bar" style="--h:50px;--d:.2s"></div>
+                    <div class="sw-bar" style="--h:120px;--d:.35s"></div>
+                    <div class="sw-bar" style="--h:95px;--d:.1s"></div>
+                    <div class="sw-bar" style="--h:145px;--d:.45s"></div>
+                    <div class="sw-bar" style="--h:65px;--d:.25s"></div>
+                    <div class="sw-bar" style="--h:115px;--d:.5s"></div>
+                    <div class="sw-bar" style="--h:80px;--d:0s"></div>
+                    <div class="sw-bar" style="--h:100px;--d:.3s"></div>
+                    <div class="sw-bar" style="--h:55px;--d:.15s"></div>
+                    <div class="sw-bar" style="--h:135px;--d:.4s"></div>
+                    <div class="sw-bar" style="--h:70px;--d:.05s"></div>
+                    <div class="sw-bar" style="--h:90px;--d:.55s"></div>
+                    <div class="sw-bar" style="--h:125px;--d:.2s"></div>
+                    <div class="sw-bar" style="--h:60px;--d:.35s"></div>
+                    <div class="sw-bar" style="--h:140px;--d:.1s"></div>
+                    <div class="sw-bar" style="--h:75px;--d:.45s"></div>
+                    <div class="sw-bar" style="--h:110px;--d:.25s"></div>
+                    <div class="sw-bar" style="--h:85px;--d:.5s"></div>
+                    <div class="sw-bar" style="--h:50px;--d:0s"></div>
+                    <div class="sw-bar" style="--h:130px;--d:.3s"></div>
+                    <div class="sw-bar" style="--h:95px;--d:.15s"></div>
+                </div>
+                <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="opacity-60">
+                        <path d="M12 5v14M19 12l-7 7-7-7" />
+                    </svg>
+                </div>
+                <div class="relative text-center px-4 space-y-6" style="z-index:2;">
+                    <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white/95 leading-tight">We are <span
+                            class="font-extrabold text-white">SecureTech AV</span></h2>
+                    <p class="text-xl md:text-3xl text-white/80 font-medium tracking-wide">Premium Audio Visual
+                        Integrators</p>
+                </div>
+                <div class="absolute bottom-0 left-0 w-full h-24 md:h-40"
+                    style="background:linear-gradient(to bottom,transparent,rgba(255,255,255,.05) 40%,rgba(255,255,255,.3) 70%,white 100%);z-index:3;">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTORS -->
+        <section id="sectors-scroll" style="position:relative;">
+            <div id="sectors-track" style="height:600vh; position:relative;">
+                <div style="position:sticky; top:0; height:100vh; overflow:hidden; display:flex; background:#fff;">
+                    <div id="sector-left"
+                        style="width:45%; display:flex; flex-direction:column; justify-content:center; padding:5vw 4vw 5vw 6vw; position:relative; z-index:2;">
+                        <p id="sector-tag"
+                            style="font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#E87D2F;margin-bottom:1rem;transition:opacity .4s;">
+                            Sector</p>
+                        <h2 id="sector-title"
+                            style="font-size:clamp(2rem,4.5vw,4rem);font-weight:800;line-height:1.05;color:#0a1628;margin-bottom:1.2rem;transition:opacity .4s,transform .4s;">
+                            Corporate</h2>
+                        <p id="sector-desc"
+                            style="font-size:1.05rem;color:#607080;line-height:1.8;max-width:420px;transition:opacity .4s,transform .4s;">
+                            Transform your boardrooms and collaboration spaces with cutting-edge AV technology. From
+                            video conferencing to digital signage, we design seamless corporate communication
+                            environments.</p>
+                        <div style="margin-top:2rem;border-top:1px solid #e8ecf0;padding-top:2rem;">
+                            <div id="sector-nav" style="display:flex;flex-direction:column;gap:.5rem;"></div>
+                        </div>
+                    </div>
+                    <div
+                        style="width:55%; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; padding:2rem;">
+                        <div id="sector-img-wrap"
+                            style="width:100%;max-width:620px;height:400px;border-radius:24px;overflow:hidden;position:relative;transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .5s;box-shadow:0 20px 60px rgba(0,0,0,.12);">
+                            <img id="sector-img"
+                                src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/corporate.webp"
+                                style="width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1);" />
+                            <div
+                                style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%);">
+                            </div>
+                            <div style="position:absolute;bottom:2.5rem;left:2.5rem;">
+                                <a href="#" id="sector-btn"
+                                    style="display:inline-flex;align-items:center;gap:.6rem;background:#fff;color:#0a1628;padding:.65rem 1.5rem;border-radius:50px;font-size:.88rem;font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.12);">
+                                    VIEW <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2.5">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .snav-item {
+                font-size: 1rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: .1em;
+                color: #c0ccd8;
+                cursor: pointer;
+                transition: color .3s;
+                padding: .2rem 0;
+            }
+
+            .snav-item.active {
+                color: #0a1628;
+            }
+
+            .snav-item.active::before {
+                content: '→ ';
+                color: #E87D2F;
+            }
+
+            #sector-img-wrap.slide-in {
+                animation: imgSlideIn .65s cubic-bezier(.16, 1, .3, 1) both;
+            }
+
+            @keyframes imgSlideIn {
+                from {
+                    transform: translateY(60px);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        </style>
+
+        <script>
+                (function () {
+                    const sectors = [
+                        { name: 'Corporate', desc: 'Transform boardrooms and collaboration spaces with cutting-edge AV. From video conferencing to digital signage, we design seamless corporate communication environments.', img: 'https://resurgent.co.in/wp-content/themes/resurgent/assets/home/corporate.webp' },
+                        { name: 'Education', desc: 'Empower learning with interactive displays, lecture capture, and smart classroom technology that keeps students engaged whether in-room or remote.', img: 'https://resurgent.co.in/wp-content/themes/resurgent/assets/home/education.webp' },
+                        { name: 'Healthcare', desc: 'Deliver precision and speed through advanced software and audiovisual equipment. From surgical displays to patient communication, AV saves lives.', img: 'https://resurgent.co.in/wp-content/themes/resurgent/assets/home/healthcare.webp' },
+                        { name: 'Public Sector', desc: 'Modernise government facilities and public spaces with reliable AV infrastructure for command centres, council chambers, and citizen-facing environments.', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900' },
+                        { name: 'Retail', desc: 'Drive footfall and sales with immersive digital signage, interactive kiosks, and in-store audio systems that create unforgettable brand experiences.', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900' },
+                        { name: 'Residential', desc: 'Bring cinema-quality AV and smart home integration to luxury residences. Custom designed systems for home theatres, multi-room audio, and automation.', img: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900' }
+                    ];
+                    const track = document.getElementById('sectors-track');
+                    const title = document.getElementById('sector-title');
+                    const desc = document.getElementById('sector-desc');
+                    const img = document.getElementById('sector-img');
+                    const wrap = document.getElementById('sector-img-wrap');
+                    const nav = document.getElementById('sector-nav');
+                    sectors.forEach((s, i) => {
+                        const el = document.createElement('div');
+                        el.className = 'snav-item' + (i === 0 ? ' active' : '');
+                        el.textContent = s.name;
+                        nav.appendChild(el);
+                    });
+                    const navItems = nav.querySelectorAll('.snav-item');
+                    let current = -1;
+                    function setSlide(idx) {
+                        if (idx === current) return;
+                        current = idx;
+                        const s = sectors[idx];
+                        title.style.opacity = '0'; title.style.transform = 'translateY(12px)';
+                        desc.style.opacity = '0'; desc.style.transform = 'translateY(12px)';
+                        setTimeout(() => {
+                            title.textContent = s.name;
+                            desc.textContent = s.desc;
+                            img.src = s.img;
+                            wrap.classList.remove('slide-in');
+                            void wrap.offsetWidth;
+                            wrap.classList.add('slide-in');
+                            title.style.opacity = '1'; title.style.transform = 'translateY(0)';
+                            desc.style.opacity = '1'; desc.style.transform = 'translateY(0)';
+                        }, 200);
+                        navItems.forEach((n, i) => n.classList.toggle('active', i === idx));
+                    }
+                    window.addEventListener('scroll', () => {
+                        const rect = track.getBoundingClientRect();
+                        const total = track.offsetHeight - window.innerHeight;
+                        const scrolled = -rect.top;
+                        if (scrolled < 0 || scrolled > total) return;
+                        setSlide(Math.min(Math.floor(scrolled / total * sectors.length), sectors.length - 1));
+                    }, { passive: true });
+                    setSlide(0);
+                })();
+        </script>
+
+        <!-- PRODUCTS — big text shrinks, cards appear -->
+        <section>
+            <div id="prod-track">
+                <div id="prod-sticky">
+                    <div class="prod-cell" id="pc-tl"><img
+                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/Microsoft-Surface-Hub-2S.webp"
+                            alt="">
+                        <div class="prod-cell-label">Microsoft Surface Hub 2S</div>
+                    </div>
+                    <div class="prod-cell" id="pc-tc"><img
+                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/samsung.webp" alt="">
+                        <div class="prod-cell-label">Samsung Flip</div>
+                    </div>
+                    <div class="prod-cell" id="pc-tr"><img
+                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/teams.webp" alt="">
+                        <div class="prod-cell-label">Microsoft Teams</div>
+                    </div>
+                    <div class="prod-cell" id="pc-ml"><img
+                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/jabra.webp" alt="">
+                        <div class="prod-cell-label">Jabra PanaCast</div>
+                    </div>
+                    <div id="prod-heading">Our Solutions<br>Products &amp; Services</div>
+                    <div class="prod-cell" id="pc-mr"><img
+                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/corporate.webp" alt="">
+                        <div class="prod-cell-label">PADS4 Digital Signage</div>
+                    </div>
+                    <div class="prod-cell" id="pc-bl"><img
+                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/education.webp" alt="">
+                        <div class="prod-cell-label">Crestron Flex</div>
+                    </div>
+                    <div class="prod-cell" id="pc-bc"><img
+                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/healthcare.webp"
+                            alt="">
+                        <div class="prod-cell-label">Surge+</div>
+                    </div>
+                    <div class="prod-cell" id="pc-br"><img
+                            src="https://resurgent.co.in/wp-content/themes/resurgent/assets/home/Microsoft-Surface-Hub-2S.webp"
+                            alt="">
+                        <div class="prod-cell-label">AirServer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CONFIGURATOR PROMO — Scroll-driven room builder animation
+             animation1.png = empty brown room (always visible / base)
+             animation2.png = screens appear
+             animation3.png = furniture + screens
+             animation4.png = zoomed / final perspective
+             animation5.png = complete room with blackboard (final frame)
+        ============================================================ -->
+        <div id="config-track">
+            <section id="config-sticky">
+                <!-- ambient glow -->
+                <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+                    <div
+                        style="position:absolute;top:50%;left:25%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(232,125,47,.15) 0%,transparent 65%);border-radius:50%;">
+                    </div>
+                    <div
+                        style="position:absolute;top:30%;right:10%;width:400px;height:400px;background:radial-gradient(circle,rgba(165,42,42,.08) 0%,transparent 70%);border-radius:50%;">
+                    </div>
+                </div>
+
+                <div class="config-grid">
+                    <!-- LEFT: text panel -->
+                    <div class="config-text">
+                        <p class="config-step-label" id="config-step-label">Step 1 of 5</p>
+                        <p style="font-size:1.1rem;color:#607080;font-weight:500;margin:0;">Configure your meeting
+                            spaces with</p>
+                        <h2
+                            style="font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:1.05;color:#0a1628;margin:0;">
+                            SecureTech<br />
+                            <span class="text-gradient">Room<br />Configurator</span>
+                        </h2>
+                        <p style="font-size:1.05rem;color:#607080;line-height:1.75;max-width:400px;margin:0;transition:opacity .4s,transform .4s;"
+                            id="config-desc">
+                            Start with an empty room — a blank canvas ready to be transformed into your perfect meeting
+                            space.
+                        </p>
+                        <!-- progress dots -->
+                        <div style="display:flex;gap:.6rem;align-items:center;margin-top:.25rem;">
+                            <div class="cdot active" data-i="0"></div>
+                            <div class="cdot" data-i="1"></div>
+                            <div class="cdot" data-i="2"></div>
+                            <div class="cdot" data-i="3"></div>
+                            <div class="cdot" data-i="4"></div>
+                        </div>
+                        <a href="#" class="config-build-btn" style="align-self:flex-start;">
+                            BUILD YOUR ROOM NOW
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="config-img-wrap">
+                        <!-- animation5 = complete room, ALWAYS visible (base layer) -->
+                        <img id="cimg-5" src="static/animation5.png" alt="Complete room" style="opacity:1; z-index:1;" />
+                        <!-- animation2 = appears on scroll step 1 -->
+                        <img id="cimg-2" src="static/animation2.png" alt="Screens added" style="opacity:0; z-index:2;" />
+                        <!-- animation1 = appears on scroll step 2 -->
+                        <img id="cimg-1" src="static/animation1.png" alt="Empty meeting room" style="opacity:0; z-index:3;" />
+                        <!-- animation3 = appears on scroll step 3 -->
+                        <img id="cimg-3" src="static/animation3.png" alt="Furniture added" style="opacity:0; z-index:4;" />
+                        <!-- animation4 = appears on scroll step 4 -->
+                        <img id="cimg-4" src="static/animation4.png" alt="Zoomed view" style="opacity:0; z-index:5;" />
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script>
+            (function () {
+                const track = document.getElementById('config-track');
+                const descEl = document.getElementById('config-desc');
+                const stepEl = document.getElementById('config-step-label');
+                const dots = document.querySelectorAll('.cdot');
+                const imgs = [
+                    document.getElementById('cimg-2'),
+                    document.getElementById('cimg-1'),
+                    document.getElementById('cimg-3'),
+                    document.getElementById('cimg-4'),
+                ];
+                // cimg-5 is the base, always visible
+
+                const steps = [
+                    {
+                        label: 'Step 1 of 5 — Complete Room',
+                        desc: 'Your fully-equipped meeting room — the end result. Now scroll to see how we build it step by step.'
+                    },
+                    {
+                        label: 'Step 2 of 5 — Adding Screens',
+                        desc: 'Add premium display screens to your front wall. Crystal-clear visuals for presentations, video calls, and content sharing.'
+                    },
+                    {
+                        label: 'Step 3 of 5 — Furniture & Layout',
+                        desc: 'Configure the seating and table layout. From intimate huddle rooms to large boardrooms, every arrangement optimised.'
+                    },
+                    {
+                        label: 'Step 4 of 5 — AV Controls',
+                        desc: 'Integrate smart AV controls, soundbars, and conferencing cameras. One-touch simplicity for every meeting.'
+                    },
+                    {
+                        label: 'Step 5 of 5 — Final View',
+                        desc: 'The zoomed-in perspective of your complete room. Professional, seamless, and built for the future of collaboration.'
+                    },
+                ];
+
+                let current = -1;
+
+                function setFrame(idx) {
+                    idx = Math.max(0, Math.min(4, idx));
+                    if (idx === current) return;
+                    current = idx;
+
+                    // animation5 (base) ALWAYS stays visible at z-index:1
+                    // animation1-4 layer on top, each appears at its scroll step
+                    imgs.forEach((img, i) => {
+                        img.style.opacity = (i <= idx) ? '1' : '0';
+                    });
+
+                    // Update dots
+                    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+
+                    // Update text with fade
+                    descEl.style.opacity = '0';
+                    descEl.style.transform = 'translateY(8px)';
+                    stepEl.style.opacity = '0';
+                    setTimeout(() => {
+                        descEl.textContent = steps[idx].desc;
+                        stepEl.textContent = steps[idx].label;
+                        descEl.style.opacity = '1';
+                        descEl.style.transform = 'translateY(0)';
+                        stepEl.style.opacity = '1';
+                    }, 200);
+                }
+
+                window.addEventListener('scroll', () => {
+                    const rect = track.getBoundingClientRect();
+                    const total = track.offsetHeight - window.innerHeight;
+                    const scrolled = -rect.top;
+                    if (scrolled < 0 || scrolled > total) return;
+                    const p = scrolled / total;          // 0 → 1
+                    const frame = Math.min(Math.floor(p * 5), 4); // 0 → 4
+                    setFrame(frame);
+                }, { passive: true });
+
+                // init
+                setFrame(0);
+
+                // Smooth transition on desc
+                descEl.style.transition = 'opacity .4s ease, transform .4s ease';
+                stepEl.style.transition = 'opacity .4s ease';
+            })();
+        </script>
+
+        <!-- WHY US -->
+        <section class="py-24 bg-muted/10 relative overflow-hidden">
+            <div class="container px-4 relative z-10">
+                <div class="text-center space-y-4 mb-20 max-w-2xl mx-auto">
+                    <p class="text-sm font-bold uppercase tracking-widest text-primary">Why Partner with Us</p>
+                    <h2 class="text-4xl md:text-6xl font-extrabold uppercase tracking-tighter leading-tight">Building
+                        trust through <span class="text-gradient">proven results</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-background p-10 rounded-[40px] border shadow-sm text-center">
+                        <h3 class="text-2xl font-bold uppercase tracking-tighter mb-4">Technical <span
+                                class="text-gradient">expertise</span></h3>
+                        <p class="text-muted-foreground">Deep technical proficiency in advanced AV systems.</p>
+                    </div>
+                    <div class="bg-background p-10 rounded-[40px] border shadow-sm text-center">
+                        <h3 class="text-2xl font-bold uppercase tracking-tighter mb-4">Exceptional <span
+                                class="text-gradient">service</span></h3>
+                        <p class="text-muted-foreground">Dedicated support and maintenance teams.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLIENTS -->
+        <section class="py-24 bg-background overflow-hidden border-t">
+            <div class="container px-4">
+                <div class="text-center space-y-6 mb-16 max-w-4xl mx-auto">
+                    <p class="text-sm font-bold uppercase tracking-widest text-primary">Our Global Network</p>
+                    <h2 class="text-4xl md:text-6xl font-extrabold uppercase tracking-tighter leading-tight">Our <span
+                            class="text-gradient">Clients</span></h2>
+                </div>
+                <div class="relative mt-20">
+                    <div
+                        class="flex gap-16 md:gap-32 animate-infinite-scroll w-max text-3xl font-black text-muted-foreground/30 uppercase opacity-50">
+                        <div>ABB</div>
+                        <div>Accenture</div>
+                        <div>Amazon</div>
+                        <div>Bosch</div>
+                        <div>ABB</div>
+                        <div>Accenture</div>
+                        <div>Amazon</div>
+                        <div>Bosch</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-24 bg-background border-t">
+            <div class="container px-4">
+                <div
+                    class="bg-muted/30 rounded-[60px] p-12 md:p-24 text-center space-y-10 relative overflow-hidden border">
+                    <div class="max-w-3xl mx-auto space-y-6 relative z-10">
+                        <h2 class="text-4xl md:text-6xl font-extrabold uppercase tracking-tighter leading-tight">
+                            Changing to a <br><span class="text-gradient">hybrid work culture?</span></h2>
+                    </div>
+                    <button
+                        class="flex mx-auto items-center gap-4 bg-[#E87D2F] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#A52A2A] transition-colors">CONNECT
+                        WITH US <i data-lucide="move-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-background border-t py-16">
+        <div class="container px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <img src="just_logo_no_text.png" class="h-10 w-auto" />
+                    <p class="text-sm text-muted-foreground">© 2026 SecureTech AV Designs PVT Ltd.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold">Company</h4>
+                    <ul class="text-muted-foreground space-y-2">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold">Sectors</h4>
+                    <ul class="text-muted-foreground space-y-2">
+                        <li><a href="#">Corporate</a></li>
+                        <li><a href="#">Education</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // Hero carousel
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        function showSlide(n) {
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            slides.forEach(s => s.classList.remove('active'));
+            slides[slideIndex].classList.add('active');
+        }
+        setInterval(() => { slideIndex++; showSlide(slideIndex); }, 5000);
+        showSlide(0);
+
+        // ── PRODUCTS ──
+        (function () {
+            const track = document.getElementById('prod-track');
+            const heading = document.getElementById('prod-heading');
+            const cells = document.querySelectorAll('.prod-cell');
+            const order = ['pc-tl', 'pc-tr', 'pc-bl', 'pc-br', 'pc-tc', 'pc-bc', 'pc-ml', 'pc-mr'];
+
+            window.addEventListener('scroll', () => {
+                const rect = track.getBoundingClientRect();
+                const total = track.offsetHeight - window.innerHeight;
+                const p = Math.min(Math.max(-rect.top / total, 0), 1);
+
+                if (p < 0.35) {
+                    heading.style.transform = 'scale(1)';
+                    cells.forEach(c => c.classList.remove('show'));
+                } else {
+                    const p2 = (p - 0.35) / 0.65;
+                    heading.style.transform = `scale(${1 - p2 * 0.62})`;
+                    order.forEach((id, i) => {
+                        const el = document.getElementById(id);
+                        if (p2 >= i / order.length) el.classList.add('show');
+                        else el.classList.remove('show');
+                    });
+                }
+            }, { passive: true });
+        })();
+    </script>
+
+</body>
+
+</html>
