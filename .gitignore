@@ -16,12 +16,14 @@ corporate/
 mcp-config.json
 banner.png
 banner1.png
-*.png
-!static/*.png
-!static/*.jpg
-!static/*.jpeg
-!static/*.gif
-!static/*.svg
+# Unignore static assets in secure/static
+!secure/static/**/*.png
+!secure/static/**/*.jpg
+!secure/static/**/*.jpeg
+!secure/static/**/*.gif
+!secure/static/**/*.svg
+!secure/static/**/*.webp
+!secure/static/**/*.pdf
 !templates/*.png
 !templates/*.jpg
 !templates/*.jpeg
