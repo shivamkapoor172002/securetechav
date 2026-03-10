@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description"
+        content="Contact SecureTech AV Designs — Get in touch for audio visual, acoustics, and smart technology solutions.">
+    <title>Contact Us — SecureTech AV Designs</title>
+    <link rel="icon" href="{{ url_for('static', filename='image-5@2x.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                container: { center: true, padding: "1rem", screens: { "2xl": "1400px" } },
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: { DEFAULT: "hsl(var(--primary))" },
+                        muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
+                    },
+                    animation: { "infinite-scroll": "infinite-scroll 25s linear infinite" },
+                    keyframes: { "infinite-scroll": { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } } }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 225 17% 7%;
+                --primary: 210 9% 22%;
+                --muted: 210 40% 96.1%;
+                --muted-foreground: 215.4 16.3% 46.9%;
+                --border: 214.3 31.8% 91.4%;
+                --brand-gradient: linear-gradient(135deg, #E87D2F 0%, #A52A2A 100%);
+            }
+            body { @apply bg-background text-foreground; font-family: 'Inter', sans-serif; }
+        }
+        @layer utilities {
+            .text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+            .bg-brand-gradient { background: var(--brand-gradient); }
+            .pill-button { @apply rounded-full px-5 py-2 bg-[#E87D2F] text-white hover:bg-[#A52A2A] transition-colors text-sm font-semibold; }
+        }
+    </style>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* ══ HEADER (matches homepage exactly) ══ */
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: transparent;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        header.scrolled {
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(8, 23, 77, 0.08);
+        }
+
+        .header-logo {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s;
+        }
+
+        header.scrolled .header-logo {
+            filter: none;
+        }
+
+        .nav-link {
+            color: #fff;
+            transition: color 0.3s;
+            font-size: .9rem;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        header.scrolled .nav-link {
+            color: #08174d !important;
+        }
+
+        header.scrolled .nav-link:hover {
+            color: #133193 !important;
+        }
+
+        header.scrolled #menu-btn {
+            color: #08174d !important;
+        }
+
+        .nav-container {
+            display: flex;
+            height: 64px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-container {
+                height: 80px;
+                padding: 0 2rem;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 22, 40, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: #E87D2F;
+        }
+
+        /* ══ HERO — uses contactus.png as full-screen bg ══ */
+        .contact-hero {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .contact-hero {
+                min-height: 75vh;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-hero {
+                min-height: 100vh;
+                max-height: 800px;
+            }
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.04);
+            animation: hero-zoom 8s ease-out forwards;
+        }
+
+        @keyframes hero-zoom {
+            from {
+                transform: scale(1.04);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .65) 0%, rgba(0, 0, 0, .15) 60%, transparent 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 1.5rem 3.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                padding: 0 2rem 5rem;
+            }
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(232, 125, 47, .25);
+            border: 1px solid rgba(232, 125, 47, .5);
+            color: #fff;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            padding: .3rem .9rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.0;
+            letter-spacing: -.035em;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+            font-size: clamp(.88rem, 1.5vw, 1.05rem);
+            color: rgba(255, 255, 255, .8);
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        /* ══ CONTACT MAIN SECTION ══ */
+        .contact-section {
+            padding: 5rem 1.5rem;
+            background: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .contact-section {
+                padding: 7rem 2rem;
+            }
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1.15fr;
+                gap: 5rem;
+                align-items: start;
+            }
+        }
+
+        /* Info side */
+        .section-eyebrow {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #607080;
+            margin-bottom: .75rem;
+            display: block;
+        }
+
+        .contact-heading {
+            font-size: clamp(2rem, 5.5vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -.035em;
+            line-height: 1.05;
+            color: #0a1628;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-subtext {
+            font-size: .93rem;
+            color: #607080;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 440px;
+        }
+
+        .country-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .country-divider span {
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #0a1628;
+            white-space: nowrap;
+        }
+
+        .country-divider::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #E87D2F, transparent);
+        }
+
+        .detail-cards {
+            display: flex;
+            flex-direction: column;
+            gap: .85rem;
+        }
+
+        .detail-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: #f8fafc;
+            border: 1px solid #e8ecf0;
+            border-radius: 16px;
+            padding: 1.1rem 1.4rem;
+            transition: box-shadow .25s, border-color .25s;
+        }
+
+        .detail-card:hover {
+            box-shadow: 0 6px 24px rgba(232, 125, 47, .1);
+            border-color: rgba(232, 125, 47, .3);
+        }
+
+        .detail-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #E87D2F, #A52A2A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-icon svg {
+            width: 17px;
+            height: 17px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .detail-label {
+            font-size: .62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: #E87D2F;
+            margin-bottom: .15rem;
+        }
+
+        .detail-value {
+            font-size: .88rem;
+            font-weight: 600;
+            color: #0a1628;
+            line-height: 1.5;
+        }
+
+        /* ══ FORM CARD — same light card as CTA on homepage ══ */
+        .contact-form-card {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 28px;
+            padding: 2.75rem 2.25rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .05);
+        }
+
+        @media (min-width: 768px) {
+            .contact-form-card {
+                padding: 3rem 3rem;
+                border-radius: 32px;
+            }
+        }
+
+        .form-heading {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0a1628;
+            margin-bottom: .35rem;
+            letter-spacing: -.025em;
+        }
+
+        .form-sub {
+            font-size: .83rem;
+            color: #607080;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 560px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-size: .66rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #607080;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: #fff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            padding: .85rem 1rem;
+            color: #0a1628;
+            font-family: 'Inter', sans-serif;
+            font-size: .9rem;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+            width: 100%;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #b8c4cc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #E87D2F;
+            box-shadow: 0 0 0 3px rgba(232, 125, 47, .11);
+        }
+
+        .form-group textarea {
+            height: 110px;
+            resize: vertical;
+        }
+
+        .phone-wrap {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+
+        .flag-pill {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            background: #fff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            padding: .85rem 1rem;
+            flex-shrink: 0;
+            color: #0a1628;
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+        .flag-pill img {
+            width: 22px;
+            border-radius: 2px;
+        }
+
+        .phone-wrap input {
+            flex: 1;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            margin-top: .5rem;
+            background: linear-gradient(135deg, #E87D2F, #A52A2A);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: .95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity .25s, transform .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .75rem;
+        }
+
+        .btn-submit:hover {
+            opacity: .88;
+            transform: translateY(-1px);
+        }
+
+        .btn-submit svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2.5;
+        }
+
+        /* ══ STATS STRIP — light, same vibe as marquee sections ══ */
+        .stats-strip {
+            background: #f8fafc;
+            border-top: 1px solid #e8ecf0;
+            border-bottom: 1px solid #e8ecf0;
+            padding: 3.5rem 1.5rem;
+        }
+
+        .stats-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .stats-inner {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-num {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -.04em;
+            line-height: 1;
+            background: linear-gradient(135deg, #E87D2F, #A52A2A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: .7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: #607080;
+            margin-top: .4rem;
+        }
+
+        /* ══ MAP ══ */
+        .map-section {
+            background: #fff;
+        }
+
+        .map-wrap {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            overflow: hidden;
+        }
+
+        .map-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 1px solid #e8ecf0;
+            border-radius: 14px;
+            padding: 1rem 1.75rem;
+            text-align: center;
+            pointer-events: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .1);
+            white-space: nowrap;
+        }
+
+        .map-overlay strong {
+            font-size: .9rem;
+            font-weight: 700;
+            color: #0a1628;
+        }
+
+        .map-overlay p {
+            font-size: .75rem;
+            color: #607080;
+            margin-top: .2rem;
+        }
+
+        /* ══ CTA — exactly matches homepage ══ */
+        .cta-section {
+            padding: 3rem 1.5rem;
+            background: #fff;
+            border-top: 1px solid #e8ecf0;
+        }
+
+        @media (min-width: 768px) {
+            .cta-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .cta-inner {
+            background: #f1f5f9;
+            border-radius: 32px;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .cta-inner {
+                border-radius: 60px;
+                padding: 5rem 4rem;
+            }
+        }
+
+        .cta-title {
+            font-size: clamp(1.75rem, 6vw, 4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -.03em;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: #0a1628;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background: #E87D2F;
+            color: #fff;
+            padding: .9rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background .25s;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background: #A52A2A;
+        }
+
+        /* ══ FOOTER ══ */
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all .3s;
+            flex-shrink: 0;
+        }
+
+        .social-icon:hover {
+            border-color: #E87D2F;
+            background: #E87D2F;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            align-items: center;
+            text-align: center;
+            padding: 1.25rem 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                padding: 1.25rem 2rem;
+            }
+        }
+
+        /* ══ SCROLL TOP ══ */
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 500;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #E87D2F;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .3s, transform .3s;
+            box-shadow: 0 4px 16px rgba(232, 125, 47, .4);
+        }
+
+        #scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ══ REVEAL ══ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        .fade-up.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity .65s ease, transform .65s cubic-bezier(.16, 1, .3, 1);
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header id="main-header">
+        <div class="nav-container">
+            <a href="/"><img src="{{ url_for('static', filename='just_logo_no_text.png') }}" alt="SecureTech Logo"
+                    class="header-logo" /></a>
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
+                    <a href="/" class="nav-link text-sm font-medium">Home</a>
+                    <a href="/AboutUs" class="nav-link text-sm font-medium">About Us</a>
+                    <a href="/Solutionpage" class="nav-link text-sm font-medium">Solution</a>
+                    <a href="/CorporateProfile" class="nav-link text-sm font-medium">Corporate Profile</a>
+                </nav>
+                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
+                        Us</button></a>
+                <button id="menu-btn"
+                    style="display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#fff;padding:.5rem;"
+                    aria-label="Open menu">
+                    <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="/" onclick="closeMenu()">Home</a>
+        <a href="/AboutUs" onclick="closeMenu()">About Us</a>
+        <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
+        <a href="/CorporateProfile" onclick="closeMenu()">Corporate Profile</a>
+        <a href="/Contactus" onclick="closeMenu()"
+            style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
+    </div>
+
+    <main class="flex-1">
+
+        <!-- ═══════════════ HERO ═══════════════ -->
+        <section class="contact-hero">
+            <div class="hero-bg" style="background-image:url('{{ url_for('static', filename='contactus.png') }}');">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-eyebrow">Get In Touch</div>
+                <h1 class="hero-title">Contact<br>Us</h1>
+                <p class="hero-desc">Our team of AV specialists is ready to design seamless, immersive experiences
+                    tailored exactly to your needs.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CONTACT SECTION ═══════════════ -->
+        <section class="contact-section" id="contact">
+            <div class="contact-grid">
+
+                <!-- LEFT: Info -->
+                <div class="fade-up">
+                    <span class="section-eyebrow">Reach Out</span>
+                    <h2 class="contact-heading">Let's Build<br><span class="text-gradient">Together</span></h2>
+                    <p class="contact-subtext">Feel free to connect with us for any of your needs. Our support team is
+                        ready to assist — just send a message and we'll get back to you promptly.</p>
+
+                    <div class="country-divider"><span>India</span></div>
+
+                    <div class="detail-cards">
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="detail-label">Address</p>
+                                <p class="detail-value">A-70, Sector 33, Noida,<br>Uttar Pradesh – 201301</p>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="detail-label">Email</p>
+                                <p class="detail-value">ashish@securetechav.com</p>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="detail-label">Phone</p>
+                                <p class="detail-value">+91 70172 47344</p>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="detail-label">Alternate</p>
+                                <p class="detail-value">+91 70081 66042</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Form card -->
+                <div class="contact-form-card fade-up" style="--delay:.1s;">
+                    <h3 class="form-heading">Drop Us A Message</h3>
+                    <p class="form-sub">We'll get back to you within 24 hours.</p>
+
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="name" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" name="company" placeholder="Company name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <div class="phone-wrap">
+                                <div class="flag-pill">
+                                    <img src="{{ url_for('static', filename='flag.png') }}" alt="IN"> +91
+                                </div>
+                                <input type="text" name="phone" placeholder="Phone number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" name="location" placeholder="Your city" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message (Optional)</label>
+                            <textarea name="message" placeholder="Tell us about your project..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            Connect with SecureTech Today
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ═══════════════ MAP ═══════════════ -->
+        <section class="map-section">
+            <div class="map-wrap">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6174.160431626374!2d77.3509790616948!3d28.588703179313608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce51b9a3bb81f%3A0x806219bd741a009f!2sSECURETECH%20AV%20DESIGNS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin"
+                    allowfullscreen loading="lazy"></iframe>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer style="background:linear-gradient(135deg,#0a1628 0%,#0d1f3c 40%,#112240 100%);color:#fff;">
+        <div style="max-width:1400px;margin:0 auto;padding:3rem 1.5rem 2.5rem;">
+            <div style="display:grid;grid-template-columns:1fr;gap:2.5rem;">
+                <div style="display:flex;flex-direction:column;gap:1.25rem;">
+                    <h2
+                        style="font-size:clamp(2.2rem,9vw,4rem);font-weight:900;line-height:1;letter-spacing:-.03em;margin:0;">
+                        LET'S TALK</h2>
+                    <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.75;max-width:340px;margin:0;">
+                        Secure TechAV Designs Private Limited — driven by a passion for absolute technology.
+                        Architectural Acoustics, sound system design, and post-project service.</p>
+                    <a href="/Contactus"
+                        style="display:inline-flex;align-items:center;gap:.6rem;border:2px solid rgba(255,255,255,.4);color:#fff;padding:.7rem 1.8rem;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .3s;align-self:flex-start;"
+                        onmouseover="this.style.borderColor='#E87D2F';this.style.background='#E87D2F'"
+                        onmouseout="this.style.borderColor='rgba(255,255,255,.4)';this.style.background='transparent'">
+                        Enquire Now <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <div>
+                        <p
+                            style="font-size:.78rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:.65rem;text-transform:uppercase;letter-spacing:.1em;">
+                            Follow us</p>
+                        <div style="display:flex;gap:.65rem;flex-wrap:wrap;">
+                            <a href="https://www.linkedin.com/company/securetechav-designs/" target="_blank"
+                                class="social-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg></a>
+                            <a href="https://www.facebook.com/profile.php?id=61553741201034" target="_blank"
+                                class="social-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg></a>
+                            <a href="https://instagram.com/secuetechav" target="_blank" class="social-icon"><svg
+                                    width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:.75rem;">
+                    <h4 style="font-size:.88rem;font-weight:700;font-style:italic;color:#fff;margin:0 0 .25rem;">Find Us
+                    </h4>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6174.160431626374!2d77.3509790616948!3d28.588703179313608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce51b9a3bb81f%3A0x806219bd741a009f!2sSECURETECH%20AV%20DESIGNS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin"
+                        style="width:100%;height:170px;border-radius:12px;border:0;" allowfullscreen
+                        loading="lazy"></iframe>
+                    <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin:0;line-height:1.6;"><span
+                            style="color:#E87D2F;font-weight:600;">Address:</span> SecureTech AV Designs Pvt
+                        Ltd,<br>A-70, Sector 33, Noida, UP 201301</p>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+                    <div>
+                        <h4 style="font-size:.88rem;font-weight:700;font-style:italic;margin-bottom:.9rem;color:#fff;">
+                            Sitemap</h4>
+                        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.5rem;">
+                            <li><a href="/"
+                                    style="color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;transition:color .3s;"
+                                    onmouseover="this.style.color='#E87D2F'"
+                                    onmouseout="this.style.color='rgba(255,255,255,.6)'">Home</a></li>
+                            <li><a href="/Solutionpage"
+                                    style="color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;transition:color .3s;"
+                                    onmouseover="this.style.color='#E87D2F'"
+                                    onmouseout="this.style.color='rgba(255,255,255,.6)'">AV Solutions</a></li>
+                            <li><a href="/AboutUs"
+                                    style="color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;transition:color .3s;"
+                                    onmouseover="this.style.color='#E87D2F'"
+                                    onmouseout="this.style.color='rgba(255,255,255,.6)'">About Us</a></li>
+                            <li><a href="/Contactus"
+                                    style="color:#E87D2F;text-decoration:none;font-size:.84rem;font-weight:600;">Contact
+                                    Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size:.88rem;font-weight:700;font-style:italic;margin-bottom:.9rem;color:#fff;">Corporate Profile</h4>
+                        <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin:0 0 .85rem;line-height:1.6;">View or download our full company profile &amp; capabilities.</p>
+                        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                            <a href="/CorporateProfile" style="display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid #E87D2F;color:#fff;padding:.55rem 1.25rem;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;transition:background .3s;" onmouseover="this.style.background='#E87D2F'" onmouseout="this.style.background='transparent'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>View Profile</a>
+                            <a href="{{ url_for('static', filename='securetech_profile.pdf') }}" download style="display:inline-flex;align-items:center;gap:.5rem;background:#E87D2F;color:#fff;padding:.55rem 1.25rem;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;transition:background .3s;" onmouseover="this.style.background='#A52A2A'" onmouseout="this.style.background='#E87D2F'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.08);">
+            <div
+                style="max-width:1400px;margin:0 auto;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:10px;">
+                <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" style="height:32px;width:auto;"
+                    alt="SecureTech Logo" />
+                <span style="font-weight:700;font-size:.95rem;color:#fff;">SecureTech AV Designs</span>
+            </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.08);">
+            <div class="footer-bottom" style="max-width:1400px;margin:0 auto;">
+                <p style="font-size:.72rem;color:rgba(255,255,255,.4);margin:0;">Copyright © 2026 SecureTech AV Designs
+                    Private Limited. All rights reserved.</p>
+                <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;">
+                    <a href="#" style="font-size:.72rem;color:rgba(255,255,255,.4);text-decoration:none;"
+                        onmouseover="this.style.color='#E87D2F'"
+                        onmouseout="this.style.color='rgba(255,255,255,.4)'">Privacy Policy</a>
+                    <a href="#" style="font-size:.72rem;color:rgba(255,255,255,.4);text-decoration:none;"
+                        onmouseover="this.style.color='#E87D2F'"
+                        onmouseout="this.style.color='rgba(255,255,255,.4)'">Terms of Use</a>
+                    <a href="#" style="font-size:.72rem;color:rgba(255,255,255,.4);text-decoration:none;"
+                        onmouseover="this.style.color='#E87D2F'"
+                        onmouseout="this.style.color='rgba(255,255,255,.4)'">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @media(min-width:768px) {
+            footer>div:first-child>div {
+                grid-template-columns: 1.4fr 1fr 1fr !important;
+            }
+        }
+    </style>
+
+    <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+            // ── Desktop nav ──
+            (function () {
+                const dn = document.getElementById('desktop-nav'), dc = document.getElementById('desktop-cta'), mb = document.getElementById('menu-btn');
+                function cw() { if (window.innerWidth >= 1024) { dn.style.display = 'flex'; dc.style.display = 'block'; mb.style.display = 'none'; } else { dn.style.display = 'none'; dc.style.display = 'none'; mb.style.display = 'flex'; } }
+                cw(); window.addEventListener('resize', cw);
+            })();
+
+        // ── Mobile menu ──
+        const menuBtn = document.getElementById('menu-btn'), mobileMenu = document.getElementById('mobile-menu'), iconOpen = document.getElementById('icon-open'), iconClose = document.getElementById('icon-close');
+        let menuOpen = false;
+        menuBtn.addEventListener('click', () => { menuOpen = !menuOpen; mobileMenu.classList.toggle('open', menuOpen); iconOpen.style.display = menuOpen ? 'none' : 'block'; iconClose.style.display = menuOpen ? 'block' : 'none'; document.body.style.overflow = menuOpen ? 'hidden' : ''; });
+        function closeMenu() { menuOpen = false; mobileMenu.classList.remove('open'); iconOpen.style.display = 'block'; iconClose.style.display = 'none'; document.body.style.overflow = ''; }
+
+        // ── Header scroll ──
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+
+        // ── Scroll top ──
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
+
+        // ── Scroll reveal ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const delay = parseFloat(el.style.getPropertyValue('--delay') || '0') * 1000;
+                setTimeout(() => el.classList.add('revealed'), delay);
+                observer.unobserve(el);
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // ── EmailJS ──
+        emailjs.init("dOG8NY3cIaRMiwlBj");
+        const form = document.getElementById('contactForm');
+        const btn = document.getElementById('submitBtn');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            btn.innerHTML = 'Sending… <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" style="vertical-align:middle"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+            btn.disabled = true;
+            emailjs.sendForm("service_oslql4g", "template_hvwdaqg", this)
+                .then(() => {
+                    btn.innerHTML = '✓ Message Sent!';
+                    btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+                    form.reset();
+                    setTimeout(() => {
+                        btn.innerHTML = 'Connect with SecureTech Today <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" style="vertical-align:middle;margin-left:.5rem"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+                        btn.style.background = ''; btn.disabled = false;
+                    }, 3500);
+                })
+                .catch(() => {
+                    btn.innerHTML = 'Failed — Try Again';
+                    btn.style.background = 'linear-gradient(135deg,#ef4444,#dc2626)';
+                    btn.disabled = false;
+                });
+        });
+    </script>
+</body>
+
+</html>
