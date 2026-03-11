@@ -601,8 +601,8 @@
         </div>
 
         <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;">
-            <img src="images/securetech_av.png" alt="SecureTech AV Designs Logo" style="width:380px;margin-bottom:36px;"
-                onerror="this.src='just_logo_no_text.png';this.style.width='140px';">
+            <img src="{{ url_for('static', filename='securetech_av.webp') }}" alt="SecureTech AV Designs Logo" style="width:380px;margin-bottom:36px;"
+                onerror="this.src='{{ url_for('static', filename='just_logo_no_text.webp') }}';this.style.width='140px';">
             <h1>SecureTech AV Designs</h1>
             <div class="bar" style="margin:16px auto 12px;"></div>
             <h2 style="color:var(--primary-orange);font-size:22px;font-weight:600;letter-spacing:0.5px;">
@@ -655,7 +655,7 @@
 
         <!-- Right Side: Full Bleed Image -->
         <div style="flex:1.3;position:relative;">
-            <img src="images/securetech av/Give_me_the_image_used_in_bg_used_excat_same_in_hd_delpmaspu.png"
+            <img src="{{ url_for('static', filename='Give_me_the_image_used_in_bg_used_excat_same_in_hd_delpmaspu.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;object-position:center left;">
         </div>
     </div>
@@ -665,12 +665,12 @@
     ═══════════════════════════════════════════════════════════ -->
     <div class="slide" style="padding:0;">
         <div style="position:absolute;inset:0;z-index:0;">
-            <img src="images/securetech av/Genearte_image_give_me_exatc_clear_imaeg_that_yo_u_delpmaspu.png"
+            <img src="{{ url_for('static', filename='Genearte_image_give_me_exatc_clear_imaeg_that_yo_u_delpmaspu.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;">
             <div style="position:absolute;inset:0;background:rgba(255,255,255,0.45);"></div>
         </div>
 
-        <img src="just_logo_no_text.png" class="logo" alt="Logo" style="z-index:20;">
+        <img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" class="logo" alt="Logo" style="z-index:20;">
         <div class="slide-content" style="position:relative;z-index:10;padding:50px 70px;">
             <h2 style="color:var(--primary-red);font-size:38px;">Core <span
                     style="color:var(--charcoal);">Philosophy</span></h2>
@@ -742,7 +742,7 @@
         <!-- Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
             <!-- Increased opacity to show the image better -->
-            <img src="images/securetech av/audi1.png"
+            <img src="{{ url_for('static', filename='audi1.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;object-position:bottom;opacity:0.6;mix-blend-mode:luminosity;">
 
             <!-- Removed the solid white top. Now it is just a very subtle white wash that gets heavier at the bottom so text remains readable -->
@@ -751,7 +751,7 @@
             </div>
         </div>
 
-        <img src="just_logo_no_text.png" class="logo" alt="Logo" style="z-index:20;">
+        <img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" class="logo" alt="Logo" style="z-index:20;">
 
         <div class="slide-content" style="position:relative;z-index:10;padding:60px 80px;">
             <h2 style="color:var(--primary-orange);font-size:38px;margin-bottom:10px;">Expert Services</h2>
@@ -829,11 +829,11 @@
     <div class="slide">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/av_system.png"
+            <img src="{{ url_for('static', filename='av_system.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
-        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" class="logo" alt="Logo">
         <div class="slide-content" style="position:relative;z-index:10;">
             <h2 style="color:var(--primary-red);font-size:38px;">Complete AV Consulting <span
                     style="color:var(--charcoal);">Services</span></h2>
@@ -885,7 +885,7 @@
             <div class="bar"></div>
             <div class="g4" style="flex:1;align-items:stretch;">
                 <div class="vert-panel">
-                    <img src="images/securetech av/smart.jpeg" alt="Smart Meeting Rooms">
+                    <img src="{{ url_for('static', filename='smart.webp') }}" alt="Smart Meeting Rooms">
                     <div class="vert-panel-body">
                         <h3>Smart Meeting Rooms</h3>
                         <ul class="bullets">
@@ -896,8 +896,8 @@
                     </div>
                 </div>
                 <div class="vert-panel">
-                    <img src="images/securetech av/cmd.jpeg" alt="Command Centers"
-                        onerror="this.src='images/securetech av/control.png';">
+                    <img src="{{ url_for('static', filename='cmd.webp') }}" alt="Command Centers"
+                        onerror="this.src='{{ url_for('static', filename='control.webp') }}';">
                     <div class="vert-panel-body">
                         <h3>Command & Control</h3>
                         <ul class="bullets">
@@ -908,7 +908,7 @@
                     </div>
                 </div>
                 <div class="vert-panel">
-                    <img src="images/securetech av/wall.png" alt="LED Walls">
+                    <img src="{{ url_for('static', filename='wall.webp') }}" alt="LED Walls">
                     <div class="vert-panel-body">
                         <h3>LED Video Walls</h3>
                         <ul class="bullets">
@@ -919,7 +919,7 @@
                     </div>
                 </div>
                 <div class="vert-panel">
-                    <img src="images/securetech av/audi4_alt.png" alt="Auditoriums">
+                    <img src="{{ url_for('static', filename='audi4_alt.webp') }}" alt="Auditoriums">
                     <div class="vert-panel-body">
                         <h3>Immersive Auditoriums</h3>
                         <ul class="bullets">
@@ -943,56 +943,56 @@
             <div class="bar"></div>
             <div class="g4" style="flex:1;align-items:stretch;">
                 <div class="industry-tile">
-                    <img src="images/securetech av/it.png" alt="Corporate & IT">
+                    <img src="{{ url_for('static', filename='it.webp') }}" alt="Corporate & IT">
                     <div class="industry-overlay">
                         <h3>Corporate & IT</h3>
                         <p>Enterprise agile workspaces</p>
                     </div>
                 </div>
                 <div class="industry-tile">
-                    <img src="images/securetech av/edu.png" alt="Higher Education">
+                    <img src="{{ url_for('static', filename='edu.webp') }}" alt="Higher Education">
                     <div class="industry-overlay">
                         <h3>Higher Education</h3>
                         <p>Smart lecture halls & campuses</p>
                     </div>
                 </div>
                 <div class="industry-tile">
-                    <img src="images/securetech av/hospi.jpg" alt="Hospitality">
+                    <img src="{{ url_for('static', filename='hospi.webp') }}" alt="Hospitality">
                     <div class="industry-overlay">
                         <h3>Hospitality</h3>
                         <p>BGM, ballrooms & venues</p>
                     </div>
                 </div>
                 <div class="industry-tile">
-                    <img src="images/securetech av/gov.png" alt="Government">
+                    <img src="{{ url_for('static', filename='gov.webp') }}" alt="Government">
                     <div class="industry-overlay">
                         <h3>Government</h3>
                         <p>Secure briefing command centres</p>
                     </div>
                 </div>
                 <div class="industry-tile">
-                    <img src="images/securetech av/stad.png" alt="Stadiums">
+                    <img src="{{ url_for('static', filename='stad.webp') }}" alt="Stadiums">
                     <div class="industry-overlay">
                         <h3>Stadiums & Venues</h3>
                         <p>Mass broadcasting & PA</p>
                     </div>
                 </div>
                 <div class="industry-tile">
-                    <img src="images/securetech av/retail.png" alt="Retail">
+                    <img src="{{ url_for('static', filename='retail.webp') }}" alt="Retail">
                     <div class="industry-overlay">
                         <h3>Retail & Malls</h3>
                         <p>Digital signage networks</p>
                     </div>
                 </div>
                 <div class="industry-tile">
-                    <img src="images/securetech av/public_infrastructure.jpeg" alt="Public Infrastructure">
+                    <img src="{{ url_for('static', filename='public_infrastructure.webp') }}" alt="Public Infrastructure">
                     <div class="industry-overlay">
                         <h3>Public Infra</h3>
                         <p>Transit hubs & PAVA safety</p>
                     </div>
                 </div>
                 <div class="industry-tile">
-                    <img src="images/securetech av/places_of_worship.jpeg" alt="Houses of Worship">
+                    <img src="{{ url_for('static', filename='places_of_worship.webp') }}" alt="Houses of Worship">
                     <div class="industry-overlay">
                         <h3>Houses of Worship</h3>
                         <p>Acoustic & vocal clarity</p>
@@ -1013,7 +1013,7 @@
             <div class="bar"></div>
             <div style="display:flex;flex-direction:column;gap:16px;flex:1;justify-content:center;">
                 <div class="case-card">
-                    <img src="images/securetech av/iitd.jpg" alt="IIT Delhi">
+                    <img src="{{ url_for('static', filename='iitd.webp') }}" alt="IIT Delhi">
                     <div class="case-info">
                         <h3>IIT Delhi — Smart Campus Integration</h3>
                         <p><strong>Scope:</strong> Auditorium overhaul and digital classroom AV network spanning the
@@ -1023,7 +1023,7 @@
                     </div>
                 </div>
                 <div class="case-card">
-                    <img src="images/securetech av/gujarat-science-city.jpg" alt="Gujarat Science City">
+                    <img src="{{ url_for('static', filename='gujarat-science-city.webp') }}" alt="Gujarat Science City">
                     <div class="case-info">
                         <h3>Gujarat Science City — Immersive AV</h3>
                         <p><strong>Scope:</strong> Immersive audiovisual integration across digital galleries and
@@ -1032,7 +1032,7 @@
                     </div>
                 </div>
                 <div class="case-card">
-                    <img src="images/securetech av/iitjodhpur.jpeg" alt="IIT Jodhpur">
+                    <img src="{{ url_for('static', filename='iitjodhpur.webp') }}" alt="IIT Jodhpur">
                     <div class="case-info">
                         <h3>IIT Jodhpur — Hybrid Learning AV</h3>
                         <p><strong>Scope:</strong> Unified communication standard across 50+ lecture theatres.</p>
@@ -1049,11 +1049,11 @@
     <div class="slide">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/crausal.jpg"
+            <img src="{{ url_for('static', filename='crausal.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
-        <img src="just_logo_no_text.png" class="logo" alt="Logo">
+        <img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" class="logo" alt="Logo">
         <div class="slide-content" style="position:relative;z-index:10;padding:50px 70px;">
             <h2 style="color:var(--primary-orange);font-size:38px;">Why SecureTech AV Designs?</h2>
             <div class="bar" style="margin-bottom:40px;width:70px;height:4px;background:var(--primary-orange);"></div>
@@ -1136,7 +1136,7 @@
         <img src="just_logo_no_text.png" class="logo" alt="Logo">
         <div class="split">
             <div class="split-right" style="padding:40px 20px 40px 72px;">
-                <img src="images/securetech av/board.png" alt="QA Board">
+                <img src="{{ url_for('static', filename='board.webp') }}" alt="QA Board">
             </div>
             <div class="split-left" style="padding:60px 72px 60px 40px;">
                 <h2>QA / Standards &amp; Testing</h2>
@@ -1164,7 +1164,7 @@
     <div class="slide">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/cmd.jpeg"
+            <img src="{{ url_for('static', filename='cmd.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
@@ -1204,7 +1204,7 @@
     <div class="slide">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/hotel.jpeg"
+            <img src="{{ url_for('static', filename='hotel.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
@@ -1260,7 +1260,7 @@
     <div class="slide">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/smart.jpeg"
+            <img src="{{ url_for('static', filename='smart.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
@@ -1319,16 +1319,16 @@
             <!-- Image strip -->
             <div style="display:flex;gap:14px;height:90px;">
                 <div style="flex:1;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-                    <img src="images/securetech av/conference.jpg" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="{{ url_for('static', filename='conference.webp') }}" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div style="flex:1;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-                    <img src="images/securetech av/smart.jpeg" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="{{ url_for('static', filename='smart.webp') }}" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div style="flex:1;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-                    <img src="images/securetech av/wall.png" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="{{ url_for('static', filename='wall.webp') }}" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div style="flex:1;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-                    <img src="images/securetech av/iitd.jpg" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="{{ url_for('static', filename='iitd.webp') }}" style="width:100%;height:100%;object-fit:cover;">
                 </div>
             </div>
 
@@ -1339,21 +1339,21 @@
                     Our Clients</h3>
                 <div
                     style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px;align-items:center;background:#fff;padding:16px 28px;border-radius:10px;border:1px solid #ECECEC;box-shadow:0 4px 14px rgba(0,0,0,0.04);">
-                    <img src="securetech-main/securetech-main/public/p2-1@2x.png"
+                    <img src="{{ url_for('static', filename='p2-1@2x.webp') }}"
                         style="height:65px;max-width:140px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p1-1@2x.png"
+                    <img src="{{ url_for('static', filename='p1-1@2x.webp') }}"
                         style="height:65px;max-width:140px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p17-1@2x.png"
+                    <img src="{{ url_for('static', filename='p17-1@2x.webp') }}"
                         style="height:65px;max-width:140px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p14-1@2x.png"
+                    <img src="{{ url_for('static', filename='p14-1@2x.webp') }}"
                         style="height:65px;max-width:140px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p12-1@2x.png"
+                    <img src="{{ url_for('static', filename='p12-1@2x.webp') }}"
                         style="height:65px;max-width:140px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p10-1@2x.png"
+                    <img src="{{ url_for('static', filename='p10-1@2x.webp') }}"
                         style="height:65px;max-width:140px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/dslogo.png"
+                    <img src="{{ url_for('static', filename='dslogo.webp') }}"
                         style="height:65px;max-width:140px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/c1-1@2x.png"
+                    <img src="{{ url_for('static', filename='c1-1@2x.webp') }}"
                         style="height:65px;max-width:140px;object-fit:contain;">
                 </div>
             </div>
@@ -1365,31 +1365,31 @@
                     Technology Partners &amp; Brands</h3>
                 <div
                     style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;align-items:center;background:#fff;padding:14px 28px;border-radius:10px;border:1px solid #ECECEC;box-shadow:0 4px 14px rgba(0,0,0,0.04);">
-                    <img src="securetech-main/securetech-main/public/senheiserlogo.png"
+                    <img src="{{ url_for('static', filename='senheiserlogo.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/britishacousticscommerciallogo2019copy300webp@2x.png"
+                    <img src="{{ url_for('static', filename='britishacousticscommerciallogo2019copy300webp@2x.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/qnclogo.png"
+                    <img src="{{ url_for('static', filename='qnclogo.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/christielogo.png"
+                    <img src="{{ url_for('static', filename='christielogo.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/sonylogo685450c77eseeklogocomwebp@2x.png"
+                    <img src="{{ url_for('static', filename='sonylogo685450c77eseeklogocomwebp@2x.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/boselogo.png"
+                    <img src="{{ url_for('static', filename='boselogo.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/jbllogo.png"
+                    <img src="{{ url_for('static', filename='jbllogo.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/ciscologo.png"
+                    <img src="{{ url_for('static', filename='ciscologo.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/lglogo.png"
+                    <img src="{{ url_for('static', filename='lglogo.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p16-1@2x.png"
+                    <img src="{{ url_for('static', filename='p16-1@2x.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p19@2x.png"
+                    <img src="{{ url_for('static', filename='p19@2x.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p4-1@2x.png"
+                    <img src="{{ url_for('static', filename='p4-1@2x.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
-                    <img src="securetech-main/securetech-main/public/p5-1@2x.png"
+                    <img src="{{ url_for('static', filename='p5-1@2x.webp') }}"
                         style="height:38px;max-width:110px;object-fit:contain;">
                 </div>
             </div>
@@ -1404,7 +1404,7 @@
         <img src="just_logo_no_text.png" class="logo" alt="Logo" style="filter:brightness(0) invert(1);z-index:20;">
         <!-- Cinematic full-bleed background -->
         <div style="position:absolute;inset:0;z-index:0;">
-            <img src="images/securetech av/conference.jpg" style="width:100%;height:100%;object-fit:cover;">
+            <img src="{{ url_for('static', filename='conference.webp') }}" style="width:100%;height:100%;object-fit:cover;">
             <div
                 style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(40,40,40,0.90) 0%,rgba(143,41,45,0.75) 100%);">
             </div>
@@ -1467,7 +1467,7 @@
     <div class="slide" style="background:var(--light-gray);">
         <img src="just_logo_no_text.png" class="logo" alt="Logo">
         <div style="position:absolute;top:0;right:0;width:340px;height:100%;z-index:0;overflow:hidden;">
-            <img src="images/securetech av/smart.jpeg" style="width:100%;height:100%;object-fit:cover;opacity:0.14;">
+            <img src="{{ url_for('static', filename='smart.webp') }}" style="width:100%;height:100%;object-fit:cover;opacity:0.14;">
         </div>
         <div class="slide-content" style="z-index:10;position:relative;">
             <h2 style="color:var(--primary-red);font-size:38px;">Technology Capability <span
@@ -1581,7 +1581,7 @@
     <div class="slide">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/convention_centres.jpeg"
+            <img src="{{ url_for('static', filename='convention_centres.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
@@ -1729,7 +1729,7 @@
     <div class="slide" style="background:#111;padding:0;overflow:hidden;">
         <img src="just_logo_no_text.png" class="logo" style="filter:brightness(0) invert(1);z-index:20;" alt="Logo">
         <div style="width:54%;height:100%;position:absolute;left:0;top:0;overflow:hidden;z-index:1;">
-            <img src="images/securetech av/wall.png" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+            <img src="{{ url_for('static', filename='wall.webp') }}" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
             <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,#111 100%);">
             </div>
         </div>
@@ -1751,17 +1751,17 @@
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
                 <div style="border-radius:8px;overflow:hidden;height:105px;box-shadow:0 4px 14px rgba(0,0,0,0.4);">
-                    <img src="images/securetech av/smart.jpeg" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="{{ url_for('static', filename='smart.webp') }}" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div style="border-radius:8px;overflow:hidden;height:105px;box-shadow:0 4px 14px rgba(0,0,0,0.4);">
-                    <img src="images/securetech av/iitd.jpg" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="{{ url_for('static', filename='iitd.webp') }}" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div style="border-radius:8px;overflow:hidden;height:105px;box-shadow:0 4px 14px rgba(0,0,0,0.4);">
-                    <img src="images/securetech av/gujarat-science-city.jpg"
+                    <img src="{{ url_for('static', filename='gujarat-science-city.webp') }}"
                         style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div style="border-radius:8px;overflow:hidden;height:105px;box-shadow:0 4px 14px rgba(0,0,0,0.4);">
-                    <img src="images/securetech av/conference.jpg" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="{{ url_for('static', filename='conference.webp') }}" style="width:100%;height:100%;object-fit:cover;">
                 </div>
             </div>
         </div>
@@ -1773,7 +1773,7 @@
     <div class="slide" style="background:var(--light-gray);">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/edu.png"
+            <img src="{{ url_for('static', filename='edu.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
@@ -1986,7 +1986,7 @@
                 </div>
             </div>
             <div class="split-right" style="justify-content:center;align-items:center;padding:50px 60px 50px 30px;">
-                <img src="images/securetech av/board.png" alt="Compliance Standards"
+                <img src="{{ url_for('static', filename='board.webp') }}" alt="Compliance Standards"
                     style="width:100%;height:320px;object-fit:cover;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,0.10);">
             </div>
         </div>
@@ -1998,7 +1998,7 @@
     <div class="slide">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/it.png"
+            <img src="{{ url_for('static', filename='it.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
@@ -2066,7 +2066,7 @@
     <div class="slide" style="align-items:center;justify-content:center;text-align:center;background:#fff;">
         <!-- Injected Background Image -->
         <div style="position:absolute;inset:0;z-index:0;overflow:hidden;opacity:0.06;pointer-events:none;">
-            <img src="images/securetech av/hospi.jpg"
+            <img src="{{ url_for('static', filename='hospi.webp') }}"
                 style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%);">
         </div>
 
