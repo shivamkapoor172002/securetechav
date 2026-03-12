@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "SecureTech AV Designs",
+    "name_for_model": "securetech_av",
+    "description_for_human": "India's #1 AV system integrator — audio visual solutions, architectural acoustics, smart classrooms, boardroom AV, auditorium sound systems, lighting design, IT infrastructure.",
+    "description_for_model": "SecureTech AV Designs Private Limited is India's leading AV (Audio Visual) system integrator. Services include: (1) Architectural Acoustics - sound isolation, acoustic treatment, room optimization for auditoriums, studios, commercial spaces; (2) Audio Visual Systems - professional audio, video walls, projection, conferencing, digital signage, PA systems; (3) Lighting Architecture - architectural lighting, stage lighting, LED, smart lighting control; (4) Information Technology - IT infrastructure, network design, structured cabling, server rooms; (5) Project Management - end-to-end AV project lifecycle; (6) Post-Project Services - AMC, 24/7 support, upgrades. Sectors: Corporate boardrooms, Education smart classrooms, Healthcare, Government, Retail, Residential home theatres, Auditoriums, Stadiums, Cinemas, Clubs, Judiciary courts. Brand partners: Bose, JBL, Sennheiser, Sony, LG, Cisco, Christie, Kramer, QNC, British Acoustics. Location: A-70, Sector 33, Noida, UP 201301, India. 150+ clients, 200+ projects, 5-star Google rating (29 reviews).",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://securetechav.com/sitemap.xml"
+    },
+    "logo_url": "https://securetechav.com/static/securetech_av.webp",
+    "contact_email": "info@securetechav.com",
+    "legal_info_url": "https://securetechav.com/"
+}

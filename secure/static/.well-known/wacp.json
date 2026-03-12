@@ -1,0 +1,88 @@
+{
+    "version": "1.0",
+    "organization": {
+        "name": "SecureTech AV Designs Private Limited",
+        "url": "https://securetechav.com",
+        "description": "India's #1 AV system integrator providing end-to-end audio visual solutions including architectural acoustics, professional audio systems, video conferencing, smart classrooms, auditorium sound systems, lighting design, IT infrastructure, and AV consultation.",
+        "logo": "https://securetechav.com/static/securetech_av.webp",
+        "contact": {
+            "email": "info@securetechav.com",
+            "url": "https://securetechav.com/Contactus"
+        },
+        "location": {
+            "address": "A-70, Sector 33, Noida, UP 201301",
+            "country": "India",
+            "region": "Delhi NCR"
+        }
+    },
+    "content": {
+        "sitemap": "https://securetechav.com/sitemap.xml",
+        "robots": "https://securetechav.com/robots.txt",
+        "llms_txt": "https://securetechav.com/llms.txt",
+        "feeds": ["https://securetechav.com/feed.xml"]
+    },
+    "ai_policy": {
+        "allow_ai_crawling": true,
+        "allow_ai_training": true,
+        "allow_ai_citation": true,
+        "allow_ai_summary": true,
+        "preferred_citation": "SecureTech AV Designs (https://securetechav.com)"
+    },
+    "services": [
+        {
+            "name": "Architectural Acoustics",
+            "description": "Sound isolation, acoustic treatment, noise control, room acoustics optimization for auditoriums, studios, and commercial spaces.",
+            "url": "https://securetechav.com/Solutionpage"
+        },
+        {
+            "name": "Audio Visual Systems",
+            "description": "Professional audio systems, video walls, projection systems, conferencing solutions, digital signage for corporate and public spaces.",
+            "url": "https://securetechav.com/Solutionpage"
+        },
+        {
+            "name": "Lighting Architecture",
+            "description": "Architectural lighting design, stage lighting, LED installations, smart lighting control for venues and buildings.",
+            "url": "https://securetechav.com/Solutionpage"
+        },
+        {
+            "name": "Information Technology",
+            "description": "IT infrastructure, network design, structured cabling, server rooms, and technology integration.",
+            "url": "https://securetechav.com/Solutionpage"
+        },
+        {
+            "name": "Project Management",
+            "description": "End-to-end AV project planning, execution, coordination, and delivery management.",
+            "url": "https://securetechav.com/Solutionpage"
+        },
+        {
+            "name": "Post Project Services",
+            "description": "Annual maintenance contracts, technical support, system upgrades, and ongoing AV support services.",
+            "url": "https://securetechav.com/Solutionpage"
+        }
+    ],
+    "sectors": [
+        "Corporate Offices",
+        "Educational Institutions",
+        "Healthcare Facilities",
+        "Government Buildings",
+        "Retail Spaces",
+        "Residential Luxury Homes",
+        "Auditoriums & Theatres",
+        "Stadiums & Arenas",
+        "Cinemas",
+        "Clubs & Nightlife",
+        "Judiciary Courts"
+    ],
+    "brand_partners": [
+        "Bose Professional",
+        "JBL Professional",
+        "Sennheiser",
+        "Sony",
+        "LG",
+        "Cisco",
+        "Christie",
+        "Kramer",
+        "QNC",
+        "British Acoustics"
+    ]
+}

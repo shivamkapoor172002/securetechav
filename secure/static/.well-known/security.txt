@@ -1,0 +1,5 @@
+Contact: mailto:info@securetechav.com
+Contact: https://securetechav.com/Contactus
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://securetechav.com/.well-known/security.txt

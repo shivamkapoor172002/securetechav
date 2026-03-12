@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>SecureTech AV Designs — India's #1 AV System Integrator</title>
+        <link>https://securetechav.com</link>
+        <description>Latest updates from SecureTech AV Designs — India's leading AV system integrator providing architectural acoustics, audio visual solutions, smart classrooms, boardroom AV, auditorium sound systems, lighting design, and IT infrastructure.</description>
+        <language>en-in</language>
+        <lastBuildDate>Wed, 12 Mar 2026 15:30:00 +0530</lastBuildDate>
+        <atom:link href="https://securetechav.com/feed.xml" rel="self" type="application/rss+xml"/>
+        <image>
+            <url>https://securetechav.com/static/securetech_av.webp</url>
+            <title>SecureTech AV Designs</title>
+            <link>https://securetechav.com</link>
+        </image>
+
+        <item>
+            <title>SecureTech AV Designs — Premium Audio Visual Integrators in India</title>
+            <link>https://securetechav.com/</link>
+            <description>SecureTech AV Designs is India's leading AV system integrator. We provide end-to-end audio visual solutions including architectural acoustics, professional audio systems, video conferencing, smart classrooms, auditorium sound systems, lighting design, IT infrastructure, and AV consultation for corporate, education, healthcare, government, and residential sectors. 150+ clients, 200+ projects, 5-star Google rating.</description>
+            <pubDate>Wed, 12 Mar 2026 15:00:00 +0530</pubDate>
+            <guid>https://securetechav.com/</guid>
+        </item>
+
+        <item>
+            <title>Our AV Solutions — Acoustics, Audio Visual, Lighting &amp; IT Infrastructure</title>
+            <link>https://securetechav.com/Solutionpage</link>
+            <description>Explore our comprehensive AV solutions: Architectural Acoustics for auditoriums and studios, Professional Audio Visual Systems for boardrooms and conferencing, Lighting Architecture for venues and buildings, IT Infrastructure design, Project Management, and Post-Project Support with AMC services.</description>
+            <pubDate>Wed, 12 Mar 2026 14:00:00 +0530</pubDate>
+            <guid>https://securetechav.com/Solutionpage</guid>
+        </item>
+
+        <item>
+            <title>About SecureTech AV Designs — Leading AV System Integrators</title>
+            <link>https://securetechav.com/AboutUs</link>
+            <description>Learn about SecureTech AV Designs — India's premier AV system integrator engineering seamless, immersive audio visual experiences for corporate offices, educational institutions, auditoriums, healthcare facilities, and government buildings since 2020.</description>
+            <pubDate>Wed, 12 Mar 2026 13:00:00 +0530</pubDate>
+            <guid>https://securetechav.com/AboutUs</guid>
+        </item>
+
+        <item>
+            <title>Contact SecureTech AV Designs for AV Solutions &amp; Consultation</title>
+            <link>https://securetechav.com/Contactus</link>
+            <description>Get in touch with SecureTech AV Designs for audio visual solutions, AV consultation, acoustic design, smart classroom setup, boardroom AV, and IT infrastructure services across India. Located at A-70, Sector 33, Noida, UP 201301.</description>
+            <pubDate>Wed, 12 Mar 2026 12:00:00 +0530</pubDate>
+            <guid>https://securetechav.com/Contactus</guid>
+        </item>
+
+        <item>
+            <title>SecureTech AV Corporate Profile — Capabilities &amp; Portfolio</title>
+            <link>https://securetechav.com/CorporateProfile</link>
+            <description>View or download the full SecureTech AV Designs corporate profile showcasing our capabilities, project portfolio, brand partnerships with Bose, JBL, Sennheiser, Sony, LG, Cisco, Christie, and Kramer, and our track record of 200+ successful AV integration projects.</description>
+            <pubDate>Wed, 12 Mar 2026 11:00:00 +0530</pubDate>
+            <guid>https://securetechav.com/CorporateProfile</guid>
+        </item>
+    </channel>
+</rss>

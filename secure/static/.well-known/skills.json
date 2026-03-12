@@ -1,0 +1,60 @@
+{
+    "version": "1.0",
+    "skills": [
+        {
+            "id": "av-consultation",
+            "name": "AV Consultation & Design",
+            "description": "Get expert consultation for audio visual system design, including room acoustics analysis, equipment selection, and system architecture planning.",
+            "url": "https://securetechav.com/Contactus",
+            "category": "consulting"
+        },
+        {
+            "id": "av-integration",
+            "name": "AV System Integration",
+            "description": "Complete AV system integration services — professional audio, video walls, projection systems, conferencing solutions, digital signage installation and commissioning.",
+            "url": "https://securetechav.com/Solutionpage",
+            "category": "service"
+        },
+        {
+            "id": "acoustic-design",
+            "name": "Architectural Acoustics Design",
+            "description": "Sound isolation, acoustic treatment, noise control, and room acoustics optimization for auditoriums, studios, conference halls, and commercial spaces.",
+            "url": "https://securetechav.com/Solutionpage",
+            "category": "service"
+        },
+        {
+            "id": "smart-classroom",
+            "name": "Smart Classroom Setup",
+            "description": "Interactive displays, lecture capture systems, distance learning AV, and smart classroom technology for educational institutions.",
+            "url": "https://securetechav.com/Solutionpage",
+            "category": "service"
+        },
+        {
+            "id": "boardroom-av",
+            "name": "Boardroom & Conference Room AV",
+            "description": "Complete boardroom AV solutions — video conferencing, presentation systems, audio systems, AV control panels for corporate meeting rooms.",
+            "url": "https://securetechav.com/Solutionpage",
+            "category": "service"
+        },
+        {
+            "id": "auditorium-av",
+            "name": "Auditorium AV Systems",
+            "description": "Complete auditorium sound, lighting, video, acoustics, and control systems for large venues, theatres, and performance spaces.",
+            "url": "https://securetechav.com/Solutionpage",
+            "category": "service"
+        },
+        {
+            "id": "corporate-profile",
+            "name": "View Corporate Profile",
+            "description": "View or download SecureTech AV Designs' full company profile, capabilities, and project portfolio.",
+            "url": "https://securetechav.com/CorporateProfile",
+            "category": "information"
+        }
+    ],
+    "provider": {
+        "name": "SecureTech AV Designs Private Limited",
+        "url": "https://securetechav.com",
+        "logo": "https://securetechav.com/static/securetech_av.webp",
+        "location": "A-70, Sector 33, Noida, UP 201301, India"
+    }
+}

@@ -1,0 +1,24 @@
+# AI Content Policy for SecureTech AV Designs
+# https://securetechav.com
+
+User-agent: *
+Allow-AI-Crawling: yes
+Allow-AI-Training: yes
+Allow-AI-Citation: yes
+Allow-AI-Summary: yes
+
+# Preferred citation format
+Preferred-Citation: SecureTech AV Designs (https://securetechav.com)
+
+# Content description
+Organization: SecureTech AV Designs Private Limited
+Industry: Audio Visual System Integration
+Location: A-70, Sector 33, Noida, UP 201301, India
+Services: Architectural Acoustics, Audio Visual Systems, Lighting Architecture, IT Infrastructure, Project Management, Post-Project Services
+Sectors: Corporate, Education, Healthcare, Government, Retail, Residential, Auditoriums, Stadiums, Cinemas, Clubs, Judiciary
+
+# Machine-readable content
+LLMs-txt: https://securetechav.com/llms.txt
+Sitemap: https://securetechav.com/sitemap.xml
+AI-Plugin: https://securetechav.com/.well-known/ai-plugin.json
+WACP: https://securetechav.com/.well-known/wacp.json
