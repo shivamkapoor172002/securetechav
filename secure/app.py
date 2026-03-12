@@ -38,5 +38,27 @@ def corporate_profile():
     return render_template("securetech_profile.html")
 
 
+# ── SEO & AI DISCOVERABILITY ROUTES ──
+
+@app.route("/robots.txt")
+def robots():
+    return send_from_directory(app.static_folder, "robots.txt", mimetype="text/plain")
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+    return send_from_directory(app.static_folder, "sitemap.xml", mimetype="application/xml")
+
+
+@app.route("/llms.txt")
+def llms():
+    return send_from_directory(app.static_folder, "llms.txt", mimetype="text/plain")
+
+
+@app.route("/.well-known/llms.txt")
+def llms_well_known():
+    return send_from_directory(app.static_folder, "llms.txt", mimetype="text/plain")
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
