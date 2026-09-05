@@ -75,24 +75,64 @@
     var scriptLoading = false;
 
     // ── cookie helpers ────────────────────────────────────────────────
+    // The widget writes googtrans on the registrable domain, so on
+    // www.securetechav.com the cookie lands on ".securetechav.com" while the
+    // page is served from "www.securetechav.com". Deleting only the exact
+    // hostname left that one alive and every reload re-translated. Walk the
+    // whole suffix chain instead; writes to a public suffix are simply
+    // ignored by the browser.
+    function domainVariants() {
+        var host = location.hostname;
+        var out = [null];                     // host-only cookie
+        if (host.indexOf('.') === -1) return out;          // localhost
+        if (/^[0-9.]+$/.test(host)) return out;            // bare IP
+        var parts = host.split('.');
+        for (var i = 0; i <= parts.length - 2; i++) {
+            var d = parts.slice(i).join('.');
+            out.push(d, '.' + d);
+        }
+        return out;
+    }
+
     function readLang() {
-        var m = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
-        if (!m) return SOURCE;
-        var parts = decodeURIComponent(m[1]).split('/');
-        return parts[2] || SOURCE;
+        // several googtrans cookies can coexist across domain scopes; the
+        // language is whatever the last well-formed one says
+        var found = SOURCE;
+        var all = document.cookie.split(';');
+        for (var i = 0; i < all.length; i++) {
+            var kv = all[i].split('=');
+            if (kv.shift().trim() !== COOKIE) continue;
+            var parts = decodeURIComponent(kv.join('=')).split('/');
+            if (parts[2]) found = parts[2];
+        }
+        return found;
+    }
+
+    function clearLang() {
+        var doms = domainVariants();
+        var paths = ['/', location.pathname];
+        for (var i = 0; i < doms.length; i++) {
+            for (var j = 0; j < paths.length; j++) {
+                var c = COOKIE + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=' + paths[j];
+                if (doms[i]) c += ';domain=' + doms[i];
+                document.cookie = c;
+            }
+        }
+        // Google also honours a #googtrans(..) fragment
+        if (location.hash.indexOf('googtrans') !== -1) {
+            history.replaceState(null, '', location.pathname + location.search);
+        }
     }
 
     function writeLang(code) {
-        // Google reads this cookie on init. Write it on every host variant
-        // so it survives www/apex and path differences.
-        var value = code === SOURCE ? '' : '/' + SOURCE + '/' + code;
-        var host = location.hostname;
-        var expiry = code === SOURCE
-            ? 'expires=Thu, 01 Jan 1970 00:00:00 GMT;'
-            : '';
-        var bases = ['', ';domain=' + host, ';domain=.' + host];
-        for (var i = 0; i < bases.length; i++) {
-            document.cookie = COOKIE + '=' + value + ';path=/' + bases[i] + ';' + expiry;
+        clearLang();                          // never leave a stale scope behind
+        if (code === SOURCE) return;
+        var value = '/' + SOURCE + '/' + code;
+        var doms = domainVariants();
+        for (var i = 0; i < doms.length; i++) {
+            var c = COOKIE + '=' + value + ';path=/';
+            if (doms[i]) c += ';domain=' + doms[i];
+            document.cookie = c;
         }
     }
 
@@ -147,13 +187,14 @@
         writeLang(code);
         try { localStorage.setItem('stav-lang', code); } catch (e) { }
 
-        // Back to English, or the widget is not on the page yet: a reload is
-        // the only reliable way to undo an in-place translation.
-        if (code === SOURCE || !applyNow(code)) {
-            location.reload();
-        } else {
-            paintTriggers(code);
+        if (code === SOURCE) {
+            // Reload to the clean URL. The widget rewrote the DOM in place and
+            // there is no reliable way to put the original text back.
+            location.replace(location.pathname + location.search);
+            return;
         }
+        if (!applyNow(code)) location.reload();
+        else paintTriggers(code);
     }
 
     // ── UI ────────────────────────────────────────────────────────────
