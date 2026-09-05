@@ -1116,6 +1116,31 @@
 
         }
 
+
+        /* ─── SCREEN FIT ───────────────────────────────────────────
+           This page is a fixed 16:9 slide deck (338.67mm x 190.5mm, i.e.
+           1280x720px per slide) authored for PDF export, so its internals
+           cannot reflow. Rather than rebuild it, scale each slide down to
+           the viewport on screen and pull the layout box in by the same
+           amount, so no phantom width is left behind to scroll into.
+           Print is untouched: the rule is inside @media screen. */
+        @media screen {
+            html {
+                overflow-x: hidden;
+            }
+
+            body {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .slide {
+                transform: scale(var(--deck-scale, 1));
+                transform-origin: top left;
+                margin-right: calc((var(--deck-scale, 1) - 1) * 1280px);
+                margin-bottom: calc((var(--deck-scale, 1) - 1) * 720px);
+            }
+        }
     </style>
 
 </head>
@@ -4244,6 +4269,22 @@
 
 
 
+<script>
+    // Sizes the slide deck to the viewport. The slide itself is a fixed
+    // 1280x720 box, so we hand CSS a scale factor rather than trying to
+    // reflow a layout that was never built to reflow.
+    (function () {
+        var SLIDE_W = 1280;
+        function fit() {
+            var gutter = window.innerWidth < 700 ? 16 : 48;
+            var scale = Math.min(1, (window.innerWidth - gutter) / SLIDE_W);
+            document.documentElement.style.setProperty('--deck-scale', scale.toFixed(4));
+        }
+        fit();
+        window.addEventListener('resize', fit, { passive: true });
+        window.addEventListener('orientationchange', fit);
+    })();
+</script>
 </body>
 
 

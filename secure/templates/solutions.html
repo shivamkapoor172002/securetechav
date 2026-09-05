@@ -1160,6 +1160,59 @@
             transform: translateY(0);
             transition: opacity .7s ease, transform .7s cubic-bezier(.16, 1, .3, 1)
         }
+
+        /* ─── RESPONSIVE FIXES ─────────────────────────────────────
+           Verified in headless Chromium at 360/390/430/768/820/1024/1440. */
+
+        /* The desktop nav is switched on at 1024px by JS, but the full row
+           (logo + wordmark + 3 links + search + language + CTA) measures
+           ~1081px, so the Contact Us button was being cut off by the body's
+           overflow-x guard between 1024px and ~1100px. Tighten the row across
+           that band so everything fits. */
+        @media (min-width: 1024px) and (max-width: 1199px) {
+            .nav-container {
+                padding: 0 1.25rem;
+            }
+
+            .brand-name {
+                font-size: 1rem;
+            }
+
+            #desktop-nav {
+                gap: 1.3rem;
+            }
+
+            #desktop-tools {
+                gap: .7rem;
+            }
+
+            .nav-link {
+                font-size: .95rem;
+            }
+
+            .pill-button {
+                padding: .45rem 1rem;
+                font-size: .95rem;
+            }
+        }
+
+        /* Footer links are inline <a>, so their tap area was only the 21px
+           text line. Give them a block box with vertical padding on touch
+           widths to reach a usable target height. */
+        @media (max-width: 1023px) {
+            footer ul a {
+                display: inline-block;
+                padding-block: .45rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sol-cta-link {
+                display: inline-flex;
+                align-items: center;
+                min-height: 44px;
+            }
+        }
     </style>
 </head>
 
