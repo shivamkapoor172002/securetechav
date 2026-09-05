@@ -2842,6 +2842,14 @@
             window.addEventListener('resize', () => { trackH = track.offsetHeight; onConfigScroll(); }, { passive: true });
             descEl.style.transition = 'opacity .4s ease,transform .4s ease'; stepEl.style.transition = 'opacity .4s ease';
             setFrame(0);
+
+            // Decode the five frames while the browser is idle. Otherwise the first
+            // cross-fade pays for the decode on the frame it happens, which showed up
+            // as a ~150ms stall right where the section pins.
+            const allFrames = [document.getElementById('cimg-5')].concat(imgs).filter(Boolean);
+            const warm = () => allFrames.forEach(img => { if (img.decode) img.decode().catch(() => {}); });
+            if ('requestIdleCallback' in window) requestIdleCallback(warm, { timeout: 3000 });
+            else setTimeout(warm, 1200);
         })();
 
 
