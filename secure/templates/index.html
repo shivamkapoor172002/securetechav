@@ -574,105 +574,56 @@
             }
         }
 
-        /* ── SECTORS ── */
-        .sectors-mobile {
-            display: block;
-            padding: 3rem 1.5rem;
-            background: #fff;
-        }
-
-        @media(min-width:1024px) {
-            .sectors-mobile {
-                display: none;
-            }
-        }
-
-        .sector-mobile-card {
-            margin-bottom: 2rem;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .sector-mobile-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .sector-mobile-body {
-            padding: 1.25rem 1.5rem 1.5rem;
-            background: #fff;
-        }
-
-        .sector-mobile-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #0a1628;
-            margin-bottom: .75rem;
-            line-height: 1.1;
-        }
-
-        .sector-mobile-desc {
-            font-size: .9rem;
-            color: #607080;
-            line-height: 1.7;
-        }
-
         /* ── SECTORS ──
-           One scroll-derived number, --p, drives everything: the name roll,
-           the body roll and the image strip all read it, so they cannot drift
-           apart the way separately-timed transitions did. --lin is the same
-           position without easing; the gap between the two is what makes the
-           photograph drift while the section is holding still. */
-        #sectors-scroll {
-            position: relative;
+           One carousel for every width: copy on the left, a horizontal rail of
+           photographs on the right that runs off the edge of the page so the
+           next sector is always half-visible. Driven by --i (the active index)
+           rather than scroll position, so the arrows, the rail and the
+           progress bar cannot disagree. */
+        .sect-section {
+            background: #f4f6f8;
+            padding: 4.5rem 0;
+            overflow: hidden;
         }
 
-        #sectors-track {
-            height: 600vh;
-            position: relative;
-            display: none;
+        .sect-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.25rem;
+            padding-left: 1.5rem;
         }
 
-        @media(min-width:1024px) {
-            #sectors-track {
-                display: block;
+        @media (min-width: 900px) {
+            .sect-section {
+                padding: 6.5rem 0;
+            }
+
+            .sect-inner {
+                grid-template-columns: minmax(20rem, 30%) 1fr;
+                gap: 3.5rem;
+                align-items: center;
+                padding-left: max(1.5rem, calc((100vw - 1500px) / 2 + 1.5rem));
             }
         }
 
-        .sectors-sticky {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 42fr 58fr;
-            background: #fff;
-        }
-
+        /* ── copy column ── */
         .sect-copy {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 120px 4vw 6vh 6vw;
             min-width: 0;
+            padding-right: 1.5rem;
         }
 
         .sect-standfirst {
             font-size: .95rem;
-            font-weight: 400;
-            color: #9aa8b6;
-            margin: 0 0 2.25rem;
+            font-weight: 500;
+            color: #0a1628;
+            margin: 0 0 1.1rem;
         }
 
-        /* Name and description cross-fade instead of rolling. A roll reads
-           well for one line of big type but during the hand-off it showed two
-           paragraphs at once, which just looked broken. Both are still driven
-           by --p, so this stays scrub-linked: each item's opacity falls off
-           with its distance from the current position, and max(a-b, b-a) is
-           just abs() spelled in CSS. */
+        /* every slide's copy is stacked in the same place and cross-faded */
         .sect-names,
         .sect-bodies {
             position: relative;
@@ -682,161 +633,118 @@
         .sect-bodies>* {
             position: absolute;
             inset: 0;
-            opacity: calc(1 - max(var(--p, 0) - var(--i), var(--i) - var(--p, 0)) * 2.4);
-            transform: translate3d(0, calc((var(--p, 0) - var(--i)) * -22px), 0);
-            will-change: opacity, transform;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .45s ease, transform .45s cubic-bezier(.16, 1, .3, 1);
+            pointer-events: none;
+        }
+
+        .sect-names>.on,
+        .sect-bodies>.on {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
         }
 
         .sect-names {
-            height: clamp(3.2rem, 5.4vw, 4.6rem);
-        }
-
-        .sect-names>* {
-            display: flex;
-            align-items: center;
+            height: clamp(2.6rem, 5vw, 3.6rem);
         }
 
         .sect-name {
-            font-size: clamp(2.1rem, 4.4vw, 3.8rem);
+            font-size: clamp(2rem, 4.2vw, 3.1rem);
             font-weight: 600;
-            letter-spacing: -.035em;
-            line-height: 1.05;
+            letter-spacing: -.03em;
+            line-height: 1.1;
             color: #0a1628;
             margin: 0;
-            white-space: nowrap;
         }
 
         .sect-bodies {
-            height: 8.5rem;
-            margin-top: .9rem;
+            height: 11.5rem;
+            margin-top: .85rem;
         }
 
         .sect-body {
-            font-size: 1.02rem;
-            line-height: 1.7;
-            color: #5c6b7a;
-            max-width: 44ch;
+            font-size: .98rem;
+            line-height: 1.75;
+            color: #55636f;
             margin: 0;
         }
 
-        /* short laptops: the copy column has to fit a 768px-tall viewport
-           under a 96px fixed header without pushing the index off-screen */
-        @media (max-height: 820px) {
-            .sect-copy {
-                padding-top: 108px;
-                padding-bottom: 3vh;
-            }
-
-            .sect-names {
-                height: clamp(2.8rem, 4.6vw, 3.6rem);
-            }
-
-            .sect-name {
-                font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-            }
-
-            .sect-bodies {
-                height: 7.5rem;
-                margin-top: .6rem;
-            }
-
-            .sect-body {
-                font-size: .95rem;
-                line-height: 1.62;
-            }
-
-            .sect-index {
-                padding-top: 1.1rem;
-                gap: .3rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .sect-names>*,
-            .sect-bodies>* {
-                transform: none;
-            }
-        }
-
-        /* the index is an instrument: each rail shows real progress through
-           its own sector, so you can see how far in you are and what is next */
-        .sect-index {
-            list-style: none;
-            margin: 0;
-            padding: 1.7rem 0 0;
-            border-top: 1px solid #e8ecf0;
-            display: grid;
-            gap: .5rem;
-            max-width: 23rem;
-        }
-
-        .sect-index li {
-            display: grid;
-            grid-template-columns: 1fr auto;
+        .sect-cta {
+            align-self: flex-start;
+            display: inline-flex;
             align-items: center;
-            gap: 1rem;
-        }
-
-        .sect-index button {
-            font: inherit;
-            font-size: .95rem;
-            font-weight: 500;
-            color: #9aa8b6;
-            background: none;
-            border: 0;
-            padding: .2rem 0;
-            text-align: left;
-            cursor: pointer;
-            transition: color .35s ease;
-        }
-
-        .sect-index li[aria-current="true"] button {
-            color: #0a1628;
+            gap: .6rem;
+            min-height: 46px;
+            padding: .7rem 1.6rem;
+            border-radius: 10px;
+            background: #E87D2F;
+            color: #fff;
+            font-size: .92rem;
             font-weight: 600;
+            text-decoration: none;
+            transition: background .25s ease, transform .25s ease;
         }
 
-        .sect-index button:hover,
-        .sect-index button:focus-visible {
-            color: #0a1628;
+        .sect-cta:hover,
+        .sect-cta:focus-visible {
+            background: #cf6a20;
+            transform: translateY(-1px);
         }
 
-        .sect-rail {
-            width: 3.2rem;
-            height: 2px;
-            background: #e8ecf0;
+        /* ── progress ── */
+        .sect-progress {
+            margin-top: 2.5rem;
+            width: min(20rem, 100%);
+            height: 3px;
+            background: #dbe1e7;
+            border-radius: 2px;
             overflow: hidden;
         }
 
-        .sect-rail i {
+        .sect-progress i {
             display: block;
             height: 100%;
             background: #E87D2F;
-            transform: scaleX(var(--fill, 0));
+            border-radius: 2px;
             transform-origin: left center;
+            transform: scaleX(var(--fill, 0));
+            transition: transform .5s cubic-bezier(.16, 1, .3, 1);
         }
 
-        /* the stage is a screen, not a card: full bleed, full height */
+        /* ── image rail ── */
         .sect-stage {
             position: relative;
+            --gap: 16px;
+            --card: min(78vw, 460px);
+            min-width: 0;
+            /* clip the rail to the stage, otherwise cards that have scrolled
+               past keep painting over the copy column on their way out */
             overflow: hidden;
-            background: #0a1628;
         }
 
-        .sect-strip {
-            position: absolute;
-            inset: 0;
-            transform: translate3d(0, calc(var(--p, 0) * -100%), 0);
+        @media (min-width: 900px) {
+            .sect-stage {
+                --card: min(46vw, 760px);
+            }
+        }
+
+        .sect-rail {
+            display: flex;
+            gap: var(--gap);
+            transform: translate3d(calc(var(--i, 0) * -1 * (var(--card) + var(--gap))), 0, 0);
+            transition: transform .7s cubic-bezier(.16, 1, .3, 1);
             will-change: transform;
         }
 
         .sect-shot {
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 100%;
-            top: calc(var(--i) * 100%);
+            flex: 0 0 var(--card);
+            margin: 0;
+            height: clamp(17rem, 42vw, 31rem);
+            border-radius: 14px;
             overflow: hidden;
+            background: #0a1628;
         }
 
         .sect-shot img {
@@ -844,12 +752,61 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transform: translate3d(0, calc((var(--lin, 0) - var(--p, 0)) * 58px), 0) scale(1.09);
+            transition: opacity .5s ease;
+        }
+
+        /* the sectors either side of the active one sit back a little */
+        .sect-shot:not(.on) img {
+            opacity: .55;
+        }
+
+        /* ── arrows ── */
+        .sect-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: var(--card);
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.1rem;
+            pointer-events: none;
+        }
+
+        .sect-arrow {
+            pointer-events: auto;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 0;
+            background: #E87D2F;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(10, 22, 40, .28);
+            transition: background .25s ease, transform .25s ease, opacity .25s ease;
+        }
+
+        .sect-arrow:hover:not(:disabled),
+        .sect-arrow:focus-visible:not(:disabled) {
+            background: #cf6a20;
+            transform: scale(1.07);
+        }
+
+        .sect-arrow:disabled {
+            opacity: .35;
+            cursor: default;
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .sect-shot img {
-                transform: scale(1.02);
+
+            .sect-rail,
+            .sect-names>*,
+            .sect-bodies>*,
+            .sect-progress i {
+                transition: none;
             }
         }
 
@@ -2015,29 +1972,24 @@
             </div>
         </section>
 
-        <!-- SECTORS MOBILE -->
-        <section class="sectors-mobile">
-            <p
-                style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#E87D2F;margin-bottom:.5rem;text-align:center;">
-                Our Sectors</p>
-            <h2
-                style="font-size:clamp(1.75rem,7vw,2.5rem);font-weight:900;color:#0a1628;text-align:center;margin-bottom:2rem;line-height:1.1;">
-                Industries We Serve</h2>
-            <div id="sectors-mobile-cards"></div>
-        </section>
-
-        <!-- SECTORS DESKTOP -->
-        <section id="sectors-scroll" class="desktop-only">
-            <div id="sectors-track">
-                <div class="sectors-sticky">
-                    <div class="sect-copy">
-                        <p class="sect-standfirst">Industries we serve</p>
-                        <div class="sect-names" id="sect-names"></div>
-                        <div class="sect-bodies" id="sect-bodies"></div>
-                        <ol class="sect-index" id="sect-index"></ol>
-                    </div>
-                    <div class="sect-stage">
-                        <div class="sect-strip" id="sect-strip"></div>
+        <!-- SECTORS -->
+        <section class="sect-section" id="sectors" aria-roledescription="carousel"
+            aria-label="Industries we serve">
+            <div class="sect-inner">
+                <div class="sect-copy">
+                    <p class="sect-standfirst">Who we work with</p>
+                    <div class="sect-names" id="sect-names"></div>
+                    <div class="sect-bodies" id="sect-bodies"></div>
+                    <a class="sect-cta" href="/Solutionpage">Learn more</a>
+                    <div class="sect-progress" aria-hidden="true"><i id="sect-fill"></i></div>
+                </div>
+                <div class="sect-stage">
+                    <div class="sect-rail" id="sect-rail"></div>
+                    <div class="sect-nav">
+                        <button type="button" class="sect-arrow" id="sect-prev"
+                            aria-label="Previous industry"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg></button>
+                        <button type="button" class="sect-arrow" id="sect-next"
+                            aria-label="Next industry"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></button>
                     </div>
                 </div>
             </div>
@@ -2055,7 +2007,7 @@
                         src="{{ url_for('static', filename='solution-design-planning-tile-v2.webp') }}" alt="Design and Planning">
                     <div class="prod-mobile-label">Design and Planning</div>
                 </div>
-                <div class="prod-mobile-card"><img src="{{ url_for('static', filename='solution-implementation-training-tile-v3.webp') }}"
+                <div class="prod-mobile-card"><img src="{{ url_for('static', filename='implementation-training-tile.jpg') }}"
                         alt="Implementation and Training">
                     <div class="prod-mobile-label">Implementation &amp; Training (I&amp;T)</div>
                 </div>
@@ -2072,7 +2024,7 @@
                         alt="Club Sound">
                     <div class="prod-mobile-label">Club &amp; Sound Systems</div>
                 </div>
-                <div class="prod-mobile-card"><img src="{{ url_for('static', filename='solution-cinema-tile.webp') }}"
+                <div class="prod-mobile-card"><img src="{{ url_for('static', filename='pmc-tile.jpg') }}"
                         alt="Project Management Consultancy">
                     <div class="prod-mobile-label">Project Management Consultancy (PMC)</div>
                 </div>
@@ -2096,7 +2048,7 @@
                         <div class="prod-cell-label">Design and Planning</div>
                     </div>
                     <div class="prod-cell" id="pc-tr"><img
-                            src="{{ url_for('static', filename='solution-implementation-training-tile-v3.webp') }}" alt="" loading="lazy" decoding="async">
+                            src="{{ url_for('static', filename='implementation-training-tile.jpg') }}" alt="" loading="lazy" decoding="async">
                         <div class="prod-cell-label">Implementation &amp; Training (I&amp;T)</div>
                     </div>
                     <div class="prod-cell" id="pc-ml"><img
@@ -2113,7 +2065,7 @@
                         <div class="prod-cell-label">Club &amp; Sound Systems</div>
                     </div>
                     <div class="prod-cell" id="pc-bc"><img
-                            src="{{ url_for('static', filename='solution-cinema-tile.webp') }}" alt="" loading="lazy" decoding="async">
+                            src="{{ url_for('static', filename='pmc-tile.jpg') }}" alt="" loading="lazy" decoding="async">
                         <div class="prod-cell-label">Project Management Consultancy (PMC)</div>
                     </div>
                     <div class="prod-cell" id="pc-br"><img
@@ -2727,73 +2679,74 @@
             { name: 'Residential', desc: 'Bring cinema-quality AV and smart home integration to luxury residences. Custom designed systems for home theatres, multi-room audio, and automation.', img: "{{ url_for('static', filename='sector-residential.webp') }}" }
         ];
 
-        // Mobile sector cards
-        const mcc = document.getElementById('sectors-mobile-cards');
-        sectors.forEach(s => { mcc.innerHTML += `<div class="sector-mobile-card"><img src="${s.img}" alt="${s.name}" class="sector-mobile-img"><div class="sector-mobile-body"><h3 class="sector-mobile-title">${s.name}</h3><p class="sector-mobile-desc">${s.desc}</p></div></div>`; });
-
-        // Desktop sectors scroll
+        // Sectors carousel
         (function () {
-            if (window.innerWidth < 1024) return;
-            const track = document.getElementById('sectors-track'); if (!track) return;
-            const sticky = track.querySelector('.sectors-sticky');
-            const n = sectors.length;
+            var rail = document.getElementById('sect-rail');
+            if (!rail) return;
+            var names = document.getElementById('sect-names');
+            var bodies = document.getElementById('sect-bodies');
+            var fill = document.getElementById('sect-fill');
+            var prev = document.getElementById('sect-prev');
+            var next = document.getElementById('sect-next');
+            var stage = rail.parentElement;
+            var n = sectors.length;
 
-            document.getElementById('sect-names').innerHTML =
-                sectors.map((s, i) => `<div style="--i:${i}"><h2 class="sect-name">${s.name}</h2></div>`).join('');
-            document.getElementById('sect-bodies').innerHTML =
-                sectors.map((s, i) => `<div style="--i:${i}"><p class="sect-body">${s.desc}</p></div>`).join('');
-            document.getElementById('sect-index').innerHTML = sectors.map((s, i) =>
-                `<li aria-current="${i === 0}"><button type="button">${s.name}</button>` +
-                `<span class="sect-rail" aria-hidden="true"><i></i></span></li>`).join('');
-            document.getElementById('sect-strip').innerHTML = sectors.map((s, i) =>
-                `<figure class="sect-shot" style="--i:${i}"><img src="${s.img}" alt="${s.name} audio visual installation"` +
-                ` loading="lazy" decoding="async"></figure>`).join('');
+            names.innerHTML = sectors.map(function (s) {
+                return '<div><h2 class="sect-name">' + s.name + '</h2></div>';
+            }).join('');
+            bodies.innerHTML = sectors.map(function (s) {
+                return '<div><p class="sect-body">' + s.desc + '</p></div>';
+            }).join('');
+            rail.innerHTML = sectors.map(function (s, i) {
+                return '<figure class="sect-shot" role="group" aria-roledescription="slide" ' +
+                    'aria-label="' + (i + 1) + ' of ' + n + ': ' + s.name + '">' +
+                    '<img src="' + s.img + '" alt="' + s.name +
+                    ' audio visual installation" loading="lazy" decoding="async"></figure>';
+            }).join('');
 
-            const rails = [...track.querySelectorAll('.sect-rail i')];
-            const items = [...track.querySelectorAll('#sect-index li')];
-            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var nameEls = names.children, bodyEls = bodies.children, shots = rail.children;
+            var index = -1;
 
-            // hold at each sector for the first and last third of its step, then
-            // hand over quickly in the middle — readable, but still scrub-linked
-            const HOLD = 0.34;
-            function ease(t) {
-                const k = Math.min(Math.max((t - HOLD) / (1 - 2 * HOLD), 0), 1);
-                return k * k * (3 - 2 * k);
+            function show(i) {
+                i = Math.max(0, Math.min(n - 1, i));
+                if (i === index) return;
+                index = i;
+                stage.style.setProperty('--i', i);
+                fill.style.setProperty('--fill', ((i + 1) / n).toFixed(4));
+                for (var k = 0; k < n; k++) {
+                    var on = k === i;
+                    nameEls[k].classList.toggle('on', on);
+                    bodyEls[k].classList.toggle('on', on);
+                    shots[k].classList.toggle('on', on);
+                    // only the active slide should reach a screen reader or the
+                    // clipboard; the rest are stacked in the same place
+                    nameEls[k].setAttribute('aria-hidden', String(!on));
+                    bodyEls[k].setAttribute('aria-hidden', String(!on));
+                }
+                prev.disabled = i === 0;
+                next.disabled = i === n - 1;
             }
 
-            let ticking = false, lastActive = -1;
-            function render() {
-                ticking = false;
-                const total = track.offsetHeight - window.innerHeight;
-                if (total <= 0) return;
-                const lin = Math.min(Math.max(-track.getBoundingClientRect().top / total, 0), 1) * (n - 1);
-                const i = Math.min(Math.floor(lin), n - 1);
-                const p = reduce ? Math.round(lin) : i + ease(lin - i);
+            prev.addEventListener('click', function () { show(index - 1); });
+            next.addEventListener('click', function () { show(index + 1); });
 
-                sticky.style.setProperty('--p', p.toFixed(4));
-                sticky.style.setProperty('--lin', lin.toFixed(4));
+            stage.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') { show(index - 1); e.preventDefault(); }
+                if (e.key === 'ArrowRight') { show(index + 1); e.preventDefault(); }
+            });
 
-                for (let k = 0; k < n; k++) {
-                    rails[k].style.setProperty('--fill', Math.min(Math.max(lin - k, 0), 1).toFixed(3));
-                }
-                const active = Math.round(p);
-                if (active !== lastActive) {
-                    lastActive = active;
-                    items.forEach((li, k) => li.setAttribute('aria-current', String(k === active)));
-                }
-            }
+            // swipe
+            var x0 = null;
+            stage.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+            stage.addEventListener('pointerup', function (e) {
+                if (x0 === null) return;
+                var dx = e.clientX - x0;
+                x0 = null;
+                if (Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1));
+            });
+            stage.addEventListener('pointercancel', function () { x0 = null; });
 
-            function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(render); } }
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', onScroll, { passive: true });
-
-            items.forEach((li, k) => li.querySelector('button').addEventListener('click', () => {
-                const total = track.offsetHeight - window.innerHeight;
-                const top = track.getBoundingClientRect().top + window.scrollY;
-                window.scrollTo({ top: top + (k / (n - 1)) * total, behavior: 'smooth' });
-            }));
-
-            render();
+            show(0);
         })();
 
         // Products desktop scroll
