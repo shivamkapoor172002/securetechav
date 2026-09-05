@@ -1,0 +1,180 @@
+/* ── LANGUAGE SWITCHER ──────────────────────────────────────────────
+   The trigger keeps the .nav-lang look it had as a static label; these
+   rules only strip the <button> defaults and add the panel. */
+
+.nav-lang {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.nav-lang .lang-caret {
+    transition: transform .25s ease;
+    flex-shrink: 0;
+}
+
+.nav-lang[aria-expanded="true"] .lang-caret {
+    transform: rotate(180deg);
+}
+
+.lang-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* ── panel ── */
+.lang-panel {
+    position: absolute;
+    top: calc(100% + .75rem);
+    right: 0;
+    width: min(21rem, calc(100vw - 2rem));
+    background: #fff;
+    border: 1px solid #e6eaef;
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(10, 22, 40, .18);
+    padding: .85rem;
+    z-index: 200;
+    display: none;
+    color: #0a1628;
+}
+
+.lang-panel.open {
+    display: block;
+}
+
+.lang-search {
+    width: 100%;
+    box-sizing: border-box;
+    font: inherit;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .92rem;
+    color: #0a1628;
+    background: #f5f7f9;
+    border: 1px solid #e6eaef;
+    border-radius: 10px;
+    padding: .6rem .8rem;
+    margin-bottom: .6rem;
+}
+
+.lang-search:focus {
+    outline: 2px solid #E87D2F;
+    outline-offset: 1px;
+    background: #fff;
+}
+
+.lang-search::placeholder {
+    color: #9aa8b6;
+}
+
+.lang-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: min(22rem, 55vh);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.lang-list li {
+    margin: 0;
+}
+
+.lang-list button {
+    display: flex;
+    align-items: baseline;
+    gap: .5rem;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .9rem;
+    color: #0a1628;
+    background: none;
+    border: 0;
+    border-radius: 9px;
+    padding: .55rem .65rem;
+    cursor: pointer;
+    min-height: 40px;
+}
+
+.lang-list button:hover,
+.lang-list button:focus-visible {
+    background: #f3f6f9;
+    outline: none;
+}
+
+.lang-list button[aria-current="true"] {
+    background: rgba(232, 125, 47, .1);
+    font-weight: 600;
+}
+
+.lang-native {
+    color: #7b8794;
+    font-size: .82rem;
+}
+
+.lang-empty {
+    padding: .9rem .65rem;
+    font-size: .88rem;
+    color: #7b8794;
+}
+
+.lang-note {
+    margin: .6rem .15rem 0;
+    padding-top: .6rem;
+    border-top: 1px solid #eef1f4;
+    font-size: .72rem;
+    line-height: 1.5;
+    color: #9aa8b6;
+}
+
+/* ── in the mobile menu the panel is inline, not floating ── */
+.mobile-menu .lang-wrap {
+    width: 100%;
+    max-width: 22rem;
+    flex-direction: column;
+}
+
+.mobile-menu .nav-lang {
+    color: #fff;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+}
+
+.mobile-menu .lang-panel {
+    position: static;
+    width: 100%;
+    margin-top: .75rem;
+}
+
+/* ── suppress Google's injected banner and body offset ── */
+.goog-te-banner-frame,
+.goog-te-gadget,
+#goog-gt-tt,
+.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+#google_translate_element {
+    display: none;
+}
+
+/* Google wraps translated runs in <font> tags; keep them transparent
+   to the surrounding type so nothing shifts weight or colour. */
+font {
+    font: inherit !important;
+    color: inherit !important;
+    background: none !important;
+}

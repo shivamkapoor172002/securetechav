@@ -60,6 +60,7 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lang-switcher.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -1169,6 +1170,29 @@
            ~1081px, so the Contact Us button was being cut off by the body's
            overflow-x guard between 1024px and ~1100px. Tighten the row across
            that band so everything fits. */
+        /* Nav links are flex items, so they were shrinking below their own
+           text and wrapping to two lines before the row ever overflowed. */
+        .nav-link {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Between 1200 and 1365 the row fits only just; trim the gaps rather
+           than let anything wrap. */
+        @media (min-width: 1200px) and (max-width: 1365px) {
+            #desktop-nav {
+                gap: 1.6rem;
+            }
+
+            #desktop-tools {
+                gap: .85rem;
+            }
+
+            .nav-lang {
+                font-size: 1.15rem;
+            }
+        }
+
         @media (min-width: 1024px) and (max-width: 1199px) {
             .nav-container {
                 padding: 0 1.25rem;
@@ -1193,6 +1217,10 @@
             .pill-button {
                 padding: .45rem 1rem;
                 font-size: .95rem;
+            }
+
+            .nav-lang {
+                font-size: 1.02rem;
             }
         }
 
@@ -1230,7 +1258,7 @@
 
     <header id="main-header">
         <div class="nav-container">
-            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-name">SecureTech AV Designs</span></a>
+            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-name notranslate" translate="no">SecureTech AV Designs</span></a>
             <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
                     <a href="/Solutionpage" class="nav-link nav-link-active">Solution</a>
                     <a href="/CaseStudies" class="nav-link">Case Studies</a>
@@ -1250,15 +1278,13 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="nav-lang">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="9" />
-                            <path d="M3 12h18" />
-                            <path d="M12 3c2.4 2.9 2.4 15.1 0 18" />
-                            <path d="M12 3c-2.4 2.9-2.4 15.1 0 18" />
-                        </svg>
-                        <span>IN (EN)</span>
+                    <div class="lang-wrap notranslate" id="lang-wrap-desktop" translate="no">
+                        <button type="button" class="nav-lang" id="lang-btn" aria-expanded="false"
+                            aria-haspopup="dialog" aria-label="Change language">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.4 2.9 2.4 15.1 0 18" /><path d="M12 3c-2.4 2.9-2.4 15.1 0 18" /></svg>
+                            <span data-lang-label>IN (EN)</span>
+                            <svg class="lang-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+                        </button>
                     </div>
                 </div>                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
                         Us</button></a>
@@ -1286,6 +1312,10 @@
         <a href="/CaseStudies" onclick="closeMenu()">Case Studies</a>
         <a href="/AboutUs" onclick="closeMenu()">About Us</a>
         <a href="/Contactus" onclick="closeMenu()" style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
+        <div class="lang-wrap notranslate" translate="no">
+            <button type="button" class="nav-lang" aria-expanded="false" aria-haspopup="dialog"
+                aria-label="Change language"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.4 2.9 2.4 15.1 0 18" /><path d="M12 3c-2.4 2.9-2.4 15.1 0 18" /></svg><span data-lang-label>IN (EN)</span><svg class="lang-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
+        </div>
     </div>
 
     <main>
@@ -1808,6 +1838,7 @@
             update();
         })();
     </script>
+    <script src="{{ url_for('static', filename='lang-switcher.js') }}" defer></script>
 </body>
 
 </html>
