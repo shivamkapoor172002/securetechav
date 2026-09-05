@@ -967,10 +967,20 @@
            text line. Give them a block box with vertical padding on touch
            widths to reach a usable target height. */
         @media (max-width: 1023px) {
-            footer ul a {
+
+            footer ul a,
+            .footer-bottom a,
+            .footer-bottom-bar a {
                 display: inline-block;
                 padding-block: .45rem;
             }
+        }
+
+        /* the CTA is a <button> wrapped in an <a>; the anchor was an inline box
+           only as tall as its text, so its focus ring and hit box did not match
+           the button people actually aim at */
+        .cta-inner a {
+            display: inline-flex;
         }
     </style>
 </head>
