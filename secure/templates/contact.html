@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ══ PRIMARY SEO ══ -->
     <title>Contact SecureTech AV Designs — AV Solutions & Consultation India</title>
@@ -58,6 +58,7 @@
     }
     </script>
 
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -89,12 +90,11 @@
                 --border: 214.3 31.8% 91.4%;
                 --brand-gradient: linear-gradient(135deg, #E87D2F 0%, #A52A2A 100%);
             }
-            body { @apply bg-background text-foreground; font-family: 'Inter', sans-serif; }
+            body { @apply bg-background text-foreground; font-family: 'IBM Plex Sans', sans-serif; }
         }
         @layer utilities {
             .text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
             .bg-brand-gradient { background: var(--brand-gradient); }
-            .pill-button { @apply rounded-full px-5 py-2 bg-[#E87D2F] text-white hover:bg-[#A52A2A] transition-colors text-sm font-semibold; }
         }
     </style>
     <style>
@@ -106,11 +106,12 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 120%;
         }
 
         body {
             overflow-x: hidden;
-            font-family: 'Inter', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
         }
 
         a {
@@ -138,21 +139,174 @@
         }
 
         .header-logo {
-            height: 40px;
+            height: 70px;
             width: auto;
-            filter: brightness(0) invert(1);
-            transition: filter 0.3s;
         }
 
         header.scrolled .header-logo {
             filter: none;
         }
 
+        #desktop-nav {
+            flex: 1;
+            justify-content: center;
+            gap: 2.25rem;
+        }
+        #desktop-tools {
+            display: none;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 1024px) {
+            #desktop-tools {
+                display: flex;
+            }
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            transition: color .3s;
+        }
+
+        .nav-search-input {
+            width: 0;
+            opacity: 0;
+            padding: 0;
+            border: none;
+            border-bottom: 1px solid currentColor;
+            background: transparent;
+            color: inherit;
+            outline: none;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.24rem;
+            transition: width .35s ease, opacity .35s ease, padding .35s ease;
+        }
+
+        .nav-search-input.open {
+            width: 180px;
+            opacity: 1;
+            padding: .25rem .5rem;
+        }
+
+        .nav-search-input::placeholder {
+            color: currentColor;
+            opacity: .6;
+        }
+
+        .nav-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            padding: .4rem;
+        }
+
+        .nav-lang {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.48rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+        .nav-search:hover,
+        .nav-lang:hover {
+            color: rgba(255, 255, 255, .72);
+        }
+
+        header.scrolled .nav-search,
+        header.scrolled .nav-lang {
+            color: #08174d;
+        }
+
+        header.scrolled .nav-search:hover,
+        header.scrolled .nav-lang:hover {
+            color: #133193;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.28rem;
+            font-weight: 600;
+            letter-spacing: -.015em;
+            line-height: 1.15;
+            color: #fff;
+            white-space: nowrap;
+            transition: color .3s;
+        }
+
+        header.scrolled .brand-name {
+            color: #08174d;
+        }
+
+        @media (max-width: 520px) {
+            .brand-name {
+                font-size: .88rem;
+            }
+        }
         .nav-link {
             color: #fff;
             transition: color 0.3s;
-            font-size: .9rem;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.48rem;
             font-weight: 500;
+        }
+
+        .pill-button {
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            border: 2px solid #E87D2F;
+            border-radius: 9999px;
+            padding: .5rem 1.25rem;
+            background: #E87D2F;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.14rem;
+            font-weight: 600;
+            line-height: 1.25rem;
+            cursor: pointer;
+            transition: color .45s ease;
+        }
+
+        .pill-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform .45s ease;
+            z-index: -1;
+        }
+
+        .pill-button:hover {
+            color: #E87D2F;
+        }
+
+        .pill-button:hover::before {
+            transform: scaleX(1);
         }
 
         .nav-link:hover {
@@ -173,7 +327,7 @@
 
         .nav-container {
             display: flex;
-            height: 64px;
+            height: 78px;
             align-items: center;
             justify-content: space-between;
             padding: 0 1rem;
@@ -183,7 +337,7 @@
 
         @media (min-width: 1024px) {
             .nav-container {
-                height: 80px;
+                height: 96px;
                 padding: 0 2rem;
             }
         }
@@ -229,7 +383,7 @@
             width: 100%;
             min-height: 60vh;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             overflow: hidden;
         }
 
@@ -242,7 +396,6 @@
         @media (min-width: 1024px) {
             .contact-hero {
                 min-height: 100vh;
-                max-height: 800px;
             }
         }
 
@@ -268,21 +421,23 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, .65) 0%, rgba(0, 0, 0, .15) 60%, transparent 100%);
+            background:
+                linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .55) 40%, rgba(0, 0, 0, .18) 100%),
+                linear-gradient(to top, rgba(0, 0, 0, .45) 0%, rgba(0, 0, 0, .28) 100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 0 1.5rem 3.5rem;
+            padding: 8rem 1.5rem 5rem;
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             .hero-content {
-                padding: 0 2rem 5rem;
+                padding: 10rem 2rem 6rem;
             }
         }
 
@@ -322,7 +477,7 @@
         /* ══ CONTACT MAIN SECTION ══ */
         .contact-section {
             padding: 5rem 1.5rem;
-            background: #fff;
+            background: linear-gradient(180deg, #f7f9fc 0%, #eef2f7 100%);
         }
 
         @media (min-width: 768px) {
@@ -399,34 +554,86 @@
             background: linear-gradient(90deg, #E87D2F, transparent);
         }
 
+        /* Navy info panel — one block instead of four loose boxes */
+        .detail-panel {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(150deg, #fff 0%, #fff7f1 100%);
+            border: 1px solid #f2e3d8;
+            border-radius: 22px;
+            padding: .25rem 1.6rem;
+            box-shadow: 0 18px 45px rgba(10, 22, 40, .07);
+        }
+
+        .detail-panel::before {
+            content: '';
+            position: absolute;
+            top: -70px;
+            right: -70px;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232, 125, 47, .16), transparent 70%);
+            pointer-events: none;
+        }
+
         .detail-cards {
-            display: flex;
-            flex-direction: column;
-            gap: .85rem;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 560px) {
+            .detail-cards {
+                grid-template-columns: 1fr;
+            }
         }
 
         .detail-card {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            background: #f8fafc;
-            border: 1px solid #e8ecf0;
-            border-radius: 16px;
-            padding: 1.1rem 1.4rem;
-            transition: box-shadow .25s, border-color .25s;
+            padding: 1.35rem .25rem;
+            border-bottom: 1px solid rgba(10, 22, 40, .08);
+            border-radius: 12px;
+            transition: background .25s;
+        }
+
+        .detail-card.wide {
+            grid-column: 1 / -1;
+        }
+
+        .detail-card:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .detail-card:not(.wide)+.detail-card:not(.wide) {
+            border-left: 1px solid rgba(10, 22, 40, .08);
+            padding-left: 1rem;
+        }
+
+        @media (max-width: 560px) {
+            .detail-card:not(.wide)+.detail-card:not(.wide) {
+                border-left: none;
+                padding-left: .25rem;
+            }
+
+            .detail-card:nth-last-child(2) {
+                border-bottom: 1px solid rgba(10, 22, 40, .08);
+            }
         }
 
         .detail-card:hover {
-            box-shadow: 0 6px 24px rgba(232, 125, 47, .1);
-            border-color: rgba(232, 125, 47, .3);
+            background: rgba(232, 125, 47, .055);
         }
 
         .detail-icon {
             width: 40px;
             height: 40px;
-            border-radius: 10px;
+            border-radius: 11px;
             flex-shrink: 0;
             background: linear-gradient(135deg, #E87D2F, #A52A2A);
+            box-shadow: 0 6px 16px rgba(232, 125, 47, .32);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -446,23 +653,48 @@
             text-transform: uppercase;
             letter-spacing: .14em;
             color: #E87D2F;
-            margin-bottom: .15rem;
+            margin-bottom: .3rem;
         }
 
         .detail-value {
             font-size: .88rem;
             font-weight: 600;
             color: #0a1628;
-            line-height: 1.5;
+            line-height: 1.55;
+        }
+
+        /* keep phone numbers on one line */
+        .detail-card>div {
+            min-width: 0;
+        }
+
+        .detail-value.nowrap {
+            white-space: nowrap;
+        }
+
+        .detail-value.break {
+            overflow-wrap: anywhere;
         }
 
         /* ══ FORM CARD — same light card as CTA on homepage ══ */
         .contact-form-card {
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #e7ecf2;
             border-radius: 28px;
             padding: 2.75rem 2.25rem;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, .05);
+            box-shadow: 0 24px 60px rgba(10, 22, 40, .10);
+        }
+
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #E87D2F, #A52A2A);
         }
 
         @media (min-width: 768px) {
@@ -515,12 +747,12 @@
 
         .form-group input,
         .form-group textarea {
-            background: #fff;
+            background: #f8fafc;
             border: 1.5px solid #e2e8f0;
             border-radius: 10px;
             padding: .85rem 1rem;
             color: #0a1628;
-            font-family: 'Inter', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
             font-size: .9rem;
             outline: none;
             transition: border-color .2s, box-shadow .2s;
@@ -534,6 +766,7 @@
 
         .form-group input:focus,
         .form-group textarea:focus {
+            background: #fff;
             border-color: #E87D2F;
             box-shadow: 0 0 0 3px rgba(232, 125, 47, .11);
         }
@@ -553,7 +786,7 @@
             display: flex;
             align-items: center;
             gap: .5rem;
-            background: #fff;
+            background: #f8fafc;
             border: 1.5px solid #e2e8f0;
             border-radius: 10px;
             padding: .85rem 1rem;
@@ -563,9 +796,10 @@
             font-weight: 600;
         }
 
-        .flag-pill img {
-            width: 22px;
-            border-radius: 2px;
+        .flag-pill .flag-svg {
+            width: 23px;
+            height: auto;
+            display: block;
         }
 
         .phone-wrap input {
@@ -580,7 +814,7 @@
             color: #fff;
             border: none;
             border-radius: 50px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
             font-size: .95rem;
             font-weight: 700;
             cursor: pointer;
@@ -797,8 +1031,8 @@
             bottom: 1.5rem;
             right: 1.5rem;
             z-index: 500;
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: #E87D2F;
             color: #fff;
@@ -808,14 +1042,47 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity .3s, transform .3s;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
             box-shadow: 0 4px 16px rgba(232, 125, 47, .4);
+            transition: background .25s, box-shadow .25s, opacity .3s ease, transform .3s ease, visibility .3s;
         }
 
         #scroll-top.visible {
             opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
             transform: translateY(0);
+        }
+
+        #scroll-top:hover {
+            background: #A52A2A;
+            box-shadow: 0 6px 22px rgba(165, 42, 42, .45);
+        }
+
+        #scroll-top .st-icon {
+            position: absolute;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        #scroll-top .st-up {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        #scroll-top.at-bottom .st-down {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        #scroll-top.at-bottom .st-up {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #scroll-top .st-icon { transition: none; }
         }
 
         /* ══ REVEAL ══ */
@@ -837,16 +1104,37 @@
     <!-- ═══════════════ HEADER ═══════════════ -->
     <header id="main-header">
         <div class="nav-container">
-            <a href="/"><img src="{{ url_for('static', filename='just_logo_no_text.png') }}" alt="SecureTech Logo"
-                    class="header-logo" /></a>
-            <div style="display:flex;align-items:center;gap:1rem;">
-                <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
-                    <a href="/" class="nav-link text-sm font-medium">Home</a>
-                    <a href="/AboutUs" class="nav-link text-sm font-medium">About Us</a>
-                    <a href="/Solutionpage" class="nav-link text-sm font-medium">Solution</a>
-                    <a href="/CorporateProfile" class="nav-link text-sm font-medium">Corporate Profile</a>
+            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.png') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-name">SecureTech AV Designs</span></a>
+            <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
+                    <a href="/Solutionpage" class="nav-link">Solution</a>
+                    <a href="/CaseStudies" class="nav-link">Case Studies</a>
+                    <a href="/AboutUs" class="nav-link">About Us</a>
                 </nav>
-                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <div id="desktop-tools">
+                    <div class="nav-search">
+                        <input id="nav-search-input" class="nav-search-input" type="text" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="nav-icon-btn" aria-label="Search"
+                            onclick="var i=document.getElementById('nav-search-input');i.classList.toggle('open');if(i.classList.contains('open')){i.focus();}">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round">
+                                <circle cx="11" cy="11" r="7" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="nav-lang">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3 12h18" />
+                            <path d="M12 3c2.4 2.9 2.4 15.1 0 18" />
+                            <path d="M12 3c-2.4 2.9-2.4 15.1 0 18" />
+                        </svg>
+                        <span>IN (EN)</span>
+                    </div>
+                </div>                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
                         Us</button></a>
                 <button id="menu-btn"
                     style="display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#fff;padding:.5rem;"
@@ -869,12 +1157,10 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu">
-        <a href="/" onclick="closeMenu()">Home</a>
-        <a href="/AboutUs" onclick="closeMenu()">About Us</a>
         <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
-        <a href="/CorporateProfile" onclick="closeMenu()">Corporate Profile</a>
-        <a href="/Contactus" onclick="closeMenu()"
-            style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
+        <a href="/CaseStudies" onclick="closeMenu()">Case Studies</a>
+        <a href="/AboutUs" onclick="closeMenu()">About Us</a>
+        <a href="/Contactus" onclick="closeMenu()" style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
     </div>
 
     <main class="flex-1">
@@ -886,7 +1172,7 @@
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <div class="hero-eyebrow">Get In Touch</div>
-                <h1 class="hero-title">Contact<br>Us</h1>
+                <h1 class="hero-title">Contact Us</h1>
                 <p class="hero-desc">Our team of AV specialists is ready to design seamless, immersive experiences
                     tailored exactly to your needs.</p>
             </div>
@@ -905,54 +1191,56 @@
 
                     <div class="country-divider"><span>India</span></div>
 
-                    <div class="detail-cards">
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                    <circle cx="12" cy="10" r="3" />
-                                </svg>
+                    <div class="detail-panel">
+                        <div class="detail-cards">
+                            <div class="detail-card wide">
+                                <div class="detail-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="detail-label">Address</p>
+                                    <p class="detail-value">A-70, Sector 33, Noida,<br>Uttar Pradesh – 201301</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="detail-label">Address</p>
-                                <p class="detail-value">A-70, Sector 33, Noida,<br>Uttar Pradesh – 201301</p>
+                            <div class="detail-card wide">
+                                <div class="detail-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                        <polyline points="22,6 12,13 2,6" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="detail-label">Email</p>
+                                    <p class="detail-value break">ashish@securetechav.com</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                    <polyline points="22,6 12,13 2,6" />
-                                </svg>
+                            <div class="detail-card">
+                                <div class="detail-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="detail-label">Phone</p>
+                                    <p class="detail-value nowrap">+91 70172 47344</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="detail-label">Email</p>
-                                <p class="detail-value">ashish@securetechav.com</p>
-                            </div>
-                        </div>
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="detail-label">Phone</p>
-                                <p class="detail-value">+91 70172 47344</p>
-                            </div>
-                        </div>
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="detail-label">Alternate</p>
-                                <p class="detail-value">+91 70081 66042</p>
+                            <div class="detail-card">
+                                <div class="detail-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="detail-label">Alternate</p>
+                                    <p class="detail-value nowrap">+91 87913 02481</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -979,7 +1267,23 @@
                             <label>Phone Number</label>
                             <div class="phone-wrap">
                                 <div class="flag-pill">
-                                    <img src="{{ url_for('static', filename='flag.webp') }}" alt="IN"> +91
+                                    <svg class="flag-svg" viewBox="0 0 36 24" role="img" aria-label="India">
+                                        <defs>
+                                            <clipPath id="flagRound">
+                                                <rect width="36" height="24" rx="3" />
+                                            </clipPath>
+                                        </defs>
+                                        <g clip-path="url(#flagRound)">
+                                            <rect width="36" height="8" fill="#FF9933" />
+                                            <rect y="8" width="36" height="8" fill="#fff" />
+                                            <rect y="16" width="36" height="8" fill="#138808" />
+                                            <circle cx="18" cy="12" r="3.1" fill="none" stroke="#000080"
+                                                stroke-width=".9" />
+                                            <circle cx="18" cy="12" r=".85" fill="#000080" />
+                                        </g>
+                                        <rect x=".5" y=".5" width="35" height="23" rx="2.6" fill="none"
+                                            stroke="rgba(10,22,40,.15)" />
+                                    </svg> +91
                                 </div>
                                 <input type="text" name="phone" placeholder="Phone number" required>
                             </div>
@@ -1153,8 +1457,11 @@
         }
     </style>
 
-    <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <button id="scroll-top" aria-label="Scroll down">
+        <svg class="st-icon st-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+        <svg class="st-icon st-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M12 19V5M5 12l7-7 7 7" />
         </svg>
     </button>
@@ -1176,11 +1483,17 @@
 
         // ── Header scroll ──
         const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+        function syncHeader() { header.classList.toggle('scrolled', window.scrollY > 50); }
+        window.addEventListener('scroll', syncHeader, { passive: true });
+        // run immediately AND after load/bfcache: refreshing mid-page restores the
+        // scroll offset without firing a scroll event, which left the nav transparent
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('pageshow', syncHeader);
+        requestAnimationFrame(syncHeader);
 
         // ── Scroll top ──
         const scrollTopBtn = document.getElementById('scroll-top');
-        window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
 
         // ── Scroll reveal ──
         const observer = new IntersectionObserver((entries) => {
@@ -1226,6 +1539,27 @@
                 btn.disabled = false;
             });
         });
+    
+        // scroll affordance: down arrow at top, up arrow once scrolled
+        (function () {
+            var btn = document.getElementById('scroll-top');
+            if (!btn) return;
+            function update() {
+                var down = window.scrollY > 300;
+                btn.classList.toggle('at-bottom', down);
+                btn.classList.toggle('visible', window.scrollY > 400);
+                btn.setAttribute('aria-label', down ? 'Scroll to top' : 'Scroll down');
+            }
+            btn.addEventListener('click', function () {
+                if (btn.classList.contains('at-bottom')) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    window.scrollBy({ top: Math.round(window.innerHeight * 0.9), behavior: 'smooth' });
+                }
+            });
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
     </script>
 </body>
 

@@ -140,7 +140,7 @@ contact_content = """
                 <h2>Your <span class="orange">AV Solution</span></h2>
                 <div class="info-row">
                     <span>info@securetechav.com</span>
-                    <span>+91 7008166042</span>
+                    <span>+91 8791302481</span>
                 </div>
             </div>
             <div style="display:flex;gap:48px;flex-wrap:wrap" class="fade-up" style="--delay:.1s">

@@ -3,7 +3,7 @@ SecureTech AV Designs — Flask Web Application
 Run:  python app.py
 """
 
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, url_for
 from flask_compress import Compress
 import os
 
@@ -12,6 +12,42 @@ Compress(app)
 
 # Cache static assets for 1 year
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 31536000
+
+
+@app.after_request
+def dont_cache_pages(resp):
+    """HTML must always be revalidated: a cached page keeps pointing at the old
+    image filenames long after the templates change. Static assets keep the
+    long max-age set above."""
+    if resp.mimetype == "text/html":
+        resp.headers["Cache-Control"] = "no-store, must-revalidate"
+        resp.headers["Pragma"] = "no-cache"
+    return resp
+
+@app.context_processor
+def _versioned_static():
+    """Append the file's mtime to every static URL.
+
+    Static assets are served with a one-year max-age, so replacing a file in
+    place (same name, new bytes) leaves browsers on the old copy indefinitely.
+    Stamping ?v=<mtime> makes the URL change whenever the file does, which
+    busts the cache for that asset only and keeps the long max-age for the
+    rest."""
+
+    def versioned_url_for(endpoint, **values):
+        if endpoint == "static":
+            filename = values.get("filename")
+            if filename:
+                try:
+                    values["v"] = int(
+                        os.stat(os.path.join(app.static_folder, filename)).st_mtime
+                    )
+                except OSError:
+                    pass
+        return url_for(endpoint, **values)
+
+    return {"url_for": versioned_url_for}
+
 
 WELL_KNOWN_DIR = os.path.join(app.static_folder, ".well-known")
 
@@ -36,6 +72,11 @@ def contact():
 @app.route("/Solutionpage")
 def solutions():
     return render_template("solutions.html")
+
+
+@app.route("/CaseStudies")
+def case_studies():
+    return render_template("case_studies.html")
 
 
 @app.route("/CorporateProfile")

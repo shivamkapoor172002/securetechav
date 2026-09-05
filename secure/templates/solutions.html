@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ══ PRIMARY SEO ══ -->
     <title>AV Solutions — Acoustics, Audio Visual, Lighting & IT | SecureTech AV Designs</title>
@@ -59,6 +59,7 @@
     }
     </script>
 
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -74,7 +75,6 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .text-gradient { background: linear-gradient(135deg, #E87D2F 0%, #A52A2A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-            .pill-button { @apply rounded-full px-5 py-2 bg-[#E87D2F] text-white hover:bg-[#A52A2A] transition-colors text-sm font-semibold; }
         }
     </style>
     <style>
@@ -85,13 +85,14 @@
         }
 
         html {
-            scroll-behavior: smooth
+            scroll-behavior: smooth;
+            font-size: 120%;
         }
 
         body {
             overflow-x: hidden;
             margin: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
             color: #0a1628
         }
 
@@ -120,19 +121,174 @@
         }
 
         .header-logo {
-            height: 40px;
+            height: 70px;
             width: auto;
-            filter: brightness(0) invert(1);
-            transition: filter .3s
         }
 
         header.scrolled .header-logo {
             filter: none
         }
 
+        #desktop-nav {
+            flex: 1;
+            justify-content: center;
+            gap: 2.25rem;
+        }
+        #desktop-tools {
+            display: none;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 1024px) {
+            #desktop-tools {
+                display: flex;
+            }
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            transition: color .3s;
+        }
+
+        .nav-search-input {
+            width: 0;
+            opacity: 0;
+            padding: 0;
+            border: none;
+            border-bottom: 1px solid currentColor;
+            background: transparent;
+            color: inherit;
+            outline: none;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.24rem;
+            transition: width .35s ease, opacity .35s ease, padding .35s ease;
+        }
+
+        .nav-search-input.open {
+            width: 180px;
+            opacity: 1;
+            padding: .25rem .5rem;
+        }
+
+        .nav-search-input::placeholder {
+            color: currentColor;
+            opacity: .6;
+        }
+
+        .nav-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            padding: .4rem;
+        }
+
+        .nav-lang {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.48rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+        .nav-search:hover,
+        .nav-lang:hover {
+            color: rgba(255, 255, 255, .72);
+        }
+
+        header.scrolled .nav-search,
+        header.scrolled .nav-lang {
+            color: #08174d;
+        }
+
+        header.scrolled .nav-search:hover,
+        header.scrolled .nav-lang:hover {
+            color: #133193;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.28rem;
+            font-weight: 600;
+            letter-spacing: -.015em;
+            line-height: 1.15;
+            color: #fff;
+            white-space: nowrap;
+            transition: color .3s;
+        }
+
+        header.scrolled .brand-name {
+            color: #08174d;
+        }
+
+        @media (max-width: 520px) {
+            .brand-name {
+                font-size: .88rem;
+            }
+        }
         .nav-link {
             color: #fff;
-            transition: color .3s
+            transition: color 0.3s;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.48rem;
+            font-weight: 500;
+        }
+
+        .pill-button {
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            border: 2px solid #E87D2F;
+            border-radius: 9999px;
+            padding: .5rem 1.25rem;
+            background: #E87D2F;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.14rem;
+            font-weight: 600;
+            line-height: 1.25rem;
+            cursor: pointer;
+            transition: color .45s ease;
+        }
+
+        .pill-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform .45s ease;
+            z-index: -1;
+        }
+
+        .pill-button:hover {
+            color: #E87D2F;
+        }
+
+        .pill-button:hover::before {
+            transform: scaleX(1);
         }
 
         .nav-link:hover {
@@ -165,7 +321,7 @@
 
         .nav-container {
             display: flex;
-            height: 64px;
+            height: 78px;
             align-items: center;
             justify-content: space-between;
             padding: 0 1rem;
@@ -218,11 +374,29 @@
         .sol-hero {
             position: relative;
             width: 100%;
-            min-height: 100vh;
+            /* aspect-ratio gives a fractional height; the next section overlaps that
+               half-pixel row so no pale seam shows under the hero */
+            margin-bottom: -1px;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             overflow: hidden;
             background: #000;
+        }
+
+        @media (min-width: 768px) {
+            .sol-hero {
+                min-height: 75vh;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .sol-hero {
+                /* the photo's own ratio: the full image shows, nothing is cropped
+                   and no strip of section background is left under it */
+                min-height: 0;
+                aspect-ratio: 2225 / 1348;
+            }
         }
 
         .hero-bg-img {
@@ -232,9 +406,8 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
-            opacity: 0.55;
-            transition: transform 1.5s ease-out;
-            animation: hero-zoom 15s infinite alternate ease-in-out;
+            opacity: 0.9;
+            display: block;
         }
 
         @keyframes hero-zoom {
@@ -245,6 +418,15 @@
             100% {
                 transform: scale(1.05);
             }
+        }
+
+        .sol-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(90deg, rgba(4, 10, 22, .78) 0%, rgba(4, 10, 22, .45) 45%, rgba(4, 10, 22, .12) 100%);
+            pointer-events: none;
         }
 
         .hero-inner {
@@ -295,6 +477,11 @@
             color: #fff;
             z-index: 10;
             transition: all 0.3s;
+        }
+
+        .hero-scroll-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .hero-scroll-btn:hover {
@@ -388,6 +575,15 @@
             font-size: clamp(1rem, 1.8vw, 1.95rem);
             color: #142f67;
             line-height: 1.45
+        }
+
+        /* the venues header is centred, but .section-heading/.section-subtext are
+           capped-width blocks with margin:0, so they sat left of centre.
+           Scoped here so the left-aligned .section-intro is unaffected. */
+        .venues-section .section-heading,
+        .venues-section .section-subtext {
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* SOLUTIONS LIST */
@@ -757,13 +953,18 @@
             background: #ddd;
             aspect-ratio: 4/3;
             opacity: 0;
-            transform: translateY(30px)
+            transition: opacity .5s ease
         }
 
         .venue-card.revealed {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity .55s ease, transform .55s cubic-bezier(.16, 1, .3, 1)
+            opacity: 1
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .venue-card {
+                opacity: 1;
+                transition: none
+            }
         }
 
         .venue-card img {
@@ -772,6 +973,14 @@
             object-fit: cover;
             display: block;
             transition: transform .6s cubic-bezier(.16, 1, .3, 1)
+        }
+
+        /* full-bleed banner card: spans the whole grid row, sized to the photo's own
+           ratio so nothing is cropped and no empty strip appears under it */
+        .venue-card.venue-banner {
+            grid-column: 1 / -1;
+            aspect-ratio: 1600 / 969;
+            border-radius: 20px;
         }
 
         .venue-card:hover img {
@@ -886,8 +1095,8 @@
             bottom: 1.5rem;
             right: 1.5rem;
             z-index: 500;
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: #E87D2F;
             color: #fff;
@@ -897,14 +1106,47 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity .3s, transform .3s;
-            box-shadow: 0 4px 16px rgba(232, 125, 47, .4)
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
+            box-shadow: 0 4px 16px rgba(232, 125, 47, .4);
+            transition: background .25s, box-shadow .25s, opacity .3s ease, transform .3s ease, visibility .3s;
+        }
+
+        #scroll-top:hover {
+            background: #A52A2A;
+            box-shadow: 0 6px 22px rgba(165, 42, 42, .45);
+        }
+
+        #scroll-top .st-icon {
+            position: absolute;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        #scroll-top .st-up {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        #scroll-top.at-bottom .st-down {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        #scroll-top.at-bottom .st-up {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #scroll-top .st-icon { transition: none; }
         }
 
         #scroll-top.visible {
             opacity: 1;
-            transform: translateY(0)
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
         }
 
         /* FADE-UP */
@@ -925,15 +1167,37 @@
 
     <header id="main-header">
         <div class="nav-container">
-            <a href="/"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech Logo" class="header-logo" /></a>
-            <div style="display:flex;align-items:center;gap:1rem;">
-                <nav style="display:none;" id="desktop-nav" class="lg:flex items-center gap-6">
-                    <a href="/" class="nav-link text-sm font-medium">Home</a>
-                    <a href="/AboutUs" class="nav-link text-sm font-medium">About Us</a>
-                    <a href="/Solutionpage" class="nav-link nav-link-active text-sm font-medium">Solution</a>
-                    <a href="/CorporateProfile" class="nav-link text-sm font-medium">Corporate Profile</a>
+            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-name">SecureTech AV Designs</span></a>
+            <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
+                    <a href="/Solutionpage" class="nav-link nav-link-active">Solution</a>
+                    <a href="/CaseStudies" class="nav-link">Case Studies</a>
+                    <a href="/AboutUs" class="nav-link">About Us</a>
                 </nav>
-                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <div id="desktop-tools">
+                    <div class="nav-search">
+                        <input id="nav-search-input" class="nav-search-input" type="text" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="nav-icon-btn" aria-label="Search"
+                            onclick="var i=document.getElementById('nav-search-input');i.classList.toggle('open');if(i.classList.contains('open')){i.focus();}">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round">
+                                <circle cx="11" cy="11" r="7" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="nav-lang">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3 12h18" />
+                            <path d="M12 3c2.4 2.9 2.4 15.1 0 18" />
+                            <path d="M12 3c-2.4 2.9-2.4 15.1 0 18" />
+                        </svg>
+                        <span>IN (EN)</span>
+                    </div>
+                </div>                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
                         Us</button></a>
                 <button id="menu-btn"
                     style="display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#fff;padding:.5rem;"
@@ -955,19 +1219,17 @@
     </header>
 
     <div id="mobile-menu" class="mobile-menu">
-        <a href="/" onclick="closeMenu()">Home</a>
-        <a href="/AboutUs" onclick="closeMenu()">About Us</a>
         <a href="/Solutionpage" onclick="closeMenu()" style="color:#E87D2F;">Solution</a>
-        <a href="/CorporateProfile" onclick="closeMenu()">Corporate Profile</a>
-        <a href="/Contactus" onclick="closeMenu()"
-            style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
+        <a href="/CaseStudies" onclick="closeMenu()">Case Studies</a>
+        <a href="/AboutUs" onclick="closeMenu()">About Us</a>
+        <a href="/Contactus" onclick="closeMenu()" style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
     </div>
 
     <main>
 
         <!-- HERO -->
         <section class="sol-hero">
-            <img src="{{ url_for('static', filename='solution.webp') }}" class="hero-bg-img" alt="Background">
+            <img src="{{ url_for('static', filename='solution-hero-v2.webp') }}" class="hero-bg-img" alt="AV solution">
 
             <div class="hero-inner">
                 <h1 class="hero-title fade-up">
@@ -999,7 +1261,7 @@
 
                 <div class="sol-item">
                     <div class="sol-img-col">
-                        <img src="{{ url_for('static', filename='Architectural_Acoustics.webp') }}"
+                        <img src="{{ url_for('static', filename='solution-acoustics-v2.webp') }}"
                             alt="Architectural Acoustics" loading="lazy">
                         <div class="sol-img-overlay"></div>
                         <div class="sol-num-badge">01</div>
@@ -1084,7 +1346,7 @@
 
                 <div class="sol-item reverse">
                     <div class="sol-img-col">
-                        <img src="{{ url_for('static', filename='Information_Technology.webp') }}"
+                        <img src="{{ url_for('static', filename='solution-it-v2.webp') }}"
                             alt="Information Technology" loading="lazy">
                         <div class="sol-img-overlay"></div>
                         <div class="sol-num-badge">04</div>
@@ -1140,7 +1402,7 @@
 
                 <div class="sol-item reverse">
                     <div class="sol-img-col">
-                        <img src="{{ url_for('static', filename='project_management.webp') }}" alt="Project Management"
+                        <img src="{{ url_for('static', filename='solution-pm-v2.webp') }}" alt="Project Management"
                             loading="lazy">
                         <div class="sol-img-overlay"></div>
                         <div class="sol-num-badge">06</div>
@@ -1258,12 +1520,12 @@
                             alt="Sports Stadium" loading="lazy">
                         <div class="venue-overlay"></div>
                     </div>
-                    <div class="venue-card"><img src="{{ url_for('static', filename='solution-smart-classroom.webp') }}"
+                    <div class="venue-card"><img src="{{ url_for('static', filename='solution-classroom-v2.webp') }}"
                             alt="Smart Classroom" loading="lazy">
                         <div class="venue-overlay"></div>
                     </div>
                     <div class="venue-card"><img src="{{ url_for('static', filename='solution-cinema.webp') }}"
-                            alt="Entertainment Venue" loading="lazy">
+                            alt="Cinema Hall" loading="lazy">
                         <div class="venue-overlay"></div>
                     </div>
                     <div class="venue-card"><img src="{{ url_for('static', filename='solution-judiciary.webp') }}"
@@ -1408,8 +1670,11 @@
         </div>
     </footer>
 
-    <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <button id="scroll-top" aria-label="Scroll down">
+        <svg class="st-icon st-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+        <svg class="st-icon st-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M12 19V5M5 12l7-7 7 7" />
         </svg>
     </button>
@@ -1425,8 +1690,23 @@
         menuBtn.addEventListener('click', () => { menuOpen = !menuOpen; mobileMenu.classList.toggle('open', menuOpen); iconOpen.style.display = menuOpen ? 'none' : 'block'; iconClose.style.display = menuOpen ? 'block' : 'none'; document.body.style.overflow = menuOpen ? 'hidden' : ''; });
         function closeMenu() { menuOpen = false; mobileMenu.classList.remove('open'); iconOpen.style.display = 'block'; iconClose.style.display = 'none'; document.body.style.overflow = ''; }
         const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
+        function syncHeader() { header.classList.toggle('scrolled', window.scrollY > 50); }
+        window.addEventListener('scroll', syncHeader, { passive: true });
+        // run immediately AND after load/bfcache: refreshing mid-page restores the
+        // scroll offset without firing a scroll event, which left the nav transparent
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('pageshow', syncHeader);
+        requestAnimationFrame(syncHeader);
         const stb = document.getElementById('scroll-top');
+        // the hero's own down arrow retires once you leave the hero, so it never
+        // sits in the same corner as the floating scroll button
+        const heroArrow = document.querySelector('.hero-scroll-btn');
+        if (heroArrow) {
+            const syncHeroArrow = () => heroArrow.classList.toggle('hidden', window.scrollY > 180);
+            window.addEventListener('scroll', syncHeroArrow, { passive: true });
+            syncHeroArrow();
+        }
         window.addEventListener('scroll', () => stb.classList.toggle('visible', window.scrollY > 400), { passive: true });
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1439,7 +1719,31 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         document.querySelectorAll('.sol-item').forEach((el, i) => { el.setAttribute('data-delay', String(i * 0.06)); observer.observe(el); });
-        document.querySelectorAll('.venue-card').forEach((el, i) => { el.setAttribute('data-delay', String(i * 0.08)); observer.observe(el); });
+        document.querySelectorAll('.venue-card').forEach((el, i) => { el.setAttribute('data-delay', String(i * 0.04)); observer.observe(el); });
+        // safety net: never leave reveal-on-scroll content stuck invisible
+        setTimeout(() => {
+            document.querySelectorAll('.fade-up, .sol-item, .venue-card').forEach(el => el.classList.add('revealed'));
+        }, 2500);
+    
+        // scroll affordance: down arrow at top, up arrow once scrolled
+        (function () {
+            var btn = document.getElementById('scroll-top');
+            if (!btn) return;
+            function update() {
+                var down = window.scrollY > 300;
+                btn.classList.toggle('at-bottom', down);
+                btn.setAttribute('aria-label', down ? 'Scroll to top' : 'Scroll down');
+            }
+            btn.addEventListener('click', function () {
+                if (btn.classList.contains('at-bottom')) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    window.scrollBy({ top: Math.round(window.innerHeight * 0.9), behavior: 'smooth' });
+                }
+            });
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
     </script>
 </body>
 

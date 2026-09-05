@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ══ PRIMARY SEO ══ -->
+    <title>Case Studies — SecureTech AV Designs | AV Integration Projects Across India</title>
+    <meta name="description"
+        content="Explore SecureTech AV Designs case studies — auditorium, smart classroom, conference room and public address projects delivered for MATS University, Patna University, ICAR-NIBSM Raipur, NIFT Varanasi and more across India.">
+    <meta name="keywords"
+        content="AV case studies India, auditorium integration projects, smart classroom projects India, NIFT Varanasi AV, MATS University auditorium, Patna University smart classroom, ICAR NIBSM Raipur, public address system India" />
+    <meta name="author" content="SecureTech AV Designs Private Limited" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://securetechav.com/CaseStudies" />
+    <link rel="icon" href="{{ url_for('static', filename='image-5@2x.webp') }}">
+
+    <!-- ══ OPEN GRAPH ══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SecureTech AV Designs" />
+    <meta property="og:title" content="Case Studies — SecureTech AV Designs" />
+    <meta property="og:description"
+        content="Auditorium, smart classroom, conference and public address projects delivered across education, corporate, hospitality and large venue sectors in India." />
+    <meta property="og:url" content="https://securetechav.com/CaseStudies" />
+    <meta property="og:image" content="https://securetechav.com/static/securetech_av.webp" />
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ═══ RESET & BASE ═══ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 120%;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: #0a1628;
+            background: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* ═══ HEADER ═══ */
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: transparent;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        header.scrolled {
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(8, 23, 77, 0.08);
+        }
+
+        .header-logo {
+            height: 70px;
+            width: auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.28rem;
+            font-weight: 600;
+            letter-spacing: -.015em;
+            line-height: 1.15;
+            color: #fff;
+            white-space: nowrap;
+            transition: color .3s;
+        }
+
+        header.scrolled .brand-name {
+            color: #08174d;
+        }
+
+        @media (max-width: 520px) {
+            .brand-name {
+                font-size: .88rem;
+            }
+        }
+
+        #desktop-tools {
+            display: none;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 1024px) {
+            #desktop-tools {
+                display: flex;
+            }
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            transition: color .3s;
+        }
+
+        .nav-search-input {
+            width: 0;
+            opacity: 0;
+            padding: 0;
+            border: none;
+            border-bottom: 1px solid currentColor;
+            background: transparent;
+            color: inherit;
+            outline: none;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.24rem;
+            transition: width .35s ease, opacity .35s ease, padding .35s ease;
+        }
+
+        .nav-search-input.open {
+            width: 180px;
+            opacity: 1;
+            padding: .25rem .5rem;
+        }
+
+        .nav-search-input::placeholder {
+            color: currentColor;
+            opacity: .6;
+        }
+
+        .nav-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            padding: .4rem;
+        }
+
+        .nav-lang {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.48rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+        .nav-search:hover,
+        .nav-lang:hover {
+            color: rgba(255, 255, 255, .72);
+        }
+
+        header.scrolled .nav-search,
+        header.scrolled .nav-lang {
+            color: #08174d;
+        }
+
+        header.scrolled .nav-search:hover,
+        header.scrolled .nav-lang:hover {
+            color: #133193;
+        }
+
+        #desktop-nav {
+            flex: 1;
+            justify-content: center;
+            gap: 2.25rem;
+        }
+
+        .nav-link {
+            color: #fff;
+            transition: color 0.3s;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.48rem;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .nav-link-active {
+            color: #E87D2F;
+        }
+
+        header.scrolled .nav-link {
+            color: #08174d !important;
+        }
+
+        header.scrolled .nav-link-active {
+            color: #E87D2F !important;
+        }
+
+        header.scrolled .nav-link:hover {
+            color: #133193 !important;
+        }
+
+        header.scrolled .nav-link-active:hover {
+            color: #E87D2F !important;
+        }
+
+        header.scrolled #menu-btn {
+            color: #08174d !important;
+        }
+
+        .pill-button {
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            border: 2px solid #E87D2F;
+            border-radius: 9999px;
+            padding: .5rem 1.25rem;
+            background: #E87D2F;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.14rem;
+            font-weight: 600;
+            line-height: 1.25rem;
+            cursor: pointer;
+            transition: color .45s ease;
+        }
+
+        .pill-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform .45s ease;
+            z-index: -1;
+        }
+
+        .pill-button:hover {
+            color: #E87D2F;
+        }
+
+        .pill-button:hover::before {
+            transform: scaleX(1);
+        }
+
+        .nav-container {
+            display: flex;
+            height: 78px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media(min-width:1024px) {
+            .nav-container {
+                height: 96px;
+                padding: 0 2rem;
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            width: 100%;
+            background: #0a1628;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.15rem;
+            padding: 2rem 1rem;
+            z-index: 999;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        /* ═══ HERO ═══ */
+        .cs-hero {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(180deg, rgba(10, 11, 14, .72) 0%, rgba(10, 11, 14, .18) 26%, transparent 45%),
+                linear-gradient(90deg, rgba(10, 11, 14, .84) 0%, rgba(10, 11, 14, .62) 40%, rgba(10, 11, 14, .3) 72%, rgba(10, 11, 14, .18) 100%),
+                url('{{ url_for("static", filename="projects/hero-auditorium.jpg") }}') center/cover no-repeat;
+            padding: 8rem 1.5rem 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .cs-hero {
+                min-height: 75vh;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cs-hero {
+                min-height: 100vh;
+                min-height: 100svh;
+                padding: 10rem 2rem 6rem;
+            }
+        }
+
+        .cs-hero-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+
+        .cs-hero h1 {
+            font-size: clamp(2.2rem, 7vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -.03em;
+            color: #fff;
+            margin: 0 0 1.25rem;
+            max-width: 20ch;
+        }
+
+        .cs-hero p {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            line-height: 1.75;
+            color: rgba(255, 255, 255, .72);
+            max-width: 62ch;
+            margin: 0;
+        }
+
+        /* ═══ SECTION SHELL ═══ */
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4.5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -.03em;
+            line-height: 1.12;
+            margin: 0 0 .85rem;
+            color: #0a1628;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #5b6b80;
+            max-width: 68ch;
+            margin: 0 0 3rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #E87D2F 0%, #A52A2A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ═══ FEATURED CASE CARDS ═══ */
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 900px) {
+            .case-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .case-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #fff;
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 48px rgba(8, 23, 77, .12);
+        }
+
+        .case-media {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0a1628;
+        }
+
+        .case-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+
+        .case-card:hover .case-media img {
+            transform: scale(1.05);
+        }
+
+        .case-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(232, 125, 47, .95);
+            color: #fff;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .38rem .85rem;
+            border-radius: 50px;
+        }
+
+        .case-body {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            flex: 1;
+        }
+
+        .case-body h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            margin: 0;
+            color: #0a1628;
+        }
+
+        .case-loc {
+            font-size: .82rem;
+            font-weight: 500;
+            color: #E87D2F;
+        }
+
+        .case-body p {
+            font-size: .95rem;
+            line-height: 1.75;
+            color: #5b6b80;
+            margin: 0;
+        }
+
+        .case-scope {
+            list-style: none;
+            padding: 0;
+            margin: .35rem 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .case-scope li {
+            font-size: .76rem;
+            font-weight: 500;
+            color: #0a1628;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: .32rem .75rem;
+            border-radius: 50px;
+        }
+
+        /* ═══ VERTICALS ═══ */
+        .vert-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 700px) {
+            .vert-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1100px) {
+            .vert-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .vert-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            transition: border-color .3s, box-shadow .3s, transform .3s;
+        }
+
+        .vert-card:hover {
+            border-color: #E87D2F;
+            box-shadow: 0 14px 36px rgba(8, 23, 77, .10);
+            transform: translateY(-4px);
+        }
+
+        .vert-media {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #0a1628;
+            flex-shrink: 0;
+        }
+
+        /* stacked frames: auto-rotating crossfade */
+        .vert-media img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity .9s ease, transform .6s ease;
+        }
+
+        .vert-media img.is-active {
+            opacity: 1;
+        }
+
+        /* single-image cards (and no-JS) still show the first frame */
+        .vert-media img:first-child {
+            opacity: 1;
+        }
+
+        .vert-media img:first-child.is-idle {
+            opacity: 0;
+        }
+
+        .vert-card:hover .vert-media img.is-active {
+            transform: scale(1.06);
+        }
+
+        .vert-dots {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: .7rem;
+            display: flex;
+            justify-content: center;
+            gap: .35rem;
+            z-index: 2;
+        }
+
+        .vert-dots span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .45);
+            transition: background .3s, width .3s;
+        }
+
+        .vert-dots span.on {
+            background: #E87D2F;
+            width: 16px;
+            border-radius: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .vert-media img {
+                transition: none;
+            }
+        }
+
+        .vert-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 22, 40, 0) 45%, rgba(10, 22, 40, .55) 100%);
+        }
+
+        .vert-inner {
+            padding: 1.6rem 1.75rem 1.85rem;
+        }
+
+        .vert-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: .02em;
+            text-transform: uppercase;
+            margin: 0 0 1rem;
+            color: #E87D2F;
+        }
+
+        .vert-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem;
+        }
+
+        .vert-card li {
+            font-size: .95rem;
+            color: #0a1628;
+            line-height: 1.5;
+            padding-left: 1.15rem;
+            position: relative;
+        }
+
+        .vert-card li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: .55em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #E87D2F;
+        }
+
+        .vert-card li span {
+            display: block;
+            font-size: .82rem;
+            color: #7a8899;
+        }
+
+        /* ═══ LOGO / NAME STRIPS ═══ */
+        .strip {
+            background: #f8fafc;
+            border-top: 1px solid #e8ecf0;
+            border-bottom: 1px solid #e8ecf0;
+        }
+
+        /* ═══ LOGO RAILS (matches home page) ═══ */
+        .rail-section {
+            background: #fff;
+            padding: 3.5rem 0;
+        }
+
+        .rail-section-alt {
+            background: #f8fafc;
+        }
+
+        @media(min-width:900px) {
+            .rail-section {
+                padding: 5.5rem 0;
+            }
+        }
+
+        .rail-body {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width:900px) {
+            .rail-body {
+                grid-template-columns: minmax(200px, 26%) 1fr;
+                gap: 0;
+                align-items: center;
+            }
+        }
+
+        .rail-label h2 {
+            font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+            font-weight: 800;
+            letter-spacing: .01em;
+            line-height: 1.2;
+            color: #0a1628;
+            margin-bottom: 1.4rem;
+        }
+
+        .rail-desc {
+            color: #33455c;
+            font-size: .95rem;
+            line-height: 1.6;
+            max-width: 34ch;
+        }
+
+        .rail-viewport {
+            min-width: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .rail-viewport::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media(min-width:900px) {
+            .rail-viewport {
+                border-left: 1px solid #e6eaee;
+                padding-left: 4rem;
+            }
+        }
+
+        .rail-track {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            width: max-content;
+            padding: .5rem 0;
+        }
+
+        @media(min-width:900px) {
+            .rail-track {
+                gap: 6rem;
+            }
+        }
+
+        .rail-track img {
+            height: 64px;
+            min-width: 150px;
+            max-width: 250px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: grayscale(1) contrast(1.08);
+            transition: filter .3s, transform .3s;
+        }
+
+        @media(min-width:900px) {
+            .rail-track img {
+                height: 86px;
+                min-width: 170px;
+                max-width: 290px;
+            }
+        }
+
+        .rail-track img:hover {
+            filter: grayscale(0) contrast(1);
+            transform: scale(1.06);
+        }
+
+        /* ═══ CTA ═══ */
+        .cta-section {
+            padding: 5rem 1.5rem;
+        }
+
+        .cta-inner {
+            background: #0a1628;
+            border-radius: 32px;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .cta-inner {
+                border-radius: 60px;
+                padding: 5rem 4rem;
+            }
+        }
+
+        .cta-title {
+            font-size: clamp(1.75rem, 6vw, 4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -.03em;
+            line-height: 1.15;
+            margin: 0 0 1.5rem;
+            color: #fff;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background: #E87D2F;
+            color: #fff;
+            padding: .9rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background .25s;
+        }
+
+        .cta-btn:hover {
+            background: #A52A2A;
+        }
+
+        /* ═══ FOOTER SHELL ═══ */
+        .footer-col-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 900px) {
+            .footer-col-grid {
+                grid-template-columns: 1.2fr 1fr 1.3fr;
+            }
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: background .3s, border-color .3s;
+        }
+
+        .social-icon:hover {
+            background: #E87D2F;
+            border-color: #E87D2F;
+        }
+
+        .footer-bottom-bar {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.15rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 500;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #E87D2F;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
+            box-shadow: 0 4px 16px rgba(232, 125, 47, .4);
+            transition: background .25s, box-shadow .25s, opacity .3s ease, transform .3s ease, visibility .3s;
+        }
+
+        #scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        #scroll-top:hover {
+            background: #A52A2A;
+            box-shadow: 0 6px 22px rgba(165, 42, 42, .45);
+        }
+
+        #scroll-top .st-icon {
+            position: absolute;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        #scroll-top .st-up {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        #scroll-top.at-bottom .st-down {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        #scroll-top.at-bottom .st-up {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #scroll-top .st-icon { transition: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header id="main-header">
+        <div class="nav-container">
+            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}"
+                    alt="SecureTech AV Designs" class="header-logo" /><span class="brand-name">SecureTech AV
+                    Designs</span></a>
+            <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
+                <a href="/Solutionpage" class="nav-link">Solution</a>
+                <a href="/CaseStudies" class="nav-link nav-link-active">Case Studies</a>
+                <a href="/AboutUs" class="nav-link">About Us</a>
+            </nav>
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <div id="desktop-tools">
+                    <div class="nav-search">
+                        <input id="nav-search-input" class="nav-search-input" type="text" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="nav-icon-btn" aria-label="Search"
+                            onclick="var i=document.getElementById('nav-search-input');i.classList.toggle('open');if(i.classList.contains('open')){i.focus();}">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round">
+                                <circle cx="11" cy="11" r="7" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="nav-lang">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3 12h18" />
+                            <path d="M12 3c2.4 2.9 2.4 15.1 0 18" />
+                            <path d="M12 3c-2.4 2.9-2.4 15.1 0 18" />
+                        </svg>
+                        <span>IN (EN)</span>
+                    </div>
+                </div>
+                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
+                        Us</button></a>
+                <button id="menu-btn"
+                    style="display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#fff;padding:.5rem;"
+                    aria-label="Open menu">
+                    <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" style="display:none;">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
+        <a href="/CaseStudies" onclick="closeMenu()" style="color:#E87D2F;">Case Studies</a>
+        <a href="/AboutUs" onclick="closeMenu()">About Us</a>
+        <a href="/Contactus" onclick="closeMenu()"
+            style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
+    </div>
+
+    <main>
+
+        <!-- ═══════════════ HERO ═══════════════ -->
+        <section class="cs-hero">
+            <div class="cs-hero-inner">
+                <h1>Our work, across India</h1>
+                <p>Auditoriums, smart classrooms, conference rooms and campus-wide public address systems —
+                    engineered, installed and commissioned by our team for universities, government bodies,
+                    corporates and hospitality groups.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════ FEATURED PROJECTS ═══════════════ -->
+        <section class="section" id="featured">
+            <h2 class="section-title">Featured <span class="text-gradient">projects</span></h2>
+            <p class="section-sub">A closer look at recent integrations delivered end to end — from design and
+                supply through installation, commissioning and handover.</p>
+
+            <div class="case-grid">
+
+                <!-- MATS UNIVERSITY -->
+                <article class="case-card">
+                    <div class="case-media">
+                        <!-- IMAGE SLOT: replace with the real MATS University auditorium photo -->
+                        <img src="{{ url_for('static', filename='projects/mats-auditorium.jpg') }}"
+                            alt="Auditorium audio, video and lighting integration at MATS University, Raipur"
+                            loading="lazy" />
+                        <span class="case-tag">Education</span>
+                    </div>
+                    <div class="case-body">
+                        <h3>MATS University</h3>
+                        <span class="case-loc">Raipur, Chhattisgarh</span>
+                        <p>Our team handled the complete audio, video and professional lighting integration for the
+                            university's main auditorium, transforming it into a world-class experiential space for
+                            campus events.</p>
+                        <ul class="case-scope">
+                            <li>Audio</li>
+                            <li>Video</li>
+                            <li>Professional Lighting</li>
+                            <li>Main Auditorium</li>
+                        </ul>
+
+                    </div>
+                </article>
+
+                <!-- PATNA UNIVERSITY -->
+                <article class="case-card">
+                    <div class="case-media">
+                        <!-- IMAGE SLOT: replace with the real Patna University conference room / classroom photo -->
+                        <img src="{{ url_for('static', filename='projects/patna-conference.jpg') }}"
+                            alt="Corporate conference room and smart classrooms at Patna University" loading="lazy" />
+                        <span class="case-tag">Education</span>
+                    </div>
+                    <div class="case-body">
+                        <h3>Patna University</h3>
+                        <span class="case-loc">Patna, Bihar</span>
+                        <p>Campus modernisation across learning and meeting spaces. We engineered a premium corporate
+                            conference room alongside modern smart classrooms, delivering a seamless, interactive
+                            experience for both faculty and students.</p>
+                        <ul class="case-scope">
+                            <li>Conference Room</li>
+                            <li>Smart Classrooms</li>
+                            <li>Interactive Displays</li>
+                        </ul>
+
+                    </div>
+                </article>
+
+                <!-- ICAR NIBSM -->
+                <article class="case-card">
+                    <div class="case-media">
+                        <!-- IMAGE SLOT: replace with the real ICAR-NIBSM auditorium photo -->
+                        <img src="{{ url_for('static', filename='projects/icar-auditorium.jpg') }}"
+                            alt="Audio visual and sound reinforcement at ICAR-NIBSM auditorium, Raipur"
+                            loading="lazy" />
+                        <span class="case-tag">Government / CPWD</span>
+                    </div>
+                    <div class="case-body">
+                        <h3>ICAR — NIBSM</h3>
+                        <span class="case-loc">Raipur, Chhattisgarh</span>
+                        <p>A high-compliance CPWD public tender, successfully executed to design, install and
+                            commission the complete audio-visual and sound reinforcement infrastructure for the main
+                            auditorium at the National Institute of Biotic Stress Management.</p>
+                        <ul class="case-scope">
+                            <li>CPWD Tender</li>
+                            <li>Sound Reinforcement</li>
+                            <li>Audio Visual</li>
+                            <li>Commissioning</li>
+                        </ul>
+
+                    </div>
+                </article>
+
+                <!-- NIFT VARANASI -->
+                <article class="case-card">
+                    <div class="case-media">
+                        <!-- IMAGE SLOT: replace with the real NIFT Varanasi campus photo -->
+                        <img src="{{ url_for('static', filename='projects/nift-classroom.jpg') }}"
+                            alt="Full campus technology integration at NIFT Varanasi" loading="lazy" />
+                        <span class="case-tag">Education · In Progress</span>
+                    </div>
+                    <div class="case-body">
+                        <h3>NIFT Varanasi</h3>
+                        <span class="case-loc">Varanasi, Uttar Pradesh</span>
+                        <p>A massive, full-campus technology integration currently in execution for the National
+                            Institute of Fashion Technology — state-of-the-art smart classrooms and design labs, a
+                            world-class auditorium and conference system, and a high-compliance multi-zone public
+                            address application for uniform campus-wide audio broadcasting.</p>
+                        <ul class="case-scope">
+                            <li>Smart Classrooms</li>
+                            <li>Design Labs</li>
+                            <li>Auditorium</li>
+                            <li>Multi-zone PA</li>
+                        </ul>
+
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ═══════════════ SECTORS ═══════════════ -->
+        <section class="strip" id="sectors">
+            <div class="section">
+                <h2 class="section-title">Sectors we <span class="text-gradient">serve</span></h2>
+                <p class="section-sub">Projects delivered across education, corporate, hospitality, large venues,
+                    museums, houses of worship and retail.</p>
+
+                <div class="vert-grid">
+
+                    <div class="vert-card">
+                        <div class="vert-media">
+                            <img src="{{ url_for('static', filename='projects/sector-education.jpg') }}" alt="University lecture hall" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-education-2.jpg') }}" alt="University lecture hall" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-education-3.jpg') }}" alt="University lecture hall" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="vert-inner">
+                        <h3>Universities &amp; Education</h3>
+                        <ul>
+                            <li>MATS University <span>Raipur — auditorium AV &amp; lighting</span></li>
+                            <li>Patna University <span>Conference room &amp; smart classrooms</span></li>
+                            <li>ICAR — NIBSM <span>Raipur — auditorium, CPWD tender</span></li>
+                            <li>NIFT Varanasi <span>Full-campus integration</span></li>
+                            <li>SSLNT Mahila College <span>Dhanbad - auditorium, sound &amp; light</span></li>
+                            <li>Maharshi Dayanand University <span>MDU</span></li>
+                            <li>ICMR Chennai <span>National Institute of Epidemiology - smart classroom</span></li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="vert-card">
+                        <div class="vert-media">
+                            <img src="{{ url_for('static', filename='projects/sector-corporate.jpg') }}" alt="Corporate meeting space" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-corporate-2.jpg') }}" alt="Corporate meeting space" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-corporate-3.jpg') }}" alt="Corporate meeting space" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="vert-inner">
+                        <h3>Corporate</h3>
+                        <ul>
+                            <li>HCL</li>
+                            <li>Google</li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="vert-card">
+                        <div class="vert-media">
+                            <img src="{{ url_for('static', filename='projects/sector-hospitality.jpg') }}" alt="Hotel and restaurant interiors" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-hospitality-2.jpg') }}" alt="Hotel and restaurant interiors" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-hospitality-3.jpg') }}" alt="Hotel and restaurant interiors" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="vert-inner">
+                        <h3>Hospitality</h3>
+                        <ul>
+                            <li>Taj <span>Dehradun</span></li>
+                            <li>ITC</li>
+                            <li>LOD</li>
+                            <li>Rome Lane <span>Restaurant / lounge</span></li>
+                            <li>Diablo <span>Club / lounge, New Delhi</span></li>
+                            <li>Lazeez Affaire <span>Restaurant, New Delhi</span></li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="vert-card">
+                        <div class="vert-media">
+                            <img src="{{ url_for('static', filename='projects/sector-venues.jpg') }}" alt="Large civic hall" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-venues-2.jpg') }}" alt="Large civic hall" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-venues-3.jpg') }}" alt="Large civic hall" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="vert-inner">
+                        <h3>Large Venues — Townhalls</h3>
+                        <ul>
+                            <li>Bundi <span>Rajasthan</span></li>
+                            <li>Dausa <span>Rajasthan</span></li>
+                            <li>Bokaro <span>Jharkhand</span></li>
+                            <li>Seraikela <span>Jharkhand</span></li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="vert-card">
+                        <div class="vert-media">
+                            <img src="{{ url_for('static', filename='projects/sector-worship.jpg') }}" alt="Museum and temple interiors" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-worship-2.jpg') }}" alt="Museum and temple interiors" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-worship-3.jpg') }}" alt="Museum and temple interiors" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="vert-inner">
+                        <h3>Museums &amp; Worship</h3>
+                        <ul>
+                            <li>Nagara Museum</li>
+                            <li>Vrindavan Chandrodaya Mandir <span>Vrindavan, Uttar Pradesh</span></li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="vert-card">
+                        <div class="vert-media">
+                            <img src="{{ url_for('static', filename='projects/sector-retail.jpg') }}" alt="Retail store interior" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-retail-2.jpg') }}" alt="Retail store interior" loading="lazy" decoding="async" />
+                            <img src="{{ url_for('static', filename='projects/sector-retail-3.jpg') }}" alt="Retail store interior" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="vert-inner">
+                        <h3>Retail</h3>
+                        <ul>
+                            <li>H&amp;M <span>Connaught Place, New Delhi</span></li>
+                        </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CLIENTS RAIL ═══════════════ -->
+        <section class="rail-section" data-speed="0.4" id="clients">
+            <div class="rail-body">
+                <div class="rail-label">
+                    <h2>Clients</h2>
+                    <p class="rail-desc">Trusted by the best across India</p>
+                </div>
+                <div class="rail-viewport">
+                    <div class="rail-track">
+                        <img src="{{ url_for('static', filename='c1-1@2x.webp') }}"
+                            alt="CPWD — Central Public Works Department" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='dslogo.webp') }}" alt="PWD — Government of Delhi"
+                            loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='p1-1@2x.webp') }}" alt="NBCC (India) Limited"
+                            loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='p10-1@2x.webp') }}"
+                            alt="Building Construction Department, Government of Bihar" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='p12-1@2x.webp') }}" alt="JUIDCO" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/cbse.svg') }}"
+                            alt="CBSE — Central Board of Secondary Education" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/jda.png') }}"
+                            alt="JDA — Jaipur Development Authority" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='p17-1@2x.webp') }}" alt="Government of Rajasthan"
+                            loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='p2-1@2x.webp') }}"
+                            alt="Gorkhaland Territorial Administration" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/itc.svg') }}" alt="ITC Limited" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/hcl.svg') }}" alt="HCLTech" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/google.png') }}" alt="Google" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/mats-university.png') }}" alt="MATS University, Raipur" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/patna-university.png') }}" alt="Patna University" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/nift.png') }}" alt="NIFT - National Institute of Fashion Technology" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/icar.svg') }}" alt="ICAR - Indian Council of Agricultural Research" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/icmr.svg') }}" alt="ICMR - Indian Council of Medical Research" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/mdu.png') }}" alt="Maharshi Dayanand University, Rohtak" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/hm.svg') }}" alt="H&amp;M" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/vrindavan-mandir.png') }}" alt="Vrindavan Chandrodaya Mandir" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='clients/nagara-museum.svg') }}" alt="Nagara Museum" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='p14-1@2x.webp') }}" alt="Taj Hotels" loading="lazy"
+                            decoding="async" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ BRANDS RAIL ═══════════════ -->
+        <section class="rail-section rail-section-alt" data-speed="0.32">
+            <div class="rail-body">
+                <div class="rail-label">
+                    <h2>Brands</h2>
+                    <p class="rail-desc">We partner with the best AV brands</p>
+                </div>
+                <div class="rail-viewport">
+                    <div class="rail-track">
+                        <img src="{{ url_for('static', filename='senheiserlogo.webp') }}" alt="Sennheiser"
+                            loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='britishacousticscommerciallogo2019copy300webp@2x.webp') }}"
+                            alt="British Acoustics" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='qnclogo.webp') }}" alt="QSC" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='christielogo.webp') }}" alt="Christie" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='ciscologo.webp') }}" alt="Cisco" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='lglogo.webp') }}" alt="LG" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='boselogo.webp') }}" alt="Bose" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='jbllogo.webp') }}" alt="JBL" loading="lazy"
+                            decoding="async" />
+                        <img src="{{ url_for('static', filename='sonylogo685450c77eseeklogocomwebp@2x.webp') }}"
+                            alt="Sony" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='brands/martinaudio.svg') }}" alt="Martin Audio" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='brands/kramer.png') }}" alt="Kramer" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='brands/shure.svg') }}" alt="Shure" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='brands/netgear.svg') }}" alt="NETGEAR" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='brands/honeywell.svg') }}" alt="Honeywell" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='brands/hp.svg') }}" alt="HP" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='brands/lumens.png') }}" alt="Lumens" loading="lazy" decoding="async" />
+                        <img src="{{ url_for('static', filename='brands/vocalaudio.png') }}" alt="Vocal Audio" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CTA ═══════════════ -->
+        <section class="cta-section">
+            <div class="cta-inner">
+                <h2 class="cta-title">Have a space <br><span class="text-gradient">in mind?</span></h2>
+                <a href="/Contactus" class="cta-btn">
+                    START A CONVERSATION
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer style="background:linear-gradient(135deg,#0a1628 0%,#0d1f3c 40%,#112240 100%);color:#fff;">
+        <div class="footer-col-grid">
+            <div style="display:flex;flex-direction:column;gap:1.25rem;">
+                <h2 style="font-size:clamp(2.2rem,9vw,4rem);font-weight:900;line-height:1;letter-spacing:-.03em;margin:0;">
+                    LET'S TALK</h2>
+                <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.75;max-width:340px;margin:0;">
+                    Secure TechAV Designs Private Limited — driven by a passion for absolute technology. Architectural
+                    Acoustics, sound system design, and post-project service.</p>
+                <a href="/Contactus"
+                    style="display:inline-flex;align-items:center;gap:.6rem;border:2px solid rgba(255,255,255,.4);color:#fff;padding:.7rem 1.8rem;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .3s;align-self:flex-start;"
+                    onmouseover="this.style.borderColor='#E87D2F';this.style.background='#E87D2F'"
+                    onmouseout="this.style.borderColor='rgba(255,255,255,.4)';this.style.background='transparent'">
+                    Enquire Now
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <div>
+                    <p
+                        style="font-size:.78rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:.65rem;text-transform:uppercase;letter-spacing:.1em;">
+                        Follow us</p>
+                    <div style="display:flex;gap:.65rem;flex-wrap:wrap;">
+                        <a href="https://www.linkedin.com/company/securetechav-designs/" target="_blank"
+                            class="social-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61553741201034" target="_blank"
+                            class="social-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/secuetechav" target="_blank" class="social-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@SecureTechAVDesigns" target="_blank" class="social-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:.75rem;">
+                <h4 style="font-size:.88rem;font-weight:700;font-style:italic;color:#fff;margin:0 0 .25rem;">Find Us
+                </h4>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6174.160431626374!2d77.3509790616948!3d28.588703179313608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce51b9a3bb81f%3A0x806219bd741a009f!2sSECURETECH%20AV%20DESIGNS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin"
+                    style="width:100%;height:170px;border-radius:12px;border:0;" allowfullscreen
+                    loading="lazy"></iframe>
+                <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin:0;line-height:1.6;">
+                    <span style="color:#E87D2F;font-weight:600;">Address:</span> SecureTech AV Designs Pvt Ltd,<br>A-70,
+                    Sector 33, Noida, UP 201301
+                </p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+                <div>
+                    <h4 style="font-size:.88rem;font-weight:700;font-style:italic;margin-bottom:.9rem;color:#fff;">
+                        Sitemap</h4>
+                    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.5rem;">
+                        <li><a href="/"
+                                style="color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;transition:color .3s;"
+                                onmouseover="this.style.color='#E87D2F'"
+                                onmouseout="this.style.color='rgba(255,255,255,.6)'">Home</a></li>
+                        <li><a href="/Solutionpage"
+                                style="color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;transition:color .3s;"
+                                onmouseover="this.style.color='#E87D2F'"
+                                onmouseout="this.style.color='rgba(255,255,255,.6)'">AV Solutions</a></li>
+                        <li><a href="/CaseStudies"
+                                style="color:#E87D2F;text-decoration:none;font-size:.84rem;font-weight:600;">Case
+                                Studies</a></li>
+                        <li><a href="/AboutUs"
+                                style="color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;transition:color .3s;"
+                                onmouseover="this.style.color='#E87D2F'"
+                                onmouseout="this.style.color='rgba(255,255,255,.6)'">About Us</a></li>
+                        <li><a href="/Contactus"
+                                style="color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;transition:color .3s;"
+                                onmouseover="this.style.color='#E87D2F'"
+                                onmouseout="this.style.color='rgba(255,255,255,.6)'">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size:.88rem;font-weight:700;font-style:italic;margin-bottom:.9rem;color:#fff;">
+                        Corporate Profile</h4>
+                    <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin:0 0 .85rem;line-height:1.6;">View or
+                        download our full company profile &amp; capabilities.</p>
+                    <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                        <a href="/CorporateProfile"
+                            style="display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid #E87D2F;color:#fff;padding:.55rem 1.25rem;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;transition:background .3s;"
+                            onmouseover="this.style.background='#E87D2F'"
+                            onmouseout="this.style.background='transparent'">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,.08);">
+            <div style="max-width:1400px;margin:0 auto;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:10px;">
+                <img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" style="height:32px;width:auto;"
+                    alt="SecureTech Logo" />
+                <span style="font-weight:700;font-size:.95rem;color:#fff;">SecureTech AV Designs</span>
+            </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,.08);">
+            <div class="footer-bottom-bar">
+                <p style="font-size:.72rem;color:rgba(255,255,255,.4);margin:0;">Copyright © 2026 SecureTech AV Designs
+                    Private Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ── Desktop nav ──
+        (function () {
+            const dn = document.getElementById('desktop-nav'),
+                dc = document.getElementById('desktop-cta'),
+                mb = document.getElementById('menu-btn');
+            function cw() {
+                if (window.innerWidth >= 1024) {
+                    dn.style.display = 'flex'; dc.style.display = 'block'; mb.style.display = 'none';
+                } else {
+                    dn.style.display = 'none'; dc.style.display = 'none'; mb.style.display = 'flex';
+                }
+            }
+            cw(); window.addEventListener('resize', cw);
+        })();
+
+        // ── Header background on scroll ──
+        (function () {
+            const h = document.getElementById('main-header');
+            function onScroll() {
+                if (window.scrollY > 40) { h.classList.add('scrolled'); }
+                else { h.classList.remove('scrolled'); }
+            }
+            onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('load', onScroll);
+            window.addEventListener('pageshow', onScroll);
+        })();
+
+        // ── Mobile menu ──
+        function closeMenu() {
+            document.getElementById('mobile-menu').classList.remove('open');
+            document.getElementById('icon-open').style.display = 'block';
+            document.getElementById('icon-close').style.display = 'none';
+        }
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            const m = document.getElementById('mobile-menu'),
+                o = document.getElementById('icon-open'),
+                c = document.getElementById('icon-close');
+            const isOpen = m.classList.toggle('open');
+            o.style.display = isOpen ? 'none' : 'block';
+            c.style.display = isOpen ? 'block' : 'none';
+        });
+
+        /* Sector cards: auto-rotating image carousel with crossfade */
+        (function () {
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            document.querySelectorAll('.vert-media').forEach(function (media, ci) {
+                var imgs = Array.prototype.slice.call(media.querySelectorAll('img'));
+                if (imgs.length < 2) return;
+
+                // drop frames that fail to load so we never fade to a broken image
+                imgs.forEach(function (im) {
+                    im.addEventListener('error', function () {
+                        im.dataset.dead = '1';
+                        im.remove();
+                    });
+                });
+
+                var dots = document.createElement('div');
+                dots.className = 'vert-dots';
+                imgs.forEach(function () { dots.appendChild(document.createElement('span')); });
+                media.appendChild(dots);
+
+                var i = 0;
+                function show(n) {
+                    var live = Array.prototype.slice.call(media.querySelectorAll('img'));
+                    if (!live.length) return;
+                    n = ((n % live.length) + live.length) % live.length;
+                    live.forEach(function (im, k) {
+                        im.classList.toggle('is-active', k === n);
+                        if (k === 0) im.classList.toggle('is-idle', n !== 0);
+                    });
+                    var ds = dots.querySelectorAll('span');
+                    for (var k = 0; k < ds.length; k++) ds[k].classList.toggle('on', k === n);
+                    i = n;
+                }
+                show(0);
+                if (reduce) return;
+
+                var timer = null;
+                function start() { timer = setInterval(function () { show(i + 1); }, 4200); }
+                function stop() { if (timer) { clearInterval(timer); timer = null; } }
+                // stagger so the six cards do not all flip in unison
+                setTimeout(start, ci * 700);
+                media.addEventListener('mouseenter', stop);
+                media.addEventListener('mouseleave', function () { if (!timer) start(); });
+            });
+        })();
+        /* Logo rails: seamless right-to-left drift, pauses on hover */
+        (function () {
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduce) return;
+
+            document.querySelectorAll('.rail-section').forEach(function (root) {
+                var vp = root.querySelector('.rail-viewport');
+                var track = root.querySelector('.rail-track');
+                if (!vp || !track) return;
+
+                track.innerHTML += track.innerHTML; // duplicate for a seamless loop
+
+                var speed = parseFloat(root.dataset.speed || '0.4');
+                var pos = 0, paused = false, resumeAt = 0;
+
+                function half() { return track.scrollWidth / 2; }
+
+                function frame() {
+                    if (!paused && Date.now() > resumeAt) {
+                        var h = half();
+                        pos += speed;
+                        if (h && pos >= h) pos -= h;
+                        vp.scrollLeft = pos;
+                    } else {
+                        pos = vp.scrollLeft;
+                        if (vp.scrollLeft >= half()) { vp.scrollLeft -= half(); pos = vp.scrollLeft; }
+                    }
+                    requestAnimationFrame(frame);
+                }
+
+                vp.addEventListener('mouseenter', function () { paused = true; });
+                vp.addEventListener('mouseleave', function () { paused = false; pos = vp.scrollLeft; });
+                vp.addEventListener('touchstart', function () { resumeAt = Date.now() + 3000; }, { passive: true });
+
+                requestAnimationFrame(frame);
+            });
+        })();
+    
+</script>
+
+    <button id="scroll-top" aria-label="Scroll down">
+        <svg class="st-icon st-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+        <svg class="st-icon st-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script>
+        // scroll affordance: down arrow at top, up arrow once scrolled
+        (function () {
+            var btn = document.getElementById('scroll-top');
+            if (!btn) return;
+            function update() {
+                var down = window.scrollY > 300;
+                btn.classList.toggle('at-bottom', down);
+                btn.classList.toggle('visible', window.scrollY > 400);
+                btn.setAttribute('aria-label', down ? 'Scroll to top' : 'Scroll down');
+            }
+            btn.addEventListener('click', function () {
+                if (btn.classList.contains('at-bottom')) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    window.scrollBy({ top: Math.round(window.innerHeight * 0.9), behavior: 'smooth' });
+                }
+            });
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
+    </script>
+
+
+</body>
+
+</html>

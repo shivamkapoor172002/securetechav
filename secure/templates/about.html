@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ══ PRIMARY SEO ══ -->
     <title>About SecureTech AV Designs — Leading AV System Integrators in India</title>
@@ -52,6 +52,7 @@
     }
     </script>
 
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -83,12 +84,11 @@
                 --border: 214.3 31.8% 91.4%;
                 --brand-gradient: linear-gradient(135deg, #E87D2F 0%, #A52A2A 100%);
             }
-            body { @apply bg-background text-foreground; font-family: 'Inter', sans-serif; }
+            body { @apply bg-background text-foreground; font-family: 'IBM Plex Sans', sans-serif; }
         }
         @layer utilities {
             .text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
             .bg-brand-gradient { background: var(--brand-gradient); }
-            .pill-button { @apply rounded-full px-5 py-2 bg-[#E87D2F] text-white hover:bg-[#A52A2A] transition-colors text-sm font-semibold; }
         }
     </style>
     <style>
@@ -101,11 +101,12 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 120%;
         }
 
         body {
             overflow-x: hidden;
-            font-family: 'Inter', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
         }
 
         a {
@@ -133,19 +134,174 @@
         }
 
         .header-logo {
-            height: 40px;
+            height: 70px;
             width: auto;
-            filter: brightness(0) invert(1);
-            transition: filter 0.3s;
         }
 
         header.scrolled .header-logo {
             filter: none;
         }
 
+        #desktop-nav {
+            flex: 1;
+            justify-content: center;
+            gap: 2.25rem;
+        }
+        #desktop-tools {
+            display: none;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 1024px) {
+            #desktop-tools {
+                display: flex;
+            }
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            transition: color .3s;
+        }
+
+        .nav-search-input {
+            width: 0;
+            opacity: 0;
+            padding: 0;
+            border: none;
+            border-bottom: 1px solid currentColor;
+            background: transparent;
+            color: inherit;
+            outline: none;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.24rem;
+            transition: width .35s ease, opacity .35s ease, padding .35s ease;
+        }
+
+        .nav-search-input.open {
+            width: 180px;
+            opacity: 1;
+            padding: .25rem .5rem;
+        }
+
+        .nav-search-input::placeholder {
+            color: currentColor;
+            opacity: .6;
+        }
+
+        .nav-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            padding: .4rem;
+        }
+
+        .nav-lang {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.48rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+        .nav-search:hover,
+        .nav-lang:hover {
+            color: rgba(255, 255, 255, .72);
+        }
+
+        header.scrolled .nav-search,
+        header.scrolled .nav-lang {
+            color: #08174d;
+        }
+
+        header.scrolled .nav-search:hover,
+        header.scrolled .nav-lang:hover {
+            color: #133193;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.28rem;
+            font-weight: 600;
+            letter-spacing: -.015em;
+            line-height: 1.15;
+            color: #fff;
+            white-space: nowrap;
+            transition: color .3s;
+        }
+
+        header.scrolled .brand-name {
+            color: #08174d;
+        }
+
+        @media (max-width: 520px) {
+            .brand-name {
+                font-size: .88rem;
+            }
+        }
         .nav-link {
             color: #fff;
             transition: color 0.3s;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.48rem;
+            font-weight: 500;
+        }
+
+        .pill-button {
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            border: 2px solid #E87D2F;
+            border-radius: 9999px;
+            padding: .5rem 1.25rem;
+            background: #E87D2F;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.14rem;
+            font-weight: 600;
+            line-height: 1.25rem;
+            cursor: pointer;
+            transition: color .45s ease;
+        }
+
+        .pill-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform .45s ease;
+            z-index: -1;
+        }
+
+        .pill-button:hover {
+            color: #E87D2F;
+        }
+
+        .pill-button:hover::before {
+            transform: scaleX(1);
         }
 
         .nav-link:hover {
@@ -178,7 +334,7 @@
 
         .nav-container {
             display: flex;
-            height: 64px;
+            height: 78px;
             align-items: center;
             justify-content: space-between;
             padding: 0 1rem;
@@ -188,7 +344,7 @@
 
         @media (min-width: 1024px) {
             .nav-container {
-                height: 80px;
+                height: 96px;
                 padding: 0 2rem;
             }
         }
@@ -233,11 +389,23 @@
         .about-hero {
             position: relative;
             width: 100%;
-            min-height: 100vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             overflow: hidden;
             background: #000;
+        }
+
+        @media (min-width: 768px) {
+            .about-hero {
+                min-height: 75vh;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .about-hero {
+                min-height: 100vh;
+            }
         }
 
         .hero-bg-img {
@@ -310,6 +478,11 @@
             color: #fff;
             z-index: 10;
             transition: all 0.3s;
+        }
+
+        .hero-scroll-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .hero-scroll-btn:hover {
@@ -894,8 +1067,8 @@
             bottom: 1.5rem;
             right: 1.5rem;
             z-index: 500;
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: #E87D2F;
             color: #fff;
@@ -905,13 +1078,46 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity .3s, transform .3s;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
             box-shadow: 0 4px 16px rgba(232, 125, 47, .4);
+            transition: background .25s, box-shadow .25s, opacity .3s ease, transform .3s ease, visibility .3s;
+        }
+
+        #scroll-top:hover {
+            background: #A52A2A;
+            box-shadow: 0 6px 22px rgba(165, 42, 42, .45);
+        }
+
+        #scroll-top .st-icon {
+            position: absolute;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        #scroll-top .st-up {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        #scroll-top.at-bottom .st-down {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        #scroll-top.at-bottom .st-up {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #scroll-top .st-icon { transition: none; }
         }
 
         #scroll-top.visible {
             opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
             transform: translateY(0);
         }
 
@@ -919,6 +1125,467 @@
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
+        }
+
+        /* ═══ ABOUT MOSAIC ═══ */
+        .about-mosaic {
+            position: relative;
+            padding: 3rem 1.5rem;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .about-mosaic { padding: 3.25rem 2rem; }
+        }
+
+        .am-lines {
+            position: absolute;
+            top: -8%;
+            right: -6%;
+            width: 780px;
+            max-width: 90%;
+            opacity: .5;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .am-lines-b {
+            top: auto;
+            right: auto;
+            bottom: -12%;
+            left: -10%;
+            width: 620px;
+            transform: rotate(180deg);
+        }
+
+        .am-grid {
+            position: relative;
+            z-index: 1;
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1000px) {
+            .am-grid { grid-template-columns: 1fr 1.05fr; gap: 4.5rem; }
+        }
+
+        .am-tiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 520px) {
+            .am-tiles { gap: 1.5rem; }
+        }
+
+        .am-tile {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 186px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(38px) scale(.97);
+        }
+
+        .am-tile.revealed {
+            opacity: 1;
+            transform: none;
+            transition: opacity .8s ease, transform .9s cubic-bezier(.16, 1, .3, 1), box-shadow .4s ease;
+            transition-delay: var(--delay, 0s);
+        }
+
+        @media (min-width: 520px) {
+            .am-tile { min-height: 192px; padding: 1.6rem; }
+        }
+
+        .am-tile:hover { box-shadow: 0 22px 48px rgba(10, 22, 40, .16); }
+
+        .am-num {
+            font-size: clamp(2.1rem, 4.2vw, 3rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -.04em;
+        }
+
+        .am-tile-label {
+            font-size: .9rem;
+            font-weight: 700;
+            letter-spacing: -.01em;
+            margin-top: .7rem;
+        }
+
+        .am-tile-sub {
+            font-size: .78rem;
+            line-height: 1.55;
+            margin-top: .3rem;
+        }
+
+        /* tile 1 — founded by */
+        .am-tile-1 {
+            background: #f3f5f8;
+            border: 1px solid #e8ecf0;
+        }
+
+        .am-tile-1 .am-kicker {
+            font-size: .95rem;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: .45rem;
+        }
+
+        .am-tile-1 .am-num {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            line-height: 1.05;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .am-tile-1 .am-tile-sub {
+            position: relative;
+            z-index: 2;
+            color: #607080;
+            margin-top: .5rem;
+            max-width: 78%;
+        }
+
+        .am-clock {
+            position: absolute;
+            right: -16px;
+            bottom: -20px;
+            width: 122px;
+            height: 122px;
+            opacity: .55;
+            z-index: 1;
+        }
+
+        .am-clock-hand {
+            transform-origin: 60px 60px;
+            animation: am-tick 12s linear infinite;
+        }
+
+        .am-clock-hand.min { animation-duration: 40s; }
+
+        @keyframes am-tick {
+            to { transform: rotate(360deg); }
+        }
+
+        /* tile 2 — clients */
+        .am-tile-2 {
+            background: linear-gradient(150deg, #E87D2F 0%, #d1642a 100%);
+            justify-content: center;
+        }
+
+        .am-tile-2 .am-num { color: #fff; }
+        .am-tile-2 .am-tile-label { color: #fff; }
+        .am-tile-2 .am-tile-sub { color: rgba(255, 255, 255, .82); }
+
+        /* tile 3 — projects */
+        .am-tile-3 {
+            background: #0a1628;
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .am-tile-3 .am-num { color: #fff; }
+        .am-tile-3 .am-tile-label { color: #fff; }
+        .am-tile-3 .am-tile-sub { color: rgba(255, 255, 255, .55); }
+
+        .am-burst {
+            position: absolute;
+            top: 1.25rem;
+            left: 1.25rem;
+            width: 58px;
+            height: 58px;
+            opacity: .85;
+        }
+
+        /* tile 4 — team */
+        .am-tile-4 {
+            justify-content: flex-end;
+            text-align: right;
+            border: 1px solid #e8ecf0;
+        }
+
+        .am-tile-4 img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.1s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .am-tile-4:hover img { transform: scale(1.06); }
+
+        .am-tile-4::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(200deg, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, .9) 60%);
+        }
+
+        .am-tile-4 > *:not(img) { position: relative; z-index: 2; }
+
+        .am-tile-4 .am-num { color: #0a1628; }
+        .am-tile-4 .am-tile-label { color: #0a1628; }
+        .am-tile-4 .am-tile-sub { color: #4a5b6d; }
+
+        /* copy column */
+        .am-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+
+        .am-eyebrow::after {
+            content: "";
+            height: 1px;
+            width: 110px;
+            background: #cfd8e0;
+        }
+
+        .am-title {
+            font-size: clamp(1.6rem, 2.9vw, 2.3rem);
+            font-weight: 800;
+            line-height: 1.18;
+            letter-spacing: -.035em;
+            color: #08174d;
+            margin-bottom: .9rem;
+        }
+
+        .am-lead {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #E87D2F;
+            margin-bottom: .85rem;
+            letter-spacing: -.01em;
+        }
+
+        .am-copy p.am-para {
+            color: #4a5b6d;
+            font-size: .9rem;
+            line-height: 1.68;
+            margin-bottom: .8rem;
+        }
+
+        .am-facts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            margin: 1.1rem 0 1.25rem;
+        }
+
+        .am-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .9rem;
+            padding: .4rem 1.6rem .4rem .4rem;
+            border: 2px solid #08174d;
+            border-radius: 999px;
+            color: #08174d;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: background .35s ease, color .35s ease, border-color .35s ease;
+        }
+
+        .am-btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--brand-gradient);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .am-btn:hover {
+            background: #08174d;
+            border-color: #08174d;
+            color: #fff;
+        }
+
+        .am-btn:hover .am-btn-icon { transform: translateX(5px); }
+
+        /* keep the whole block inside one screen on shorter laptops */
+        @media (min-width: 1000px) and (max-width: 1400px) {
+            .about-mosaic { padding: 2.5rem 2rem; }
+            .am-grid { gap: 3rem; }
+            .am-tile { min-height: 174px; padding: 1.4rem; }
+            .am-tiles { gap: 1.25rem; }
+            .am-num { font-size: clamp(1.9rem, 3.4vw, 2.5rem); }
+            .am-tile-1 .am-num { font-size: 1.65rem; }
+            .am-clock { width: 104px; height: 104px; }
+            .am-title { font-size: 1.85rem; margin-bottom: .75rem; }
+            .am-lead { font-size: .95rem; margin-bottom: .7rem; }
+            .am-copy p.am-para { font-size: .86rem; line-height: 1.62; margin-bottom: .7rem; }
+            .am-facts { margin: .9rem 0 1rem; }
+            .am-btn { font-size: .9rem; padding: .35rem 1.4rem .35rem .35rem; }
+            .am-btn-icon { width: 36px; height: 36px; }
+        }
+
+        /* ═══ MISSION & VISION CARDS ═══ */
+        .mv-grid {
+            max-width: 1100px;
+            margin: 3.5rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        @media (min-width: 860px) {
+            .mv-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .mv-card {
+            background: rgba(8, 18, 36, .82);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: 28px;
+            padding: 2.5rem 2.25rem;
+        }
+
+        .mv-card h3 {
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            color: #E87D2F;
+            margin-bottom: 1.1rem;
+        }
+
+        .mv-card p {
+            color: rgba(255, 255, 255, .88);
+            font-size: 1.02rem;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .mv-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .9rem;
+        }
+
+        .mv-card li {
+            display: flex;
+            gap: .85rem;
+            align-items: flex-start;
+            color: rgba(255, 255, 255, .88);
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        .mv-card li::before {
+            content: "";
+            flex-shrink: 0;
+            width: 8px;
+            height: 8px;
+            margin-top: .55rem;
+            border-radius: 2px;
+            background: linear-gradient(135deg, #E87D2F, #A52A2A);
+        }
+
+        /* ═══ LEADERSHIP ═══ */
+        .team-section {
+            padding: 6rem 1.5rem;
+            background: #fff;
+            border-top: 1px solid #e8ecf0;
+        }
+
+        @media (min-width: 768px) {
+            .team-section { padding: 8rem 2rem; }
+        }
+
+        .team-grid {
+            max-width: 820px;
+            margin: 3.5rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 760px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .team-card {
+            background: #fff;
+            border: 1px solid #e8ecf0;
+            border-radius: 28px;
+            padding: 2.25rem 2rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+            transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(10, 22, 40, .1);
+        }
+
+        .team-initials {
+            width: 62px;
+            height: 62px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #E87D2F, #A52A2A);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: .02em;
+            margin-bottom: 1.4rem;
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0a1628;
+            letter-spacing: -.02em;
+            margin-bottom: .3rem;
+        }
+
+        .team-role {
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: #E87D2F;
+            margin-bottom: 1rem;
+        }
+
+        .team-desc {
+            color: #607080;
+            font-size: .92rem;
+            line-height: 1.75;
+            margin: 0;
         }
 
         .fade-up.revealed {
@@ -934,15 +1601,37 @@
     <!-- ═══════════════ HEADER ═══════════════ -->
     <header id="main-header">
         <div class="nav-container">
-            <a href="/"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech Logo" class="header-logo" /></a>
-            <div style="display:flex;align-items:center;gap:1rem;">
-                <nav style="display:none;" id="desktop-nav" class="lg:flex items-center gap-6">
-                    <a href="/" class="nav-link text-sm font-medium">Home</a>
-                    <a href="/AboutUs" class="nav-link nav-link-active text-sm font-medium">About Us</a>
-                    <a href="/Solutionpage" class="nav-link text-sm font-medium">Solution</a>
-                    <a href="/CorporateProfile" class="nav-link text-sm font-medium">Corporate Profile</a>
+            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-name">SecureTech AV Designs</span></a>
+            <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
+                    <a href="/Solutionpage" class="nav-link">Solution</a>
+                    <a href="/CaseStudies" class="nav-link">Case Studies</a>
+                    <a href="/AboutUs" class="nav-link nav-link-active">About Us</a>
                 </nav>
-                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <div id="desktop-tools">
+                    <div class="nav-search">
+                        <input id="nav-search-input" class="nav-search-input" type="text" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="nav-icon-btn" aria-label="Search"
+                            onclick="var i=document.getElementById('nav-search-input');i.classList.toggle('open');if(i.classList.contains('open')){i.focus();}">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round">
+                                <circle cx="11" cy="11" r="7" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="nav-lang">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3 12h18" />
+                            <path d="M12 3c2.4 2.9 2.4 15.1 0 18" />
+                            <path d="M12 3c-2.4 2.9-2.4 15.1 0 18" />
+                        </svg>
+                        <span>IN (EN)</span>
+                    </div>
+                </div>                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
                         Us</button></a>
                 <button id="menu-btn"
                     style="display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#fff;padding:.5rem;"
@@ -965,19 +1654,17 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu">
-        <a href="/" onclick="closeMenu()">Home</a>
-        <a href="/AboutUs" onclick="closeMenu()" style="color:#E87D2F;">About Us</a>
         <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
-        <a href="/CorporateProfile" onclick="closeMenu()">Corporate Profile</a>
-        <a href="/Contactus" onclick="closeMenu()"
-            style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
+        <a href="/CaseStudies" onclick="closeMenu()">Case Studies</a>
+        <a href="/AboutUs" onclick="closeMenu()" style="color:#E87D2F;">About Us</a>
+        <a href="/Contactus" onclick="closeMenu()" style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
     </div>
 
     <main>
 
         <!-- ═══════════════ HERO ═══════════════ -->
         <section class="about-hero">
-            <img src="{{ url_for('static', filename='aboutt.webp') }}" class="hero-bg-img" alt="Background">
+            <img src="{{ url_for('static', filename='aboutus.webp') }}" class="hero-bg-img" alt="SecureTech AV Designs project">
 
             <div class="hero-content">
                 <h1 class="hero-title fade-up">
@@ -993,6 +1680,118 @@
                     <path d="M12 5v14M19 12l-7 7-7-7" />
                 </svg>
             </a>
+        </section>
+
+        <!-- ═══════════════ ABOUT MOSAIC ═══════════════ -->
+        <section class="about-mosaic" id="story">
+            <svg class="am-lines" viewBox="0 0 800 600" fill="none" aria-hidden="true">
+                <g stroke="#e3e8ee" stroke-width="1">
+                    <path d="M800 40C560 40 330 170 250 400 210 515 130 570 0 580" />
+                    <path d="M800 80C570 80 350 205 272 428 234 540 156 596 26 606" />
+                    <path d="M800 120C580 120 370 240 294 456 258 565 182 622 52 632" />
+                    <path d="M800 160C590 160 390 275 316 484 282 590 208 648 78 658" />
+                    <path d="M800 200C600 200 410 310 338 512 306 615 234 674 104 684" />
+                    <path d="M800 240C610 240 430 345 360 540 330 640 260 700 130 710" />
+                </g>
+            </svg>
+            <svg class="am-lines am-lines-b" viewBox="0 0 800 600" fill="none" aria-hidden="true">
+                <g stroke="#eef2f6" stroke-width="1">
+                    <path d="M800 40C560 40 330 170 250 400 210 515 130 570 0 580" />
+                    <path d="M800 100C575 100 360 222 283 442 246 552 168 608 38 618" />
+                    <path d="M800 160C590 160 390 275 316 484 282 590 208 648 78 658" />
+                    <path d="M800 220C605 220 420 328 349 526 318 628 247 687 117 697" />
+                </g>
+            </svg>
+
+            <div class="am-grid">
+                <!-- ── stat mosaic ── -->
+                <div class="am-tiles">
+                    <div class="am-tile am-tile-1 am-reveal">
+                        <p class="am-kicker">Founded By</p>
+                        <p class="am-num" data-count="15" data-suffix="+ Years">15+ Years</p>
+                        <p class="am-tile-sub">of experienced leadership in professional AV.</p>
+                        <svg class="am-clock" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                            <circle cx="60" cy="60" r="46" fill="#fff" stroke="#dfe5ec" stroke-width="2" />
+                            <circle cx="60" cy="60" r="38" fill="none" stroke="#eef2f6" stroke-width="1" />
+                            <g class="am-clock-hand min">
+                                <rect x="58" y="30" width="4" height="32" rx="2" fill="#0a1628" />
+                            </g>
+                            <g class="am-clock-hand">
+                                <rect x="58.5" y="24" width="3" height="38" rx="1.5" fill="#E87D2F" />
+                            </g>
+                            <circle cx="60" cy="60" r="5" fill="#0a1628" />
+                        </svg>
+                    </div>
+
+                    <div class="am-tile am-tile-2 am-reveal" style="--delay:.12s">
+                        <p class="am-num" data-count="550" data-suffix="+">550+</p>
+                        <p class="am-tile-label">Enterprise Clients &amp; Growing:</p>
+                        <p class="am-tile-sub">Corporate, education, government &amp; hospitality.</p>
+                    </div>
+
+                    <div class="am-tile am-tile-3 am-reveal" style="--delay:.24s">
+                        <svg class="am-burst" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                            <g stroke="rgba(255,255,255,.5)" stroke-width="1.5">
+                                <path d="M32 32 32 8M32 32 32 56M32 32 8 32M32 32 56 32M32 32 15 15M32 32 49 49M32 32 49 15M32 32 15 49" />
+                            </g>
+                            <g fill="#fff">
+                                <circle cx="32" cy="32" r="6" />
+                                <circle cx="32" cy="8" r="3.5" />
+                                <circle cx="32" cy="56" r="3.5" />
+                                <circle cx="8" cy="32" r="3.5" />
+                                <circle cx="56" cy="32" r="3.5" />
+                                <circle cx="15" cy="15" r="3.5" />
+                                <circle cx="49" cy="49" r="3.5" />
+                                <circle cx="49" cy="15" r="3.5" />
+                                <circle cx="15" cy="49" r="3.5" />
+                            </g>
+                        </svg>
+                        <p class="am-num" data-count="120" data-suffix="+">120+</p>
+                        <p class="am-tile-label">Successfully Delivered Projects:</p>
+                        <p class="am-tile-sub">Across 18+ cities in India.</p>
+                    </div>
+
+                    <div class="am-tile am-tile-4 am-reveal" style="--delay:.36s">
+                        <img src="{{ url_for('static', filename='board.webp') }}" alt="SecureTech AV Designs team"
+                            loading="lazy">
+                        <p class="am-num" data-count="30" data-suffix="+">30+</p>
+                        <p class="am-tile-label">Team Members:</p>
+                        <p class="am-tile-sub">Engineers and project managers, all in-house.</p>
+                    </div>
+                </div>
+
+                <!-- ── copy ── -->
+                <div class="am-copy fade-up" style="--delay:.15s">
+                    <p class="am-eyebrow">About</p>
+                    <h2 class="am-title">SecureTech AV Designs: Independent. Engineered. Accountable.</h2>
+                    <p class="am-lead">Specialists in audio-visual system integration.</p>
+                    <p class="am-para">Since our incorporation in Noida in August 2022, SecureTech AV Designs has been
+                        engineering audio, video, lighting, acoustics and ICT environments for corporate, education,
+                        government and hospitality clients — starting with the conference rooms, auditoriums and
+                        architectural acoustics that decide whether anyone in the back row can actually hear what's
+                        being said.</p>
+                    <p class="am-para">We don't just supply equipment — we engineer the room around it, from acoustic
+                        survey and BOQ through design, tender, installation, commissioning and the maintenance contract
+                        that follows. We hold certified OEM relationships and no obligation to any of them — which is
+                        why clients trust us to write the specification as well as build to it.</p>
+
+                    <div class="am-facts">
+                        <span class="tag-chip">Noida, Uttar Pradesh</span>
+                        <span class="tag-chip">Vendor-agnostic</span>
+                        <span class="tag-chip">AVIXA-aligned design</span>
+                    </div>
+
+                    <a href="/CorporateProfile" class="am-btn">
+                        <span class="am-btn-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                        Read More
+                    </a>
+                </div>
+            </div>
         </section>
 
         <!-- ═══════════════ PILLARS ═══════════════ -->
@@ -1097,13 +1896,58 @@
             <div class="mission-glow"></div>
             <div class="mission-inner fade-up">
                 <span
-                    style="font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E87D2F;display:block;margin-bottom:1.5rem;">Our
-                    Mission</span>
+                    style="font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E87D2F;display:block;margin-bottom:1.5rem;">Mission &amp;
+                    Vision</span>
                 <p class="mission-quote">
                     "Engineer <span>seamless, immersive</span> experiences by harmonizing
                     <span>technology</span>, design, and <span>innovation</span>."
                 </p>
                 <p class="mission-attribution">— SecureTech AV Designs Private Limited</p>
+                <div class="mv-grid">
+                    <div class="mv-card fade-up" style="--delay:.1s">
+                        <h3>Our Vision</h3>
+                        <p>To define global standards in AV and smart-building design — making spaces intuitive,
+                            sustainable and resilient, long after the handover.</p>
+                    </div>
+                    <div class="mv-card fade-up" style="--delay:.18s">
+                        <h3>How We Get There</h3>
+                        <ul>
+                            <li>Deliver engineering excellence on every deliverable, from BOQ to sign-off.</li>
+                            <li>Provide truly independent, vendor-agnostic advisory.</li>
+                            <li>Invest in R&amp;D so today's design survives tomorrow's upgrade.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ LEADERSHIP ═══════════════ -->
+        <section class="team-section" id="leadership">
+            <div style="max-width:1200px;margin:0 auto;">
+                <span class="section-eyebrow fade-up">The People Behind It</span>
+                <h2 class="section-heading fade-up" style="--delay:.1s">Leadership &amp; <span
+                        class="text-gradient">Team</span></h2>
+                <p class="section-subtext fade-up" style="--delay:.2s">A founder-led company where the people who sign
+                    the drawings are the same people who walk the site.</p>
+
+                <div class="team-grid">
+                    <div class="team-card fade-up" style="--delay:.1s">
+                        <div class="team-initials">AK</div>
+                        <p class="team-name">Ashish Khanna</p>
+                        <p class="team-role">Director</p>
+                        <p class="team-desc">Leads consulting and design across audio visual systems, light
+                            architecture, architectural acoustics, ICT and technology project management. Sets the
+                            engineering standard every SecureTech design is measured against.</p>
+                    </div>
+                    <div class="team-card fade-up" style="--delay:.18s">
+                        <div class="team-initials">30+</div>
+                        <p class="team-name">The Delivery Bench</p>
+                        <p class="team-role">Engineering &amp; Execution</p>
+                        <p class="team-desc">Pre-sales engineers, system designers, project managers and installation
+                            crews — an in-house team rather than a subcontracted one, which is why a SecureTech site
+                            visit is answered by someone who was in the design review.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1235,6 +2079,24 @@
                     <img src="{{ url_for('static', filename='c1-1@2x.webp') }}" alt="Client"
                         style="height:50px;object-fit:contain;opacity:.7;flex-shrink:0;" />
                 </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CORPORATE PROFILE ═══════════════ -->
+        <section class="cta-section" style="padding-bottom:0;border-top:none;">
+            <div class="cta-inner" style="background:#0a1628;border-color:#0a1628;">
+                <h2 class="cta-title" style="color:#fff;">Corporate <span class="text-gradient">Profile</span></h2>
+                <p
+                    style="color:rgba(255,255,255,.72);font-size:1.05rem;max-width:640px;margin:0 auto 2rem;line-height:1.7;">
+                    View our full company profile — capabilities, credentials and the projects behind our AV
+                    integration work.
+                </p>
+                <a href="/CorporateProfile" class="cta-btn">
+                    VIEW CORPORATE PROFILE
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
             </div>
         </section>
 
@@ -1384,8 +2246,11 @@
     </footer>
 
     <!-- Scroll to top -->
-    <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <button id="scroll-top" aria-label="Scroll down">
+        <svg class="st-icon st-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+        <svg class="st-icon st-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M12 19V5M5 12l7-7 7 7" />
         </svg>
     </button>
@@ -1434,12 +2299,25 @@
 
         // ── Header scroll effect ──
         const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        }, { passive: true });
+        function syncHeader() { header.classList.toggle('scrolled', window.scrollY > 50); }
+        window.addEventListener('scroll', syncHeader, { passive: true });
+        // run immediately AND after load/bfcache: refreshing mid-page restores the
+        // scroll offset without firing a scroll event, which left the nav transparent
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('pageshow', syncHeader);
+        requestAnimationFrame(syncHeader);
 
         // ── Scroll to top button ──
         const scrollTopBtn = document.getElementById('scroll-top');
+        // the hero's own down arrow retires once you leave the hero, so it never
+        // sits in the same corner as the floating scroll button
+        const heroArrow = document.querySelector('.hero-scroll-btn');
+        if (heroArrow) {
+            const syncHeroArrow = () => heroArrow.classList.toggle('hidden', window.scrollY > 180);
+            window.addEventListener('scroll', syncHeroArrow, { passive: true });
+            syncHeroArrow();
+        }
         window.addEventListener('scroll', () => {
             scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
         }, { passive: true });
@@ -1472,6 +2350,61 @@
             el.setAttribute('data-delay', `${i * 0.1}s`);
             observer.observe(el);
         });
+
+        // ── about mosaic: staggered tiles + counting numbers ──
+        function runCount(el) {
+            const target = parseInt(el.getAttribute('data-count'), 10);
+            const suffix = el.getAttribute('data-suffix') || '';
+            if (isNaN(target)) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                el.textContent = target + suffix;
+                return;
+            }
+            const dur = 1400, t0 = performance.now();
+            function step(now) {
+                const p = Math.min((now - t0) / dur, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(target * eased) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+            }
+            el.textContent = '0' + suffix;
+            requestAnimationFrame(step);
+        }
+
+        const tileObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const tile = entry.target;
+                const ms = parseFloat(tile.style.getPropertyValue('--delay') || '0s') * 1000;
+                setTimeout(() => {
+                    tile.classList.add('revealed');
+                    tile.querySelectorAll('.am-num[data-count]').forEach(runCount);
+                }, ms);
+                tileObserver.unobserve(tile);
+            });
+        }, { threshold: 0.25, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.am-reveal').forEach((el) => tileObserver.observe(el));
+    
+        // scroll affordance: down arrow at top, up arrow once scrolled
+        (function () {
+            var btn = document.getElementById('scroll-top');
+            if (!btn) return;
+            function update() {
+                var down = window.scrollY > 300;
+                btn.classList.toggle('at-bottom', down);
+                btn.setAttribute('aria-label', down ? 'Scroll to top' : 'Scroll down');
+            }
+            btn.addEventListener('click', function () {
+                if (btn.classList.contains('at-bottom')) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    window.scrollBy({ top: Math.round(window.innerHeight * 0.9), behavior: 'smooth' });
+                }
+            });
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
     </script>
 </body>
 
