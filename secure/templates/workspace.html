@@ -105,7 +105,7 @@
 
         header.scrolled {
             background: #fff;
-            box-shadow: 0 8px 24px rgba(8, 23, 77, 0.08);
+            box-shadow: 0 8px 24px rgba(110, 27, 24, 0.08);
         }
 
         .header-logo {
@@ -197,12 +197,12 @@
 
         header.scrolled .nav-search,
         header.scrolled .nav-lang {
-            color: #08174d;
+            color: #6E1B18;
         }
 
         header.scrolled .nav-search:hover,
         header.scrolled .nav-lang:hover {
-            color: #133193;
+            color: #8F3218;
         }
         .brand {
             display: flex;
@@ -224,7 +224,7 @@
         }
 
         header.scrolled .brand-name {
-            color: #08174d;
+            color: #6E1B18;
         }
 
         @media (max-width: 520px) {
@@ -285,7 +285,7 @@
         }
 
         header.scrolled .nav-link {
-            color: #08174d !important;
+            color: #6E1B18 !important;
         }
 
         header.scrolled .nav-link-active {
@@ -293,7 +293,7 @@
         }
 
         header.scrolled .nav-link:hover {
-            color: #133193 !important;
+            color: #8F3218 !important;
         }
 
         header.scrolled .nav-link-active:hover {
@@ -301,7 +301,7 @@
         }
 
         header.scrolled #menu-btn {
-            color: #08174d !important;
+            color: #6E1B18 !important;
         }
 
         .nav-container {
@@ -381,7 +381,7 @@
             position: absolute;
             inset: 0;
             overflow: hidden;
-            background: #0a1628;
+            background: #3A1210;
         }
 
 
@@ -463,7 +463,7 @@
         .sect-standfirst {
             font-size: .95rem;
             font-weight: 500;
-            color: #0a1628;
+            color: #3A1210;
             margin: 0 0 1.1rem;
         }
 
@@ -499,7 +499,7 @@
             font-weight: 600;
             letter-spacing: -.03em;
             line-height: 1.1;
-            color: #0a1628;
+            color: #3A1210;
             margin: 0;
         }
 
@@ -588,7 +588,7 @@
             height: clamp(17rem, 42vw, 31rem);
             border-radius: 14px;
             overflow: hidden;
-            background: #0a1628;
+            background: #3A1210;
         }
 
         .sect-shot img {
@@ -670,7 +670,7 @@
             text-align: center;
             font-size: clamp(1.9rem, 7.5vw, 2.9rem);
             font-weight: 900;
-            color: #0a1628;
+            color: #3A1210;
             line-height: 1.15;
             letter-spacing: -.02em;
             margin-bottom: 2rem;
@@ -756,7 +756,7 @@
             font-weight: 900;
             line-height: 1.06;
             letter-spacing: -.02em;
-            color: #0a1628;
+            color: #3A1210;
             transform-origin: center center;
             z-index: 10;
             pointer-events: none;
@@ -880,7 +880,7 @@
         .reviews-title {
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 800;
-            color: #0a1628;
+            color: #3A1210;
             letter-spacing: -.02em;
             line-height: 1.1;
         }
@@ -909,7 +909,7 @@
         .reviews-rating-badge .score {
             font-size: 1.1rem;
             font-weight: 800;
-            color: #0a1628;
+            color: #3A1210;
         }
 
         .reviews-rating-badge .count {
@@ -1008,7 +1008,7 @@
         .review-name {
             font-size: .86rem;
             font-weight: 700;
-            color: #0a1628;
+            color: #3A1210;
             line-height: 1.2;
         }
 
@@ -1277,7 +1277,7 @@
             font-weight: 800;
             letter-spacing: .01em;
             line-height: 1.2;
-            color: #0a1628;
+            color: #3A1210;
             margin-bottom: 1.4rem;
         }
 
@@ -1377,7 +1377,7 @@
             letter-spacing: -.03em;
             line-height: 1.15;
             margin-bottom: 1.5rem;
-            color: #0a1628;
+            color: #3A1210;
         }
 
         .cta-btn {
@@ -1510,7 +1510,7 @@
            Entry point to the 3D configurator. The screenshot does the
            explaining, so the copy stays short. */
         .designer-band {
-            background: #0a1628;
+            background: #3A1210;
             padding: 4rem 1.5rem;
             overflow: hidden;
         }
@@ -1697,9 +1697,39 @@
             box-shadow: 0 1px 12px rgba(10, 22, 40, .06);
         }
 
+        #main-header .nav-container {
+            height: 68px;
+            max-width: 1360px;
+            padding: 0 1.4rem;
+        }
+
+        #main-header .header-logo {
+            height: 54px;
+        }
+
+        #main-header .brand-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        #main-header #desktop-nav {
+            gap: 2.35rem;
+        }
+
+        #main-header .nav-link,
+        #main-header .nav-lang,
+        #main-header .pill-button {
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        #main-header .pill-button {
+            padding: .62rem 1.35rem;
+        }
+
         .designer-shell {
             position: fixed;
-            top: 78px;
+            top: 68px;
             left: 0;
             right: 0;
             bottom: 0;
@@ -1708,7 +1738,7 @@
 
         @media (min-width: 1024px) {
             .designer-shell {
-                top: 96px;
+                top: 68px;
             }
         }
 

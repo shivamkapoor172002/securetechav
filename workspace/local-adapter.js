@@ -64,6 +64,80 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
     if(!list.children.length){const empty=document.createElement('p');empty.textContent='No saved designs yet.';list.append(empty);}
     dialog.append(list,button('Close',()=>dialog.close()));document.body.append(dialog);dialog.showModal();
   }
+  const REMOVED_ROOMS=new Set(['Innovation Suite']);
+  const ROOM_RENAMES={
+    'Huddle Room':'Focus Pod',
+    'Small Room':'Mini Board Room',
+    'Medium Room':'Medium Board Room',
+    'Large Room':'Large Board Room',
+    'Executive Boardroom':'Leadership Hub',
+    'Ideation Space':'Innovation Hub',
+    'Innovation Suite':'Concept Studio',
+    'Desk':'Workstation',
+    'Open Space':'Collab Area',
+    'Focus Room':'Huddle Room',
+    'Training Room':'Multi Purpose Hall'
+  };
+  // The three category tabs carry SecureTech's own wording too.
+  const TAB_RENAMES={
+    'Meeting rooms':'Conference Rooms',
+    'Meeting Rooms':'Conference Rooms',
+    'Individual Spaces':'Office Rooms',
+    'Training Spaces':'Large Venue'
+  };
+  function enhanceHero(main){
+    if(main.classList.contains('st-hero-ready'))return;
+    main.classList.add('st-hero-ready');
+    const hero=main.querySelector('.hero');
+    const left=hero?.querySelector('.left');
+    if(!hero || !left)return;
+      const title=left.querySelector('.title');
+      if(title){
+        title.innerHTML='Design your workspace <span>in 3D</span>';
+      }
+    if(!hero.querySelector('.st-hero-art')){
+      const art=document.createElement('div');
+      art.className='st-hero-art';
+      art.innerHTML='<div class="st-wall-note">Better<br>Spaces<br>Brighter<br>Ideas</div>';
+      hero.append(art);
+    }
+  }
+  function enhanceFrontPage(){
+    const main=document.querySelector('main.front-page');
+    if(!main)return;
+    main.classList.add('st-reference-ready');
+    enhanceHero(main);
+    main.querySelectorAll('.tabs .tab').forEach(tab=>{
+      const label=[...tab.childNodes].find(n=>n.nodeType===3 && n.textContent.trim());
+      const next=TAB_RENAMES[(label?label.textContent:tab.textContent).trim()];
+      if(!next)return;
+      if(label)label.textContent=next; else tab.textContent=next;
+    });
+    // Switching tabs re-renders the card list, so cards are enhanced per card
+    // rather than once per page - a page-level guard would leave every tab
+    // after the first one unstyled.
+    main.querySelectorAll('.room-button').forEach((card,index)=>{
+      card.classList.toggle('st-priority-room', index<3);
+      if(card.classList.contains('st-reference-card'))return;
+      const roomTitle=card.querySelector('.title')?.textContent.trim();
+      if(!roomTitle)return;
+      // Hidden, not removed: the list is React-owned, and detaching a node
+      // from it breaks the reconciler on the next tab switch.
+      if(REMOVED_ROOMS.has(roomTitle)){card.classList.add('st-room-hidden');return;}
+      card.classList.add('st-reference-card');
+      card.dataset.stRoom=roomTitle;
+      const shot=card.querySelector('.image img');
+      if(shot)shot.src=shot.getAttribute('src').replace(/\?.*$/,'')+'?st=2';
+      if(ROOM_RENAMES[roomTitle])card.querySelector('.title').textContent=ROOM_RENAMES[roomTitle];
+      if(!card.querySelector('.st-actions')){
+        const href=card.querySelector('a[href*="/room/"]')?.getAttribute('href') || '#/';
+        const actions=document.createElement('div');
+        actions.className='st-actions';
+        actions.innerHTML=`<a class="st-customize" href="${href}">Tailor Your Environment <span>→</span></a>`;
+        card.append(actions);
+      }
+    });
+  }
   document.addEventListener('click',e=>{
     const target=e.target.closest('button,a');if(!target || target.closest('.local-workspace'))return;
     const text=target.textContent.trim();
@@ -74,6 +148,7 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
   },true);
   const REMOVED_SECTIONS=new Set(['Documentation','Room Link']);
   function labels(){
+    enhanceFrontPage();
     document.querySelectorAll('button').forEach(el=>{
       const text=el.textContent.trim();
       if(text==='Log in')el.textContent='My designs';
@@ -124,4 +199,135 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
     if(incoming){try{const plan=validate(JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(incoming),c=>c.charCodeAt(0)))));const url=new URL(location.href);url.searchParams.delete('design');history.replaceState(null,'',url);load(plan).catch(e=>open(e.message));}catch{open('This design link is invalid.');}}
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+
+// ── SecureTech room palette ──────────────────────────────────────────────────
+// The 3D room ships in flat greys. This repaints every room's surfaces to the
+// SecureTech scheme. The scene is published on window.__stScene by the hook the
+// Flask layer injects while serving the bundle (see secure/app.py) - r3f keeps
+// its scene in its own reconciler, so there is no DOM route to it.
+(() => {
+  const PALETTE = {
+    warmWhite: { hex: '#F5F5F2', name: 'Warm White',  role: 'Main Walls',      note: 'Bright, clean and professional' },
+    walnut:    { hex: '#6F4E37', name: 'Walnut Wood', role: 'Accent Wall',     note: 'Adds warmth and premium feel' },
+    sage:      { hex: '#D9D6CF', name: 'Sage / Grey', role: 'Side Panels',     note: 'Subtle and modern' },
+    charcoal:  { hex: '#3D3D3D', name: 'Charcoal',    role: 'TV Panel / Trim', note: 'Reduces glare and looks premium' },
+    beige:     { hex: '#B0A794', name: 'Beige',       role: 'Flooring / Carpet', note: 'Neutral and elegant' },
+  };
+  const WALL_GROUPS = ['leftwall', 'rightwall', 'backwall', 'videowall'];
+  // Structure meshes that make up the wall itself, as opposed to glazing,
+  // curtains and the acoustic panels hung on it.
+  const STRUCTURE = /^(base|shadow-fixer|top|pillar|doorframe)/;
+
+  // Materials are shared between meshes - `base` and `shadow-fixer` on two
+  // different walls can be the very same instance - so painting one in place
+  // would repaint the others. Each mesh gets its own clone the first time it is
+  // touched, and the clone is reused on later passes.
+  function paint(mesh, hex) {
+    if (!mesh.isMesh || !mesh.material) return;
+    const list = [].concat(mesh.material);
+    const painted = list.map(m => {
+      if (!m) return m;
+      let target = m;
+      if (!m.userData || !m.userData.stPainted) {
+        target = m.clone();
+        target.userData = Object.assign({}, target.userData, { stPainted: true });
+      }
+      if (target.color && '#' + target.color.getHexString().toUpperCase() !== hex.toUpperCase()) {
+        target.color.set(hex);
+        target.needsUpdate = true;
+      }
+      return target;
+    });
+    mesh.material = Array.isArray(mesh.material) ? painted : painted[0];
+  }
+
+  // THREE is bundled, so its classes are not reachable by name. The Texture
+  // constructor is borrowed from a texture the scene already has (the screens
+  // carry one), which is enough to build our own. 1000 is RepeatWrapping.
+  const WOOD_URL = './images/textures/walnut-slats.png';
+  const REPEAT_WRAPPING = 1000;
+  let woodTexture = null, woodPending = false;
+  function woodFor(scene) {
+    if (woodTexture || woodPending) return woodTexture;
+    let Texture = null;
+    scene.traverse(n => {
+      if (Texture || !n.isMesh) return;
+      for (const m of [].concat(n.material || []))
+        if (m && m.map && m.map.constructor) { Texture = m.map.constructor; break; }
+    });
+    if (!Texture) return null;
+    woodPending = true;
+    const img = new Image();
+    img.onload = () => {
+      const tex = new Texture(img);
+      tex.wrapS = tex.wrapT = REPEAT_WRAPPING;
+      tex.repeat.set(4, 2);
+      tex.colorSpace = 'srgb';
+      tex.needsUpdate = true;
+      woodTexture = tex;
+      woodPending = false;
+    };
+    img.onerror = () => { woodPending = false; };
+    img.src = WOOD_URL;
+    return null;
+  }
+
+  function grain(mesh, tex) {
+    if (!mesh.isMesh || !tex) return;
+    for (const m of [].concat(mesh.material)) {
+      if (!m || m.map === tex) continue;
+      m.map = tex;
+      // The tint would otherwise multiply into the texture and darken it.
+      if (m.color) m.color.set('#ffffff');
+      if ('roughness' in m) m.roughness = 0.72;
+      m.needsUpdate = true;
+    }
+  }
+
+  function apply() {
+    const scene = window.__stScene;
+    if (!scene) return false;
+    const wood = woodFor(scene);
+    scene.traverse(node => {
+      // Plants are not part of the SecureTech room look. Hiding rather than
+      // removing keeps the app's own scene bookkeeping intact, and the pass
+      // re-runs so a replanted room is hidden again straight away.
+      if (/^plant/i.test(node.name || '') && node.visible) node.visible = false;
+      if (node.name === 'floor') paint(node, PALETTE.beige.hex);
+      else if (/^carpet/.test(node.name)) paint(node, PALETTE.beige.hex);
+      else if (node.name === 'ceiling') paint(node, PALETTE.warmWhite.hex);
+    });
+    for (const wallName of WALL_GROUPS) {
+      const wall = scene.getObjectByName(wallName);
+      if (!wall) continue;
+      const accent = wallName === 'videowall';
+      wall.traverse(node => {
+        if (!node.isMesh) return;
+        const name = node.name || '';
+        if (/^glass/.test(name)) return;             // glazing stays clear
+        if (/curtain|Line00/.test(name)) return;     // curtains keep their own tone
+        if (STRUCTURE.test(name)) {
+          // Once the timber texture is on, the surface must stay white: a
+          // walnut tint would multiply into the image and muddy it. Until the
+          // texture loads the flat walnut stands in for it.
+          if (accent && wood) grain(node, wood);
+          else paint(node, accent ? PALETTE.walnut.hex : PALETTE.warmWhite.hex);
+          return;
+        }
+        // Anything else hung on a wall is acoustic treatment - the panels in
+        // the reference scheme.
+        paint(node, PALETTE.sage.hex);
+      });
+    }
+    return true;
+  }
+
+  window.__stPalette = PALETTE;
+  window.__stApplyPalette = apply;
+  // The app rebuilds meshes on room, step and layout changes, and there is no
+  // event for it, so the palette is simply re-asserted. paint() early-outs when
+  // a colour already matches, so a steady state costs one traversal.
+  setInterval(apply, 400);
+  apply();
 })();

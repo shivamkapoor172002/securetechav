@@ -5,7 +5,7 @@
 
 /* SecureTech branding: replaces the reference wordmark in the top bar. */
 .top-bar .top-logo {
-  background-image: url('/images/securetech-mark.png') !important;
+  background-image: url('./images/securetech-mark.png') !important;
   background-size: 26px 26px !important;
   background-position: left center !important;
   background-repeat: no-repeat !important;
@@ -18,7 +18,7 @@
   gap: 6px;
   font-size: 19px;
   line-height: 30px;
-  color: #08174d;
+  color: #6E1B18;
   white-space: nowrap;
   text-decoration: none;
 }
@@ -48,35 +48,36 @@ main.front-page .banner-container.banner-secondary { display: none !important; }
   .top-bar .top-logo { font-size: 12px; }
 }
 
-/* SecureTech palette: navy brand, warm accent, softened off-white surfaces. */
+/* SecureTech palette: the mark runs orange through to deep red, so the brand
+   colour is that red and the neutrals are warm rather than blue-grey. */
 :root {
-  --st-navy: #08174d;
-  --st-navy-deep: #050f33;
+  --st-brand: #6E1B18;
+  --st-brand-deep: #4A100E;
   --st-accent: #d9622d;
-  --Primary-Green-Brand: var(--st-navy);
-  --bg: #f4f6fa;
+  --Primary-Green-Brand: var(--st-brand);
+  --bg: #faf7f4;
   --surface: #fff;
-  --surface-accent: #eef1f8;
-  --surface-subtle: #e9edf5;
-  --surface-hover: #dde3ef;
-  --text: #101a33;
-  --text-2: #26314f;
-  --link: #1d4ed8;
-  --border-subtle: #e3e8f2;
-  --border-light: #d8dfec;
-  --border: #c3ccdf;
+  --surface-accent: #f7f1ec;
+  --surface-subtle: #f2ebe5;
+  --surface-hover: #e8ded6;
+  --text: #241F1D;
+  --text-2: #4A403C;
+  --link: #8F3218;
+  --border-subtle: #efe6df;
+  --border-light: #e4d8cf;
+  --border: #d3c4b8;
 }
 body { background: var(--bg); }
 .top-bar {
-  background: linear-gradient(180deg, #fff 0%, #f7f9fd 100%);
+  background: linear-gradient(180deg, #fff 0%, #fdf9f6 100%);
   border-bottom: 1px solid var(--border-subtle);
 }
 main.front-page a[href*="/room/"] {
-  box-shadow: 0 4px 16px rgba(8, 23, 77, .05);
+  box-shadow: 0 4px 16px rgba(110, 27, 24, .05);
   transition: box-shadow .2s, transform .2s;
 }
 main.front-page a[href*="/room/"]:hover {
-  box-shadow: 0 12px 30px rgba(8, 23, 77, .13);
+  box-shadow: 0 12px 30px rgba(110, 27, 24, .13);
   transform: translateY(-2px);
 }
 button.primary:hover, .primary:hover { background: var(--st-accent) !important; border-color: var(--st-accent) !important; }
@@ -101,11 +102,11 @@ main.front-page > footer { display: none !important; }
     text-align: center;
     margin: 0 0 18px;
     padding-bottom: 14px;
-    border-bottom: 2px solid var(--st-navy);
+    border-bottom: 2px solid var(--st-brand);
   }
   .print-brand-mark { display: block; width: 64px; height: 64px; margin: 0 auto 8px; }
-  .print-brand-name { font-size: 19px; font-weight: 700; color: var(--st-navy); letter-spacing: -.015em; }
-  .print-brand-site { display: block; position: static; float: none; margin: 2px 0 0; text-align: center; font-size: 13px; color: var(--st-navy); text-decoration: none; }
+  .print-brand-name { font-size: 19px; font-weight: 700; color: var(--st-brand); letter-spacing: -.015em; }
+  .print-brand-site { display: block; position: static; float: none; margin: 2px 0 0; text-align: center; font-size: 13px; color: var(--st-brand); text-decoration: none; }
   .print-credit-hidden { display: none !important; }
 }
 
@@ -120,3 +121,410 @@ html.st-embedded main.front-page { padding-top: 24px; }
    because they share the generic `.coverage-module` markup. */
 section.tech-equipment,
 section.st-section-hidden { display: none !important; }
+
+/* Reference-style WorkspaceDesigner front page. */
+html.st-embedded,
+html.st-embedded body {
+  background: #f4f7fb;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.st-embedded #root,
+html.st-embedded #root > div,
+html.st-embedded .fill {
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+}
+
+html.st-embedded main.front-page.st-reference-ready {
+  display: block !important;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 70px 34px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 56% 22%, rgba(212, 229, 246, .8), transparent 34%),
+    linear-gradient(112deg, #f7f9fd 0%, #f5f8fd 43%, #eef4fb 100%);
+  color: #6E1B18;
+}
+
+html.st-embedded main.front-page.st-reference-ready .hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(500px, 1fr) minmax(440px, .95fr);
+  align-items: stretch;
+  width: calc(100% + 140px);
+  max-width: none;
+  min-height: 194px;
+  margin: 0 -70px;
+  padding: 24px 70px 10px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(110, 27, 24, .04);
+}
+
+html.st-embedded main.front-page.st-reference-ready .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(248, 250, 253, .98) 0%, rgba(248, 250, 253, .94) 42%, rgba(248, 250, 253, .28) 64%, rgba(248, 250, 253, 0) 100%);
+  z-index: 1;
+}
+
+html.st-embedded main.front-page.st-reference-ready .hero .left {
+  position: relative;
+  z-index: 2;
+  align-items: flex-start !important;
+  width: min(900px, 100%);
+  padding: 0 0 0 54px;
+  text-align: left;
+}
+
+html.st-embedded main.front-page.st-reference-ready .st-eyebrow {
+  margin: 0 0 8px;
+  color: #293860;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  text-align: left !important;
+}
+
+html.st-embedded main.front-page.st-reference-ready .hero .title {
+  margin: 0 !important;
+  color: #6E1B18;
+  font-size: clamp(38px, 3.7vw, 54px);
+  line-height: .98;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-align: left !important;
+}
+
+@media (min-width: 900px) {
+  html.st-embedded main.front-page.st-reference-ready .hero .title {
+    white-space: nowrap;
+  }
+}
+
+html.st-embedded main.front-page.st-reference-ready .hero .title span {
+  color: #e8792d;
+}
+
+html.st-embedded main.front-page.st-reference-ready .hero .description {
+  width: min(650px, 100%);
+  margin: 9px 0 12px !important;
+  color: #6d7482;
+  font-size: 18px;
+  line-height: 1.28;
+  font-weight: 500;
+  text-align: left !important;
+}
+
+html.st-embedded main.front-page.st-reference-ready .st-hero-art {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: 57%;
+  height: 100%;
+  background:
+    linear-gradient(90deg, #f2f5fa 0%, rgba(242,245,250,.94) 22%, rgba(242,245,250,.62) 52%, rgba(242,245,250,.42) 100%),
+    url('/static/conference.webp');
+  background-size: cover;
+  background-position: center right;
+}
+
+
+html.st-embedded main.front-page.st-reference-ready .st-wall-note {
+  position: absolute;
+  left: 30%;
+  top: 34px;
+  color: #171b26;
+  font-family: "Segoe Print", "Comic Sans MS", cursive;
+  font-size: 31px;
+  line-height: 1.03;
+  transform: rotate(-8deg);
+  opacity: .82;
+}
+
+html.st-embedded main.front-page.st-reference-ready .st-wall-note::after {
+  content: "";
+  display: block;
+  width: 92px;
+  height: 3px;
+  margin: 8px 0 0 16px;
+  background: #e8792d;
+  transform: rotate(-8deg);
+}
+
+
+html.st-embedded main.front-page.st-reference-ready .tabs.compact {
+  display: none;
+}
+
+html.st-embedded main.front-page.st-reference-ready .tabs {
+  position: relative;
+  z-index: 2;
+  /* auto margins do not centre an inline-level box, so the pill is laid out as
+     a block-level flex row shrunk to its content instead. */
+  display: flex;
+  width: fit-content;
+  margin: 0 auto 26px;
+  padding: 5px;
+  gap: 12px;
+  border: 1px solid #ecdfd6;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .7);
+  box-shadow: 0 8px 22px rgba(110, 27, 24, .04);
+}
+
+html.st-embedded main.front-page.st-reference-ready .tab {
+  min-width: 188px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 22px;
+  border-radius: 24px;
+  color: #6E1B18;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+html.st-embedded main.front-page.st-reference-ready .tab::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+  -webkit-mask: radial-gradient(circle at 50% 29%, #000 0 18%, transparent 19%), radial-gradient(circle at 28% 58%, #000 0 16%, transparent 17%), radial-gradient(circle at 72% 58%, #000 0 16%, transparent 17%), linear-gradient(#000 0 0) center 72% / 72% 28% no-repeat;
+          mask: radial-gradient(circle at 50% 29%, #000 0 18%, transparent 19%), radial-gradient(circle at 28% 58%, #000 0 16%, transparent 17%), radial-gradient(circle at 72% 58%, #000 0 16%, transparent 17%), linear-gradient(#000 0 0) center 72% / 72% 28% no-repeat;
+}
+
+html.st-embedded main.front-page.st-reference-ready .tab:nth-child(2)::before {
+  -webkit-mask: radial-gradient(circle at 50% 24%, #000 0 22%, transparent 23%), linear-gradient(#000 0 0) center 72% / 46% 40% no-repeat;
+          mask: radial-gradient(circle at 50% 24%, #000 0 22%, transparent 23%), linear-gradient(#000 0 0) center 72% / 46% 40% no-repeat;
+}
+
+html.st-embedded main.front-page.st-reference-ready .tab:nth-child(3)::before {
+  -webkit-mask: linear-gradient(#000 0 0) center 22% / 84% 50% no-repeat, linear-gradient(#000 0 0) center 78% / 46% 12% no-repeat, linear-gradient(#000 0 0) center 64% / 12% 30% no-repeat;
+          mask: linear-gradient(#000 0 0) center 22% / 84% 50% no-repeat, linear-gradient(#000 0 0) center 78% / 46% 12% no-repeat, linear-gradient(#000 0 0) center 64% / 12% 30% no-repeat;
+}
+
+html.st-embedded main.front-page.st-reference-ready .tab.active {
+  background: #6E1B18;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(8, 27, 92, .22);
+}
+
+html.st-embedded main.front-page.st-reference-ready .room-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 18px;
+  width: 100%;
+  max-width: 1460px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+}
+
+html.st-embedded main.front-page.st-reference-ready .room-button.st-reference-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-self: stretch !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  min-height: 0;
+  padding: 28px 30px 18px;
+  border: 1px solid rgba(233, 219, 209, .92);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(110, 27, 24, .08);
+  overflow: hidden;
+}
+
+
+
+html.st-embedded main.front-page.st-reference-ready .room-button.st-reference-card > a:first-of-type {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  color: inherit;
+  text-decoration: none;
+}
+
+html.st-embedded main.front-page.st-reference-ready .room-button .title {
+  margin: 0 0 5px;
+  color: #6E1B18;
+  font-size: 25px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+html.st-embedded main.front-page.st-reference-ready .room-button .tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  color: #6E1B18;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+html.st-embedded main.front-page.st-reference-ready .room-button .tag {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+html.st-embedded main.front-page.st-reference-ready .room-button .people {
+  width: 19px;
+  height: 16px;
+  background: #6E1B18;
+  -webkit-mask: radial-gradient(circle at 34% 28%, #000 0 18%, transparent 19%), radial-gradient(circle at 66% 28%, #000 0 18%, transparent 19%), linear-gradient(#000 0 0) center bottom / 92% 48% no-repeat;
+          mask: radial-gradient(circle at 34% 28%, #000 0 18%, transparent 19%), radial-gradient(circle at 66% 28%, #000 0 18%, transparent 19%), linear-gradient(#000 0 0) center bottom / 92% 48% no-repeat;
+}
+
+
+
+html.st-embedded main.front-page.st-reference-ready .st-orange { color: #f0842d; background: #fff4eb; }
+html.st-embedded main.front-page.st-reference-ready .st-blue { color: #1e5de8; background: #ebf2ff; }
+html.st-embedded main.front-page.st-reference-ready .st-green { color: #45a536; background: #ecfaeb; }
+
+html.st-embedded main.front-page.st-reference-ready .room-button .image {
+  width: 100%;
+  height: 188px;
+  margin: 8px 0 16px;
+  border-radius: 11px;
+  overflow: hidden;
+  background: #f1ece8;
+  box-shadow: inset 0 0 0 1px rgba(110, 27, 24, .03);
+}
+
+html.st-embedded main.front-page.st-reference-ready .room-button .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
+  filter: contrast(1.03) saturate(.84) brightness(1.12);
+}
+
+
+
+
+
+
+html.st-embedded main.front-page.st-reference-ready .select_link,
+html.st-embedded main.front-page.st-reference-ready .room-button-link {
+  display: none !important;
+}
+
+html.st-embedded main.front-page.st-reference-ready .st-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+html.st-embedded main.front-page.st-reference-ready .st-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 45px;
+  border-radius: 999px;
+  color: #6E1B18;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+html.st-embedded main.front-page.st-reference-ready .st-customize {
+  min-width: 186px;
+  padding: 0 22px;
+  border: 2px solid rgba(110, 27, 24, .38);
+  background: transparent;
+  color: var(--st-brand);
+}
+
+
+
+@media (max-width: 1120px) {
+  html.st-embedded main.front-page.st-reference-ready {
+    padding-inline: 28px;
+  }
+  html.st-embedded main.front-page.st-reference-ready .hero {
+    width: calc(100% + 56px);
+    margin-inline: -28px;
+    padding-inline: 28px;
+    grid-template-columns: 1fr;
+  }
+  html.st-embedded main.front-page.st-reference-ready .hero .left {
+    padding-left: 0;
+  }
+  html.st-embedded main.front-page.st-reference-ready .st-hero-art {
+    width: 58%;
+    opacity: .45;
+  }
+  html.st-embedded main.front-page.st-reference-ready .room-list {
+    grid-template-columns: 1fr;
+  }
+  html.st-embedded main.front-page.st-reference-ready .room-button.st-reference-card {
+    min-height: 0;
+  }
+}
+
+
+/* The bundle flags some rooms as new; the reference cards pin that flag
+   opposite the tone badge rather than letting it sit on the room title. */
+html.st-embedded main.front-page.st-reference-ready .room-button .badge-new {
+  position: absolute;
+  top: 25px;
+  /* The bundle's own rule sets `left`, which would stretch the pill across the
+     whole card once a `right` is added, so it is cleared explicitly. */
+  left: auto;
+  right: 27px;
+  z-index: 2;
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #e8792d;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* No button is filled: the brand reads as outline and label, never as a slab
+   of colour. Hover firms the outline instead of flooding the button. */
+button.primary, .primary, button.primary:hover, .primary:hover {
+  background: transparent !important;
+  border: 2px solid var(--st-brand) !important;
+  color: var(--st-brand) !important;
+  box-shadow: none !important;
+}
+button.primary:hover, .primary:hover {
+  border-color: var(--st-brand-deep) !important;
+  color: var(--st-brand-deep) !important;
+}
+
+/* Room types SecureTech does not offer. Hidden rather than detached because the
+   card list is React-owned. */
+html.st-embedded main.front-page.st-reference-ready .room-button.st-room-hidden {
+  display: none !important;
+}
