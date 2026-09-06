@@ -347,10 +347,27 @@
             }
         }
 
+        /* Opening the menu makes the header the top of one continuous navy
+           panel. Without this the header keeps whatever the scroll position
+           gave it - transparent at the top of the page, white further down -
+           and either way there is a seam above the menu. */
+        body:has(.mobile-menu.open) header {
+            background: rgba(10, 22, 40, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: none;
+        }
+
+        body:has(.mobile-menu.open) header .brand-name,
+        body:has(.mobile-menu.open) header .nav-search,
+        body:has(.mobile-menu.open) header .nav-lang,
+        body:has(.mobile-menu.open) header #menu-btn {
+            color: #fff !important;
+        }
+
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 64px;
+            top: 78px;
             left: 0;
             right: 0;
             bottom: 0;
@@ -1180,7 +1197,7 @@
         <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
         <a href="/CaseStudies" onclick="closeMenu()">Case Studies</a>
         <a href="/AboutUs" onclick="closeMenu()">About Us</a>
-        <a href="/WorkspaceDesigner" onclick="closeMenu()">Workspace Designer</a>
+        <a href="/WorkspaceDesigner" onclick="closeMenu()">3D Designer</a>
         <a href="/Contactus" onclick="closeMenu()" style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
         <div class="lang-wrap notranslate" translate="no">
             <button type="button" class="nav-lang" aria-expanded="false" aria-haspopup="dialog"
