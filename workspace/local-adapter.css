@@ -1,0 +1,115 @@
+/* The local app uses the already-rendered blueprint, without 's marketing form. */
+.form-overlay__bg { display: none !important; }
+.local-workspace{border:1px solid #ddd;border-radius:24px;padding:32px;width:min(620px,calc(100vw - 40px));box-sizing:border-box;max-height:85vh;overflow:auto;font-family:Arial,sans-serif;color:#191919;background:#fff;box-shadow:0 20px 80px #0003}
+.local-workspace::backdrop{background:#0007}.local-workspace h2{font-size:28px;margin:0 0 12px}.local-workspace p{color:#555;line-height:1.5}.local-actions{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.local-workspace button{padding:10px 16px;background:#fff;border:1px solid #ccc;border-radius:24px;cursor:pointer;color:#171717}.local-workspace button:hover{background:#eee}.local-design-row{display:flex;gap:8px;align-items:center;border-top:1px solid #eee;padding:14px 0;flex-wrap:wrap}.local-design-row strong{flex:1;min-width:130px}.local-workspace textarea{width:100%;box-sizing:border-box;height:90px;margin:16px 0;border:1px solid #ccc;border-radius:8px;padding:12px}.local-workspace>button:last-child{margin-top:20px;background:#191919;color:white}.local-design-list{margin-bottom:12px}
+
+/* SecureTech branding: replaces the reference wordmark in the top bar. */
+.top-bar .top-logo {
+  background-image: url('/images/securetech-mark.png') !important;
+  background-size: 26px 26px !important;
+  background-position: left center !important;
+  background-repeat: no-repeat !important;
+  width: auto !important;
+  height: 30px !important;
+  padding: 0 0 0 34px !important;
+  margin-right: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 19px;
+  line-height: 30px;
+  color: #08174d;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.top-bar .top-logo::before { content: 'SecureTech AV'; font-weight: 700; letter-spacing: -.015em; }
+.top-bar .top-logo::after { content: 'Workspace Designer'; font-weight: 400; }
+
+/* Removed header controls: Introduction, Info, Product List, Contact Sales, My designs. */
+.top-bar .row > a.ghost,
+.top-bar .row > .tooltip-wrapper,
+.top-bar .row > .help-menu-container,
+.top-bar .feedback-btn-container { display: none !important; }
+
+/* Removed front-page promotional sections. */
+main.front-page .banner-whats-new,
+main.front-page .banner-container.banner-secondary { display: none !important; }
+
+@media (max-width: 760px) {
+  .top-bar .top-logo {
+    font-size: 14px;
+    gap: 4px;
+    background-size: 20px 20px !important;
+    padding-left: 26px !important;
+    margin-right: 8px;
+  }
+}
+@media (max-width: 430px) {
+  .top-bar .top-logo { font-size: 12px; }
+}
+
+/* SecureTech palette: navy brand, warm accent, softened off-white surfaces. */
+:root {
+  --st-navy: #08174d;
+  --st-navy-deep: #050f33;
+  --st-accent: #d9622d;
+  --Primary-Green-Brand: var(--st-navy);
+  --bg: #f4f6fa;
+  --surface: #fff;
+  --surface-accent: #eef1f8;
+  --surface-subtle: #e9edf5;
+  --surface-hover: #dde3ef;
+  --text: #101a33;
+  --text-2: #26314f;
+  --link: #1d4ed8;
+  --border-subtle: #e3e8f2;
+  --border-light: #d8dfec;
+  --border: #c3ccdf;
+}
+body { background: var(--bg); }
+.top-bar {
+  background: linear-gradient(180deg, #fff 0%, #f7f9fd 100%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+main.front-page a[href*="/room/"] {
+  box-shadow: 0 4px 16px rgba(8, 23, 77, .05);
+  transition: box-shadow .2s, transform .2s;
+}
+main.front-page a[href*="/room/"]:hover {
+  box-shadow: 0 12px 30px rgba(8, 23, 77, .13);
+  transform: translateY(-2px);
+}
+button.primary:hover, .primary:hover { background: var(--st-accent) !important; border-color: var(--st-accent) !important; }
+
+/* Version/build footer removed (front page only - the room wizard's footer holds Next/Previous). */
+main.front-page > footer { display: none !important; }
+
+/* The blueprint is printed, so it keeps a plain white ground. */
+@media print { :root { --bg: #fff; --surface: #fff; } body { background: #fff; } }
+
+
+/* SecureTech header on the printed blueprint. */
+.print-brand { display: none; }
+@media print {
+  :root { --surface-subtle: #fff; --surface-accent: #fff; --surface-hover: #fff; }
+  .print-brand {
+    display: block !important;
+    width: 100%;
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    align-self: stretch;
+    text-align: center;
+    margin: 0 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--st-navy);
+  }
+  .print-brand-mark { display: block; width: 64px; height: 64px; margin: 0 auto 8px; }
+  .print-brand-name { font-size: 19px; font-weight: 700; color: var(--st-navy); letter-spacing: -.015em; }
+  .print-brand-site { display: block; position: static; float: none; margin: 2px 0 0; text-align: center; font-size: 13px; color: var(--st-navy); text-decoration: none; }
+  .print-credit-hidden { display: none !important; }
+}
+
+/* Embedded in the SecureTech site, the page already carries the site header,
+   so the app's own top bar would be a second navigation strip. */
+html.st-embedded .top-bar { display: none !important; }
+html.st-embedded main.front-page { padding-top: 24px; }

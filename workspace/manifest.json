@@ -1,0 +1,8 @@
+{
+  "short_name": "SecureTech Designer",
+  "name": "SecureTech AV Workspace Designer",
+  "start_url": "./",
+  "display": "standalone",
+  "theme_color": "#08174d",
+  "background_color": "#ffffff"
+}

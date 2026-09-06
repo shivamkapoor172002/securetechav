@@ -90,7 +90,7 @@
 
         .brand-name {
             font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 1.28rem;
+            font-size: 1.14rem;
             font-weight: 600;
             letter-spacing: -.015em;
             line-height: 1.15;
@@ -170,7 +170,7 @@
             gap: .45rem;
             color: #fff;
             font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 1.48rem;
+            font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
             transition: color .3s;
@@ -202,7 +202,7 @@
             color: #fff;
             transition: color 0.3s;
             font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 1.48rem;
+            font-size: 1.02rem;
             font-weight: 500;
         }
 
@@ -235,6 +235,7 @@
         }
 
         .pill-button {
+            white-space: nowrap;
             position: relative;
             z-index: 0;
             overflow: hidden;
@@ -244,7 +245,7 @@
             background: #E87D2F;
             color: #fff;
             font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 1.14rem;
+            font-size: .95rem;
             font-weight: 600;
             line-height: 1.25rem;
             cursor: pointer;
@@ -278,6 +279,9 @@
             height: 78px;
             align-items: center;
             justify-content: space-between;
+            /* a real gap, so the wordmark and the first nav link can never run
+               together into "SecureTech AV DesignsSolution" when space is tight */
+            gap: 1.5rem;
             padding: 0 1rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -944,24 +948,11 @@
             flex-shrink: 0;
         }
 
-        /* Between 1200 and 1365 the row fits only just; trim the gaps rather
-           than let anything wrap. */
-        @media (min-width: 1200px) and (max-width: 1365px) {
-            #desktop-nav {
-                gap: 1.6rem;
-            }
-
-            #desktop-tools {
-                gap: .85rem;
-            }
-
-            .nav-lang {
-                font-size: 1.15rem;
-            }
-        }
-
+        /* Only the narrow end needs trimming now that the nav is set at a
+           navigation size rather than a display size. */
         @media (min-width: 1024px) and (max-width: 1199px) {
             .nav-container {
+                gap: 1rem;
                 padding: 0 1.25rem;
             }
 
@@ -970,7 +961,7 @@
             }
 
             #desktop-nav {
-                gap: 1.3rem;
+                gap: 1.1rem;
             }
 
             #desktop-tools {
@@ -981,15 +972,16 @@
                 font-size: .95rem;
             }
 
-            .pill-button {
-                padding: .45rem 1rem;
-                font-size: .95rem;
+            .nav-lang {
+                font-size: .92rem;
             }
 
-            .nav-lang {
-                font-size: 1.02rem;
+            .pill-button {
+                padding: .45rem 1rem;
+                font-size: .88rem;
             }
         }
+
 
         /* Footer links are inline <a>, so their tap area was only the 21px
            text line. Give them a block box with vertical padding on touch
@@ -1025,6 +1017,7 @@
                 <a href="/Solutionpage" class="nav-link">Solution</a>
                 <a href="/CaseStudies" class="nav-link nav-link-active">Case Studies</a>
                 <a href="/AboutUs" class="nav-link">About Us</a>
+                    <a href="/WorkspaceDesigner" class="nav-link nav-link-tool">3D Designer</a>
             </nav>
             <div style="display:flex;align-items:center;gap:1rem;">
                 <div id="desktop-tools">
@@ -1075,6 +1068,7 @@
         <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
         <a href="/CaseStudies" onclick="closeMenu()" style="color:#E87D2F;">Case Studies</a>
         <a href="/AboutUs" onclick="closeMenu()">About Us</a>
+        <a href="/WorkspaceDesigner" onclick="closeMenu()">Workspace Designer</a>
         <a href="/Contactus" onclick="closeMenu()"
             style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
         <div class="lang-wrap notranslate" translate="no">

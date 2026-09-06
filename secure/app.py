@@ -51,6 +51,13 @@ def _versioned_static():
 
 WELL_KNOWN_DIR = os.path.join(app.static_folder, ".well-known")
 
+# The Workspace Designer is a self-contained static bundle (~100 MB of 3D
+# models and textures) that lives OUTSIDE this package on purpose: on Vercel
+# it is served straight from the CDN by a @vercel/static build, so it never
+# enters the Python function's size budget. This route exists so `python
+# app.py` serves it too during local development.
+WORKSPACE_DIR = os.path.join(os.path.dirname(app.root_path), "workspace")
+
 
 # ── PAGES ──
 
@@ -136,6 +143,27 @@ def ai_txt():
 @app.route("/.well-known/skills.json")
 def skills():
     return send_from_directory(WELL_KNOWN_DIR, "skills.json", mimetype="application/json")
+
+
+# ── WORKSPACE DESIGNER ──
+
+@app.route("/WorkspaceDesigner")
+def workspace_designer():
+    """The designer itself is a full-screen SPA, so it is framed inside a page
+    that carries the site header rather than replacing it."""
+    return render_template("workspace.html")
+
+
+@app.route("/workspace/")
+@app.route("/workspace/<path:filename>")
+def workspace_static(filename="index.html"):
+    # The bundle's own entry files change whenever the local adaptation does,
+    # and they carry no content hash, so they must revalidate. The hashed
+    # build output and the 3D assets keep the long cache.
+    volatile = filename.endswith((".html", "local-adapter.js", "local-adapter.css",
+                                  "manifest.json"))
+    return send_from_directory(WORKSPACE_DIR, filename,
+                               max_age=0 if volatile else 31536000)
 
 
 if __name__ == "__main__":

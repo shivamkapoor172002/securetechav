@@ -1,0 +1,44 @@
+<svg width="101" height="66" viewBox="0 0 101 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="4.5" y="4.5" width="12" height="59" rx="3.5" stroke="black"/>
+<rect x="20.5" y="0.5" width="43" height="65" rx="3.5" stroke="black"/>
+<rect x="25.5" y="4.5" width="34" height="17" stroke="black"/>
+<circle cx="42" cy="30" r="4.5" stroke="black"/>
+<circle cx="42" cy="30" r="2.5" stroke="black"/>
+<path d="M63 29C60.1667 31.5 53.8 36.6 51 37C47.5 37.5 38.5 38 35 37C32.2 36.2 24.1667 31.3333 20.5 29" stroke="black" stroke-linecap="round"/>
+<rect x="45.5" y="43.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="45.5" y="48.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="45.5" y="53.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="45.5" y="58.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="39.5" y="43.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="39.5" y="48.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="39.5" y="53.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="39.5" y="58.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="33.5" y="43.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="33.5" y="48.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="33.5" y="53.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="33.5" y="58.5" width="4" height="3" rx="0.5" stroke="black"/>
+<rect x="63.5" y="0.5" width="37" height="65" rx="3.5" stroke="black"/>
+<rect x="72.5" y="5.5" width="19" height="31" stroke="black"/>
+<path d="M66.5 8H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 11H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 14H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 17H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 20H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 23H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 26H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 29H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 32H69" stroke="black" stroke-linecap="round"/>
+<path d="M66.5 35H69" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 8H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 11H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 14H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 17H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 20H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 23H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 26H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 29H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 32H97" stroke="black" stroke-linecap="round"/>
+<path d="M94.5 35H97" stroke="black" stroke-linecap="round"/>
+<path d="M5 13.5H4C2.34315 13.5 1 14.8431 1 16.5V62.5C1 64.1569 2.34315 65.5 4 65.5H23" stroke="black"/>
+<path d="M16.5 13.5H20.5" stroke="black" stroke-linecap="round"/>
+</svg>

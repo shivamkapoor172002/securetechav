@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ══ PRIMARY SEO ══ -->
+    <title>SecureTech AV Designs — #1 AV Integrators in India | Audio Visual Solutions</title>
+    <meta name="description" content="SecureTech AV Designs is India's leading AV system integrator providing end-to-end audio visual solutions, architectural acoustics, smart classrooms, boardroom AV, auditorium sound systems, lighting design, IT infrastructure, and AV consultation for corporate, education, healthcare, government, and residential sectors." />
+    <meta name="keywords" content="AV integrators India, audio visual solutions India, AV system integration, conference room AV solutions, boardroom AV setup, auditorium sound system India, smart classroom technology India, architectural acoustics India, AV control systems, professional audio systems India, video conferencing solutions India, digital signage India, AV consultants Delhi NCR, lighting design India, AV installation company India, corporate AV integration, education AV solutions, healthcare AV systems, SecureTech AV, audio video integration services" />
+    <meta name="author" content="SecureTech AV Designs Private Limited" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://securetechav.com/" />
+    <link rel="icon" href="{{ url_for('static', filename='image-5@2x.webp') }}" />
+
+    <!-- ══ OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SecureTech AV Designs" />
+    <meta property="og:title" content="SecureTech AV Designs — #1 AV Integrators in India" />
+    <meta property="og:description" content="India's leading AV system integrator. End-to-end audio visual solutions — acoustics, boardroom AV, auditorium systems, smart classrooms, lighting, IT infrastructure. Trusted by 150+ clients across corporate, education, healthcare & government sectors." />
+    <meta property="og:url" content="https://securetechav.com/" />
+    <meta property="og:image" content="https://securetechav.com/static/securetech_av.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- ══ TWITTER CARD ══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SecureTech AV Designs — #1 AV Integrators in India" />
+    <meta name="twitter:description" content="India's leading AV system integrator. End-to-end audio visual solutions — acoustics, boardroom AV, auditorium systems, smart classrooms, lighting & IT infrastructure." />
+    <meta name="twitter:image" content="https://securetechav.com/static/securetech_av.webp" />
+
+    <!-- ══ JSON-LD STRUCTURED DATA ══ -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lang-switcher.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                container: { center: true, padding: "1rem", screens: { "2xl": "1400px" } },
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: { DEFAULT: "hsl(var(--primary))" },
+                        muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
+                    },
+                    animation: { "infinite-scroll": "infinite-scroll 25s linear infinite" },
+                    keyframes: { "infinite-scroll": { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } } }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 225 17% 7%;
+                --primary: 210 9% 22%;
+                --muted: 210 40% 96.1%;
+                --muted-foreground: 215.4 16.3% 46.9%;
+                --border: 214.3 31.8% 91.4%;
+                --brand-gradient: linear-gradient(135deg, #E87D2F 0%, #A52A2A 100%);
+            }
+            body { @apply bg-background text-foreground; font-family: 'IBM Plex Sans', sans-serif; }
+        }
+        @layer utilities {
+            .text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+            .bg-brand-gradient { background: var(--brand-gradient); }
+        }
+        .carousel-slide { display: none; }
+        .carousel-slide.active { display: block; animation: fadein 1s; }
+        @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+
+        <title>Workspace Designer — SecureTech AV Designs</title>
+    {% raw %}<style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 120%;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* ── HEADER ── */
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: transparent;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        header.scrolled {
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(8, 23, 77, 0.08);
+        }
+
+        .header-logo {
+            height: 70px;
+            width: auto;
+        }
+
+        header.scrolled .header-logo {
+            filter: none;
+        }
+
+        #desktop-nav {
+            flex: 1;
+            justify-content: center;
+            gap: 2.25rem;
+        }
+        #desktop-tools {
+            display: none;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 1024px) {
+            #desktop-tools {
+                display: flex;
+            }
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            transition: color .3s;
+        }
+
+        .nav-search-input {
+            width: 0;
+            opacity: 0;
+            padding: 0;
+            border: none;
+            border-bottom: 1px solid currentColor;
+            background: transparent;
+            color: inherit;
+            outline: none;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.24rem;
+            transition: width .35s ease, opacity .35s ease, padding .35s ease;
+        }
+
+        .nav-search-input.open {
+            width: 180px;
+            opacity: 1;
+            padding: .25rem .5rem;
+        }
+
+        .nav-search-input::placeholder {
+            color: currentColor;
+            opacity: .6;
+        }
+
+        .nav-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            padding: .4rem;
+        }
+
+        .nav-lang {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+        .nav-search:hover,
+        .nav-lang:hover {
+            color: rgba(255, 255, 255, .72);
+        }
+
+        header.scrolled .nav-search,
+        header.scrolled .nav-lang {
+            color: #08174d;
+        }
+
+        header.scrolled .nav-search:hover,
+        header.scrolled .nav-lang:hover {
+            color: #133193;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.14rem;
+            font-weight: 600;
+            letter-spacing: -.015em;
+            line-height: 1.15;
+            color: #fff;
+            white-space: nowrap;
+            transition: color .3s;
+        }
+
+        header.scrolled .brand-name {
+            color: #08174d;
+        }
+
+        @media (max-width: 520px) {
+            .brand-name {
+                font-size: .88rem;
+            }
+        }
+        .nav-link {
+            color: #fff;
+            transition: color 0.3s;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 500;
+        }
+
+        .pill-button {
+            white-space: nowrap;
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            border: 2px solid #E87D2F;
+            border-radius: 9999px;
+            padding: .5rem 1.25rem;
+            background: #E87D2F;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: .95rem;
+            font-weight: 600;
+            line-height: 1.25rem;
+            cursor: pointer;
+            transition: color .45s ease;
+        }
+
+        .pill-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform .45s ease;
+            z-index: -1;
+        }
+
+        .pill-button:hover {
+            color: #E87D2F;
+        }
+
+        .pill-button:hover::before {
+            transform: scaleX(1);
+        }
+
+        .nav-link:hover {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        header.scrolled .nav-link {
+            color: #08174d !important;
+        }
+
+        header.scrolled .nav-link-active {
+            color: #E87D2F !important;
+        }
+
+        header.scrolled .nav-link:hover {
+            color: #133193 !important;
+        }
+
+        header.scrolled .nav-link-active:hover {
+            color: #E87D2F !important;
+        }
+
+        header.scrolled #menu-btn {
+            color: #08174d !important;
+        }
+
+        .nav-container {
+            display: flex;
+            height: 78px;
+            align-items: center;
+            justify-content: space-between;
+            /* a real gap, so the wordmark and the first nav link can never run
+               together into "SecureTech AV DesignsSolution" when space is tight */
+            gap: 1.5rem;
+            padding: 0 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media(min-width:1024px) {
+            .nav-container {
+                height: 96px;
+                padding: 0 2rem;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 22, 40, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: #E87D2F;
+        }
+
+
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            background: #0a1628;
+        }
+
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+
+        /* ── HERO ── */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 320px;
+            overflow: hidden;
+        }
+
+        @media(min-width:768px) {
+            .hero-section {
+                height: 75vh;
+            }
+        }
+
+        @media(min-width:1024px) {
+            .hero-section {
+                height: 100vh;
+                height: 100svh;
+                max-height: none;
+            }
+        }
+
+        /* ── SECTORS ──
+           One carousel for every width: copy on the left, a horizontal rail of
+           photographs on the right that runs off the edge of the page so the
+           next sector is always half-visible. Driven by --i (the active index)
+           rather than scroll position, so the arrows, the rail and the
+           progress bar cannot disagree. */
+        .sect-section {
+            background: #f4f6f8;
+            padding: 4.5rem 0;
+            overflow: hidden;
+        }
+
+        .sect-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.25rem;
+            padding-left: 1.5rem;
+        }
+
+        @media (min-width: 900px) {
+            .sect-section {
+                padding: 6.5rem 0;
+            }
+
+            .sect-inner {
+                grid-template-columns: minmax(20rem, 30%) 1fr;
+                gap: 3.5rem;
+                align-items: center;
+                padding-left: max(1.5rem, calc((100vw - 1500px) / 2 + 1.5rem));
+            }
+        }
+
+        /* ── copy column ── */
+        .sect-copy {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding-right: 1.5rem;
+        }
+
+        .sect-standfirst {
+            font-size: .95rem;
+            font-weight: 500;
+            color: #0a1628;
+            margin: 0 0 1.1rem;
+        }
+
+        /* every slide's copy is stacked in the same place and cross-faded */
+        .sect-names,
+        .sect-bodies {
+            position: relative;
+        }
+
+        .sect-names>*,
+        .sect-bodies>* {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .45s ease, transform .45s cubic-bezier(.16, 1, .3, 1);
+            pointer-events: none;
+        }
+
+        .sect-names>.on,
+        .sect-bodies>.on {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
+
+        .sect-names {
+            height: clamp(2.6rem, 5vw, 3.6rem);
+        }
+
+        .sect-name {
+            font-size: clamp(2rem, 4.2vw, 3.1rem);
+            font-weight: 600;
+            letter-spacing: -.03em;
+            line-height: 1.1;
+            color: #0a1628;
+            margin: 0;
+        }
+
+        .sect-bodies {
+            height: 11.5rem;
+            margin-top: .85rem;
+        }
+
+        .sect-body {
+            font-size: .98rem;
+            line-height: 1.75;
+            color: #55636f;
+            margin: 0;
+        }
+
+        .sect-cta {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            min-height: 46px;
+            padding: .7rem 1.6rem;
+            border-radius: 10px;
+            background: #E87D2F;
+            color: #fff;
+            font-size: .92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background .25s ease, transform .25s ease;
+        }
+
+        .sect-cta:hover,
+        .sect-cta:focus-visible {
+            background: #cf6a20;
+            transform: translateY(-1px);
+        }
+
+        /* ── progress ── */
+        .sect-progress {
+            margin-top: 2.5rem;
+            width: min(20rem, 100%);
+            height: 3px;
+            background: #dbe1e7;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .sect-progress i {
+            display: block;
+            height: 100%;
+            background: #E87D2F;
+            border-radius: 2px;
+            transform-origin: left center;
+            transform: scaleX(var(--fill, 0));
+            transition: none;
+        }
+
+        /* ── image rail ── */
+        .sect-stage {
+            position: relative;
+            --gap: 16px;
+            --card: min(78vw, 460px);
+            min-width: 0;
+            /* clip the rail to the stage, otherwise cards that have scrolled
+               past keep painting over the copy column on their way out */
+            overflow: hidden;
+        }
+
+        @media (min-width: 900px) {
+            .sect-stage {
+                --card: min(46vw, 760px);
+            }
+        }
+
+        .sect-rail {
+            display: flex;
+            gap: var(--gap);
+            transform: translate3d(calc(var(--i, 0) * -1 * (var(--card) + var(--gap))), 0, 0);
+            transition: transform .7s cubic-bezier(.16, 1, .3, 1);
+            will-change: transform;
+        }
+
+        .sect-shot {
+            flex: 0 0 var(--card);
+            margin: 0;
+            height: clamp(17rem, 42vw, 31rem);
+            border-radius: 14px;
+            overflow: hidden;
+            background: #0a1628;
+        }
+
+        .sect-shot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity .5s ease;
+        }
+
+        /* the sectors either side of the active one sit back a little */
+        .sect-shot:not(.on) img {
+            opacity: .55;
+        }
+
+        /* ── arrows ── */
+        .sect-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: var(--card);
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.1rem;
+            pointer-events: none;
+        }
+
+        .sect-arrow {
+            pointer-events: auto;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 0;
+            background: #E87D2F;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(10, 22, 40, .28);
+            transition: background .25s ease, transform .25s ease, opacity .25s ease;
+        }
+
+        .sect-arrow:hover:not(:disabled),
+        .sect-arrow:focus-visible:not(:disabled) {
+            background: #cf6a20;
+            transform: scale(1.07);
+        }
+
+        .sect-arrow:disabled {
+            opacity: .35;
+            cursor: default;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .sect-rail,
+            .sect-names>*,
+            .sect-bodies>*,
+            .sect-progress i {
+                transition: none;
+            }
+        }
+
+        /* ── PRODUCTS ── */
+        .products-mobile {
+            background: #f8f9fb;
+            padding: 3rem 1.5rem;
+        }
+
+        @media(min-width:1024px) {
+            .products-mobile {
+                display: none;
+            }
+        }
+
+        .products-mobile-heading {
+            text-align: center;
+            font-size: clamp(1.9rem, 7.5vw, 2.9rem);
+            font-weight: 900;
+            color: #0a1628;
+            line-height: 1.15;
+            letter-spacing: -.02em;
+            margin-bottom: 2rem;
+        }
+
+        .products-mobile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media(min-width:480px) {
+            .products-mobile-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+        }
+
+        .prod-mobile-card {
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            background: #ddd;
+            aspect-ratio: 1;
+        }
+
+        .prod-mobile-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .prod-mobile-label {
+            position: absolute;
+            bottom: .6rem;
+            left: .6rem;
+            right: .6rem;
+            background: rgba(0, 0, 0, .5);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: .65rem;
+            font-weight: 700;
+            padding: .25rem .6rem;
+            border-radius: 50px;
+            letter-spacing: .03em;
+            text-align: center;
+        }
+
+        #prod-track {
+            position: relative;
+            height: 300vh;
+            display: none;
+        }
+
+        @media(min-width:1024px) {
+            #prod-track {
+                display: block;
+            }
+        }
+
+        #prod-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            contain: paint;
+            overflow: hidden;
+            background: #f8f9fb;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 14px;
+            padding: 80px 48px 48px;
+            align-items: stretch;
+        }
+
+        #prod-heading {
+            grid-column: 2;
+            grid-row: 2;
+            text-align: center;
+            white-space: nowrap;
+            font-size: clamp(2.4rem, 6.4vw, 6rem);
+            font-weight: 900;
+            line-height: 1.06;
+            letter-spacing: -.02em;
+            color: #0a1628;
+            transform-origin: center center;
+            z-index: 10;
+            pointer-events: none;
+            user-select: none;
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        .prod-cell {
+            overflow: hidden;
+            border-radius: 16px;
+            position: relative;
+            opacity: 0;
+            transform: translate3d(0, 40px, 0);
+            transition: opacity .5s cubic-bezier(.16, 1, .3, 1), transform .5s cubic-bezier(.16, 1, .3, 1);
+            background: #ddd;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .prod-cell.show {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .prod-cell img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .prod-cell-label {
+            position: absolute;
+            bottom: .8rem;
+            left: .8rem;
+            max-width: calc(100% - 1.6rem);
+            background: rgba(0, 0, 0, .58);
+            color: #fff;
+            font-size: .75rem;
+            font-weight: 700;
+            padding: .3rem .7rem;
+            border-radius: 50px;
+            letter-spacing: .03em;
+        }
+
+        #pc-tl {
+            grid-column: 1;
+            grid-row: 1
+        }
+
+        #pc-tc {
+            grid-column: 2;
+            grid-row: 1
+        }
+
+        #pc-tr {
+            grid-column: 3;
+            grid-row: 1
+        }
+
+        #pc-ml {
+            grid-column: 1;
+            grid-row: 2
+        }
+
+        #pc-mr {
+            grid-column: 3;
+            grid-row: 2
+        }
+
+        #pc-bl {
+            grid-column: 1;
+            grid-row: 3
+        }
+
+        #pc-bc {
+            grid-column: 2;
+            grid-row: 3
+        }
+
+        #pc-br {
+            grid-column: 3;
+            grid-row: 3
+        }
+
+        /* ══════════════════════════════════════
+           GOOGLE REVIEWS CAROUSEL
+        ══════════════════════════════════════ */
+        .reviews-section {
+            padding: 60px 20px 70px;
+            background: #fff;
+            border-top: 1px solid #e8ecf0;
+        }
+
+        .reviews-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .reviews-head-left {}
+
+        .reviews-eyebrow {
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #607080;
+            margin-bottom: .5rem;
+        }
+
+        .reviews-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: #0a1628;
+            letter-spacing: -.02em;
+            line-height: 1.1;
+        }
+
+        .reviews-title span {
+            color: #E87D2F;
+        }
+
+        .reviews-rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 8px 16px;
+            margin-top: 10px;
+        }
+
+        .reviews-rating-badge .stars {
+            color: #FBBC04;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .reviews-rating-badge .score {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #0a1628;
+        }
+
+        .reviews-rating-badge .count {
+            font-size: .78rem;
+            color: #607080;
+        }
+
+        .reviews-google-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 20px;
+            border-radius: 50px;
+            border: 1.5px solid #e2e8f0;
+            color: #444;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: .82rem;
+            font-weight: 600;
+            text-decoration: none;
+            background: #fff;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+
+        .reviews-google-btn:hover {
+            border-color: #4285F4;
+            color: #4285F4;
+        }
+
+        /* Carousel wrapper */
+        .reviews-carousel-wrap {
+            position: relative;
+        }
+
+        .reviews-track-outer {
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .reviews-track {
+            display: flex;
+            transition: transform .45s cubic-bezier(.16, 1, .3, 1);
+            gap: 16px;
+            padding: 4px 2px 8px;
+        }
+
+        .review-card {
+            background: #fff;
+            border: 1px solid #e8ecf0;
+            border-radius: 14px;
+            padding: 22px 22px 18px;
+            flex: 0 0 calc(33.333% - 11px);
+            min-width: 280px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+            transition: box-shadow .2s;
+        }
+
+        @media(max-width:900px) {
+            .review-card {
+                flex: 0 0 calc(50% - 8px);
+            }
+        }
+
+        @media(max-width:580px) {
+            .review-card {
+                flex: 0 0 calc(100% - 0px);
+            }
+        }
+
+        .review-card:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, .09);
+        }
+
+        .review-card-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .review-info {}
+
+        .review-name {
+            font-size: .86rem;
+            font-weight: 700;
+            color: #0a1628;
+            line-height: 1.2;
+        }
+
+        .review-meta {
+            font-size: .72rem;
+            color: #888;
+            margin-top: 1px;
+        }
+
+        .review-stars {
+            color: #FBBC04;
+            font-size: .9rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            font-size: .84rem;
+            color: #445566;
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .review-card-footer {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .review-g-logo {
+            width: 16px;
+            height: 16px;
+        }
+
+        .review-platform {
+            font-size: .72rem;
+            color: #888;
+        }
+
+        /* Arrow buttons */
+        .reviews-arrows {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .reviews-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid #e2e8f0;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .2s;
+            color: #444;
+        }
+
+        .reviews-arrow:hover {
+            background: #E87D2F;
+            border-color: #E87D2F;
+            color: #fff;
+        }
+
+        .reviews-arrow:disabled {
+            opacity: .35;
+            cursor: not-allowed;
+        }
+
+        .reviews-arrow svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .reviews-dots {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .reviews-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #d0d8e0;
+            transition: background .3s, transform .3s;
+            cursor: pointer;
+        }
+
+        .reviews-dot.active {
+            background: #E87D2F;
+            transform: scale(1.3);
+        }
+
+        /* ══════════════════════════════════════
+           INSTAGRAM / WHY US
+        ══════════════════════════════════════ */
+        .why-section {
+            padding: 4rem 1.5rem;
+        }
+
+        @media(min-width:768px) {
+            .why-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        /* ── CTA ── */
+        /* -- HERO COPY (bottom-left) -- */
+        .hero-scrim {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top, rgba(0, 0, 0, .82) 0%, rgba(0, 0, 0, .52) 26%, rgba(0, 0, 0, .16) 52%, rgba(0, 0, 0, 0) 76%),
+                linear-gradient(to right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .18) 44%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        .hero-copy {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 1.5rem 4rem;
+        }
+
+        @media(min-width:1024px) {
+            .hero-copy {
+                padding: 0 3rem 6.5rem;
+            }
+        }
+
+        .hero-headline {
+            font-size: clamp(1.5rem, 4.4vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -.02em;
+            line-height: 1.08;
+            color: #fff;
+            margin: 0 0 .9rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, .55), 0 4px 30px rgba(0, 0, 0, .6);
+        }
+
+        @media(min-width:768px) {
+            .hero-headline .hl-line {
+                display: block;
+            }
+        }
+
+        .hero-subline {
+            font-size: clamp(.85rem, 1.5vw, 1.05rem);
+            font-weight: 500;
+            color: rgba(255, 255, 255, .88);
+            margin: 0;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, .35);
+        }
+
+        /* -- WHO WE ARE -- */
+        .who-section {
+            position: relative;
+            overflow: hidden;
+            background: #000 url("/static/ab.webp") no-repeat center center;
+            background-size: cover;
+            padding: 6rem 1.5rem;
+        }
+
+        .who-veil {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            height: 60vw;
+            max-width: 700px;
+            max-height: 700px;
+            background: radial-gradient(circle, rgba(232, 125, 47, .12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @media(min-width:900px) {
+            .who-section {
+                padding: 9.5rem 2rem;
+            }
+        }
+
+        .who-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1180px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .who-eyebrow {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: #F08B3C;
+            margin: 0 0 1.4rem;
+            /* the backdrop is a photo, so small flat text washes out against it */
+            text-shadow: 0 2px 16px rgba(0, 0, 0, .75);
+        }
+
+        .who-statement {
+            font-size: clamp(2.1rem, 5.16vw, 4.02rem);
+            font-weight: 800;
+            line-height: 1.26;
+            letter-spacing: -.025em;
+            color: #fff;
+            margin: 0;
+            text-shadow: 0 2px 22px rgba(0, 0, 0, .5);
+        }
+
+        .who-statement span {
+            color: #E87D2F;
+        }
+
+        /* -- LOGO RAILS (Clients / Brands) -- */
+        .rail-section {
+            background: #fff;
+            padding: 3.5rem 0;
+        }
+
+        .rail-section-alt {
+            background: #f8fafc;
+        }
+
+        @media(min-width:900px) {
+            .rail-section {
+                padding: 5.5rem 0;
+            }
+        }
+
+        .rail-body {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width:900px) {
+            .rail-body {
+                grid-template-columns: minmax(200px, 26%) 1fr;
+                gap: 0;
+                align-items: center;
+            }
+        }
+
+        .rail-label h2 {
+            font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+            font-weight: 800;
+            letter-spacing: .01em;
+            line-height: 1.2;
+            color: #0a1628;
+            margin-bottom: 1.4rem;
+        }
+
+        .rail-desc {
+            color: #33455c;
+            font-size: .95rem;
+            line-height: 1.6;
+            max-width: 34ch;
+        }
+
+        .rail-viewport {
+            min-width: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .rail-viewport::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media(min-width:900px) {
+            .rail-viewport {
+                border-left: 1px solid #e6eaee;
+                padding-left: 4rem;
+            }
+        }
+
+        .rail-track {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            width: max-content;
+            padding: .5rem 0;
+        }
+
+        @media(min-width:900px) {
+            .rail-track {
+                gap: 6rem;
+            }
+        }
+
+        .rail-track img {
+            height: 64px;
+            min-width: 150px;
+            max-width: 250px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: grayscale(1) contrast(1.08);
+            opacity: 1;
+            transition: filter .3s, transform .3s;
+        }
+
+        @media(min-width:900px) {
+            .rail-track img {
+                height: 86px;
+                min-width: 170px;
+                max-width: 290px;
+            }
+        }
+
+        .rail-track img:hover {
+            filter: grayscale(0) contrast(1);
+            transform: scale(1.06);
+        }
+
+        .cta-section {
+            padding: 3rem 1.5rem;
+        }
+
+        @media(min-width:768px) {
+            .cta-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .cta-inner {
+            background: #f1f5f9;
+            border-radius: 32px;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        @media(min-width:768px) {
+            .cta-inner {
+                border-radius: 60px;
+                padding: 5rem 4rem;
+            }
+        }
+
+        .cta-title {
+            font-size: clamp(1.75rem, 6vw, 4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -.03em;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: #0a1628;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background: #E87D2F;
+            color: #fff;
+            padding: .9rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background .25s;
+        }
+
+        .cta-btn:hover {
+            background: #A52A2A;
+        }
+
+        /* ── FOOTER ── */
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            align-items: center;
+            text-align: center;
+            padding: 1.25rem 1.5rem;
+        }
+
+        @media(min-width:768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                padding: 1.25rem 2rem;
+            }
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all .3s;
+            flex-shrink: 0;
+        }
+
+        .social-icon:hover {
+            border-color: #E87D2F;
+            background: #E87D2F;
+        }
+
+        .desktop-only {
+            display: none;
+        }
+
+        @media(min-width:1024px) {
+            .desktop-only {
+                display: block;
+            }
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 500;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #E87D2F;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
+            box-shadow: 0 4px 16px rgba(232, 125, 47, .4);
+            transition: background .25s, box-shadow .25s, opacity .3s ease, transform .3s ease, visibility .3s;
+        }
+
+        #scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        #scroll-top:hover {
+            background: #A52A2A;
+            box-shadow: 0 6px 22px rgba(165, 42, 42, .45);
+        }
+
+        #scroll-top .st-icon {
+            position: absolute;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        #scroll-top .st-up {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        #scroll-top.at-bottom .st-down {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        #scroll-top.at-bottom .st-up {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #scroll-top .st-icon { transition: none; }
+        }
+    
+
+        @media(min-width:768px) {
+            footer>div:first-child>div {
+                grid-template-columns: 1.4fr 1fr 1fr !important;
+            }
+        }
+
+        /* ─── RESPONSIVE FIXES ─────────────────────────────────────
+           Verified in headless Chromium at 360/390/430/768/820/1024/1440. */
+
+        /* The desktop nav is switched on at 1024px by JS, but the full row
+           (logo + wordmark + 3 links + search + language + CTA) measures
+           ~1081px, so the Contact Us button was being cut off by the body's
+           overflow-x guard between 1024px and ~1100px. Tighten the row across
+           that band so everything fits. */
+        /* Nav links are flex items, so they were shrinking below their own
+           text and wrapping to two lines before the row ever overflowed. */
+        .nav-link {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Only the narrow end needs trimming now that the nav is set at a
+           navigation size rather than a display size. */
+        @media (min-width: 1024px) and (max-width: 1199px) {
+            .nav-container {
+                gap: 1rem;
+                padding: 0 1.25rem;
+            }
+
+            .brand-name {
+                font-size: 1rem;
+            }
+
+            #desktop-nav {
+                gap: 1.1rem;
+            }
+
+            #desktop-tools {
+                gap: .7rem;
+            }
+
+            .nav-link {
+                font-size: .95rem;
+            }
+
+            .nav-lang {
+                font-size: .92rem;
+            }
+
+            .pill-button {
+                padding: .45rem 1rem;
+                font-size: .88rem;
+            }
+        }
+
+
+        /* Footer links are inline <a>, so their tap area was only the 21px
+           text line. Give them a block box with vertical padding on touch
+           widths to reach a usable target height. */
+        @media (max-width: 1023px) {
+
+            footer ul a,
+            .footer-bottom a,
+            .footer-bottom-bar a {
+                display: inline-block;
+                padding-block: .45rem;
+            }
+        }
+
+        /* the CTA is a <button> wrapped in an <a>; the anchor was an inline box
+           only as tall as its text, so its focus ring and hit box did not match
+           the button people actually aim at */
+        .cta-inner a {
+            display: inline-flex;
+        }
+    
+        /* ── designer frame ──
+           The Workspace Designer is a full-screen 3D SPA, so it is framed
+           rather than inlined: its markup, routing and WebGL context stay
+           isolated from this page. These rules come last so they win. */
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* the bar is pinned light here, so keep it opaque and off the video-hero
+           treatment the other pages use */
+        #main-header {
+            background: #fff !important;
+            border-bottom: 1px solid #e7ecf2;
+            box-shadow: 0 1px 12px rgba(10, 22, 40, .06);
+        }
+
+        .designer-shell {
+            position: fixed;
+            top: 78px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f7f9fb;
+        }
+
+        @media (min-width: 1024px) {
+            .designer-shell {
+                top: 96px;
+            }
+        }
+
+        .designer-shell iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .designer-fallback {
+            display: grid;
+            place-content: center;
+            height: 100%;
+            padding: 2rem;
+            text-align: center;
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: #55636f;
+        }
+    </style>{% endraw %}
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header id="main-header" class="scrolled">
+        <div class="nav-container">
+            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-name notranslate" translate="no">SecureTech AV Designs</span></a>
+            <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
+                    <a href="/Solutionpage" class="nav-link">Solution</a>
+                    <a href="/CaseStudies" class="nav-link">Case Studies</a>
+                    <a href="/AboutUs" class="nav-link">About Us</a>
+                    <a href="/WorkspaceDesigner" class="nav-link nav-link-tool">3D Designer</a>
+                </nav>
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <div id="desktop-tools">
+                    <div class="nav-search">
+                        <input id="nav-search-input" class="nav-search-input" type="text" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="nav-icon-btn" aria-label="Search"
+                            onclick="var i=document.getElementById('nav-search-input');i.classList.toggle('open');if(i.classList.contains('open')){i.focus();}">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round">
+                                <circle cx="11" cy="11" r="7" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="lang-wrap notranslate" id="lang-wrap-desktop" translate="no">
+                        <button type="button" class="nav-lang" id="lang-btn" aria-expanded="false"
+                            aria-haspopup="dialog" aria-label="Change language">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.4 2.9 2.4 15.1 0 18" /><path d="M12 3c-2.4 2.9-2.4 15.1 0 18" /></svg>
+                            <span data-lang-label>IN (EN)</span>
+                            <svg class="lang-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+                        </button>
+                    </div>
+                </div>                <a href="/Contactus" style="display:none;" id="desktop-cta"><button class="pill-button">Contact
+                        Us</button></a>
+                <button id="menu-btn"
+                    style="display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#fff;padding:.5rem;"
+                    aria-label="Open menu">
+                    <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
+        <a href="/CaseStudies" onclick="closeMenu()">Case Studies</a>
+        <a href="/AboutUs" onclick="closeMenu()">About Us</a>
+        <a href="/WorkspaceDesigner" onclick="closeMenu()">Workspace Designer</a>
+        <a href="/Contactus" onclick="closeMenu()" style="background:#E87D2F;padding:.75rem 2.5rem;border-radius:50px;font-size:1rem;">Contact Us</a>
+        <div class="lang-wrap notranslate" translate="no">
+            <button type="button" class="nav-lang" aria-expanded="false" aria-haspopup="dialog"
+                aria-label="Change language"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.4 2.9 2.4 15.1 0 18" /><path d="M12 3c-2.4 2.9-2.4 15.1 0 18" /></svg><span data-lang-label>IN (EN)</span><svg class="lang-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
+        </div>
+    </div>
+
+
+    <div class="designer-shell">
+        <noscript>
+            <p class="designer-fallback">The Workspace Designer needs JavaScript enabled.</p>
+        </noscript>
+        <iframe src="/workspace/" title="SecureTech AV Workspace Designer"
+            allow="fullscreen; xr-spatial-tracking"></iframe>
+    </div>
+
+    <script src="{{ url_for('static', filename='lang-switcher.js') }}" defer></script>
+    <script>
+            // ── Desktop nav ──
+            (function () {
+                const dn = document.getElementById('desktop-nav'), dc = document.getElementById('desktop-cta'), mb = document.getElementById('menu-btn');
+                function cw() { if (window.innerWidth >= 1024) { dn.style.display = 'flex'; dc.style.display = 'block'; mb.style.display = 'none'; } else { dn.style.display = 'none'; dc.style.display = 'none'; mb.style.display = 'flex'; } }
+                cw(); window.addEventListener('resize', cw);
+            })();
+
+        // ── Mobile menu ──
+        const menuBtn = document.getElementById('menu-btn'), mobileMenu = document.getElementById('mobile-menu'), iconOpen = document.getElementById('icon-open'), iconClose = document.getElementById('icon-close');
+        let menuOpen = false;
+        menuBtn.addEventListener('click', () => { menuOpen = !menuOpen; mobileMenu.classList.toggle('open', menuOpen); iconOpen.style.display = menuOpen ? 'none' : 'block'; iconClose.style.display = menuOpen ? 'block' : 'none'; document.body.style.overflow = menuOpen ? 'hidden' : ''; });
+        function closeMenu() { menuOpen = false; mobileMenu.classList.remove('open'); iconOpen.style.display = 'block'; iconClose.style.display = 'none'; document.body.style.overflow = ''; }
+
+    </script>
+</body>
+
+</html>
