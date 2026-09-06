@@ -160,7 +160,7 @@ def skills():
 # out of casual reach, it is not a secret. Setting SECURETECH_ADMIN_PASSWORD in
 # the environment overrides it without a code change, which is where a real
 # secret belongs.
-ADMIN_PASSWORD = os.environ.get("SECURETECH_ADMIN_PASSWORD") or "nahibataraha"
+ADMIN_PASSWORD = os.environ.get("SECURETECH_ADMIN_PASSWORD") or "Secure@8791"
 app.secret_key = os.environ.get("SECURETECH_SECRET_KEY") or os.urandom(32)
 app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax")
 
