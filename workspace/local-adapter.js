@@ -149,6 +149,17 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
   const REMOVED_SECTIONS=new Set(['Documentation','Room Link']);
   function labels(){
     enhanceFrontPage();
+    // The room designer's view menu: SecureTech does not offer the
+    // accessibility overlay, and "Tips" reads as advice when what it toggles
+    // is a set of checks against the room.
+    document.querySelectorAll('.view-menu button.ghost').forEach(btn=>{
+      if(btn.textContent.trim()==='Accessibility')
+        btn.closest('.tooltip-wrapper,.view-menu>*')?.classList.add('st-menu-hidden');
+    });
+    document.querySelectorAll('button').forEach(btn=>{
+      for(const node of btn.childNodes)
+        if(node.nodeType===3 && node.textContent.trim()==='Tips') node.textContent='Checks';
+    });
     document.querySelectorAll('button').forEach(el=>{
       const text=el.textContent.trim();
       if(text==='Log in')el.textContent='My designs';

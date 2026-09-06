@@ -528,3 +528,38 @@ button.primary:hover, .primary:hover {
 html.st-embedded main.front-page.st-reference-ready .room-button.st-room-hidden {
   display: none !important;
 }
+
+/* ── Room designer view menu ────────────────────────────────────────────────
+   The reference menu is a plain white card with near-black labels. This gives
+   it the same warm surface and maroon brand the rest of the app now carries. */
+main.room-designer .menu.view-menu {
+  padding: 6px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 14px 34px rgba(110, 27, 24, .10);
+}
+
+main.room-designer .view-menu button.ghost {
+  color: var(--text-2);
+  font-weight: 600;
+  letter-spacing: -.005em;
+}
+
+main.room-designer .view-menu button.ghost:hover {
+  background: var(--surface-accent);
+  color: var(--st-brand);
+}
+
+main.room-designer .view-menu button.ghost.selected {
+  background: rgba(110, 27, 24, .09);
+  color: var(--st-brand);
+}
+
+/* The icons are mask-driven, so they follow the label colour. */
+main.room-designer .view-menu button.ghost .icon {
+  background-color: currentColor;
+}
+
+/* Room types SecureTech does not expose in the viewer. */
+main.room-designer .view-menu .st-menu-hidden { display: none !important; }
