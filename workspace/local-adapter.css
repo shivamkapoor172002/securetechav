@@ -563,3 +563,17 @@ main.room-designer .view-menu button.ghost .icon {
 
 /* Room types SecureTech does not expose in the viewer. */
 main.room-designer .view-menu .st-menu-hidden { display: none !important; }
+
+/* Anchors stripped of their outbound href keep the sentence they sit in but
+   stop looking or behaving like links. */
+.st-delinked {
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: default !important;
+  pointer-events: none !important;
+}
+
+.st-link-hidden { display: none !important; }
+
+/* Software platforms SecureTech does not offer. */
+aside.side-bar .st-option-hidden { display: none !important; }

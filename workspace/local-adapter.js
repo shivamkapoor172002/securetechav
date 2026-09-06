@@ -149,6 +149,34 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
   const REMOVED_SECTIONS=new Set(['Documentation','Room Link']);
   function labels(){
     enhanceFrontPage();
+    // No link may leave for the reference vendor's site. There are 171 distinct
+    // external URLs in the bundle, so rather than chase each one the anchors are
+    // neutralised here: the copy stays readable, the link does not resolve, and
+    // anything a future re-snapshot introduces is covered too. SecureTech's own
+    // domain is the one exception.
+    document.querySelectorAll('a[href]:not(.st-delinked)').forEach(a=>{
+      const href=a.getAttribute('href')||'';
+      if(!/^https?:/i.test(href))return;
+      let host=''; try{ host=new URL(href,location.href).hostname; }catch{ return; }
+      if(host===location.hostname || /(^|\.)securetechav\.com$/i.test(host))return;
+      a.removeAttribute('href'); a.removeAttribute('target'); a.removeAttribute('rel');
+      a.classList.add('st-delinked');
+    });
+    // Help links that exist only to point outward are removed rather than
+    // flattened - a dead "Read more" is worse than none.
+    document.querySelectorAll('a.info, a.st-delinked').forEach(a=>{
+      const text=a.textContent.trim();
+      if(a.classList.contains('info') || /^(read|learn|find out) more/i.test(text))
+        a.classList.add('st-link-hidden');
+    });
+    // SecureTech ships one software experience, so the other platforms are
+    // taken out of the picker. Hidden by class, not detached: the list is
+    // React-owned. SecureTechAV Rooms is the default selection already.
+    document.querySelectorAll('button.list-button .main').forEach(main=>{
+      if(!/^(Microsoft Teams Rooms|Zoom Rooms|Bring Your Own Device)$/.test(main.textContent.trim()))return;
+      main.closest('.list-button-wrapper,.setting')?.classList.add('st-option-hidden');
+    });
+
     // The room designer's view menu: SecureTech does not offer the
     // accessibility overlay, and "Tips" reads as advice when what it toggles
     // is a set of checks against the room.
