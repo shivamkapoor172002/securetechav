@@ -999,211 +999,6 @@
             grid-row: 3
         }
 
-        /* ── CONFIGURATOR ── */
-        .config-build-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: .75rem;
-            background: #E87D2F;
-            color: #fff;
-            padding: .9rem 1.75rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: .95rem;
-            border: none;
-            cursor: pointer;
-            transition: background .25s;
-            text-decoration: none;
-        }
-
-        .config-build-btn:hover {
-            background: #A52A2A;
-        }
-
-        #config-track-all {
-            position: relative;
-            height: 600vh;
-        }
-
-        #config-sticky-all {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow: hidden;
-            background: linear-gradient(135deg, #e8f0f8 0%, #dce8f5 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media(min-width:1024px) {
-            #config-sticky-all {
-                flex-direction: row;
-            }
-        }
-
-        .config-img-panel {
-            position: relative;
-            width: 100%;
-            flex-shrink: 0;
-            height: 52vw;
-            max-height: 55vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 1.5rem 0;
-        }
-
-        @media(min-width:640px) {
-            .config-img-panel {
-                height: 42vw;
-            }
-        }
-
-        @media(min-width:1024px) {
-            .config-img-panel {
-                width: 50%;
-                height: 100%;
-                max-height: none;
-                padding: 2rem;
-            }
-        }
-
-        .config-img-panel img {
-            position: absolute;
-            inset: 1rem 1.5rem;
-            width: calc(100% - 3rem);
-            height: calc(100% - 2rem);
-            object-fit: contain;
-            transition: opacity 0.55s cubic-bezier(.16, 1, .3, 1);
-            border-radius: 16px;
-            /* drop-shadow, not box-shadow: object-fit is contain, so the box is
-               larger than the picture and a box-shadow would float away from it.
-               The frames are now 2.3MP instead of 8.7MP, which is what made this
-               filter expensive. */
-            filter: drop-shadow(0 16px 40px rgba(0, 0, 0, .15));
-        }
-
-        @media(min-width:1024px) {
-            .config-img-panel img {
-                inset: 2rem;
-                width: calc(100% - 4rem);
-                height: calc(100% - 4rem);
-            }
-        }
-
-        .config-text-panel {
-            width: 100%;
-            padding: 1rem 1.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: .6rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        @media(min-width:1024px) {
-            .config-text-panel {
-                width: 50%;
-                height: 100%;
-                justify-content: center;
-                padding: 0 6vw 0 0;
-                gap: 1.5rem;
-            }
-        }
-
-        .config-step-label {
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: #E87D2F;
-            transition: opacity .4s;
-        }
-
-        @media(min-width:1024px) {
-            .config-step-label {
-                font-size: .78rem;
-            }
-        }
-
-        .config-main-title {
-            font-size: clamp(1.6rem, 6vw, 4.5rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -.03em;
-            line-height: 1.05;
-            color: #0a1628;
-            margin: 0;
-        }
-
-        .config-subtitle {
-            font-size: .85rem;
-            color: #607080;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        @media(min-width:1024px) {
-            .config-subtitle {
-                font-size: 1.1rem;
-            }
-        }
-
-        #config-desc-all {
-            font-size: .85rem;
-            color: #607080;
-            line-height: 1.7;
-            max-width: 400px;
-            margin: 0;
-            transition: opacity .4s ease, transform .4s ease;
-        }
-
-        @media(min-width:1024px) {
-            #config-desc-all {
-                font-size: 1.05rem;
-            }
-        }
-
-        .config-dots {
-            display: flex;
-            gap: .5rem;
-            align-items: center;
-        }
-
-        .cdot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #c0ccd8;
-            transition: background .35s, transform .35s;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        @media(min-width:1024px) {
-            .cdot {
-                width: 10px;
-                height: 10px;
-            }
-        }
-
-        .cdot.active {
-            background: #E87D2F;
-            transform: scale(1.4);
-        }
-
-        .config-cta-wrap {
-            display: none;
-        }
-
-        @media(min-width:480px) {
-            .config-cta-wrap {
-                display: block;
-            }
-        }
-
         /* ══════════════════════════════════════
            GOOGLE REVIEWS CAROUSEL
         ══════════════════════════════════════ */
@@ -1808,11 +1603,6 @@
             }
         }
 
-        #config-desc,
-        #config-step-label {
-            transition: opacity .4s ease, transform .4s ease;
-        }
-
         #scroll-top {
             position: fixed;
             bottom: 1.5rem;
@@ -2075,53 +1865,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- CONFIGURATOR -->
-        <div id="config-track-all">
-            <section id="config-sticky-all">
-                <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;">
-                    <div
-                        style="position:absolute;top:40%;left:20%;transform:translate(-50%,-50%);width:60vw;height:60vw;max-width:600px;max-height:600px;background:radial-gradient(circle,rgba(232,125,47,.15) 0%,transparent 65%);border-radius:50%;">
-                    </div>
-                    <div
-                        style="position:absolute;top:20%;right:5%;width:40vw;height:40vw;max-width:400px;max-height:400px;background:radial-gradient(circle,rgba(165,42,42,.08) 0%,transparent 70%);border-radius:50%;">
-                    </div>
-                </div>
-                <div class="config-img-panel">
-                    <img id="cimg-5" decoding="async" src="{{ url_for('static', filename='animation5.webp') }}" alt="Complete room"
-                        style="opacity:1;z-index:1;" />
-                    <img id="cimg-2" decoding="async" src="{{ url_for('static', filename='animation2.webp') }}" alt="Screens added"
-                        style="opacity:0;z-index:2;" />
-                    <img id="cimg-1" decoding="async" src="{{ url_for('static', filename='animation1.webp') }}" alt="Empty room"
-                        style="opacity:0;z-index:3;" />
-                    <img id="cimg-3" decoding="async" src="{{ url_for('static', filename='animation3.webp') }}" alt="Furniture added"
-                        style="opacity:0;z-index:4;" />
-                    <img id="cimg-4" decoding="async" src="{{ url_for('static', filename='animation4.webp') }}" alt="Zoomed view"
-                        style="opacity:0;z-index:5;" />
-                </div>
-                <div class="config-text-panel">
-                    <p class="config-step-label" id="config-step-label">Step 1 of 5</p>
-                    <p class="config-subtitle">Configure your meeting spaces with</p>
-                    <h2 class="config-main-title">SecureTech<br><span class="text-gradient">Room<br>Configurator</span>
-                    </h2>
-                    <p id="config-desc-all">Your fully-equipped meeting room — the end result. Scroll to see how we
-                        build it step by step.</p>
-                    <div class="config-dots">
-                        <div class="cdot active" data-i="0"></div>
-                        <div class="cdot" data-i="1"></div>
-                        <div class="cdot" data-i="2"></div>
-                        <div class="cdot" data-i="3"></div>
-                        <div class="cdot" data-i="4"></div>
-                    </div>
-                    <div class="config-cta-wrap">
-                        <a href="/Contactus" class="config-build-btn">BUILD YOUR ROOM NOW <svg width="16" height="16"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg></a>
-                    </div>
-                </div>
-            </section>
-        </div>
 
         <!-- ═══════════════════════════════════════
              LINKEDIN FEED SECTION
@@ -2391,7 +2134,7 @@
         <section class="cta-section bg-white border-t">
             <div style="max-width:1200px;margin:0 auto;">
                 <div class="cta-inner">
-                    <h2 class="cta-title">Changing to a <br><span class="text-gradient">hybrid work culture?</span></h2>
+                    <h2 class="cta-title">Tell us about the space <br><span class="text-gradient">you're building.</span></h2>
                     <a href="/Contactus"><button class="cta-btn">CONNECT WITH US <svg width="20" height="20"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -2810,48 +2553,6 @@
             window.addEventListener('resize', onScroll, { passive: true });
             render();
         })();
-
-        // Configurator scroll
-        (function () {
-            const track = document.getElementById('config-track-all'); if (!track) return;
-            const descEl = document.getElementById('config-desc-all'), stepEl = document.getElementById('config-step-label'), dots = document.querySelectorAll('.cdot');
-            const imgs = [document.getElementById('cimg-2'), document.getElementById('cimg-1'), document.getElementById('cimg-3'), document.getElementById('cimg-4')];
-            const steps = [
-                { label: 'Step 1 of 5 — Complete Room', desc: 'Your fully-equipped meeting room — the end result. Scroll to see how we build it step by step.' },
-                { label: 'Step 2 of 5 — Adding Screens', desc: 'Add premium display screens to your front wall. Crystal-clear visuals for presentations, video calls, and content sharing.' },
-                { label: 'Step 3 of 5 — Furniture & Layout', desc: 'Configure the seating and table layout. From intimate huddle rooms to large boardrooms, every arrangement optimised.' },
-                { label: 'Step 4 of 5 — AV Controls', desc: 'Integrate smart AV controls, soundbars, and conferencing cameras. One-touch simplicity for every meeting.' },
-                { label: 'Step 5 of 5 — Final View', desc: 'The zoomed-in perspective of your complete room. Professional, seamless, and built for the future of collaboration.' },
-            ];
-            let current = -1;
-            function setFrame(idx) { idx = Math.max(0, Math.min(4, idx)); if (idx === current) return; current = idx; imgs.forEach((img, i) => { img.style.opacity = (i <= idx) ? '1' : '0'; }); dots.forEach((d, i) => d.classList.toggle('active', i === idx)); descEl.style.opacity = '0'; descEl.style.transform = 'translateY(8px)'; stepEl.style.opacity = '0'; setTimeout(() => { descEl.textContent = steps[idx].desc; stepEl.textContent = steps[idx].label; descEl.style.opacity = '1'; descEl.style.transform = 'translateY(0)'; stepEl.style.opacity = '1'; }, 200); }
-            // rAF-throttled, and the track height is cached: reading offsetHeight and
-            // getBoundingClientRect on every scroll event forced a layout per event
-            let ticking = false, trackH = track.offsetHeight;
-            function renderConfig() {
-                ticking = false;
-                const total = trackH - window.innerHeight;
-                if (total <= 0) return;
-                const scrolled = -track.getBoundingClientRect().top;
-                if (scrolled < 0 || scrolled > total) return;
-                setFrame(Math.min(Math.floor((scrolled / total) * 5), 4));
-            }
-            function onConfigScroll() { if (!ticking) { ticking = true; requestAnimationFrame(renderConfig); } }
-            window.addEventListener('scroll', onConfigScroll, { passive: true });
-            window.addEventListener('resize', () => { trackH = track.offsetHeight; onConfigScroll(); }, { passive: true });
-            descEl.style.transition = 'opacity .4s ease,transform .4s ease'; stepEl.style.transition = 'opacity .4s ease';
-            setFrame(0);
-
-            // Decode the five frames while the browser is idle. Otherwise the first
-            // cross-fade pays for the decode on the frame it happens, which showed up
-            // as a ~150ms stall right where the section pins.
-            const allFrames = [document.getElementById('cimg-5')].concat(imgs).filter(Boolean);
-            const warm = () => allFrames.forEach(img => { if (img.decode) img.decode().catch(() => {}); });
-            if ('requestIdleCallback' in window) requestIdleCallback(warm, { timeout: 3000 });
-            else setTimeout(warm, 1200);
-        })();
-
-
 
         // ══════════════════════════════════════
         // GOOGLE REVIEWS CAROUSEL
