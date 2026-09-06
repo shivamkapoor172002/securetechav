@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workspace Designer — SecureTech AV Designs</title>
+    <meta name="description"
+        content="Browse SecureTech AV room types and open the 3D workspace designer.">
+    <link rel="icon" href="{{ url_for('static', filename='just_logo_no_text.webp') }}">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --st-brand: #6E1B18;
+            --st-brand-deep: #4A100E;
+            --st-accent: #d9622d;
+            --bg: #faf7f4;
+            --surface: #fff;
+            --text: #241F1D;
+            --text-2: #4A403C;
+            --border: #efe6df;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255, 255, 255, .94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: saturate(1.4) blur(8px);
+        }
+
+        header .bar {
+            max-width: 1460px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+        }
+
+        header .brand {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            text-decoration: none;
+            color: var(--st-brand);
+            font-weight: 700;
+            margin-right: auto;
+        }
+
+        header .brand img { height: 40px; }
+
+        header nav { display: flex; gap: 1.9rem; }
+
+        header nav a {
+            color: var(--text-2);
+            text-decoration: none;
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        header nav a:hover, header nav a[aria-current] { color: var(--st-brand); }
+
+        header .cta {
+            padding: .6rem 1.3rem;
+            border-radius: 999px;
+            background: var(--st-accent);
+            color: #fff;
+            text-decoration: none;
+            font-size: .8rem;
+            font-weight: 700;
+        }
+
+        main {
+            max-width: 1460px;
+            margin: 0 auto;
+            padding: 44px 24px 72px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 2.1rem;
+            letter-spacing: -.02em;
+            color: var(--st-brand);
+        }
+
+        .lede {
+            margin: 0 0 26px;
+            color: var(--text-2);
+            max-width: 58ch;
+            line-height: 1.55;
+        }
+
+        .signed {
+            margin: 0 0 22px;
+            font-size: .85rem;
+            color: var(--text-2);
+        }
+
+        .signed a { color: var(--st-brand); }
+
+        .tabs {
+            display: flex;
+            width: fit-content;
+            margin: 0 auto 26px;
+            padding: 5px;
+            gap: 12px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, .7);
+        }
+
+        .tabs button {
+            min-width: 178px;
+            height: 44px;
+            padding: 0 22px;
+            border: 0;
+            border-radius: 24px;
+            background: transparent;
+            color: var(--st-brand);
+            font: 700 .82rem 'IBM Plex Sans', sans-serif;
+            cursor: pointer;
+        }
+
+        .tabs button[aria-selected="true"] {
+            background: var(--st-brand);
+            color: #fff;
+        }
+
+        .room-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 26px 18px;
+        }
+
+        .room-card {
+            display: flex;
+            flex-direction: column;
+            padding: 26px 28px 20px;
+            border: 1px solid rgba(233, 219, 209, .92);
+            border-radius: 22px;
+            background: var(--surface);
+            box-shadow: 0 18px 40px rgba(110, 27, 24, .08);
+        }
+
+        .room-card h2 {
+            margin: 0 0 2px;
+            font-size: 1.5rem;
+            color: var(--st-brand);
+            letter-spacing: -.01em;
+        }
+
+        .room-card .cap {
+            margin: 0 0 14px;
+            font-weight: 700;
+            color: var(--st-brand);
+            font-size: .95rem;
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 188px;
+            object-fit: cover;
+            border-radius: 11px;
+            background: #f1ece8;
+            margin-bottom: 18px;
+        }
+
+        .room-card .enter {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 186px;
+            height: 44px;
+            padding: 0 22px;
+            border-radius: 24px;
+            border: 2px solid rgba(110, 27, 24, .38);
+            color: var(--st-brand);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: .8rem;
+        }
+
+        .room-card .enter:hover { border-color: var(--st-brand); }
+
+        @media (max-width: 1100px) {
+            .room-list { grid-template-columns: 1fr; }
+            header nav { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="bar">
+            <a class="brand" href="/">
+                <img src="{{ url_for('static', filename='just_logo_no_text.webp') }}"
+                    alt="SecureTech AV Designs">
+                <span>SecureTech AV Designs</span>
+            </a>
+            <nav>
+                <a href="/Solutionpage">Solution</a>
+                <a href="/CaseStudies">Case Studies</a>
+                <a href="/AboutUs">About Us</a>
+                <a href="/WorkspaceDesigner" aria-current="page">3D Designer</a>
+            </nav>
+            <a class="cta" href="/Contactus">Contact Us</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Design your workspace in 3D</h1>
+        <p class="lede">Pick a room type to open it in the configurator, place the displays,
+            cameras and audio to suit it, then export a complete equipment list.</p>
+
+        {% if signed_in %}
+        <p class="signed">Signed in to the designer.
+            <a href="{{ url_for('workspace_signout') }}">Sign out</a>
+        </p>
+        {% endif %}
+
+        <div class="tabs" role="tablist">
+            {% for c in categories %}
+            <button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}"
+                data-cat="{{ c }}">{{ c }}</button>
+            {% endfor %}
+        </div>
+
+        {% for c in categories %}
+        <div class="room-list" data-cat="{{ c }}" {% if not loop.first %}hidden{% endif %}>
+            {% for slug, name, cap, image, cat in rooms %}{% if cat == c %}
+            <article class="room-card">
+                <h2>{{ name }}</h2>
+                <p class="cap">{{ cap }}</p>
+                <img src="/workspace/images/rooms/{{ image }}" alt="{{ name }}" loading="lazy">
+                <a class="enter" href="{{ url_for('workspace_enter', room=slug) }}">Tailor Your
+                    Environment →</a>
+            </article>
+            {% endif %}{% endfor %}
+        </div>
+        {% endfor %}
+    </main>
+
+    <script>
+        const tabs = document.querySelectorAll('.tabs button');
+        tabs.forEach(tab => tab.addEventListener('click', () => {
+            tabs.forEach(other => other.setAttribute('aria-selected', String(other === tab)));
+            document.querySelectorAll('.room-list').forEach(list => {
+                list.hidden = list.dataset.cat !== tab.dataset.cat;
+            });
+        }));
+    </script>
+</body>
+
+</html>

@@ -1833,7 +1833,7 @@
         <noscript>
             <p class="designer-fallback">The Workspace Designer needs JavaScript enabled.</p>
         </noscript>
-        <iframe src="/workspace/" title="SecureTech AV Workspace Designer"
+        <iframe src="/workspace/{% if room %}#/room/{{ room }}/1{% endif %}" title="SecureTech AV Workspace Designer"
             allow="fullscreen; xr-spatial-tracking"></iframe>
     </div>
 

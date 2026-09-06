@@ -5,7 +5,7 @@
       "src": "secure/app.py",
       "use": "@vercel/python",
       "config": {
-        "excludeFiles": "workspace/**"
+        "excludeFiles": "workspace/{3dmodels,static,images,fontdata,audio,docs}/**"
       }
     },
     {
@@ -20,7 +20,11 @@
     },
     {
       "src": "/workspace/?$",
-      "dest": "/workspace/index.html"
+      "dest": "secure/app.py"
+    },
+    {
+      "src": "/workspace/index.html$",
+      "dest": "secure/app.py"
     },
     {
       "src": "/workspace/(.*)",

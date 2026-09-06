@@ -255,6 +255,8 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
     beige:     { hex: '#B0A794', name: 'Beige',       role: 'Flooring / Carpet', note: 'Neutral and elegant' },
     timber:    { hex: '#A8763F', name: 'Natural Wood', role: 'Tables / Desks',    note: 'Warm and inviting' },
     rug:       { hex: '#DED3D2', name: 'Pale Rose',   role: 'Curtains',         note: 'Grounds the room in the brand' },
+    teak:      { hex: '#9A6B3C', name: 'Teak',        role: 'Stage',            note: 'Warm golden hardwood' },
+    graphite:  { hex: '#1E1E1E', name: 'Graphite',    role: 'Seating / Ceiling mic', note: 'Simple and sober' },
   };
   const WALL_GROUPS = ['leftwall', 'rightwall', 'backwall', 'videowall'];
   // Structure meshes that make up the wall itself, as opposed to glazing,
@@ -349,6 +351,21 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
           node.userData.stIsTableTop = true;
       }
       if (node.userData.stIsTableTop) { paint(node, PALETTE.timber.hex); return; }
+      // Seating and the ceiling microphone in a plain graphite; the stage and
+      // its steps in teak. Table mics are left alone - only the ceiling unit
+      // is meant to go dark.
+      if (/^chair/i.test(node.name || '')) {
+        node.traverse(part => paint(part, PALETTE.graphite.hex));
+        return;
+      }
+      if (/ceiling ?mic/i.test(node.name || '')) {
+        node.traverse(part => paint(part, PALETTE.graphite.hex));
+        return;
+      }
+      if (/^(stage|step-)/i.test(node.name || '')) {
+        node.traverse(part => paint(part, PALETTE.teak.hex));
+        return;
+      }
       if (node.name === 'floor') paint(node, PALETTE.beige.hex);
       else if (/^carpet/.test(node.name)) paint(node, PALETTE.taupe.hex);
       else if (node.name === 'ceiling') paint(node, PALETTE.warmWhite.hex);

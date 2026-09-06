@@ -3,8 +3,10 @@ SecureTech AV Designs — Flask Web Application
 Run:  python app.py
 """
 
-from flask import Flask, render_template, send_from_directory, url_for
+from flask import (Flask, abort, redirect, render_template, request, session,
+                   send_from_directory, url_for)
 from flask_compress import Compress
+import hmac
 import os
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
@@ -147,11 +149,76 @@ def skills():
 
 # ── WORKSPACE DESIGNER ──
 
+# ── DESIGNER ACCESS ──
+#
+# The room list is public; the designer behind it is not. The gate has to be
+# here rather than in the browser, because the designer is a static bundle -
+# anything checked in page script is bypassable by reading that script.
+#
+# The fallback below is set at the owner's instruction. This repository is
+# public, so that value is readable by anyone who looks: it keeps the designer
+# out of casual reach, it is not a secret. Setting SECURETECH_ADMIN_PASSWORD in
+# the environment overrides it without a code change, which is where a real
+# secret belongs.
+ADMIN_PASSWORD = os.environ.get("SECURETECH_ADMIN_PASSWORD") or "nahibataraha"
+app.secret_key = os.environ.get("SECURETECH_SECRET_KEY") or os.urandom(32)
+app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax")
+
+# slug -> (SecureTech name, capacity, card image, category)
+ROOMS = [
+    ("huddleroom",     "Focus Pod",          "2-4",    "Huddle-Room.webp",     "Conference Rooms"),
+    ("smallroom",      "Mini Board Room",    "4-6",    "Small-Room.webp",      "Conference Rooms"),
+    ("mediumroom",     "Medium Board Room",  "6-10",   "Medium-Room.webp",     "Conference Rooms"),
+    ("largeroom",      "Large Board Room",   "11-24",  "Large-Room.webp",      "Conference Rooms"),
+    ("boardroom",      "Leadership Hub",     "11-24",  "Boardroom.webp",       "Conference Rooms"),
+    ("ideationspace",  "Innovation Hub",     "3-10",   "ideation-space.webp",  "Conference Rooms"),
+    ("personaldesk",   "Workstation",        "1",      "personal-desk.webp",   "Office Rooms"),
+    ("openspace",      "Collab Area",        "1",      "openspace.webp",       "Office Rooms"),
+    ("focusroom",      "Huddle Room",        "1-2",    "focus-room.webp",      "Office Rooms"),
+    ("trainingroom",   "Multi Purpose Hall", "10-50",  "trainingroom.webp",    "Large Venue"),
+    ("auditorium",     "Auditorium",         "20-150", "auditorium.webp",      "Large Venue"),
+]
+CATEGORIES = ["Conference Rooms", "Office Rooms", "Large Venue"]
+ROOM_SLUGS = {slug for slug, *_ in ROOMS}
+
+
+def _signed_in():
+    return session.get("designer") is True
+
+
 @app.route("/WorkspaceDesigner")
 def workspace_designer():
-    """The designer itself is a full-screen SPA, so it is framed inside a page
-    that carries the site header rather than replacing it."""
-    return render_template("workspace.html")
+    """The public room list. Browsing is open to anyone; opening a room is not."""
+    return render_template("designer_rooms.html", rooms=ROOMS, categories=CATEGORIES,
+                           signed_in=_signed_in())
+
+
+@app.route("/WorkspaceDesigner/enter/<room>", methods=["GET", "POST"])
+def workspace_enter(room):
+    """Password gate in front of one room, then the designer itself."""
+    if room not in ROOM_SLUGS:
+        abort(404)
+    error = None
+    if request.method == "POST":
+        supplied = request.form.get("password", "")
+        if not ADMIN_PASSWORD:
+            error = "The designer is not configured for access yet."
+        elif hmac.compare_digest(supplied, ADMIN_PASSWORD):
+            session["designer"] = True
+            return redirect(url_for("workspace_enter", room=room))
+        else:
+            error = "That password was not recognised."
+    if _signed_in():
+        return render_template("workspace.html", room=room)
+    return render_template("designer_login.html", room=room, error=error,
+                           room_name=next(n for s, n, *_ in ROOMS if s == room)), (
+        401 if error else 200)
+
+
+@app.route("/WorkspaceDesigner/signout")
+def workspace_signout():
+    session.pop("designer", None)
+    return redirect(url_for("workspace_designer"))
 
 
 @app.route("/fontdata/<path:filename>")
@@ -168,6 +235,11 @@ def workspace_fontdata(filename):
 @app.route("/workspace/")
 @app.route("/workspace/<path:filename>")
 def workspace_static(filename="index.html"):
+    # Withholding the shell is what actually closes the designer: the assets
+    # below it are inert without the page that boots them.
+    if filename in ("", "index.html") and not _signed_in():
+        return redirect(url_for("workspace_designer"))
+
     # The bundle's own entry files change whenever the local adaptation does,
     # and they carry no content hash, so they must revalidate. The hashed
     # build output and the 3D assets keep the long cache.
