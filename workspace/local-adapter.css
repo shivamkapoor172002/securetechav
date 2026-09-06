@@ -113,3 +113,10 @@ main.front-page > footer { display: none !important; }
    so the app's own top bar would be a second navigation strip. */
 html.st-embedded .top-bar { display: none !important; }
 html.st-embedded main.front-page { padding-top: 24px; }
+
+/* Removed room-summary sections: the technical equipment list, the documentation
+   link lists, and the Room Link block (which also carried the app version line).
+   `tech-equipment` has its own class; the other two are tagged by local-adapter.js
+   because they share the generic `.coverage-module` markup. */
+section.tech-equipment,
+section.st-section-hidden { display: none !important; }

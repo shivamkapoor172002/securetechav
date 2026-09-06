@@ -72,6 +72,7 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
       if(text.startsWith('Save changes'))save();else if(text.startsWith('Share'))share();else open();
     }
   },true);
+  const REMOVED_SECTIONS=new Set(['Documentation','Room Link']);
   function labels(){
     document.querySelectorAll('button').forEach(el=>{
       const text=el.textContent.trim();
@@ -108,8 +109,14 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
       entry.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();open();},true);
       share.after(entry);
     });
-    if(current())document.querySelectorAll('a').forEach(el=>{if(el.textContent.trim()==='Link to this room')el.href=designURL(current());});
-    document.querySelectorAll('p').forEach(el=>{if(el.textContent.includes('Warning: The room has not been saved yet.'))el.textContent='Use My designs to save on this device, or use the room link to carry this configuration to another browser running this app.';});
+    // Summary sections this build does not use. They share the generic
+    // .coverage-module markup, so they are matched by their heading and tagged
+    // for local-adapter.css to hide.
+    document.querySelectorAll('main section').forEach(section=>{
+      if(section.classList.contains('st-section-hidden'))return;
+      const heading=section.querySelector('.header > h2');
+      if(heading && REMOVED_SECTIONS.has(heading.textContent.trim()))section.classList.add('st-section-hidden');
+    });
   }
   function init(){
     labels();new MutationObserver(labels).observe(document.getElementById('root'),{childList:true,subtree:true});
