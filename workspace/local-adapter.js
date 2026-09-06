@@ -211,8 +211,11 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
     warmWhite: { hex: '#F5F5F2', name: 'Warm White',  role: 'Main Walls',      note: 'Bright, clean and professional' },
     walnut:    { hex: '#6F4E37', name: 'Walnut Wood', role: 'Accent Wall',     note: 'Adds warmth and premium feel' },
     sage:      { hex: '#D9D6CF', name: 'Sage / Grey', role: 'Side Panels',     note: 'Subtle and modern' },
-    charcoal:  { hex: '#3D3D3D', name: 'Charcoal',    role: 'TV Panel / Trim', note: 'Reduces glare and looks premium' },
+    charcoal:  { hex: '#3D3D3D', name: 'Charcoal',    role: 'Trim',            note: 'Reduces glare and looks premium' },
+    taupe:     { hex: '#918A84', name: 'Taupe',       role: 'Curtains',        note: 'Warm, soft and recessive' },
     beige:     { hex: '#B0A794', name: 'Beige',       role: 'Flooring / Carpet', note: 'Neutral and elegant' },
+    timber:    { hex: '#A8763F', name: 'Natural Wood', role: 'Tables / Desks',    note: 'Warm and inviting' },
+    rug:       { hex: '#5A2320', name: 'Dark Maroon', role: 'Carpet',           note: 'Grounds the room in the brand' },
   };
   const WALL_GROUPS = ['leftwall', 'rightwall', 'backwall', 'videowall'];
   // Structure meshes that make up the wall itself, as opposed to glazing,
@@ -290,12 +293,25 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
     if (!scene) return false;
     const wood = woodFor(scene);
     scene.traverse(node => {
-      // Plants are not part of the SecureTech room look. Hiding rather than
-      // removing keeps the app's own scene bookkeeping intact, and the pass
-      // re-runs so a replanted room is hidden again straight away.
-      if (/^plant/i.test(node.name || '') && node.visible) node.visible = false;
+      // Tables and desks in warm natural timber rather than the reference
+      // greys. The name test is anchored and excludes the table-mounted
+      // devices - "Table Mic Pro" would otherwise be painted like furniture.
+      if (/^(maintable|table[-_ ]?(top|leg|campfire|classroom|t?leg)?$|table-|desk)/i.test(node.name || '')
+          && !/mic|nav|scheduler|phone|codec|screen|display/i.test(node.name || '')) {
+        node.traverse(part => paint(part, PALETTE.timber.hex));
+        return;
+      }
+      if (node.isMesh && node.geometry && !node.userData.stTopChecked) {
+        node.userData.stTopChecked = true;
+        node.geometry.computeBoundingBox();
+        const bb = node.geometry.boundingBox.clone().applyMatrix4(node.matrixWorld);
+        const w = bb.max.x - bb.min.x, h = bb.max.y - bb.min.y, d = bb.max.z - bb.min.z;
+        if (w > 1 && d > 0.6 && h < 0.3 && bb.min.y > 0.5 && bb.min.y < 1.05)
+          node.userData.stIsTableTop = true;
+      }
+      if (node.userData.stIsTableTop) { paint(node, PALETTE.timber.hex); return; }
       if (node.name === 'floor') paint(node, PALETTE.beige.hex);
-      else if (/^carpet/.test(node.name)) paint(node, PALETTE.beige.hex);
+      else if (/^carpet/.test(node.name)) paint(node, PALETTE.rug.hex);
       else if (node.name === 'ceiling') paint(node, PALETTE.warmWhite.hex);
     });
     for (const wallName of WALL_GROUPS) {
@@ -306,7 +322,10 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
         if (!node.isMesh) return;
         const name = node.name || '';
         if (/^glass/.test(name)) return;             // glazing stays clear
-        if (/curtain|Line00/.test(name)) return;     // curtains keep their own tone
+        if (/curtain|Line00/.test(name)) {           // drapes in taupe
+          paint(node, PALETTE.taupe.hex);
+          return;
+        }
         if (STRUCTURE.test(name)) {
           // Once the timber texture is on, the surface must stay white: a
           // walnut tint would multiply into the image and muddy it. Until the
