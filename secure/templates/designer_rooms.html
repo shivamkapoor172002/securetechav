@@ -60,7 +60,7 @@
             margin-right: auto;
         }
 
-        header .brand img { height: 40px; }
+        header .brand img { height: 40px; width: auto; flex: 0 0 auto; object-fit: contain; }
 
         header nav { display: flex; gap: 1.9rem; }
 
@@ -83,11 +83,72 @@
             font-weight: 700;
         }
 
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: #f6f1ec;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 2;
+            max-width: 1460px;
+            margin: 0 auto;
+            padding: 46px 24px 52px;
+        }
+
+        .hero-copy p {
+            margin: 0;
+            max-width: 52ch;
+            color: var(--text-2);
+            line-height: 1.55;
+        }
+
+        .hero-art {
+            position: absolute;
+            z-index: 0;
+            inset: 0 0 0 auto;
+            width: 57%;
+            background:
+                linear-gradient(90deg, #f6f1ec 0%, rgba(246,241,236,.94) 22%,
+                                rgba(246,241,236,.62) 52%, rgba(246,241,236,.42) 100%),
+                url('/static/conference.webp');
+            background-size: cover;
+            background-position: center right;
+        }
+
+        .hero-note {
+            position: absolute;
+            left: 30%;
+            top: 28px;
+            color: #171b26;
+            font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+            font-size: 30px;
+            line-height: 1.03;
+            transform: rotate(-8deg);
+            opacity: .82;
+        }
+
+        .hero-note::after {
+            content: "";
+            display: block;
+            width: 92px;
+            height: 3px;
+            margin: 8px 0 0 16px;
+            background: var(--st-accent);
+            transform: rotate(-8deg);
+        }
+
+        h1 span { color: var(--st-accent); }
+
         main {
             max-width: 1460px;
             margin: 0 auto;
-            padding: 44px 24px 72px;
+            padding: 30px 24px 72px;
         }
+
+        @media (max-width: 900px) { .hero-art { display: none; } }
 
         h1 {
             margin: 0 0 6px;
@@ -123,6 +184,10 @@
         }
 
         .tabs button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             min-width: 178px;
             height: 44px;
             padding: 0 22px;
@@ -138,6 +203,8 @@
             background: var(--st-brand);
             color: #fff;
         }
+
+        .room-list[hidden] { display: none !important; }
 
         .room-list {
             display: grid;
@@ -163,18 +230,23 @@
         }
 
         .room-card .cap {
+            display: flex;
+            align-items: center;
+            gap: 7px;
             margin: 0 0 14px;
             font-weight: 700;
             color: var(--st-brand);
             font-size: .95rem;
         }
 
+        .tabs button svg, .room-card .cap svg { flex: 0 0 auto; }
+
         .room-card img {
             width: 100%;
             height: 188px;
             object-fit: cover;
             border-radius: 11px;
-            background: #f1ece8;
+            background: #e9edf3;
             margin-bottom: 18px;
         }
 
@@ -222,10 +294,18 @@
         </div>
     </header>
 
+    <section class="hero">
+        <div class="hero-copy">
+            <h1>Design your workspace <span>in 3D</span></h1>
+            <p>Pick a room type to open it in the configurator, place the displays, cameras
+                and audio to suit it, then export a complete equipment list.</p>
+        </div>
+        <div class="hero-art" role="presentation">
+            <div class="hero-note">Better<br>Spaces<br>Brighter<br>Ideas</div>
+        </div>
+    </section>
+
     <main>
-        <h1>Design your workspace in 3D</h1>
-        <p class="lede">Pick a room type to open it in the configurator, place the displays,
-            cameras and audio to suit it, then export a complete equipment list.</p>
 
         {% if signed_in %}
         <p class="signed">Signed in to the designer.
@@ -236,7 +316,26 @@
         <div class="tabs" role="tablist">
             {% for c in categories %}
             <button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}"
-                data-cat="{{ c }}">{{ c }}</button>
+                data-cat="{{ c }}">
+                {% if c == 'Conference Rooms' %}
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <circle cx="8" cy="8" r="3.1" /><circle cx="16.4" cy="9" r="2.5" />
+                    <path d="M2.4 18.4c0-3 2.5-4.9 5.6-4.9s5.6 1.9 5.6 4.9z" />
+                    <path d="M15 13.9c2.7.1 4.6 1.9 4.6 4.5h-4.2c0-1.6-.5-3-1.3-4.1z" />
+                </svg>
+                {% elif c == 'Office Rooms' %}
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <circle cx="12" cy="7.4" r="3.6" />
+                    <path d="M4.8 19.6c0-3.7 3.2-6 7.2-6s7.2 2.3 7.2 6z" />
+                </svg>
+                {% else %}
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="2.6" y="4.4" width="18.8" height="12" rx="1.6" />
+                    <rect x="9" y="18" width="6" height="1.8" rx=".9" />
+                </svg>
+                {% endif %}
+                {{ c }}
+            </button>
             {% endfor %}
         </div>
 
@@ -245,7 +344,14 @@
             {% for slug, name, cap, image, cat in rooms %}{% if cat == c %}
             <article class="room-card">
                 <h2>{{ name }}</h2>
-                <p class="cap">{{ cap }}</p>
+                <p class="cap">{{ cap }}
+                    <svg width="17" height="15" viewBox="0 0 24 24" fill="currentColor"
+                        aria-hidden="true">
+                        <circle cx="8" cy="8" r="3.1" /><circle cx="16.4" cy="9" r="2.5" />
+                        <path d="M2.4 18.4c0-3 2.5-4.9 5.6-4.9s5.6 1.9 5.6 4.9z" />
+                        <path d="M15 13.9c2.7.1 4.6 1.9 4.6 4.5h-4.2c0-1.6-.5-3-1.3-4.1z" />
+                    </svg>
+                </p>
                 <img src="/workspace/images/rooms/{{ image }}" alt="{{ name }}" loading="lazy">
                 <a class="enter" href="{{ url_for('workspace_enter', room=slug) }}">Tailor Your
                     Environment →</a>

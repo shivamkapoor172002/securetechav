@@ -64,6 +64,38 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
     if(!list.children.length){const empty=document.createElement('p');empty.textContent='No saved designs yet.';list.append(empty);}
     dialog.append(list,button('Close',()=>dialog.close()));document.body.append(dialog);dialog.showModal();
   }
+  // Collaboration devices are presented as generic types rather than by product
+  // name. The map is fixed rather than derived from list order, so a device is
+  // the same Type wherever it appears - picker, summary and equipment list.
+  const DEVICE_TYPES={
+    'Room Bar':'Type 1',
+    'Room Bar Pro':'Type 2',
+    'Board Pro G3':'Type 3',
+    'Desk Pro G2':'Type 4',
+    'Room Kit EQ':'Type 5',
+    'Room Kit EQX':'Type 6',
+    'Room Kit Pro G2':'Type 7',
+    'Room Kit Pro G2 w/ Dual PTZ':'Type 8',
+    // Short forms the comparison grid uses for its column headers.
+    'EQX':'Type 6',
+    'Board Pro':'Type 3'
+  };
+  // Longest first, so "Room Kit Pro G2 w/ Dual PTZ" is not eaten by "Room Kit Pro G2".
+  const DEVICE_ORDER=Object.keys(DEVICE_TYPES).sort((a,b)=>b.length-a.length);
+  function genericDevices(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const edits=[];
+    while(walker.nextNode()){
+      const node=walker.currentNode;
+      const text=node.textContent;
+      if(!text || !/Room Bar|Board Pro|Desk Pro|Room Kit|EQX/.test(text))continue;
+      let next=text;
+      for(const name of DEVICE_ORDER) next=next.split(name).join(DEVICE_TYPES[name]);
+      if(next!==text)edits.push([node,next]);
+    }
+    for(const [node,text] of edits) node.textContent=text;
+  }
+
   const REMOVED_ROOMS=new Set(['Innovation Suite']);
   const ROOM_RENAMES={
     'Huddle Room':'Focus Pod',
@@ -149,6 +181,7 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
   const REMOVED_SECTIONS=new Set(['Documentation','Room Link']);
   function labels(){
     enhanceFrontPage();
+    genericDevices(document.body);
     // No link may leave for the reference vendor's site. There are 171 distinct
     // external URLs in the bundle, so rather than chase each one the anchors are
     // neutralised here: the copy stays readable, the link does not resolve, and
@@ -233,7 +266,11 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
     });
   }
   function init(){
-    labels();new MutationObserver(labels).observe(document.getElementById('root'),{childList:true,subtree:true});
+    labels();
+    // Watched on body rather than #root: dialogs such as the device comparison
+    // render in a portal outside the app root, and their prices were left
+    // untouched because the observer never saw them appear.
+    new MutationObserver(labels).observe(document.body,{childList:true,subtree:true});
     const incoming=new URL(location.href).searchParams.get('design');
     if(incoming){try{const plan=validate(JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(incoming),c=>c.charCodeAt(0)))));const url=new URL(location.href);url.searchParams.delete('design');history.replaceState(null,'',url);load(plan).catch(e=>open(e.message));}catch{open('This design link is invalid.');}}
   }
@@ -329,6 +366,7 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
     }
   }
 
+
   function apply() {
     const scene = window.__stScene;
     if (!scene) return false;
@@ -403,6 +441,20 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
   // The app rebuilds meshes on room, step and layout changes, and there is no
   // event for it, so the palette is simply re-asserted. paint() early-outs when
   // a colour already matches, so a steady state costs one traversal.
-  setInterval(apply, 400);
+  // Pricing is not quoted. The comparison grid's price row is matched by its
+  // cell text rather than a class, because every cell in that grid shares the
+  // same classes. This rides the palette timer rather than the mutation
+  // observer, which does not fire when that dialog opens; while the dialog is
+  // shut the selector matches nothing, so it costs nothing.
+  function hidePrices() {
+    document.querySelectorAll('.comparison-cell:not(.st-price-hidden)').forEach(cell => {
+      const text = cell.textContent.trim();
+      // Price row, and the data-sheet row whose links went with the outbound ones.
+      if (/^price/i.test(text) || /data ?sheet/i.test(text)) cell.classList.add('st-price-hidden');
+    });
+  }
+
+  setInterval(() => { apply(); hidePrices(); }, 400);
   apply();
+  hidePrices();
 })();

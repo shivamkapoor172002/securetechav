@@ -577,3 +577,37 @@ main.room-designer .view-menu .st-menu-hidden { display: none !important; }
 
 /* Software platforms SecureTech does not offer. */
 aside.side-bar .st-option-hidden { display: none !important; }
+
+/* The circled-i opened the reference vendor's product pages, which are gone,
+   so the affordance goes with them. The view menu's status dots share the word
+   "info" in their class and are deliberately untouched. */
+.icon.info { display: none !important; }
+
+/* No pricing is quoted: the comparison grid's price row and the resale-price
+   disclaimer beneath it both go. */
+.comparison-cell.st-price-hidden,
+.comparison-grid-footer { display: none !important; }
+
+/* The app sizes the room designer to the viewport minus its own top bar. That
+   bar is hidden when embedded, so the calculation came up short and left a band
+   of empty page below the designer. */
+html.st-embedded main.room-designer {
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+/* "New" flags are the reference vendor's release marketing. */
+.badge-new,
+.badge.new,
+[class*="badge"][class*="new"] { display: none !important; }
+
+/* The comparison grid is far taller than the panel it sits in, so the dialog
+   gets as much of the viewport as it can rather than a fixed short window. */
+.product-matrix { min-width: 0; }
+
+.scroll-area:has(.product-matrix) {
+  max-height: calc(100vh - 120px) !important;
+  height: calc(100vh - 120px) !important;
+  width: min(96vw, 1600px) !important;
+  max-width: 96vw !important;
+}
