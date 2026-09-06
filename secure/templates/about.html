@@ -91,7 +91,37 @@
             .text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
             .bg-brand-gradient { background: var(--brand-gradient); }
         }
-    </style>
+    
+        /* Brand lockup: black wordmark with the AV in the house red, over the
+           discipline line. Matches the designer's header. */
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            line-height: 1.15;
+        }
+
+        .brand-copy strong {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #14110f;
+            letter-spacing: -.01em;
+        }
+
+        .brand-copy strong b { color: #6E1B18; }
+
+        .brand-copy small {
+            font-size: .58rem;
+            letter-spacing: .19em;
+            color: #57535a;
+            font-weight: 500;
+        }
+
+        @media (max-width: 800px) {
+            .brand-copy strong { font-size: 1.05rem; }
+            .brand-copy small { font-size: .5rem; letter-spacing: .12em; }
+        }
+</style>
     <style>
         /* ═══ RESET & BASE ═══ */
         *,
@@ -238,25 +268,11 @@
             text-decoration: none;
         }
 
-        .brand-name {
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 1.14rem;
-            font-weight: 600;
-            letter-spacing: -.015em;
-            line-height: 1.15;
-            color: #fff;
-            white-space: nowrap;
-            transition: color .3s;
-        }
-
         header.scrolled .brand-name {
             color: #6E1B18;
         }
 
         @media (max-width: 520px) {
-            .brand-name {
-                font-size: .88rem;
-            }
         }
         .nav-link {
             color: #fff;
@@ -1648,10 +1664,6 @@
                 gap: .5rem;
             }
 
-            .brand-name {
-                font-size: .92rem;
-            }
-
             #desktop-nav {
                 gap: .85rem;
             }
@@ -1703,7 +1715,7 @@
     <!-- ═══════════════ HEADER ═══════════════ -->
     <header id="main-header">
         <div class="nav-container">
-            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-name notranslate" translate="no">SecureTech AV Designs</span></a>
+            <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-copy notranslate" translate="no"><strong>SecureTech <b>AV</b> Designs</strong><small>SPACES &nbsp;|&nbsp; TECHNOLOGY &nbsp;|&nbsp; EXPERIENCES</small></span></a>
             <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
                     <a href="/Solutionpage" class="nav-link">Solution</a>
                     <a href="/CaseStudies" class="nav-link">Case Studies</a>

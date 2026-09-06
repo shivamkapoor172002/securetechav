@@ -29,3 +29,7 @@ banner1.png
 !templates/*.jpeg
 !templates/*.gif
 !templates/*.svg
+
+# Designer imagery sources. Only the WebP files are served; the PNG originals
+# are ~27 MB and unreferenced. Prompts to regenerate them are in ASSETS.md.
+secure/static/designer/*.png

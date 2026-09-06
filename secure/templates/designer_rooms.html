@@ -1,375 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Workspace Designer — SecureTech AV Designs</title>
-    <meta name="description"
-        content="Browse SecureTech AV room types and open the 3D workspace designer.">
+    <title>Workspace Designer | SecureTech AV Designs</title>
+    <meta name="description" content="Choose your meeting space and create your SecureTech AV workspace in 3D.">
     <link rel="icon" href="{{ url_for('static', filename='just_logo_no_text.webp') }}">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --st-brand: #6E1B18;
-            --st-brand-deep: #4A100E;
-            --st-accent: #d9622d;
-            --bg: #faf7f4;
-            --surface: #fff;
-            --text: #241F1D;
-            --text-2: #4A403C;
-            --border: #efe6df;
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            background: rgba(255, 255, 255, .94);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: saturate(1.4) blur(8px);
-        }
-
-        header .bar {
-            max-width: 1460px;
-            margin: 0 auto;
-            padding: 0 24px;
-            height: 68px;
-            display: flex;
-            align-items: center;
-            gap: 2.2rem;
-        }
-
-        header .brand {
-            display: flex;
-            align-items: center;
-            gap: .6rem;
-            text-decoration: none;
-            color: var(--st-brand);
-            font-weight: 700;
-            margin-right: auto;
-        }
-
-        header .brand img { height: 40px; width: auto; flex: 0 0 auto; object-fit: contain; }
-
-        header nav { display: flex; gap: 1.9rem; }
-
-        header nav a {
-            color: var(--text-2);
-            text-decoration: none;
-            font-size: .82rem;
-            font-weight: 700;
-        }
-
-        header nav a:hover, header nav a[aria-current] { color: var(--st-brand); }
-
-        header .cta {
-            padding: .6rem 1.3rem;
-            border-radius: 999px;
-            background: var(--st-accent);
-            color: #fff;
-            text-decoration: none;
-            font-size: .8rem;
-            font-weight: 700;
-        }
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-            background: #f6f1ec;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero-copy {
-            position: relative;
-            z-index: 2;
-            max-width: 1460px;
-            margin: 0 auto;
-            padding: 46px 24px 52px;
-        }
-
-        .hero-copy p {
-            margin: 0;
-            max-width: 52ch;
-            color: var(--text-2);
-            line-height: 1.55;
-        }
-
-        .hero-art {
-            position: absolute;
-            z-index: 0;
-            inset: 0 0 0 auto;
-            width: 57%;
-            background:
-                linear-gradient(90deg, #f6f1ec 0%, rgba(246,241,236,.94) 22%,
-                                rgba(246,241,236,.62) 52%, rgba(246,241,236,.42) 100%),
-                url('/static/conference.webp');
-            background-size: cover;
-            background-position: center right;
-        }
-
-        .hero-note {
-            position: absolute;
-            left: 30%;
-            top: 28px;
-            color: #171b26;
-            font-family: 'Segoe Print', 'Comic Sans MS', cursive;
-            font-size: 30px;
-            line-height: 1.03;
-            transform: rotate(-8deg);
-            opacity: .82;
-        }
-
-        .hero-note::after {
-            content: "";
-            display: block;
-            width: 92px;
-            height: 3px;
-            margin: 8px 0 0 16px;
-            background: var(--st-accent);
-            transform: rotate(-8deg);
-        }
-
-        h1 span { color: var(--st-accent); }
-
-        main {
-            max-width: 1460px;
-            margin: 0 auto;
-            padding: 30px 24px 72px;
-        }
-
-        @media (max-width: 900px) { .hero-art { display: none; } }
-
-        h1 {
-            margin: 0 0 6px;
-            font-size: 2.1rem;
-            letter-spacing: -.02em;
-            color: var(--st-brand);
-        }
-
-        .lede {
-            margin: 0 0 26px;
-            color: var(--text-2);
-            max-width: 58ch;
-            line-height: 1.55;
-        }
-
-        .signed {
-            margin: 0 0 22px;
-            font-size: .85rem;
-            color: var(--text-2);
-        }
-
-        .signed a { color: var(--st-brand); }
-
-        .tabs {
-            display: flex;
-            width: fit-content;
-            margin: 0 auto 26px;
-            padding: 5px;
-            gap: 12px;
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            background: rgba(255, 255, 255, .7);
-        }
-
-        .tabs button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            min-width: 178px;
-            height: 44px;
-            padding: 0 22px;
-            border: 0;
-            border-radius: 24px;
-            background: transparent;
-            color: var(--st-brand);
-            font: 700 .82rem 'IBM Plex Sans', sans-serif;
-            cursor: pointer;
-        }
-
-        .tabs button[aria-selected="true"] {
-            background: var(--st-brand);
-            color: #fff;
-        }
-
-        .room-list[hidden] { display: none !important; }
-
-        .room-list {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 26px 18px;
-        }
-
-        .room-card {
-            display: flex;
-            flex-direction: column;
-            padding: 26px 28px 20px;
-            border: 1px solid rgba(233, 219, 209, .92);
-            border-radius: 22px;
-            background: var(--surface);
-            box-shadow: 0 18px 40px rgba(110, 27, 24, .08);
-        }
-
-        .room-card h2 {
-            margin: 0 0 2px;
-            font-size: 1.5rem;
-            color: var(--st-brand);
-            letter-spacing: -.01em;
-        }
-
-        .room-card .cap {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            margin: 0 0 14px;
-            font-weight: 700;
-            color: var(--st-brand);
-            font-size: .95rem;
-        }
-
-        .tabs button svg, .room-card .cap svg { flex: 0 0 auto; }
-
-        .room-card img {
-            width: 100%;
-            height: 188px;
-            object-fit: cover;
-            border-radius: 11px;
-            background: #e9edf3;
-            margin-bottom: 18px;
-        }
-
-        .room-card .enter {
-            margin-top: auto;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-width: 186px;
-            height: 44px;
-            padding: 0 22px;
-            border-radius: 24px;
-            border: 2px solid rgba(110, 27, 24, .38);
-            color: var(--st-brand);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: .8rem;
-        }
-
-        .room-card .enter:hover { border-color: var(--st-brand); }
-
-        @media (max-width: 1100px) {
-            .room-list { grid-template-columns: 1fr; }
-            header nav { display: none; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='designer/designer.css') }}">
+    <link rel="preload" as="image" href="{{ url_for('static', filename='designer/hero.webp') }}">
+    <script defer src="{{ url_for('static', filename='designer/lucide.min.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='designer/designer.js') }}"></script>
 </head>
-
 <body>
-    <header>
-        <div class="bar">
-            <a class="brand" href="/">
-                <img src="{{ url_for('static', filename='just_logo_no_text.webp') }}"
-                    alt="SecureTech AV Designs">
-                <span>SecureTech AV Designs</span>
-            </a>
-            <nav>
-                <a href="/Solutionpage">Solution</a>
-                <a href="/CaseStudies">Case Studies</a>
-                <a href="/AboutUs">About Us</a>
-                <a href="/WorkspaceDesigner" aria-current="page">3D Designer</a>
-            </nav>
-            <a class="cta" href="/Contactus">Contact Us</a>
-        </div>
+    <div class="hero-background" aria-hidden="true"></div>
+    <header class="site-header">
+        <a class="brand" href="/">
+            <img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="" width="60" height="60">
+            <span class="brand-copy"><strong>SecureTech <b>AV</b> Designs</strong><small>SPACES &nbsp;|&nbsp; TECHNOLOGY &nbsp;|&nbsp; EXPERIENCES</small></span>
+        </a>
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation"><i data-lucide="menu"></i></button>
+        <nav id="navigation" aria-label="Main navigation">
+            <a href="/Solutionpage">Solutions</a>
+            <a href="/CaseStudies">Case Studies</a>
+            <a href="/AboutUs">About Us</a>
+            <a href="/WorkspaceDesigner" aria-current="page">3D Designer</a>
+            <a class="contact" href="/Contactus">Contact Us <i data-lucide="arrow-right"></i></a>
+        </nav>
     </header>
-
-    <section class="hero">
+    <section class="hero" aria-labelledby="page-title">
         <div class="hero-copy">
-            <h1>Design your workspace <span>in 3D</span></h1>
-            <p>Pick a room type to open it in the configurator, place the displays, cameras
-                and audio to suit it, then export a complete equipment list.</p>
-        </div>
-        <div class="hero-art" role="presentation">
-            <div class="hero-note">Better<br>Spaces<br>Brighter<br>Ideas</div>
+            <p class="eyebrow">VISUALIZE &nbsp;&bull;&nbsp; CONFIGURE &nbsp;&bull;&nbsp; BRING TO LIFE</p>
+            <h1 id="page-title">Design your workspace<br><span>in 3D</span></h1>
+            <p class="intro">Pick a room type to open it in the configurator, place the displays, cameras and audio to suit it, then export a complete equipment list.</p>
+            <div class="hero-actions">
+                <a class="primary" href="#rooms">Start Designing <i data-lucide="arrow-right"></i></a>
+            </div>
         </div>
     </section>
-
-    <main>
-
-        {% if signed_in %}
-        <p class="signed">Signed in to the designer.
-            <a href="{{ url_for('workspace_signout') }}">Sign out</a>
-        </p>
-        {% endif %}
-
-        <div class="tabs" role="tablist">
+    {% set details = {
+        'huddleroom': ('Compact and private space for focused discussions.', 'focus-pod.webp', [('monitor', 'Display'), ('webcam', 'Camera'), ('volume-2', 'Audio'), ('lightbulb', 'Lighting')]),
+        'smallroom': ('Perfect for team meetings and client discussions.', 'mini-boardroom.webp', [('monitor', 'Display'), ('webcam', 'Camera'), ('volume-2', 'Audio'), ('sliders-horizontal', 'Controller')]),
+        'mediumroom': ('Versatile space for hybrid meetings and presentations.', 'medium-boardroom.webp', [('monitor', 'Dual Display'), ('webcam', 'Camera System'), ('volume-2', 'Audio'), ('lightbulb', 'Room Control')]),
+        'largeroom': ('Bring larger teams together for productive meetings.', 'large-boardroom.webp', [('monitor', 'Displays'), ('webcam', 'Camera System'), ('volume-2', 'Audio'), ('sliders-horizontal', 'Room Control')]),
+        'boardroom': ('A considered setting for leadership and decisions.', 'leadership-hub.webp', [('monitor', 'Displays'), ('webcam', 'Camera System'), ('volume-2', 'Audio'), ('sliders-horizontal', 'Room Control')]),
+        'ideationspace': ('An open space for ideas and creative collaboration.', 'innovation-hub.webp', [('monitor', 'Display'), ('webcam', 'Camera'), ('volume-2', 'Audio'), ('lightbulb', 'Lighting')]),
+        'personaldesk': ('Your own connected space for focused work.', 'workstation.webp', [('monitor', 'Display'), ('webcam', 'Camera'), ('volume-2', 'Audio'), ('lightbulb', 'Lighting')]),
+        'openspace': ('A flexible setting for everyday collaboration.', 'collab-area.webp', [('monitor', 'Display'), ('webcam', 'Camera'), ('volume-2', 'Audio'), ('lightbulb', 'Lighting')]),
+        'focusroom': ('A quiet room for calls and one-to-one meetings.', 'huddle-room.webp', [('monitor', 'Display'), ('webcam', 'Camera'), ('volume-2', 'Audio'), ('lightbulb', 'Lighting')]),
+        'trainingroom': ('A flexible venue for learning and team events.', 'multi-purpose-hall.webp', [('monitor', 'Displays'), ('webcam', 'Camera System'), ('volume-2', 'Audio'), ('sliders-horizontal', 'Room Control')]),
+        'auditorium': ('An immersive setting for presentations at scale.', 'auditorium.webp', [('monitor', 'Display'), ('webcam', 'Camera System'), ('volume-2', 'Audio'), ('lightbulb', 'Lighting')])
+    } %}
+    <main id="rooms">
+        <div class="tabs" role="tablist" aria-label="Room category">
             {% for c in categories %}
-            <button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}"
-                data-cat="{{ c }}">
-                {% if c == 'Conference Rooms' %}
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="8" cy="8" r="3.1" /><circle cx="16.4" cy="9" r="2.5" />
-                    <path d="M2.4 18.4c0-3 2.5-4.9 5.6-4.9s5.6 1.9 5.6 4.9z" />
-                    <path d="M15 13.9c2.7.1 4.6 1.9 4.6 4.5h-4.2c0-1.6-.5-3-1.3-4.1z" />
-                </svg>
-                {% elif c == 'Office Rooms' %}
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="7.4" r="3.6" />
-                    <path d="M4.8 19.6c0-3.7 3.2-6 7.2-6s7.2 2.3 7.2 6z" />
-                </svg>
-                {% else %}
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <rect x="2.6" y="4.4" width="18.8" height="12" rx="1.6" />
-                    <rect x="9" y="18" width="6" height="1.8" rx=".9" />
-                </svg>
-                {% endif %}
-                {{ c }}
+            <button id="tab-{{ loop.index }}" role="tab" aria-controls="panel-{{ loop.index }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}" data-cat="{{ c }}">
+                <i data-lucide="{{ 'users' if loop.first else ('user-round' if c == 'Office Rooms' else 'monitor') }}"></i><span>{{ c }}</span>
             </button>
             {% endfor %}
         </div>
-
+        {% if signed_in %}<p class="signed">Signed in to the designer. <a href="{{ url_for('workspace_signout') }}">Sign out</a></p>{% endif %}
         {% for c in categories %}
-        <div class="room-list" data-cat="{{ c }}" {% if not loop.first %}hidden{% endif %}>
+        <div id="panel-{{ loop.index }}" class="room-list" role="tabpanel" aria-labelledby="tab-{{ loop.index }}" data-cat="{{ c }}" {% if not loop.first %}hidden{% endif %}>
             {% for slug, name, cap, image, cat in rooms %}{% if cat == c %}
+            {% set detail = details[slug] %}
             <article class="room-card">
-                <h2>{{ name }}</h2>
-                <p class="cap">{{ cap }}
-                    <svg width="17" height="15" viewBox="0 0 24 24" fill="currentColor"
-                        aria-hidden="true">
-                        <circle cx="8" cy="8" r="3.1" /><circle cx="16.4" cy="9" r="2.5" />
-                        <path d="M2.4 18.4c0-3 2.5-4.9 5.6-4.9s5.6 1.9 5.6 4.9z" />
-                        <path d="M15 13.9c2.7.1 4.6 1.9 4.6 4.5h-4.2c0-1.6-.5-3-1.3-4.1z" />
-                    </svg>
-                </p>
-                <img src="/workspace/images/rooms/{{ image }}" alt="{{ name }}" loading="lazy">
-                <a class="enter" href="{{ url_for('workspace_enter', room=slug) }}">Tailor Your
-                    Environment →</a>
+                <img class="room-image" src="{{ url_for('static', filename='designer/' ~ detail[1]) if detail[1] else '/workspace/images/rooms/' ~ image }}" alt="{{ name }} interior" width="360" height="390" loading="lazy">
+                <div class="room-copy">
+                    <h2>{{ name }}</h2>
+                    <p class="capacity"><i data-lucide="users"></i>{{ cap | replace('-', ' - ') }}</p>
+                    <p class="description">{{ detail[0] }}</p>
+                    <ul class="equipment">{% for icon, label in detail[2] %}<li><i data-lucide="{{ icon }}"></i>{{ label }}</li>{% endfor %}</ul>
+                    <a class="enter" href="{{ url_for('workspace_enter', room=slug) }}" aria-label="Open {{ name }} in 3D">Open in 3D <i data-lucide="arrow-right"></i></a>
+                </div>
             </article>
             {% endif %}{% endfor %}
         </div>
         {% endfor %}
     </main>
-
-    <script>
-        const tabs = document.querySelectorAll('.tabs button');
-        tabs.forEach(tab => tab.addEventListener('click', () => {
-            tabs.forEach(other => other.setAttribute('aria-selected', String(other === tab)));
-            document.querySelectorAll('.room-list').forEach(list => {
-                list.hidden = list.dataset.cat !== tab.dataset.cat;
-            });
-        }));
-    </script>
 </body>
-
 </html>
