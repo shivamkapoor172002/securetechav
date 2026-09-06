@@ -3,10 +3,29 @@
   "builds": [
     {
       "src": "secure/app.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "excludeFiles": "workspace/**"
+      }
+    },
+    {
+      "src": "workspace/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/fontdata/(.*)",
+      "dest": "/workspace/fontdata/$1"
+    },
+    {
+      "src": "/workspace/?$",
+      "dest": "/workspace/index.html"
+    },
+    {
+      "src": "/workspace/(.*)",
+      "dest": "/workspace/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "secure/app.py"

@@ -154,6 +154,17 @@ def workspace_designer():
     return render_template("workspace.html")
 
 
+@app.route("/fontdata/<path:filename>")
+def workspace_fontdata(filename):
+    """The 3D text renderer resolves its font data from
+    `self.location.origin + "/fontdata"` inside a web worker, so this one
+    bundle path is origin-rooted no matter where the app is mounted. Serving
+    it here is more durable than patching the minified bundle, which a future
+    re-snapshot would undo."""
+    return send_from_directory(os.path.join(WORKSPACE_DIR, "fontdata"), filename,
+                               max_age=31536000)
+
+
 @app.route("/workspace/")
 @app.route("/workspace/<path:filename>")
 def workspace_static(filename="index.html"):

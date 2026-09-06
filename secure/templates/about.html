@@ -1616,35 +1616,44 @@
 
         /* Only the narrow end needs trimming now that the nav is set at a
            navigation size rather than a display size. */
-        @media (min-width: 1024px) and (max-width: 1199px) {
+        @media (min-width: 1024px) and (max-width: 1279px) {
             .nav-container {
-                gap: 1rem;
-                padding: 0 1.25rem;
+                gap: .85rem;
+                padding: 0 1.1rem;
+            }
+
+            .header-logo {
+                width: 36px;
+            }
+
+            .brand {
+                gap: .5rem;
             }
 
             .brand-name {
-                font-size: 1rem;
-            }
-
-            #desktop-nav {
-                gap: 1.1rem;
-            }
-
-            #desktop-tools {
-                gap: .7rem;
-            }
-
-            .nav-link {
-                font-size: .95rem;
-            }
-
-            .nav-lang {
                 font-size: .92rem;
             }
 
-            .pill-button {
-                padding: .45rem 1rem;
+            #desktop-nav {
+                gap: .85rem;
+            }
+
+            #desktop-tools {
+                gap: .5rem;
+            }
+
+            .nav-link {
                 font-size: .88rem;
+            }
+
+            .nav-lang {
+                font-size: .85rem;
+                gap: .3rem;
+            }
+
+            .pill-button {
+                padding: .4rem .85rem;
+                font-size: .82rem;
             }
         }
 

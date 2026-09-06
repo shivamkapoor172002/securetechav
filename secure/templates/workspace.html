@@ -1488,6 +1488,93 @@
         @media (prefers-reduced-motion: reduce) {
             #scroll-top .st-icon { transition: none; }
         }
+
+        /* ── WORKSPACE DESIGNER ──
+           Entry point to the 3D configurator. The screenshot does the
+           explaining, so the copy stays short. */
+        .designer-band {
+            background: #0a1628;
+            padding: 4rem 1.5rem;
+            overflow: hidden;
+        }
+
+        @media (min-width: 900px) {
+            .designer-band {
+                padding: 5.5rem 2rem;
+            }
+        }
+
+        .designer-band-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (min-width: 900px) {
+            .designer-band-inner {
+                grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+                gap: 4rem;
+            }
+        }
+
+        .designer-band h2 {
+            font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -.03em;
+            color: #fff;
+            margin: 0 0 1rem;
+        }
+
+        .designer-band p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, .66);
+            max-width: 42ch;
+            margin: 0 0 1.9rem;
+        }
+
+        .designer-band-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            min-height: 46px;
+            padding: .75rem 1.6rem;
+            border-radius: 10px;
+            background: #E87D2F;
+            color: #fff;
+            font-size: .93rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background .25s ease, transform .25s ease;
+        }
+
+        .designer-band-cta:hover,
+        .designer-band-cta:focus-visible {
+            background: #cf6a20;
+            transform: translateY(-1px);
+        }
+
+        .designer-band-shot {
+            display: block;
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, .45);
+        }
+
+        .designer-band-shot-link {
+            display: block;
+            line-height: 0;
+            transition: transform .35s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .designer-band-shot-link:hover {
+            transform: translateY(-3px);
+        }
+
     
 
         @media(min-width:768px) {
@@ -1513,35 +1600,44 @@
 
         /* Only the narrow end needs trimming now that the nav is set at a
            navigation size rather than a display size. */
-        @media (min-width: 1024px) and (max-width: 1199px) {
+        @media (min-width: 1024px) and (max-width: 1279px) {
             .nav-container {
-                gap: 1rem;
-                padding: 0 1.25rem;
+                gap: .85rem;
+                padding: 0 1.1rem;
+            }
+
+            .header-logo {
+                width: 36px;
+            }
+
+            .brand {
+                gap: .5rem;
             }
 
             .brand-name {
-                font-size: 1rem;
-            }
-
-            #desktop-nav {
-                gap: 1.1rem;
-            }
-
-            #desktop-tools {
-                gap: .7rem;
-            }
-
-            .nav-link {
-                font-size: .95rem;
-            }
-
-            .nav-lang {
                 font-size: .92rem;
             }
 
-            .pill-button {
-                padding: .45rem 1rem;
+            #desktop-nav {
+                gap: .85rem;
+            }
+
+            #desktop-tools {
+                gap: .5rem;
+            }
+
+            .nav-link {
                 font-size: .88rem;
+            }
+
+            .nav-lang {
+                font-size: .85rem;
+                gap: .3rem;
+            }
+
+            .pill-button {
+                padding: .4rem .85rem;
+                font-size: .82rem;
             }
         }
 

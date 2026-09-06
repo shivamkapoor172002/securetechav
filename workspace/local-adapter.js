@@ -91,7 +91,7 @@ try { if (window.self !== window.top) document.documentElement.classList.add('st
       const header=document.createElement('div');
       header.className='print-brand print-only';
       const mark=document.createElement('img');
-      mark.className='print-brand-mark';mark.src='/images/securetech-mark.png';mark.alt='SecureTech AV Designs';
+      mark.className='print-brand-mark';mark.src='./images/securetech-mark.png';mark.alt='SecureTech AV Designs';
       const name=document.createElement('div');name.className='print-brand-name';name.textContent='SecureTech AV Designs';
       const site=document.createElement('a');site.className='print-brand-site';site.href='https://securetechav.com';site.textContent='securetechav.com';
       header.append(mark,name,site);
