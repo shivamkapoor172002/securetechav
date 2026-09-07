@@ -3,7 +3,7 @@
     "organization": {
         "name": "SecureTech AV Designs Private Limited",
         "url": "https://securetechav.com",
-        "description": "India's #1 AV system integrator providing end-to-end audio visual solutions including architectural acoustics, professional audio systems, video conferencing, smart classrooms, auditorium sound systems, lighting design, IT infrastructure, and AV consultation.",
+        "description": "India's #1 AV system integrator providing end-to-end Audio-Visual solutions including architectural acoustics, professional audio systems, video conferencing, smart classrooms, auditorium sound systems, lighting design, IT infrastructure, and AV consultation.",
         "logo": "https://securetechav.com/static/securetech_av.webp",
         "contact": {
             "email": "info@securetechav.com",
@@ -35,12 +35,12 @@
             "url": "https://securetechav.com/Solutionpage"
         },
         {
-            "name": "Audio Visual Systems",
+            "name": "Audio-Visual Systems",
             "description": "Professional audio systems, video walls, projection systems, conferencing solutions, digital signage for corporate and public spaces.",
             "url": "https://securetechav.com/Solutionpage"
         },
         {
-            "name": "Lighting Architecture",
+            "name": "Architectural Lighting",
             "description": "Architectural lighting design, stage lighting, LED installations, smart lighting control for venues and buildings.",
             "url": "https://securetechav.com/Solutionpage"
         },

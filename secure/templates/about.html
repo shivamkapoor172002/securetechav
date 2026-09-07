@@ -8,8 +8,8 @@
     <!-- ══ PRIMARY SEO ══ -->
     <title>About SecureTech AV Designs — Leading AV System Integrators in India</title>
     <meta name="description"
-        content="About SecureTech AV Designs — India's premier AV system integrator engineering seamless, immersive audio visual experiences. 150+ clients served, 200+ projects delivered across corporate offices, auditoriums, educational institutions, healthcare, and government sectors. Expert AV consultation, design, installation, and post-project support.">
-    <meta name="keywords" content="about SecureTech AV, AV integrators India, audio visual company India, AV system integrator Delhi NCR, who we are SecureTech, AV design company, professional AV services India, AV consultation India, AV installation company, sound system company India, video conferencing company India" />
+        content="About SecureTech AV Designs — India's premier AV system integrator engineering seamless, immersive Audio-Visual experiences. 150+ clients served, 200+ projects delivered across corporate offices, auditoriums, educational institutions, healthcare, and government sectors. Expert AV consultation, design, installation, and post-project support.">
+    <meta name="keywords" content="about SecureTech AV, AV integrators India, Audio-Visual company India, AV system integrator Delhi NCR, who we are SecureTech, AV design company, professional AV services India, AV consultation India, AV installation company, sound system company India, video conferencing company India" />
     <meta name="author" content="SecureTech AV Designs Private Limited" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://securetechav.com/AboutUs" />
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SecureTech AV Designs" />
     <meta property="og:title" content="About SecureTech AV Designs — Leading AV System Integrators in India" />
-    <meta property="og:description" content="India's premier AV system integrator engineering seamless, immersive audio visual experiences. 150+ clients, 200+ projects across corporate, education, healthcare & government sectors." />
+    <meta property="og:description" content="India's premier AV system integrator engineering seamless, immersive Audio-Visual experiences. 150+ clients, 200+ projects across corporate, education, healthcare & government sectors." />
     <meta property="og:url" content="https://securetechav.com/AboutUs" />
     <meta property="og:image" content="https://securetechav.com/static/securetech_av.webp" />
     <meta property="og:locale" content="en_IN" />
@@ -27,7 +27,7 @@
     <!-- ══ TWITTER CARD ══ -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="About SecureTech AV Designs — Leading AV System Integrators in India" />
-    <meta name="twitter:description" content="India's premier AV system integrator engineering seamless, immersive audio visual experiences. 150+ clients, 200+ projects delivered." />
+    <meta name="twitter:description" content="India's premier AV system integrator engineering seamless, immersive Audio-Visual experiences. 150+ clients, 200+ projects delivered." />
     <meta name="twitter:image" content="https://securetechav.com/static/securetech_av.webp" />
 
     <!-- ══ JSON-LD STRUCTURED DATA ══ -->
@@ -37,17 +37,17 @@
         "@type": "AboutPage",
         "name": "About SecureTech AV Designs",
         "url": "https://securetechav.com/AboutUs",
-        "description": "SecureTech AV Designs is India's premier AV system integrator, engineering seamless immersive audio visual experiences for corporate offices, educational institutions, auditoriums, healthcare facilities, and government buildings.",
+        "description": "SecureTech AV Designs is India's premier AV system integrator, engineering seamless immersive Audio-Visual experiences for corporate offices, educational institutions, auditoriums, healthcare facilities, and government buildings.",
         "mainEntity": {
             "@type": "Organization",
             "@id": "https://securetechav.com/#organization",
             "name": "SecureTech AV Designs Private Limited",
             "url": "https://securetechav.com",
             "logo": "https://securetechav.com/static/securetech_av.webp",
-            "description": "Leading AV system integrator in India providing architectural acoustics, audio visual solutions, lighting design, IT infrastructure, project management, and post-project services.",
+            "description": "Leading AV system integrator in India providing architectural acoustics, Audio-Visual solutions, lighting design, IT infrastructure, project management, and post-project services.",
             "foundingDate": "2020",
             "areaServed": {"@type": "Country", "name": "India"},
-            "knowsAbout": ["Audio Visual Integration", "Architectural Acoustics", "AV System Design", "Smart Classroom Technology", "Auditorium Sound Systems", "Professional Lighting Design", "IT Infrastructure", "Video Conferencing Solutions"]
+            "knowsAbout": ["Audio-Visual Integration", "Architectural Acoustics", "AV System Design", "Smart Classroom Technology", "Auditorium Sound Systems", "Professional Lighting Design", "IT Infrastructure", "Video Conferencing Solutions"]
         }
     }
     </script>
@@ -446,6 +446,20 @@
             opacity: 0.55;
             transition: transform 1.5s ease-out;
             animation: hero-zoom 15s infinite alternate ease-in-out;
+        }
+
+        /* The header sits transparent over this hero, so the image alone sets the
+           contrast for the white wordmark and nav. A scrim across the top strip
+           keeps them readable - the brand's orange AV in particular measured
+           1.86:1 against the bare image. */
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 190px;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(0, 0, 0, .62) 0%, rgba(0, 0, 0, .34) 55%, rgba(0, 0, 0, 0) 100%);
         }
 
         @keyframes hero-zoom {
@@ -1772,14 +1786,13 @@
 
         <!-- ═══════════════ HERO ═══════════════ -->
         <section class="about-hero">
-            <img src="{{ url_for('static', filename='aboutus.webp') }}" class="hero-bg-img" alt="SecureTech AV Designs project">
+            <img src="{{ url_for('static', filename='aboutus.webp') }}" class="hero-bg-img" alt="Illustrative modern boardroom with integrated Audio-Visual systems">
 
             <div class="hero-content">
                 <h1 class="hero-title fade-up">
                     ABOUT<br>SECURETECH AV
                 </h1>
-                <p class="hero-desc fade-up" style="--delay: 0.1s;">SecureTech AV Designs harmonizes technology, design,
-                    and innovation to engineer seamless audiovisual experiences across industries.</p>
+                <p class="hero-desc fade-up" style="--delay: 0.1s;">SecureTech AV Designs integrates audio, video, acoustics, lighting, and ICT to deliver reliable technology systems across industries.</p>
             </div>
 
             <a href="#pillars" class="hero-scroll-btn fade-up" style="--delay: 0.2s;" aria-label="Scroll Down">
@@ -1871,8 +1884,8 @@
                 <!-- ── copy ── -->
                 <div class="am-copy fade-up" style="--delay:.15s">
                     <p class="am-eyebrow">About</p>
-                    <h2 class="am-title">SecureTech AV Designs: Independent. Engineered. Accountable.</h2>
-                    <p class="am-lead">Specialists in audio-visual system integration.</p>
+                    <h2 class="am-title">SecureTech AV Designs: AV &amp; Technology Systems Integrator</h2>
+                    <p class="am-lead">AV Consulting | Design | Engineering | Integration | Commissioning | AMC</p>
                     <p class="am-para">Since our incorporation in Noida in August 2022, SecureTech AV Designs has been
                         engineering audio, video, lighting, acoustics and ICT environments for corporate, education,
                         government and hospitality clients — starting with the conference rooms, auditoriums and
@@ -1880,12 +1893,11 @@
                         being said.</p>
                     <p class="am-para">We don't just supply equipment — we engineer the room around it, from acoustic
                         survey and BOQ through design, tender, installation, commissioning and the maintenance contract
-                        that follows. We hold certified OEM relationships and no obligation to any of them — which is
-                        why clients trust us to write the specification as well as build to it.</p>
+                        that follows. Our consulting and engineering teams define application-specific requirements, then integrate, test, commission, and support the complete system.</p>
 
                     <div class="am-facts">
                         <span class="tag-chip">Noida, Uttar Pradesh</span>
-                        <span class="tag-chip">Vendor-agnostic</span>
+                        <span class="tag-chip">Systems integration</span>
                         <span class="tag-chip">AVIXA-aligned design</span>
                     </div>
 
@@ -1922,7 +1934,7 @@
                             <p class="pillar-card-tag">Identity</p>
                             <h3 class="pillar-card-title">Who We Are</h3>
                             <p class="pillar-card-desc">SecureTech AV Designs Private Limited is a leading technology
-                                firm specializing in seamless integration of audio, visual, lighting architecture,
+                                firm specializing in seamless integration of audio, visual, architectural lighting,
                                 acoustics, ICT, and technology project management. Committed to technological
                                 excellence, we deliver innovative solutions creating immersive experiences across
                                 diverse industries.</p>
@@ -2007,8 +2019,7 @@
                     style="font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E87D2F;display:block;margin-bottom:1.5rem;">Mission &amp;
                     Vision</span>
                 <p class="mission-quote">
-                    "Engineer <span>seamless, immersive</span> experiences by harmonizing
-                    <span>technology</span>, design, and <span>innovation</span>."
+                    "Engineer <span>reliable technology systems</span> through thoughtful design, <span>integration</span>, testing, and <span>ongoing support</span>."
                 </p>
                 <p class="mission-attribution">— SecureTech AV Designs Private Limited</p>
                 <div class="mv-grid">
@@ -2021,7 +2032,7 @@
                         <h3>How We Get There</h3>
                         <ul>
                             <li>Deliver engineering excellence on every deliverable, from BOQ to sign-off.</li>
-                            <li>Provide truly independent, vendor-agnostic advisory.</li>
+                            <li>Connect AV consulting and engineering with integration, commissioning, and lifecycle support.</li>
                             <li>Invest in R&amp;D so today's design survives tomorrow's upgrade.</li>
                         </ul>
                     </div>
@@ -2043,8 +2054,7 @@
                         <div class="team-initials">AK</div>
                         <p class="team-name">Ashish Khanna</p>
                         <p class="team-role">Director</p>
-                        <p class="team-desc">Leads consulting and design across audio visual systems, light
-                            architecture, architectural acoustics, ICT and technology project management. Sets the
+                        <p class="team-desc">Leads consulting and design across Audio-Visual systems, architectural lighting, architectural acoustics, ICT and technology project management. Sets the
                             engineering standard every SecureTech design is measured against.</p>
                     </div>
                     <div class="team-card fade-up" style="--delay:.18s">
@@ -2232,7 +2242,7 @@
                     style="font-size:clamp(2.2rem,9vw,4rem);font-weight:900;line-height:1;letter-spacing:-.03em;margin:0;">
                     LET'S TALK</h2>
                 <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.75;max-width:340px;margin:0;">
-                    Secure TechAV Designs Private Limited — driven by a passion for absolute technology. Architectural
+                    SecureTech AV Designs Private Limited — delivering engineered technology integration, reliable performance, and ongoing support. Architectural
                     Acoustics, sound system design, and post-project service.</p>
                 <a href="/Contactus"
                     style="display:inline-flex;align-items:center;gap:.6rem;border:2px solid rgba(255,255,255,.4);color:#fff;padding:.7rem 1.8rem;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .3s;align-self:flex-start;"
@@ -2287,7 +2297,7 @@
                     style="width:100%;height:170px;border-radius:12px;border:0;" allowfullscreen
                     loading="lazy"></iframe>
                 <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin:0;line-height:1.6;">
-                    <span style="color:#E87D2F;font-weight:600;">Address:</span> SecureTech AV Designs Pvt Ltd,<br>A-70,
+                    <span style="color:#E87D2F;font-weight:600;">Address:</span> SecureTech AV Designs Private Limited,<br>A-70,
                     Sector 33, Noida, UP 201301
                 </p>
             </div>

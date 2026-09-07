@@ -12,9 +12,9 @@ Preferred-Citation: SecureTech AV Designs (https://securetechav.com)
 
 # Content description
 Organization: SecureTech AV Designs Private Limited
-Industry: Audio Visual System Integration
+Industry: Audio-Visual System Integration
 Location: A-70, Sector 33, Noida, UP 201301, India
-Services: Architectural Acoustics, Audio Visual Systems, Lighting Architecture, IT Infrastructure, Project Management, Post-Project Services
+Services: Architectural Acoustics, Audio-Visual Systems, Architectural Lighting, IT Infrastructure, Project Management, Post-Project Services
 Sectors: Corporate, Education, Healthcare, Government, Retail, Residential, Auditoriums, Stadiums, Cinemas, Clubs, Judiciary
 
 # Machine-readable content

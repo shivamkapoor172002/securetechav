@@ -1,10 +1,10 @@
 # SecureTech AV Designs
 
-> India's #1 AV System Integrator — End-to-end Audio Visual Solutions
+> India's #1 AV System Integrator — End-to-end Audio-Visual Solutions
 
 ## About
 
-SecureTech AV Designs Private Limited is India's leading AV (Audio Visual) system integrator and solutions provider. We design, install, and maintain cutting-edge AV systems for corporate offices, educational institutions, auditoriums, healthcare facilities, government buildings, retail spaces, residential luxury homes, stadiums, cinemas, clubs, and judiciary courts across India.
+SecureTech AV Designs Private Limited is India's leading AV (Audio-Visual) system integrator and solutions provider. We design, install, and maintain cutting-edge AV systems for corporate offices, educational institutions, auditoriums, healthcare facilities, government buildings, retail spaces, residential luxury homes, stadiums, cinemas, clubs, and judiciary courts across India.
 
 Founded in 2020 and headquartered in Delhi NCR, India, SecureTech AV has served 150+ clients and delivered 200+ projects with a perfect 5-star Google rating from 29 reviews.
 
@@ -15,10 +15,10 @@ SecureTech AV Designs provides the following professional services:
 ### 1. Architectural Acoustics
 Sound isolation, acoustic treatment, noise control, room acoustics optimization for auditoriums, recording studios, conference halls, and commercial spaces. We use advanced acoustic modeling to deliver optimal sound environments.
 
-### 2. Audio Visual Systems
+### 2. Audio-Visual Systems
 Professional audio systems, video walls, projection systems, LED displays, video conferencing solutions, digital signage, PA systems, and AV control rooms. We integrate world-class brands including Bose, JBL, Sennheiser, Sony, LG, Cisco, Christie, and Kramer.
 
-### 3. Lighting Architecture
+### 3. Architectural Lighting
 Architectural lighting design, stage lighting, LED installations, smart lighting control systems for venues, corporate offices, auditoriums, and buildings.
 
 ### 4. Information Technology (IT Infrastructure)
@@ -44,9 +44,9 @@ Annual Maintenance Contracts (AMC), 24/7 technical support, system upgrades, equ
 - **Clubs & Nightlife**: DJ systems, club sound, lighting rigs, AV control
 - **Judiciary**: Court AV systems, evidence display, recording systems, PA
 
-## Brand Partners
+## Technology Brands
 
-SecureTech AV works with the world's leading AV technology brands:
+SecureTech AV Designs works with leading global and professional AV technology brands:
 Bose Professional, JBL Professional, Sennheiser, Sony, LG, Cisco, Christie, Kramer, QNC, British Acoustics, and more.
 
 ## Why Choose SecureTech AV
@@ -56,7 +56,7 @@ Bose Professional, JBL Professional, Sennheiser, Sony, LG, Cisco, Christie, Kram
 - 5-star Google rating (29 reviews)
 - End-to-end AV solutions — design, installation, support
 - Expertise across corporate, education, healthcare, government, and residential sectors
-- Partnerships with world-leading AV brands
+- Works with leading global and professional AV technology brands
 - Dedicated post-project support and AMC services
 
 ## Contact Information
