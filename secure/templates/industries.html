@@ -6,23 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ══ PRIMARY SEO ══ -->
-    <title>Case Studies — SecureTech AV Designs | AV Integration Projects Across India</title>
+    <title>Industries — SecureTech AV Designs | Professional AV &amp; Technology Systems Integrator</title>
     <meta name="description"
-        content="Explore SecureTech AV Designs case studies — auditorium, smart classroom, conference room and public address projects delivered for MATS University, Patna University, ICAR-NIBSM Raipur, NIFT Varanasi and more across India.">
+        content="Professional AV and technology systems for corporate, government, education, hospitality, healthcare, command &amp; control, retail, and venues &amp; entertainment.">
     <meta name="keywords"
         content="AV case studies India, auditorium integration projects, smart classroom projects India, NIFT Varanasi AV, MATS University auditorium, Patna University smart classroom, ICAR NIBSM Raipur, public address system India" />
     <meta name="author" content="SecureTech AV Designs Private Limited" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://securetechav.com/CaseStudies" />
+    <link rel="canonical" href="https://securetechav.com/Industries" />
     <link rel="icon" href="{{ url_for('static', filename='image-5@2x.webp') }}">
 
     <!-- ══ OPEN GRAPH ══ -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SecureTech AV Designs" />
-    <meta property="og:title" content="Case Studies — SecureTech AV Designs" />
+    <meta property="og:title" content="Industries — SecureTech AV Designs | Professional AV &amp; Technology Systems Integrator" />
     <meta property="og:description"
-        content="Auditorium, smart classroom, conference and public address projects delivered across education, corporate, hospitality and large venue sectors in India." />
-    <meta property="og:url" content="https://securetechav.com/CaseStudies" />
+        content="Professional AV and technology systems for corporate, government, education, hospitality, healthcare, command &amp; control, retail, and venues &amp; entertainment." />
+    <meta property="og:url" content="https://securetechav.com/Industries" />
     <meta property="og:image" content="https://securetechav.com/static/securetech_av.webp" />
 
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
@@ -561,6 +561,144 @@
             scroll-margin-top: 110px;
         }
 
+        /* ── INDUSTRIES ──
+           One card per sector: what we build there, the typical spaces, and a
+           route to the solutions and, where they exist, the projects. */
+        .ind-grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            margin-top: 2rem;
+        }
+
+        .ind-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #efe6df;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(58, 18, 16, .06);
+            scroll-margin-top: 110px;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .ind-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(58, 18, 16, .1);
+        }
+
+        .ind-media {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #f1ece8;
+        }
+
+        .ind-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .ind-body {
+            display: flex;
+            flex-direction: column;
+            gap: .7rem;
+            padding: 1.2rem 1.25rem 1.3rem;
+            flex: 1;
+        }
+
+        .ind-body h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #3A1210;
+        }
+
+        .ind-body p {
+            margin: 0;
+            font-size: .9rem;
+            line-height: 1.6;
+            color: #4a403c;
+        }
+
+        .ind-spaces {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+
+        .ind-spaces li {
+            font-size: .72rem;
+            font-weight: 600;
+            padding: .28rem .6rem;
+            border-radius: 999px;
+            background: #f7efe9;
+            color: #6E1B18;
+        }
+
+        .ind-links {
+            margin-top: auto;
+            display: flex;
+            gap: 1.1rem;
+            padding-top: .4rem;
+        }
+
+        .ind-links a {
+            font-size: .82rem;
+            font-weight: 700;
+            color: #E87D2F;
+            text-decoration: none;
+        }
+
+        .ind-links a::after {
+            content: " \2192";
+        }
+
+        .ind-links a:hover {
+            color: #6E1B18;
+        }
+
+        .ind-cta {
+            text-align: center;
+        }
+
+        .ind-cta .section-sub {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ind-cta-actions {
+            display: flex;
+            gap: .9rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .ind-btn {
+            display: inline-flex;
+            align-items: center;
+            min-height: 46px;
+            padding: .75rem 1.6rem;
+            border-radius: 999px;
+            border: 2px solid #6E1B18;
+            color: #6E1B18;
+            font-weight: 700;
+            font-size: .9rem;
+            text-decoration: none;
+        }
+
+        .ind-btn-primary {
+            background: #E87D2F;
+            border-color: #E87D2F;
+            color: #fff;
+        }
+
         .vert-card {
             border: 1px solid #e2e8f0;
             border-radius: 18px;
@@ -904,7 +1042,7 @@
             align-items: center;
             justify-content: space-between;
         }
-    
+
         #scroll-top {
             position: fixed;
             bottom: 1.5rem;
@@ -1039,7 +1177,7 @@
         .cta-inner a {
             display: inline-flex;
         }
-    
+
         /* Brand lockup: black wordmark with the AV in the house red, over the
            discipline line. Matches the designer's header. */
         .brand-copy {
@@ -1075,8 +1213,8 @@
                     alt="SecureTech AV Designs" class="header-logo" /><span class="brand-copy notranslate" translate="no"><strong>SecureTech <b>AV</b> Designs</strong></span></a>
             <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
                 <a href="/Solutionpage" class="nav-link">Solution</a>
-                <a href="/Industries" class="nav-link">Industries</a>
-                <a href="/CaseStudies" class="nav-link nav-link-active">Case Studies</a>
+                <a href="/Industries" class="nav-link nav-link-active">Industries</a>
+                <a href="/CaseStudies" class="nav-link">Case Studies</a>
                 <a href="/AboutUs" class="nav-link">About Us</a>
                     <a href="/WorkspaceDesigner" class="nav-link nav-link-tool">3D Designer</a>
             </nav>
@@ -1127,8 +1265,8 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu">
         <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
-        <a href="/Industries" onclick="closeMenu()">Industries</a>
-        <a href="/CaseStudies" onclick="closeMenu()" style="color:#E87D2F;">Case Studies</a>
+        <a href="/Industries" onclick="closeMenu()" style="color:#E87D2F;">Industries</a>
+        <a href="/CaseStudies" onclick="closeMenu()">Case Studies</a>
         <a href="/AboutUs" onclick="closeMenu()">About Us</a>
         <a href="/WorkspaceDesigner" onclick="closeMenu()">3D Designer</a>
         <a href="/Contactus" onclick="closeMenu()"
@@ -1144,387 +1282,140 @@
         <!-- ═══════════════ HERO ═══════════════ -->
         <section class="cs-hero">
             <div class="cs-hero-inner">
-                <h1>Our Work Across India</h1>
-                <p>Auditoriums, smart classrooms, conference rooms and campus-wide public address systems —
-                    engineered, installed and commissioned by our team for universities, government bodies,
-                    corporates and hospitality groups.</p>
+                <h1>Industries We Serve</h1>
+                <p>Professional AV &amp; technology systems, engineered for how each sector works &mdash; from
+                    boardrooms and campuses to control rooms and venues.</p>
             </div>
         </section>
 
-        <!-- ═══════════════ FEATURED PROJECTS ═══════════════ -->
-        <section class="section" id="featured">
-            <h2 class="section-title">Featured <span class="text-gradient">projects</span></h2>
-            <p class="section-sub">A closer look at our recent projects, delivered end-to-end from design and supply through installation, commissioning, testing, and handover.</p>
-
-            <div class="case-grid">
-
-                <!-- MATS UNIVERSITY -->
-                <article class="case-card">
-                    <div class="case-media">
-                        <!-- Source: https://matsuniversity.ac.in/view_gallery?category_id=14 -->
-                        <img src="{{ url_for('static', filename='projects/mats-university-official-event.jpg') }}"
-                            alt="HR Summit 4.0 event at MATS University, from the official university gallery"
-                            loading="lazy" />
-                        <span class="case-tag">Education</span>
+        <!-- ═══════════════ INDUSTRIES ═══════════════ -->
+        <section class="section" id="industries">
+            <h2 class="section-title">Find your <span class="text-gradient">sector</span></h2>
+            <p class="section-sub">Each industry links to the solutions we deliver and, where we have them, the
+                projects behind them.</p>
+            <div class="ind-grid">
+                <article class="ind-card" id="corporate">
+                    <div class="ind-media">
+                        <img src="{{ url_for('static', filename='projects/sector-corporate.jpg') }}" alt="Corporate meeting space" loading="lazy" decoding="async">
                     </div>
-                    <div class="case-body">
-                        <h3>MATS University</h3>
-                        <span class="case-loc">Raipur, Chhattisgarh</span>
-                        <p style="font-size:.75rem;line-height:1.5;">University event photo: <a href="https://matsuniversity.ac.in/view_gallery?category_id=14" target="_blank" rel="noopener noreferrer">MATS University official gallery</a>. Installation not verified in this image.</p>
-                        <dl class="case-brief">
-                            <div>
-                                <dt>Challenge</dt>
-                                <dd>Equip the university's main auditorium for presentations and campus events.</dd>
-                            </div>
-                            <div>
-                                <dt>Solution</dt>
-                                <dd>Complete audio, video and professional lighting integration for the main auditorium, designed and delivered by our team.</dd>
-                            </div>
-                            <div>
-                                <dt>Scope</dt>
-                                <dd>
-                                    <ul class="case-scope">
-                                        <li>Audio</li>
-                                        <li>Video</li>
-                                        <li>Professional Lighting</li>
-                                        <li>Main Auditorium</li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                        <!-- Result, equipment list and project gallery: to be supplied by SecureTech (see CONTENT-CLEANUP.md). -->
-
-                    </div>
-                </article>
-
-                <!-- PATNA UNIVERSITY -->
-                <article class="case-card">
-                    <div class="case-media">
-                        <!-- IMAGE SLOT: replace with the real Patna University conference room / classroom photo -->
-                        <img src="{{ url_for('static', filename='projects/patna-conference.jpg') }}"
-                            alt="Corporate conference room and smart classrooms at Patna University" loading="lazy" />
-                        <span class="case-tag">Education</span>
-                    </div>
-                    <div class="case-body">
-                        <h3>Patna University</h3>
-                        <span class="case-loc">Patna, Bihar</span>
-                        <dl class="case-brief">
-                            <div>
-                                <dt>Challenge</dt>
-                                <dd>Modernise the university's learning and meeting spaces.</dd>
-                            </div>
-                            <div>
-                                <dt>Solution</dt>
-                                <dd>A corporate-grade conference room alongside smart classrooms with interactive displays, engineered for faculty and students.</dd>
-                            </div>
-                            <div>
-                                <dt>Scope</dt>
-                                <dd>
-                                    <ul class="case-scope">
-                                        <li>Conference Room</li>
-                                        <li>Smart Classrooms</li>
-                                        <li>Interactive Displays</li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                        <!-- Result, equipment list and project gallery: to be supplied by SecureTech (see CONTENT-CLEANUP.md). -->
-
-                    </div>
-                </article>
-
-                <!-- ICAR NIBSM -->
-                <article class="case-card">
-                    <div class="case-media">
-                        <!-- IMAGE SLOT: replace with the real ICAR-NIBSM auditorium photo -->
-                        <img src="{{ url_for('static', filename='projects/icar-auditorium.jpg') }}"
-                            alt="Audio-Visual and sound reinforcement at ICAR-NIBSM auditorium, Raipur"
-                            loading="lazy" />
-                        <span class="case-tag">Government Infrastructure / CPWD</span>
-                    </div>
-                    <div class="case-body">
-                        <h3>ICAR — NIBSM</h3>
-                        <span class="case-loc">Raipur, Chhattisgarh</span>
-                        <dl class="case-brief">
-                            <div>
-                                <dt>Challenge</dt>
-                                <dd>Deliver the main auditorium of a national research institute under a high-compliance CPWD public tender.</dd>
-                            </div>
-                            <div>
-                                <dt>Solution</dt>
-                                <dd>Designed, installed and commissioned the complete Audio-Visual and sound reinforcement infrastructure for the auditorium at the National Institute of Biotic Stress Management.</dd>
-                            </div>
-                            <div>
-                                <dt>Scope</dt>
-                                <dd>
-                                    <ul class="case-scope">
-                                        <li>CPWD Tender</li>
-                                        <li>Sound Reinforcement</li>
-                                        <li>Audio-Visual</li>
-                                        <li>Commissioning</li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                        <!-- Result, equipment list and project gallery: to be supplied by SecureTech (see CONTENT-CLEANUP.md). -->
-
-                    </div>
-                </article>
-
-                <!-- NIFT VARANASI -->
-                <article class="case-card">
-                    <div class="case-media">
-                        <!-- IMAGE SLOT: replace with the real NIFT Varanasi campus photo -->
-                        <img src="{{ url_for('static', filename='projects/nift-classroom.jpg') }}"
-                            alt="Full campus technology integration at NIFT Varanasi" loading="lazy" />
-                        <span class="case-tag">Education · In Progress</span>
-                    </div>
-                    <div class="case-body">
-                        <h3>NIFT Varanasi</h3>
-                        <span class="case-loc">Varanasi, Uttar Pradesh</span>
-                        <dl class="case-brief">
-                            <div>
-                                <dt>Challenge</dt>
-                                <dd>Uniform, compliant audio broadcasting across an entire campus, alongside teaching, design and event spaces.</dd>
-                            </div>
-                            <div>
-                                <dt>Solution</dt>
-                                <dd>A full-campus integration for the National Institute of Fashion Technology, currently underway — smart classrooms and design labs, a full-scale auditorium and conference system, and a multi-zone public address system.</dd>
-                            </div>
-                            <div>
-                                <dt>Scope</dt>
-                                <dd>
-                                    <ul class="case-scope">
-                                        <li>Smart Classrooms</li>
-                                        <li>Design Labs</li>
-                                        <li>Auditorium</li>
-                                        <li>Multi-zone PA</li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                        <!-- Result, equipment list and project gallery: to be supplied by SecureTech (see CONTENT-CLEANUP.md). -->
-
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- ═══════════════ SECTORS ═══════════════ -->
-        <section class="strip" id="sectors">
-            <div class="section">
-                <h2 class="section-title">Sectors we <span class="text-gradient">serve</span></h2>
-                <p class="section-sub">Projects delivered across education, corporate, hospitality, large venues,
-                    museums, houses of worship and retail.</p>
-
-                <div class="vert-grid">
-
-                    <div class="vert-card" id="sector-education">
-                        <div class="vert-media">
-                            <img src="{{ url_for('static', filename='projects/sector-education.jpg') }}" alt="University lecture hall" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-education-2.jpg') }}" alt="University lecture hall" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-education-3.jpg') }}" alt="University lecture hall" loading="lazy" decoding="async" />
-                        </div>
-                        <div class="vert-inner">
-                        <h3>Universities &amp; Education</h3>
-                        <ul>
-                            <li>MATS University <span>Raipur — auditorium AV &amp; lighting</span></li>
-                            <li>Patna University <span>Conference room &amp; smart classrooms</span></li>
-                            <li>ICAR — NIBSM <span>Raipur — auditorium, CPWD tender</span></li>
-                            <li>NIFT Varanasi <span>Full-campus integration</span></li>
-                            <li>SSLNT Mahila College <span>Dhanbad - auditorium, sound &amp; light</span></li>
-                            <li>Maharshi Dayanand University <span>MDU</span></li>
-                            <li>ICMR Chennai <span>National Institute of Epidemiology - smart classroom</span></li>
-                        </ul>
-                        </div>
-                    </div>
-
-                    <div class="vert-card" id="sector-corporate">
-                        <div class="vert-media">
-                            <img src="{{ url_for('static', filename='projects/sector-corporate.jpg') }}" alt="Corporate meeting space" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-corporate-2.jpg') }}" alt="Corporate meeting space" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-corporate-3.jpg') }}" alt="Corporate meeting space" loading="lazy" decoding="async" />
-                        </div>
-                        <div class="vert-inner">
+                    <div class="ind-body">
                         <h3>Corporate</h3>
-                        <ul>
-                            <li>HCL</li>
-                            <li>Google</li>
-                        </ul>
+                        <p>Boardrooms, meeting rooms and collaboration spaces engineered for hybrid work.</p>
+                        <ul class="ind-spaces"><li>Boardrooms</li><li>Meeting rooms</li><li>Town halls</li><li>Experience centres</li></ul>
+                        <div class="ind-links">
+                            <a href="/Solutionpage">Solutions</a>
+                            <a href="/CaseStudies#sector-corporate">Projects</a>
                         </div>
                     </div>
-
-                    <div class="vert-card" id="sector-hospitality">
-                        <div class="vert-media">
-                            <img src="{{ url_for('static', filename='projects/sector-hospitality.jpg') }}" alt="Hotel and restaurant interiors" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-hospitality-2.jpg') }}" alt="Hotel and restaurant interiors" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-hospitality-3.jpg') }}" alt="Hotel and restaurant interiors" loading="lazy" decoding="async" />
+                </article>
+                <article class="ind-card" id="government">
+                    <div class="ind-media">
+                        <img src="{{ url_for('static', filename='gov.webp') }}" alt="Government meeting room" loading="lazy" decoding="async">
+                    </div>
+                    <div class="ind-body">
+                        <h3>Government</h3>
+                        <p>Briefing rooms, council chambers and public venues delivered to public-tender and compliance requirements.</p>
+                        <ul class="ind-spaces"><li>Briefing rooms</li><li>Council chambers</li><li>Townhalls</li><li>Auditoriums</li></ul>
+                        <div class="ind-links">
+                            <a href="/Solutionpage">Solutions</a>
+                            <a href="/CaseStudies#sector-townhalls">Projects</a>
                         </div>
-                        <div class="vert-inner">
+                    </div>
+                </article>
+                <article class="ind-card" id="education">
+                    <div class="ind-media">
+                        <img src="{{ url_for('static', filename='projects/sector-education.jpg') }}" alt="University lecture hall" loading="lazy" decoding="async">
+                    </div>
+                    <div class="ind-body">
+                        <h3>Education</h3>
+                        <p>Smart classrooms, lecture halls, auditoriums and campus-wide audio for schools and universities.</p>
+                        <ul class="ind-spaces"><li>Smart classrooms</li><li>Lecture halls</li><li>Auditoriums</li><li>Campus PA</li></ul>
+                        <div class="ind-links">
+                            <a href="/Solutionpage">Solutions</a>
+                            <a href="/CaseStudies#sector-education">Projects</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="ind-card" id="hospitality">
+                    <div class="ind-media">
+                        <img src="{{ url_for('static', filename='projects/sector-hospitality.jpg') }}" alt="Hotel lounge" loading="lazy" decoding="async">
+                    </div>
+                    <div class="ind-body">
                         <h3>Hospitality</h3>
-                        <ul>
-                            <li>Taj <span>Dehradun</span></li>
-                            <li>ITC</li>
-                            <li>LOD</li>
-                            <li>Rome Lane <span>Restaurant / lounge</span></li>
-                            <li>Diablo <span>Club / lounge, New Delhi</span></li>
-                            <li>Lazeez Affaire <span>Restaurant, New Delhi</span></li>
-                        </ul>
+                        <p>Ballrooms, banquet and meeting spaces, and background music across hotel properties.</p>
+                        <ul class="ind-spaces"><li>Ballrooms</li><li>Banquet &amp; meeting rooms</li><li>Restaurants &amp; lounges</li><li>Background music</li></ul>
+                        <div class="ind-links">
+                            <a href="/Solutionpage">Solutions</a>
+                            <a href="/CaseStudies#sector-hospitality">Projects</a>
                         </div>
                     </div>
-
-                    <div class="vert-card" id="sector-townhalls">
-                        <div class="vert-media">
-                            <img src="{{ url_for('static', filename='projects/sector-venues.jpg') }}" alt="Large civic hall" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-venues-2.jpg') }}" alt="Large civic hall" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-venues-3.jpg') }}" alt="Large civic hall" loading="lazy" decoding="async" />
-                        </div>
-                        <div class="vert-inner">
-                        <h3>Large Venues — Townhalls</h3>
-                        <ul>
-                            <li>Bundi <span>Rajasthan</span></li>
-                            <li>Dausa <span>Rajasthan</span></li>
-                            <li>Bokaro <span>Jharkhand</span></li>
-                            <li>Seraikela <span>Jharkhand</span></li>
-                        </ul>
+                </article>
+                <article class="ind-card" id="healthcare">
+                    <div class="ind-media">
+                        <img src="{{ url_for('static', filename='sector-healthcare.webp') }}" alt="Healthcare campus" loading="lazy" decoding="async">
+                    </div>
+                    <div class="ind-body">
+                        <h3>Healthcare</h3>
+                        <p>Audio-Visual systems for training, conferencing and communication across healthcare facilities.</p>
+                        <ul class="ind-spaces"><li>Training rooms</li><li>Conference rooms</li><li>Auditoriums</li><li>Public address</li></ul>
+                        <div class="ind-links">
+                            <a href="/Solutionpage">Solutions</a>
+                            <a href="/Contactus">Discuss a project</a>
                         </div>
                     </div>
-
-                    <div class="vert-card" id="sector-worship">
-                        <div class="vert-media">
-                            <img src="{{ url_for('static', filename='projects/sector-worship.jpg') }}" alt="Museum and temple interiors" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-worship-2.jpg') }}" alt="Museum and temple interiors" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-worship-3.jpg') }}" alt="Museum and temple interiors" loading="lazy" decoding="async" />
-                        </div>
-                        <div class="vert-inner">
-                        <h3>Museums &amp; Worship</h3>
-                        <ul>
-                            <li>Nagara Museum</li>
-                            <li>Vrindavan Chandrodaya Mandir <span>Vrindavan, Uttar Pradesh</span></li>
-                        </ul>
+                </article>
+                <article class="ind-card" id="command-control">
+                    <div class="ind-media">
+                        <img src="{{ url_for('static', filename='control.webp') }}" alt="Control room video wall" loading="lazy" decoding="async">
+                    </div>
+                    <div class="ind-body">
+                        <h3>Command &amp; Control</h3>
+                        <p>Video walls, operator consoles and signal management for round-the-clock operations.</p>
+                        <ul class="ind-spaces"><li>Control rooms</li><li>Operations centres</li><li>Video walls</li><li>Operator consoles</li></ul>
+                        <div class="ind-links">
+                            <a href="/Solutionpage">Solutions</a>
+                            <a href="/Contactus">Discuss a project</a>
                         </div>
                     </div>
-
-                    <div class="vert-card" id="sector-retail">
-                        <div class="vert-media">
-                            <img src="{{ url_for('static', filename='projects/sector-retail.jpg') }}" alt="Retail store interior" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-retail-2.jpg') }}" alt="Retail store interior" loading="lazy" decoding="async" />
-                            <img src="{{ url_for('static', filename='projects/sector-retail-3.jpg') }}" alt="Retail store interior" loading="lazy" decoding="async" />
-                        </div>
-                        <div class="vert-inner">
+                </article>
+                <article class="ind-card" id="retail">
+                    <div class="ind-media">
+                        <img src="{{ url_for('static', filename='projects/sector-retail.jpg') }}" alt="Retail store interior" loading="lazy" decoding="async">
+                    </div>
+                    <div class="ind-body">
                         <h3>Retail</h3>
-                        <ul>
-                            <li>H&amp;M <span>Connaught Place, New Delhi</span></li>
-                        </ul>
+                        <p>Digital signage, background music and in-store audio for stores and showrooms.</p>
+                        <ul class="ind-spaces"><li>Stores</li><li>Showrooms</li><li>Malls</li><li>Digital signage</li></ul>
+                        <div class="ind-links">
+                            <a href="/Solutionpage">Solutions</a>
+                            <a href="/CaseStudies#sector-retail">Projects</a>
                         </div>
                     </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════ CLIENTS RAIL ═══════════════ -->
-        <section class="rail-section" data-speed="0.4" id="clients">
-            <div class="rail-body">
-                <div class="rail-label">
-                    <h2>Selected Clients</h2>
-                    <p class="rail-desc">Trusted by the best across India</p>
-                </div>
-                <div class="rail-viewport">
-                    <div class="rail-track">
-                        <img src="{{ url_for('static', filename='c1-1@2x.webp') }}"
-                            alt="CPWD — Central Public Works Department" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='dslogo.webp') }}" alt="PWD — Government of Delhi"
-                            loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='p1-1@2x.webp') }}" alt="NBCC (India) Limited"
-                            loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='p10-1@2x.webp') }}"
-                            alt="Building Construction Department, Government of Bihar" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='p12-1@2x.webp') }}" alt="JUIDCO" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/cbse.svg') }}"
-                            alt="CBSE — Central Board of Secondary Education" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/jda.png') }}"
-                            alt="JDA — Jaipur Development Authority" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='p17-1@2x.webp') }}" alt="Government of Rajasthan"
-                            loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='p2-1@2x.webp') }}"
-                            alt="Gorkhaland Territorial Administration" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/itc.svg') }}" alt="ITC Limited" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/hcl.svg') }}" alt="HCLTech" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/google.png') }}" alt="Google" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/mats-university.png') }}" alt="MATS University, Raipur" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/patna-university.png') }}" alt="Patna University" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/nift.png') }}" alt="NIFT - National Institute of Fashion Technology" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/icar.svg') }}" alt="ICAR - Indian Council of Agricultural Research" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/icmr.svg') }}" alt="ICMR - Indian Council of Medical Research" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/mdu.png') }}" alt="Maharshi Dayanand University, Rohtak" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/hm.svg') }}" alt="H&amp;M" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/vrindavan-mandir.png') }}" alt="Vrindavan Chandrodaya Mandir" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='clients/nagara-museum.svg') }}" alt="Nagara Museum" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='p14-1@2x.webp') }}" alt="Taj Hotels" loading="lazy"
-                            decoding="async" />
+                </article>
+                <article class="ind-card" id="venues">
+                    <div class="ind-media">
+                        <img src="{{ url_for('static', filename='solution-stadium-tile.webp') }}" alt="Stadium event" loading="lazy" decoding="async">
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════ BRANDS RAIL ═══════════════ -->
-        <section class="rail-section rail-section-alt" data-speed="0.32">
-            <div class="rail-body">
-                <div class="rail-label">
-                    <h2>Technology Partners</h2>
-                    <p class="rail-desc">We select technology based on application, performance, interoperability and lifecycle requirements.</p>
-                </div>
-                <div class="rail-viewport">
-                    <div class="rail-track">
-                        <img src="{{ url_for('static', filename='senheiserlogo.webp') }}" alt="Sennheiser"
-                            loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='britishacousticscommerciallogo2019copy300webp@2x.webp') }}"
-                            alt="British Acoustics" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='qnclogo.webp') }}" alt="QSC" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='christielogo.webp') }}" alt="Christie" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='ciscologo.webp') }}" alt="Cisco" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='lglogo.webp') }}" alt="LG" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='boselogo.webp') }}" alt="Bose" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='jbllogo.webp') }}" alt="JBL" loading="lazy"
-                            decoding="async" />
-                        <img src="{{ url_for('static', filename='sonylogo685450c77eseeklogocomwebp@2x.webp') }}"
-                            alt="Sony" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='brands/martinaudio.svg') }}" alt="Martin Audio" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='brands/kramer.png') }}" alt="Kramer" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='brands/shure.svg') }}" alt="Shure" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='brands/netgear.svg') }}" alt="NETGEAR" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='brands/honeywell.svg') }}" alt="Honeywell" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='brands/hp.svg') }}" alt="HP" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='brands/lumens.png') }}" alt="Lumens" loading="lazy" decoding="async" />
-                        <img src="{{ url_for('static', filename='brands/vocalaudio.png') }}" alt="Vocal Audio" loading="lazy" decoding="async" />
+                    <div class="ind-body">
+                        <h3>Venues &amp; Entertainment</h3>
+                        <p>Sound, lighting and video for auditoriums, stadiums, clubs and cinemas.</p>
+                        <ul class="ind-spaces"><li>Auditoriums</li><li>Stadiums &amp; arenas</li><li>Clubs</li><li>Cinemas</li></ul>
+                        <div class="ind-links">
+                            <a href="/Solutionpage#venues">Venues</a>
+                            <a href="/CaseStudies#featured">Projects</a>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
         <!-- ═══════════════ CTA ═══════════════ -->
-        <section class="cta-section">
-            <div class="cta-inner">
-                <h2 class="cta-title">Have a space <br><span class="text-gradient">in mind?</span></h2>
-                <a href="/Contactus" class="cta-btn">
-                    START A CONVERSATION
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </a>
+        <section class="section ind-cta">
+            <h2 class="section-title">Planning a space in your <span class="text-gradient">sector?</span></h2>
+            <p class="section-sub">Tell us about your requirements, or plan the room yourself in 3D first.</p>
+            <div class="ind-cta-actions">
+                <a class="ind-btn ind-btn-primary" href="/Contactus">Contact Us</a>
+                <a class="ind-btn" href="/WorkspaceDesigner">Launch 3D Designer</a>
             </div>
         </section>
 
@@ -1779,7 +1670,7 @@
                 requestAnimationFrame(frame);
             });
         })();
-    
+
 </script>
 
     <button id="scroll-top" aria-label="Scroll down">

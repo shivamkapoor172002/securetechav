@@ -6,7 +6,7 @@
 
 SecureTech AV Designs Private Limited is India's leading AV (Audio-Visual) system integrator and solutions provider. We design, install, and maintain cutting-edge AV systems for corporate offices, educational institutions, auditoriums, healthcare facilities, government buildings, retail spaces, residential luxury homes, stadiums, cinemas, clubs, and judiciary courts across India.
 
-Founded in 2020 and headquartered in Delhi NCR, India, SecureTech AV has served 150+ clients and delivered 200+ projects with a perfect 5-star Google rating from 29 reviews.
+Founded in 2020 and headquartered in Delhi NCR, India, SecureTech AV Designs, a Professional AV & Technology Systems Integrator, has delivered 120+ projects across 18+ cities, with a perfect 5-star Google rating from 29 reviews.
 
 ## Services
 
@@ -32,17 +32,14 @@ Annual Maintenance Contracts (AMC), 24/7 technical support, system upgrades, equ
 
 ## Sectors We Serve
 
-- **Corporate**: Boardrooms, conference rooms, video conferencing, digital signage, town halls, training rooms
-- **Education**: Smart classrooms, lecture halls, interactive displays, distance learning, campus-wide AV
-- **Healthcare**: Hospital communication systems, surgical displays, patient entertainment, telemedicine AV
-- **Government / Public Sector**: Command centres, council chambers, public address systems, government office AV
-- **Retail**: In-store digital signage, interactive kiosks, background music systems, immersive brand experiences
-- **Residential**: Home theatres, multi-room audio, smart home AV, luxury automation systems
-- **Auditoriums & Theatres**: Complete auditorium AV — sound, lighting, video, acoustics, control systems
-- **Stadiums**: Large-scale PA systems, LED scoreboards, video walls, crowd management AV
-- **Cinemas**: Immersive cinema sound, projection systems, Dolby integration
-- **Clubs & Nightlife**: DJ systems, club sound, lighting rigs, AV control
-- **Judiciary**: Court AV systems, evidence display, recording systems, PA
+- Corporate — boardrooms, meeting rooms and collaboration spaces
+- Government — briefing rooms, council chambers and public venues
+- Education — smart classrooms, lecture halls, auditoriums and campus audio
+- Hospitality — ballrooms, banquet and meeting spaces, background music
+- Healthcare — training, conferencing and communication
+- Command & Control — video walls and operations centres
+- Retail — digital signage and in-store audio
+- Venues & Entertainment — auditoriums, stadiums, clubs and cinemas
 
 ## Technology Brands
 
@@ -51,8 +48,8 @@ Bose Professional, JBL Professional, Sennheiser, Sony, LG, Cisco, Christie, Kram
 
 ## Why Choose SecureTech AV
 
-- 150+ satisfied clients across India
-- 200+ successfully delivered projects
+- 120+ projects delivered across 18+ cities
+- 550+ spaces integrated
 - 5-star Google rating (29 reviews)
 - End-to-end AV solutions — design, installation, support
 - Expertise across corporate, education, healthcare, government, and residential sectors
@@ -71,5 +68,7 @@ Bose Professional, JBL Professional, Sennheiser, Sony, LG, Cisco, Christie, Kram
 - Homepage: https://securetechav.com/
 - About Us: https://securetechav.com/AboutUs
 - AV Solutions: https://securetechav.com/Solutionpage
+- Industries: https://securetechav.com/Industries
+- Case Studies: https://securetechav.com/CaseStudies
 - Contact Us: https://securetechav.com/Contactus
 - Corporate Profile: https://securetechav.com/CorporateProfile

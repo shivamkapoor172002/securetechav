@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ══ PRIMARY SEO ══ -->
-    <title>SecureTech AV Designs — #1 AV Integrators in India | Audio-Visual Solutions</title>
+    <title>SecureTech AV Designs — Professional AV &amp; Technology Systems Integrator in India</title>
     <meta name="description" content="SecureTech AV Designs is India's leading AV system integrator providing end-to-end Audio-Visual solutions, architectural acoustics, smart classrooms, boardroom AV, auditorium sound systems, lighting design, IT infrastructure, and AV consultation for corporate, education, healthcare, government, and residential sectors." />
     <meta name="keywords" content="AV integrators India, Audio-Visual solutions India, AV system integration, conference room AV solutions, boardroom AV setup, auditorium sound system India, smart classroom technology India, architectural acoustics India, AV control systems, professional audio systems India, video conferencing solutions India, digital signage India, AV consultants Delhi NCR, lighting design India, AV installation company India, corporate AV integration, education AV solutions, healthcare AV systems, SecureTech AV, audio video integration services" />
     <meta name="author" content="SecureTech AV Designs Private Limited" />
@@ -18,7 +18,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SecureTech AV Designs" />
     <meta property="og:title" content="SecureTech AV Designs — #1 AV Integrators in India" />
-    <meta property="og:description" content="India's leading AV system integrator. End-to-end Audio-Visual solutions — acoustics, boardroom AV, auditorium systems, smart classrooms, lighting, IT infrastructure. Trusted by 150+ clients across corporate, education, healthcare & government sectors." />
+    <meta property="og:description" content="Professional AV &amp; Technology Systems Integrator. AV, unified communications, acoustics, control, ICT and lighting — engineered, installed and supported. 120+ projects delivered across 18+ cities." />
     <meta property="og:url" content="https://securetechav.com/" />
     <meta property="og:image" content="https://securetechav.com/static/securetech_av.webp" />
     <meta property="og:image:width" content="1869" />
@@ -131,7 +131,7 @@
                 "@type": "WebPage",
                 "@id": "https://securetechav.com/#webpage",
                 "url": "https://securetechav.com/",
-                "name": "SecureTech AV Designs — #1 AV Integrators in India | Audio-Visual Solutions",
+                "name": "SecureTech AV Designs — Professional AV &amp; Technology Systems Integrator in India",
                 "isPartOf": {"@id": "https://securetechav.com/#website"},
                 "about": {"@id": "https://securetechav.com/#organization"},
                 "description": "SecureTech AV Designs is India's leading AV system integrator providing end-to-end Audio-Visual solutions, architectural acoustics, smart classrooms, boardroom AV, auditorium sound systems, lighting design, IT infrastructure."
@@ -1698,9 +1698,24 @@
             #scroll-top .st-icon { transition: none; }
         }
 
+        /* ── WHO WE ARE: the discipline line under the positioning statement ── */
+        .who-disciplines {
+            margin: 1.4rem 0 0;
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .84);
+        }
+
+        .who-disciplines span {
+            margin: 0 .6em;
+            color: #E87D2F;
+        }
+
         /* ── WORKSPACE DESIGNER ──
-           Entry point to the 3D configurator. The screenshot does the
-           explaining, so the copy stays short. */
+           Entry point to the 3D configurator, promoted as a planning tool:
+           four steps from choosing a room to an equipment list. */
         .designer-band {
             position: relative;
             background: linear-gradient(135deg, #6E1B18 0%, #3A1210 48%, #24100E 100%);
@@ -1761,6 +1776,53 @@
             color: rgba(255, 255, 255, .66);
             max-width: 42ch;
             margin: 0 0 1.9rem;
+        }
+
+        .designer-band .db-eyebrow {
+            margin: 0 0 .7rem;
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #F08B3C;
+        }
+
+        .designer-band .db-lede {
+            margin-bottom: 1.25rem;
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .db-steps {
+            list-style: none;
+            margin: 0 0 2rem;
+            padding: 0;
+            display: grid;
+            gap: .6rem;
+            counter-reset: dbstep;
+        }
+
+        .db-steps li {
+            counter-increment: dbstep;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            color: rgba(255, 255, 255, .9);
+            font-size: .96rem;
+            font-weight: 500;
+        }
+
+        .db-steps li::before {
+            content: counter(dbstep);
+            flex: 0 0 1.8rem;
+            height: 1.8rem;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            border: 1px solid rgba(232, 125, 47, .6);
+            background: rgba(232, 125, 47, .16);
+            color: #F5A15E;
+            font-size: .78rem;
+            font-weight: 700;
         }
 
         .designer-band-cta {
@@ -1839,6 +1901,7 @@
             <a href="/" class="brand"><img src="{{ url_for('static', filename='just_logo_no_text.webp') }}" alt="SecureTech AV Designs" class="header-logo" /><span class="brand-copy notranslate" translate="no"><strong>SecureTech <b>AV</b> Designs</strong></span></a>
             <nav style="display:none;" class="lg:flex items-center gap-6" id="desktop-nav">
                     <a href="/Solutionpage" class="nav-link">Solution</a>
+                    <a href="/Industries" class="nav-link">Industries</a>
                     <a href="/CaseStudies" class="nav-link">Case Studies</a>
                     <a href="/AboutUs" class="nav-link">About Us</a>
                     <a href="/WorkspaceDesigner" class="nav-link nav-link-tool">3D Designer</a>
@@ -1889,6 +1952,7 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu">
         <a href="/Solutionpage" onclick="closeMenu()">Solution</a>
+        <a href="/Industries" onclick="closeMenu()">Industries</a>
         <a href="/CaseStudies" onclick="closeMenu()">Case Studies</a>
         <a href="/AboutUs" onclick="closeMenu()">About Us</a>
         <a href="/WorkspaceDesigner" onclick="closeMenu()">3D Designer</a>
@@ -1927,6 +1991,7 @@
                 <p class="who-eyebrow">Who We Are</p>
                 <h2 class="who-statement">SecureTech AV Designs is a professional AV and technology systems integrator delivering engineered solutions across <span>audio, video, acoustics, lighting, ICT, and unified communications.</span></h2>
                 <p class="who-description">From concept and design to installation, commissioning, and ongoing support, we create technology environments that are reliable, scalable, and easy to use.</p>
+                <p class="who-disciplines">AV<span>|</span>UC<span>|</span>Acoustics<span>|</span>Control<span>|</span>ICT<span>|</span>Lighting<span>|</span>Integration</p>
             </div>
         </section>
 
@@ -2038,11 +2103,16 @@
         <section class="designer-band">
             <div class="designer-band-inner">
                 <div class="db-reveal">
-                    <h2>Plan the room before you build it.</h2>
-                    <p>Pick a room type, place the displays, cameras and audio to suit it,
-                        then export the equipment list. It runs in your browser, with nothing
-                        to install.</p>
-                    <a class="designer-band-cta" href="/WorkspaceDesigner">Open the 3D Designer</a>
+                    <p class="db-eyebrow">3D Workspace Designer</p>
+                    <h2>Design Your Space Before You Build It</h2>
+                    <p class="db-lede">Experience your meeting room in 3D.</p>
+                    <ol class="db-steps">
+                        <li>Choose your room</li>
+                        <li>Configure the AV</li>
+                        <li>Visualise the solution</li>
+                        <li>Generate your equipment list</li>
+                    </ol>
+                    <a class="designer-band-cta" href="/WorkspaceDesigner">Launch 3D Designer</a>
                 </div>
                 <a class="designer-band-shot-link db-reveal" href="/WorkspaceDesigner"
                     aria-label="Open the 3D Workspace Designer">
@@ -2159,7 +2229,7 @@
             <div class="rail-body">
                 <div class="rail-label">
                     <h2>Technology Partners</h2>
-                    <p class="rail-desc">We work with leading global and professional AV technology brands to deliver application-specific solutions.</p>
+                    <p class="rail-desc">We select technology based on application, performance, interoperability and lifecycle requirements.</p>
                 </div>
                 <div class="rail-viewport">
                     <div class="rail-track">

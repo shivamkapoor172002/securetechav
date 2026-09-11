@@ -88,6 +88,11 @@ def case_studies():
     return render_template("case_studies.html")
 
 
+@app.route("/Industries")
+def industries():
+    return render_template("industries.html")
+
+
 @app.route("/CorporateProfile")
 def corporate_profile():
     return render_template("securetech_profile.html")
