@@ -449,9 +449,7 @@
         }
 
         .case-tag {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
+            align-self: flex-start;
             background: rgba(232, 125, 47, .95);
             color: #fff;
             font-size: .72rem;
@@ -460,6 +458,10 @@
             text-transform: uppercase;
             padding: .38rem .85rem;
             border-radius: 50px;
+        }
+
+        .case-card > .case-body:first-child {
+            border-top: 4px solid #E87D2F;
         }
 
         .case-body {
@@ -1160,17 +1162,11 @@
 
                 <!-- MATS UNIVERSITY -->
                 <article class="case-card">
-                    <div class="case-media">
-                        <!-- Source: https://matsuniversity.ac.in/view_gallery?category_id=14 -->
-                        <img src="{{ url_for('static', filename='projects/mats-university-official-event.jpg') }}"
-                            alt="HR Summit 4.0 event at MATS University, from the official university gallery"
-                            loading="lazy" />
-                        <span class="case-tag">Education</span>
-                    </div>
+                    <!-- PHOTO: add a case-media block here once a real installation photo is supplied (CLIENT-QUESTIONS.md). -->
                     <div class="case-body">
+                        <span class="case-tag">Education</span>
                         <h3>MATS University</h3>
                         <span class="case-loc">Raipur, Chhattisgarh</span>
-                        <p style="font-size:.75rem;line-height:1.5;">University event photo: <a href="https://matsuniversity.ac.in/view_gallery?category_id=14" target="_blank" rel="noopener noreferrer">MATS University official gallery</a>. Installation not verified in this image.</p>
                         <dl class="case-brief">
                             <div>
                                 <dt>Challenge</dt>
@@ -1199,13 +1195,9 @@
 
                 <!-- PATNA UNIVERSITY -->
                 <article class="case-card">
-                    <div class="case-media">
-                        <!-- IMAGE SLOT: replace with the real Patna University conference room / classroom photo -->
-                        <img src="{{ url_for('static', filename='projects/patna-conference.jpg') }}"
-                            alt="Corporate conference room and smart classrooms at Patna University" loading="lazy" />
-                        <span class="case-tag">Education</span>
-                    </div>
+                    <!-- PHOTO: add a case-media block here once a real installation photo is supplied (CLIENT-QUESTIONS.md). -->
                     <div class="case-body">
+                        <span class="case-tag">Education</span>
                         <h3>Patna University</h3>
                         <span class="case-loc">Patna, Bihar</span>
                         <dl class="case-brief">
@@ -1235,14 +1227,9 @@
 
                 <!-- ICAR NIBSM -->
                 <article class="case-card">
-                    <div class="case-media">
-                        <!-- IMAGE SLOT: replace with the real ICAR-NIBSM auditorium photo -->
-                        <img src="{{ url_for('static', filename='projects/icar-auditorium.jpg') }}"
-                            alt="Audio-Visual and sound reinforcement at ICAR-NIBSM auditorium, Raipur"
-                            loading="lazy" />
-                        <span class="case-tag">Government Infrastructure / CPWD</span>
-                    </div>
+                    <!-- PHOTO: add a case-media block here once a real installation photo is supplied (CLIENT-QUESTIONS.md). -->
                     <div class="case-body">
+                        <span class="case-tag">Government Infrastructure / CPWD</span>
                         <h3>ICAR — NIBSM</h3>
                         <span class="case-loc">Raipur, Chhattisgarh</span>
                         <dl class="case-brief">
@@ -1273,13 +1260,9 @@
 
                 <!-- NIFT VARANASI -->
                 <article class="case-card">
-                    <div class="case-media">
-                        <!-- IMAGE SLOT: replace with the real NIFT Varanasi campus photo -->
-                        <img src="{{ url_for('static', filename='projects/nift-classroom.jpg') }}"
-                            alt="Full campus technology integration at NIFT Varanasi" loading="lazy" />
-                        <span class="case-tag">Education · In Progress</span>
-                    </div>
+                    <!-- PHOTO: add a case-media block here once a real installation photo is supplied (CLIENT-QUESTIONS.md). -->
                     <div class="case-body">
+                        <span class="case-tag">Education · In Progress</span>
                         <h3>NIFT Varanasi</h3>
                         <span class="case-loc">Varanasi, Uttar Pradesh</span>
                         <dl class="case-brief">
